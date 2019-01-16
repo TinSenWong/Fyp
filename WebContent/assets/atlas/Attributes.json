@@ -1,0 +1,109 @@
+{
+  "frames": {
+    "terra": {
+      "trimmed": true,
+      "rotated": false,
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 105,
+        "h": 77
+      },
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 105,
+        "h": 77
+      },
+      "sourceSize": {
+        "w": 105,
+        "h": 77
+      }
+    },
+    "Thunder": {
+      "trimmed": true,
+      "rotated": false,
+      "frame": {
+        "x": 105,
+        "y": 0,
+        "w": 35,
+        "h": 78
+      },
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 35,
+        "h": 78
+      },
+      "sourceSize": {
+        "w": 35,
+        "h": 78
+      }
+    },
+    "water": {
+      "trimmed": true,
+      "rotated": false,
+      "frame": {
+        "x": 210,
+        "y": 0,
+        "w": 50,
+        "h": 76
+      },
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 50,
+        "h": 76
+      },
+      "sourceSize": {
+        "w": 50,
+        "h": 76
+      }
+    },
+    "wood": {
+      "trimmed": true,
+      "rotated": false,
+      "frame": {
+        "x": 315,
+        "y": 0,
+        "w": 66,
+        "h": 76
+      },
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 66,
+        "h": 76
+      },
+      "sourceSize": {
+        "w": 66,
+        "h": 76
+      }
+    },
+    "fire": {
+      "trimmed": true,
+      "rotated": false,
+      "frame": {
+        "x": 420,
+        "y": 0,
+        "w": 61,
+        "h": 89
+      },
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 61,
+        "h": 89
+      },
+      "sourceSize": {
+        "w": 61,
+        "h": 89
+      }
+    }
+  },
+  "meta": {
+    "app": "Phaser Editor",
+    "version": "1",
+    "image": "Attributes.png"
+  }
+}

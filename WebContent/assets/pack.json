@@ -1,0 +1,182 @@
+{
+  "maze": [
+    {
+      "type": "spritesheet",
+      "key": "base_out_atlas",
+      "url": "assets/tilemaps/maps/base_out_atlas.png",
+      "frameWidth": 32,
+      "frameHeight": 32,
+      "frameMax": -1,
+      "margin": 0,
+      "spacing": 0
+    },
+    {
+      "type": "spritesheet",
+      "key": "terrain_atlas",
+      "url": "assets/image/terrain_atlas.png",
+      "frameWidth": 32,
+      "frameHeight": 32,
+      "frameMax": -1,
+      "margin": 0,
+      "spacing": 0
+    },
+    {
+      "type": "atlas",
+      "key": "atlas",
+      "textureURL": "assets/atlas/atlas.png",
+      "atlasURL": "assets/atlas/atlas.json",
+      "format": "TEXTURE_ATLAS_JSON_HASH"
+    },
+    {
+      "type": "image",
+      "key": "base_out_atlas1",
+      "url": "assets/image/base_out_atlas.png",
+      "overwrite": false
+    },
+    {
+      "type": "image",
+      "key": "terrain_atlas1",
+      "url": "assets/image/terrain_atlas.png",
+      "overwrite": false
+    },
+    {
+      "type": "script",
+      "key": "game1",
+      "url": "assets/canvas/game1.js"
+    },
+    {
+      "type": "atlas",
+      "key": "monster",
+      "textureURL": "assets/atlas/monster.png",
+      "atlasURL": "assets/atlas/monster.json",
+      "format": "TEXTURE_ATLAS_JSON_HASH"
+    },
+    {
+      "type": "image",
+      "key": "ProjectUtumno_full",
+      "url": "assets/image/ProjectUtumno_full.png",
+      "overwrite": false
+    },
+    {
+      "type": "spritesheet",
+      "key": "ProjectUtumno_full1",
+      "url": "assets/image/ProjectUtumno_full.png",
+      "frameWidth": 32,
+      "frameHeight": 32,
+      "frameMax": -1,
+      "margin": 0,
+      "spacing": 0
+    },
+    {
+      "type": "spritesheet",
+      "key": "fireball",
+      "url": "assets/image/fireball.png",
+      "frameWidth": 64,
+      "frameHeight": 64,
+      "frameMax": -1,
+      "margin": 0,
+      "spacing": 0
+    },
+    {
+      "type": "script",
+      "key": "Level2",
+      "url": "assets/canvas/Level2.js"
+    },
+    {
+      "type": "tilemap",
+      "key": "BlockLayer",
+      "url": "assets/tilemaps/maps/level1/maze._Block.csv",
+      "format": "CSV"
+    },
+    {
+      "type": "tilemap",
+      "key": "bottomLayer",
+      "url": "assets/tilemaps/maps/level1/maze._bottom.csv",
+      "format": "CSV"
+    },
+    {
+      "type": "tilemap",
+      "key": "MidLayer",
+      "url": "assets/tilemaps/maps/level1/maze._midLayer.csv",
+      "format": "CSV"
+    }
+  ],
+  "game": [
+    {
+      "type": "image",
+      "key": "Attributes",
+      "url": "assets/image/Attributes.png",
+      "overwrite": false
+    },
+    {
+      "type": "atlas",
+      "key": "Attributes1",
+      "textureURL": "assets/atlas/Attributes.png",
+      "atlasURL": "assets/atlas/Attributes.json",
+      "format": "TEXTURE_ATLAS_JSON_HASH"
+    },
+    {
+      "type": "image",
+      "key": "bg",
+      "url": "assets/image/bg.jpg",
+      "overwrite": false
+    },
+    {
+      "type": "image",
+      "key": "magicbook",
+      "url": "assets/image/magicbook.jpg",
+      "overwrite": false
+    },
+    {
+      "type": "image",
+      "key": "magic",
+      "url": "assets/image/magic.png",
+      "overwrite": false
+    },
+    {
+      "type": "image",
+      "key": "btn_clean",
+      "url": "assets/image/btn_clean.png",
+      "overwrite": false
+    },
+    {
+      "type": "image",
+      "key": "inputfield",
+      "url": "assets/image/inputfield.png",
+      "overwrite": false
+    },
+    {
+      "type": "image",
+      "key": "magicScroll",
+      "url": "assets/image/magicScroll.png",
+      "overwrite": false
+    },
+    {
+      "type": "spritesheet",
+      "key": "ansPosition",
+      "url": "assets/image/ansPosition.png",
+      "frameWidth": 124,
+      "frameHeight": 113,
+      "frameMax": -1,
+      "margin": 0,
+      "spacing": 0
+    },
+    {
+      "type": "spritesheet",
+      "key": "hp heart",
+      "url": "assets/image/hp heart.png",
+      "frameWidth": 37,
+      "frameHeight": 37,
+      "frameMax": -1,
+      "margin": 0,
+      "spacing": 0
+    }
+  ],
+  "meta": {
+    "generated": "1547466974274",
+    "app": "Phaser Editor",
+    "url": "http://phasereditor.boniatillo.com",
+    "version": "1.0",
+    "copyright": "Arian Fornaris (c) 2015,2016"
+  }
+}
