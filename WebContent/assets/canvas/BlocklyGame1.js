@@ -104,7 +104,6 @@ BlocklyGame1.prototype.update = function () {
 		scrollByArrow(-5);
 	}
 	if (correct){
-		alert('true');
 		correct=false;
 	}
 	this.WeaknessOutputMask.belongsTo=weaknessGroup;

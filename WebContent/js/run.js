@@ -1,15 +1,12 @@
-var demoWorkspace = Blockly.inject('blocklyDiv',
+var workspace = Blockly.inject('blocklyDiv',
     {
-        media: 'https://blockly-demo.appspot.com/static/media/',
+		maxBlocks: maxBlock,
+        media: 'google-blockly/media/',
         toolbox: document.getElementById('toolbox')
     });
-//Blockly.Xml.domToWorkspace(document.getElementById('startBlocks'),demoWorkspace);
-// Exit is used to signal the end of a script.
 Blockly.JavaScript.addReservedWords('exit');
-
 var outputArea = document.getElementById('output');
 var runButton = document.getElementById('runButton');
-console.log(runButton);
 var myInterpreter = null;
 var runner;
 
@@ -68,12 +65,12 @@ var highlightPause = false;
 var latestCode = '';
 
 function highlightBlock(id) {
-    demoWorkspace.highlightBlock(id);
+    workspace.highlightBlock(id);
     highlightPause = true;
 }
 
 function resetStepUi(clearOutput) {
-    demoWorkspace.highlightBlock(null);
+    workspace.highlightBlock(null);
     highlightPause = false;
     runButton.disabled = '';
 }
@@ -82,7 +79,7 @@ function generateCodeAndLoadIntoInterpreter() {
     // Generate JavaScript code and parse it.
     Blockly.JavaScript.STATEMENT_PREFIX = 'highlightBlock(%1);\n';
     Blockly.JavaScript.addReservedWords('highlightBlock');
-    latestCode = Blockly.JavaScript.workspaceToCode(demoWorkspace);
+    latestCode = Blockly.JavaScript.workspaceToCode(workspace);
 
     resetStepUi(true);
 }
@@ -137,7 +134,7 @@ function runCode() {
 
 // Load the interpreter now, and upon future changes.
 generateCodeAndLoadIntoInterpreter();
-demoWorkspace.addChangeListener(function (event) {
+workspace.addChangeListener(function (event) {
     if (!(event instanceof Blockly.Events.Ui)) {
         // Something changed. Parser needs to be reloaded.
         resetInterpreter();
