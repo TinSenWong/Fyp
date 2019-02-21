@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/login.css" rel="stylesheet" id="bootstrap-css">
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.2.0/zxcvbn.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#login").click(function () {
+                var username = $('#username').val();
+                var password = $('#password').val();
+                //var successphone = document.getElementById('successphone');
+                //first time login account
+                // alert("Welcome " + username + " !\nPlease reset the password.");
+                window.location = "index.html";
+
+            })
+
+            $("#send").click(function () {
+                var email = $('#email').val();
+                var phone = $('#phone').val();
+                var successemail = document.getElementById('successemail');
+                var color = "#FF0000";
+                if (email == "reset@gmail.com" || phone == "24400998") {
+                    //successemail.innerHTML = "The default password has been sent.<br />Please check your email or sms!";
+                    successemail.innerHTML = "" + "<font color=" + color + ">The default password has been sent.<br />Please check your email or sms!</font>";
+                    setTimeout(function () {
+                        $("#reset").modal('hide');
+                    }, 3000);
+                } else {
+                    //
+                }
+            })
+        });
+
+    </script>
+</head>
+
+<body>
+<section class="">
+
+    <br/>
+    <div class="full">
+        <div class="login">
+            <h2 class="text-center">Welcome</h2>
+            <form class="login-form">
+                <div class="form-group">
+                    <label>Username</label>
+                    <input type="text" class="form-control" placeholder="username" id="username" required>
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" class="form-control" placeholder="password" id="password" required>
+                </div>
+
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input">
+                        <small>&nbsp&nbsp&nbsp&nbsp&nbspRemember Me</small>
+                    </label>
+                    <input type="button" value="Login" class="btn btn-login float-right" id="login" data-toggle="modal"
+                           data-target="#firstTime">
+                </div>
+            </form>
+            <!--pop up Forgot password-->
+            <a href="" data-toggle="modal" data-target="#reset">Forgot Password?</a>
+            <div class="modal fade" id="reset" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                 aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Forgot Password</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Please enter your recovery email</p>
+                            <p id="successemail"></p>
+                            <div class="form-group">
+                                <input type="email" name="email" class="form-control" placeholder="Email" id="email">
+                            </div>
+                            <p align="center">OR</p>
+                            <div class="form-group">
+                                Please choose you region of your phone number
+                                <br>
+                                <select>
+                                    <option>+852</option>
+                                    <option>+86</option>
+                                    <option>+123</option>
+                                    <option>+8787</option>
+                                    <option>+369</option>
+                                    <option>+420</option>
+                                </select>
+                                <input type="tel" name="phone" class="form-control" placeholder="Phone" id="phone">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <input type="button" class="btn btn-primary" value="Send" id="send">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="Img">
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                </ol>
+
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <img src="webImage/a.png" alt="Los Angeles" style="width:100%;">
+                    </div>
+
+                    <div class="item">
+                        <img src="webImage/a.png" alt="Chicago" style="width:100%;">
+                    </div>
+
+                    <div class="item">
+                        <img src="webImage/a.png" alt="New york" style="width:100%;">
+                    </div>
+                </div>
+
+                <!-- Left and right controls -->
+                <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    </div>
+</section>
+</body>
+
+</html>

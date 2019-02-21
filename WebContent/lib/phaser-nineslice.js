@@ -138,4 +138,3 @@ var PhaserNineSlice;
     }(Phaser.Plugin));
     PhaserNineSlice.Plugin = Plugin;
 })(PhaserNineSlice || (PhaserNineSlice = {}));
-//# sourceMappingURL=phaser-nineslice.js.map

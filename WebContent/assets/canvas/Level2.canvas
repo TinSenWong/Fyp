@@ -2,10 +2,10 @@
   "canvas-version": 2,
   "settings": {
     "className": "Level2",
-    "sceneWidth": 800,
-    "sceneHeight": 600,
+    "sceneWidth": 1200,
+    "sceneHeight": 800,
     "generateOnSave": true,
-    "enableStepping": false,
+    "enableStepping": true,
     "lang": "JAVA_SCRIPT",
     "baseClass": "Phaser.State",
     "backgroundColor": [
@@ -20,7 +20,7 @@
     ],
     "showGrid": true,
     "create_before": "this.cursors = this.input.keyboard.createCursorKeys();",
-    "create_after": "this.camera.x = 1300;\r\nthis.camera.y = 0;\r\nthis.fPlayer.x = 1392;\r\nthis.fPlayer.y = 152;\r\n"
+    "create_after": "this.cursors = this.input.keyboard.createCursorKeys();\r\nthis.fPlayer.body.collideWorldBounds=true;\r\nthis.camera.setPosition(2560,0);"
   },
   "stateSettings": {
     "stageBackgroundColor": [
@@ -42,12 +42,12 @@
       "children": [
         {
           "type": "tilemap",
-          "id": "48aee280-8706-4109-bd8b-04537a0455cc",
+          "id": "7e69f8ab-2bd3-421e-8679-b886c80d92fc",
           "asset": "0",
           "info": {
             "editorName": "bottomLayer",
             "editorField": true,
-            "x": -1280,
+            "editorShow": false,
             "tilesetImage": {
               "file": "WebContent/assets/pack.json",
               "section": "maze",
@@ -57,12 +57,11 @@
         },
         {
           "type": "tilemap",
-          "id": "4aa756f0-4916-467b-b9e9-06d2f5339a21",
+          "id": "de0fe87d-8248-4e3d-be56-92899dc3fb65",
           "asset": "1",
           "info": {
             "editorName": "BlockLayer",
             "editorField": true,
-            "x": -1280,
             "tilesetImage": {
               "file": "WebContent/assets/pack.json",
               "section": "maze",
@@ -76,12 +75,11 @@
         },
         {
           "type": "tilemap",
-          "id": "9b760407-4eef-4294-a67e-2a70e75fc2a1",
+          "id": "089062ff-a56f-4443-9b37-cb4d6ae47c86",
           "asset": "2",
           "info": {
             "editorName": "MidLayer",
             "editorField": true,
-            "x": -1280,
             "tilesetImage": {
               "file": "WebContent/assets/pack.json",
               "section": "maze",
@@ -91,13 +89,13 @@
         },
         {
           "type": "atlas-sprite",
-          "id": "179045bd-ecc4-4f2b-894b-98cb59214717",
+          "id": "6def3264-7858-402d-834d-f087c01e5362",
           "asset": "3",
           "info": {
             "editorName": "player",
             "editorField": true,
-            "x": 64,
-            "y": 96,
+            "x": 3072,
+            "y": 320,
             "animations": [
               {
                 "name": "Back",
@@ -171,6 +169,678 @@
               "height": 32
             }
           }
+        },
+        {
+          "type": "image",
+          "id": "54f1aa91-ceba-4040-a7ec-3e60778d8fdb",
+          "asset": "4",
+          "info": {
+            "editorName": "keyYellow",
+            "editorField": true,
+            "x": 3200,
+            "y": 288,
+            "scale.x": 0.45714285714285713,
+            "scale.y": 0.45714285714285713,
+            "data": "",
+            "body": {"type": "ARCADE_RECT"}
+          }
+        },
+        {
+          "type": "spritesheet",
+          "id": "b8e00608-01b8-4c20-ba07-5a7dc91c6808",
+          "asset": "5",
+          "info": {
+            "editorName": "treasure_chest",
+            "editorField": true,
+            "x": 3072,
+            "y": 288,
+            "scale.x": 0.9142857142857143,
+            "scale.y": 0.9142857142857143,
+            "animations": [{
+              "name": "open",
+              "frameRate": 8,
+              "frames": [
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6"
+              ]
+            }],
+            "body": {"type": "ARCADE_RECT"}
+          }
+        },
+        {
+          "type": "spritesheet",
+          "id": "a32e7dfc-49d7-4b24-ba9c-caf659d08056",
+          "asset": "6",
+          "info": {
+            "editorName": "base_out_atlas",
+            "x": 3552,
+            "y": 448
+          }
+        },
+        {
+          "type": "group",
+          "id": "93f4bb02-279e-4244-b46c-dff7eeb42eab",
+          "info": {
+            "editorName": "group",
+            "editorField": true,
+            "setAll": [],
+            "children": [
+              {
+                "type": "spritesheet",
+                "id": "68dcbd09-9b6e-496b-97f1-2d6859bf9b45",
+                "asset": "6",
+                "info": {
+                  "editorName": "base_out_atlas",
+                  "x": 2752,
+                  "y": 256
+                }
+              },
+              {
+                "type": "spritesheet",
+                "id": "70af3c2f-56b0-4f6d-acb2-6d8327408d13",
+                "asset": "6",
+                "info": {
+                  "editorName": "base_out_atlas",
+                  "x": 2784,
+                  "y": 256
+                }
+              },
+              {
+                "type": "spritesheet",
+                "id": "7b6ddd64-7b87-4a24-b7a5-8a739309c020",
+                "asset": "6",
+                "info": {
+                  "editorName": "base_out_atlas",
+                  "x": 2816,
+                  "y": 256
+                }
+              },
+              {
+                "type": "spritesheet",
+                "id": "d6d0f9e0-376d-4889-aa58-b75df9dc9115",
+                "asset": "6",
+                "info": {
+                  "editorName": "base_out_atlas",
+                  "x": 2848,
+                  "y": 256
+                }
+              },
+              {
+                "type": "spritesheet",
+                "id": "c8a74301-802d-4d3e-ac9d-855a8ae54541",
+                "asset": "6",
+                "info": {
+                  "editorName": "base_out_atlas",
+                  "x": 2880,
+                  "y": 256
+                }
+              },
+              {
+                "type": "spritesheet",
+                "id": "c8d5d30b-4822-4f2a-963a-1ea64c4d0ee5",
+                "asset": "6",
+                "info": {
+                  "editorName": "base_out_atlas",
+                  "x": 2912,
+                  "y": 256
+                }
+              },
+              {
+                "type": "spritesheet",
+                "id": "7776e220-83c7-4aea-a9e9-ee42af74311b",
+                "asset": "6",
+                "info": {
+                  "editorName": "base_out_atlas",
+                  "x": 2944,
+                  "y": 256
+                }
+              },
+              {
+                "type": "spritesheet",
+                "id": "d99ecca0-d2c5-4103-85b2-38089e0f4468",
+                "asset": "6",
+                "info": {
+                  "editorName": "base_out_atlas",
+                  "x": 2976,
+                  "y": 256
+                }
+              },
+              {
+                "type": "spritesheet",
+                "id": "f92fa963-c862-4ddf-9f9a-59db45fa40af",
+                "asset": "6",
+                "info": {
+                  "editorName": "base_out_atlas",
+                  "x": 3008,
+                  "y": 256
+                }
+              },
+              {
+                "type": "spritesheet",
+                "id": "7a22dce5-2029-4bd6-83fa-b8059cabe50d",
+                "asset": "6",
+                "info": {
+                  "editorName": "base_out_atlas",
+                  "x": 3040,
+                  "y": 256
+                }
+              },
+              {
+                "type": "spritesheet",
+                "id": "a268110d-e18c-4271-9f5f-d57c259bbfff",
+                "asset": "6",
+                "info": {
+                  "editorName": "base_out_atlas",
+                  "x": 3072,
+                  "y": 256
+                }
+              },
+              {
+                "type": "spritesheet",
+                "id": "e605483c-639e-4704-b9cf-e56c13fde0d1",
+                "asset": "6",
+                "info": {
+                  "editorName": "base_out_atlas",
+                  "x": 3104,
+                  "y": 256
+                }
+              },
+              {
+                "type": "spritesheet",
+                "id": "8ebd187b-6a36-4a99-a170-9177960d347f",
+                "asset": "6",
+                "info": {
+                  "editorName": "base_out_atlas",
+                  "x": 3136,
+                  "y": 256
+                }
+              },
+              {
+                "type": "spritesheet",
+                "id": "f4a76f1d-e0a9-4b8d-86cf-5cf44a5ffbfa",
+                "asset": "6",
+                "info": {
+                  "editorName": "base_out_atlas",
+                  "x": 3168,
+                  "y": 256
+                }
+              },
+              {
+                "type": "spritesheet",
+                "id": "14d18331-cea4-4e40-a9bd-0168f1cae83c",
+                "asset": "6",
+                "info": {
+                  "editorName": "base_out_atlas",
+                  "x": 3200,
+                  "y": 256
+                }
+              },
+              {
+                "type": "spritesheet",
+                "id": "beb7280c-8e8a-44a6-a200-9974253b3d69",
+                "asset": "6",
+                "info": {
+                  "editorName": "base_out_atlas",
+                  "x": 3232,
+                  "y": 256
+                }
+              },
+              {
+                "type": "spritesheet",
+                "id": "59959c7f-915b-4a20-99d4-f571d03ae546",
+                "asset": "6",
+                "info": {
+                  "editorName": "base_out_atlas",
+                  "x": 3264,
+                  "y": 256
+                }
+              },
+              {
+                "type": "spritesheet",
+                "id": "6518f916-897c-47d2-b471-1f5a40439c38",
+                "asset": "6",
+                "info": {
+                  "editorName": "base_out_atlas",
+                  "x": 3296,
+                  "y": 256
+                }
+              },
+              {
+                "type": "spritesheet",
+                "id": "c7dbd67b-c310-4267-ad64-d4e3007b447c",
+                "asset": "6",
+                "info": {
+                  "editorName": "base_out_atlas",
+                  "x": 3328,
+                  "y": 256
+                }
+              },
+              {
+                "type": "spritesheet",
+                "id": "4183844d-4e12-4166-b744-0be63eade1c7",
+                "asset": "6",
+                "info": {
+                  "editorName": "base_out_atlas",
+                  "x": 3360,
+                  "y": 256
+                }
+              },
+              {
+                "type": "spritesheet",
+                "id": "f0ff3089-f9a8-4a00-ac15-bffa49504658",
+                "asset": "6",
+                "info": {
+                  "editorName": "base_out_atlas",
+                  "x": 3392,
+                  "y": 256
+                }
+              },
+              {
+                "type": "spritesheet",
+                "id": "5a36c895-92fb-4566-bc5c-fc75e17be52c",
+                "asset": "6",
+                "info": {
+                  "editorName": "base_out_atlas",
+                  "x": 3424,
+                  "y": 256
+                }
+              },
+              {
+                "type": "spritesheet",
+                "id": "4570c44b-c23f-4795-b447-c22bae649a91",
+                "asset": "6",
+                "info": {
+                  "editorName": "base_out_atlas",
+                  "x": 3456,
+                  "y": 256
+                }
+              },
+              {
+                "type": "spritesheet",
+                "id": "4d4855c1-358f-4975-a933-0cb897ac7afc",
+                "asset": "6",
+                "info": {
+                  "editorName": "base_out_atlas",
+                  "x": 3488,
+                  "y": 256
+                }
+              },
+              {
+                "type": "spritesheet",
+                "id": "072548bd-6b84-4898-aedc-5cf0d4785935",
+                "asset": "6",
+                "info": {
+                  "editorName": "base_out_atlas",
+                  "x": 3520,
+                  "y": 256
+                }
+              },
+              {
+                "type": "spritesheet",
+                "id": "470bf8fb-6dcb-48cb-ae28-437cd3287892",
+                "asset": "6",
+                "info": {
+                  "editorName": "base_out_atlas",
+                  "x": 3552,
+                  "y": 256
+                }
+              },
+              {
+                "type": "spritesheet",
+                "id": "b0bc4c69-b872-4821-96bb-b169ae9265c2",
+                "asset": "6",
+                "info": {
+                  "editorName": "base_out_atlas",
+                  "x": 3136,
+                  "y": 288
+                }
+              },
+              {
+                "type": "spritesheet",
+                "id": "0b10cb6d-36f1-40a9-9591-b07ab2826359",
+                "asset": "6",
+                "info": {
+                  "editorName": "base_out_atlas",
+                  "x": 3168,
+                  "y": 288
+                }
+              },
+              {
+                "type": "spritesheet",
+                "id": "3f192d07-47a9-4bfb-9b7c-cfc4b3d4e175",
+                "asset": "6",
+                "info": {
+                  "editorName": "base_out_atlas",
+                  "x": 3136,
+                  "y": 320
+                }
+              },
+              {
+                "type": "spritesheet",
+                "id": "b8cbe3d4-0b33-4871-bfdd-1b278577f2a5",
+                "asset": "6",
+                "info": {
+                  "editorName": "base_out_atlas",
+                  "x": 3168,
+                  "y": 320
+                }
+              },
+              {
+                "type": "spritesheet",
+                "id": "0735a8f1-630b-4893-af76-6aadffc68118",
+                "asset": "6",
+                "info": {
+                  "editorName": "base_out_atlas",
+                  "x": 3136,
+                  "y": 352
+                }
+              },
+              {
+                "type": "spritesheet",
+                "id": "c6870118-d6b4-4436-a22e-7f6228b225e2",
+                "asset": "6",
+                "info": {
+                  "editorName": "base_out_atlas",
+                  "x": 3168,
+                  "y": 352
+                }
+              },
+              {
+                "type": "spritesheet",
+                "id": "017705a9-28ac-48d2-8a07-0a8a3935ec7d",
+                "asset": "6",
+                "info": {
+                  "editorName": "base_out_atlas",
+                  "x": 3136,
+                  "y": 384
+                }
+              },
+              {
+                "type": "spritesheet",
+                "id": "23a055e1-c2a2-4da5-b265-46b61eac4129",
+                "asset": "6",
+                "info": {
+                  "editorName": "base_out_atlas",
+                  "x": 3168,
+                  "y": 384
+                }
+              },
+              {
+                "type": "spritesheet",
+                "id": "3cc47824-d799-484d-9a54-bc25a40c39ab",
+                "asset": "6",
+                "info": {
+                  "editorName": "base_out_atlas",
+                  "x": 3136,
+                  "y": 416
+                }
+              },
+              {
+                "type": "spritesheet",
+                "id": "f184ffcd-8bab-4d1b-bfae-29d8d3e86831",
+                "asset": "6",
+                "info": {
+                  "editorName": "base_out_atlas",
+                  "x": 3168,
+                  "y": 416
+                }
+              },
+              {
+                "type": "spritesheet",
+                "id": "c5577547-e1a0-4104-a03d-09cff363c18c",
+                "asset": "6",
+                "info": {
+                  "editorName": "base_out_atlas",
+                  "x": 2752,
+                  "y": 448
+                }
+              },
+              {
+                "type": "spritesheet",
+                "id": "7079f792-98b9-4c59-8d6c-ff39411fd4d9",
+                "asset": "6",
+                "info": {
+                  "editorName": "base_out_atlas",
+                  "x": 2784,
+                  "y": 448
+                }
+              },
+              {
+                "type": "spritesheet",
+                "id": "e2103371-8259-40d8-88bb-5cb6cd147387",
+                "asset": "6",
+                "info": {
+                  "editorName": "base_out_atlas",
+                  "x": 2816,
+                  "y": 448
+                }
+              },
+              {
+                "type": "spritesheet",
+                "id": "77365f2d-410f-4f95-b1f6-8096ba9c832a",
+                "asset": "6",
+                "info": {
+                  "editorName": "base_out_atlas",
+                  "x": 2848,
+                  "y": 448
+                }
+              },
+              {
+                "type": "spritesheet",
+                "id": "2c3f9d29-5898-49f9-99ed-948687b2ecf8",
+                "asset": "6",
+                "info": {
+                  "editorName": "base_out_atlas",
+                  "x": 2880,
+                  "y": 448
+                }
+              },
+              {
+                "type": "spritesheet",
+                "id": "0bc11160-0673-4235-9d3a-628d261c20ac",
+                "asset": "6",
+                "info": {
+                  "editorName": "base_out_atlas",
+                  "x": 2912,
+                  "y": 448
+                }
+              },
+              {
+                "type": "spritesheet",
+                "id": "c45a3124-cf37-420e-8646-0c9cffd4f762",
+                "asset": "6",
+                "info": {
+                  "editorName": "base_out_atlas",
+                  "x": 2944,
+                  "y": 448
+                }
+              },
+              {
+                "type": "spritesheet",
+                "id": "e5d4964e-192f-469c-84c9-270d88f43753",
+                "asset": "6",
+                "info": {
+                  "editorName": "base_out_atlas",
+                  "x": 2976,
+                  "y": 448
+                }
+              },
+              {
+                "type": "spritesheet",
+                "id": "c76c300d-8f77-44ff-a3d6-d7dc7ad7713b",
+                "asset": "6",
+                "info": {
+                  "editorName": "base_out_atlas",
+                  "x": 3008,
+                  "y": 448
+                }
+              },
+              {
+                "type": "spritesheet",
+                "id": "5019c644-71c9-4f73-ba22-4c71cc36b976",
+                "asset": "6",
+                "info": {
+                  "editorName": "base_out_atlas",
+                  "x": 3040,
+                  "y": 448
+                }
+              },
+              {
+                "type": "spritesheet",
+                "id": "63188cdd-c7d3-4424-956f-459888a44c7d",
+                "asset": "6",
+                "info": {
+                  "editorName": "base_out_atlas",
+                  "x": 3072,
+                  "y": 448
+                }
+              },
+              {
+                "type": "spritesheet",
+                "id": "3bd0fafe-75d8-4d5f-a29c-25aafde8af0f",
+                "asset": "6",
+                "info": {
+                  "editorName": "base_out_atlas",
+                  "x": 3104,
+                  "y": 448
+                }
+              },
+              {
+                "type": "spritesheet",
+                "id": "08dcfa3e-90bd-4e05-b334-8e548bdb9696",
+                "asset": "6",
+                "info": {
+                  "editorName": "base_out_atlas",
+                  "x": 3136,
+                  "y": 448
+                }
+              },
+              {
+                "type": "spritesheet",
+                "id": "eafb11ac-3b9d-4777-b7ac-a076115d858a",
+                "asset": "6",
+                "info": {
+                  "editorName": "base_out_atlas",
+                  "x": 3168,
+                  "y": 448
+                }
+              },
+              {
+                "type": "spritesheet",
+                "id": "dda7d21f-ce7f-4dcf-b33b-239588090d28",
+                "asset": "6",
+                "info": {
+                  "editorName": "base_out_atlas",
+                  "x": 3200,
+                  "y": 448
+                }
+              },
+              {
+                "type": "spritesheet",
+                "id": "c226848b-ee9a-44a5-b806-ba0dfb2689fa",
+                "asset": "6",
+                "info": {
+                  "editorName": "base_out_atlas",
+                  "x": 3232,
+                  "y": 448
+                }
+              },
+              {
+                "type": "spritesheet",
+                "id": "d135f85b-9416-484f-89ea-f58a81f50c64",
+                "asset": "6",
+                "info": {
+                  "editorName": "base_out_atlas",
+                  "x": 3264,
+                  "y": 448
+                }
+              },
+              {
+                "type": "spritesheet",
+                "id": "bbd4c5ed-e7d5-457b-93c1-f044f0af5631",
+                "asset": "6",
+                "info": {
+                  "editorName": "base_out_atlas",
+                  "x": 3296,
+                  "y": 448
+                }
+              },
+              {
+                "type": "spritesheet",
+                "id": "ba277801-0c02-4c7e-a7dd-7b9511e3b3c4",
+                "asset": "6",
+                "info": {
+                  "editorName": "base_out_atlas",
+                  "x": 3328,
+                  "y": 448
+                }
+              },
+              {
+                "type": "spritesheet",
+                "id": "08c63abb-5645-47b4-aa51-dc34970b9670",
+                "asset": "6",
+                "info": {
+                  "editorName": "base_out_atlas",
+                  "x": 3360,
+                  "y": 448
+                }
+              },
+              {
+                "type": "spritesheet",
+                "id": "28ecb6cd-4a32-42a2-ae2f-9a38768fba7b",
+                "asset": "6",
+                "info": {
+                  "editorName": "base_out_atlas",
+                  "x": 3392,
+                  "y": 448
+                }
+              },
+              {
+                "type": "spritesheet",
+                "id": "465c0c49-b171-4027-9329-e91ec3cacb0a",
+                "asset": "6",
+                "info": {
+                  "editorName": "base_out_atlas",
+                  "x": 3424,
+                  "y": 448
+                }
+              },
+              {
+                "type": "spritesheet",
+                "id": "0fbe978e-9807-4df9-9065-cfddae0673f7",
+                "asset": "6",
+                "info": {
+                  "editorName": "base_out_atlas",
+                  "x": 3456,
+                  "y": 448
+                }
+              },
+              {
+                "type": "spritesheet",
+                "id": "fd33bce0-5103-4533-b9ad-7aca58e69948",
+                "asset": "6",
+                "info": {
+                  "editorName": "base_out_atlas",
+                  "x": 3488,
+                  "y": 448
+                }
+              },
+              {
+                "type": "spritesheet",
+                "id": "89d9069c-de17-480f-9e97-34fea49e0c5d",
+                "asset": "6",
+                "info": {
+                  "editorName": "base_out_atlas",
+                  "x": 3520,
+                  "y": 448
+                }
+              }
+            ]
+          }
         }
       ]
     }
@@ -197,6 +867,23 @@
       "section": "maze",
       "asset": "atlas",
       "sprite": "misa-front-walk.000"
+    },
+    "4": {
+      "file": "WebContent/assets/pack.json",
+      "section": "maze",
+      "asset": "keyYellow"
+    },
+    "5": {
+      "file": "WebContent/assets/pack.json",
+      "section": "maze",
+      "asset": "treasure chest1",
+      "sprite": "0"
+    },
+    "6": {
+      "file": "WebContent/assets/pack.json",
+      "section": "maze",
+      "asset": "base_out_atlas",
+      "sprite": "38"
     }
   },
   "prefab-table": {}

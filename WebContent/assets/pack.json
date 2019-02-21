@@ -3,7 +3,7 @@
     {
       "type": "spritesheet",
       "key": "base_out_atlas",
-      "url": "assets/tilemaps/maps/base_out_atlas.png",
+      "url": "assets/image/base_out_atlas.png",
       "frameWidth": 32,
       "frameHeight": 32,
       "frameMax": -1,
@@ -85,20 +85,92 @@
     {
       "type": "tilemap",
       "key": "BlockLayer",
-      "url": "assets/tilemaps/maps/level1/maze._Block.csv",
+      "url": "assets/tilemaps/maze._Block.csv",
       "format": "CSV"
     },
     {
       "type": "tilemap",
       "key": "bottomLayer",
-      "url": "assets/tilemaps/maps/level1/maze._bottom.csv",
+      "url": "assets/tilemaps/maze._bottom.csv",
       "format": "CSV"
     },
     {
       "type": "tilemap",
       "key": "MidLayer",
-      "url": "assets/tilemaps/maps/level1/maze._midLayer.csv",
+      "url": "assets/tilemaps/maze._midLayer.csv",
       "format": "CSV"
+    },
+    {
+      "type": "script",
+      "key": "Level01",
+      "url": "assets/canvas/Level01.js"
+    },
+    {
+      "type": "script",
+      "key": "Level",
+      "url": "assets/canvas/Level.js"
+    },
+    {
+      "type": "script",
+      "key": "index",
+      "url": "assets/canvas/index.js"
+    },
+    {
+      "type": "spritesheet",
+      "key": "tiles_spritesheet",
+      "url": "assets/image/tiles_spritesheet.png",
+      "frameWidth": 72,
+      "frameHeight": 72,
+      "frameMax": -1,
+      "margin": 0,
+      "spacing": 0
+    },
+    {
+      "type": "script",
+      "key": "Level05",
+      "url": "assets/canvas/Level05.js"
+    },
+    {
+      "type": "script",
+      "key": "Level03",
+      "url": "assets/canvas/Level03.js"
+    },
+    {
+      "type": "script",
+      "key": "Level04",
+      "url": "assets/canvas/Level04.js"
+    },
+    {
+      "type": "image",
+      "key": "keyYellow",
+      "url": "assets/image/keyYellow.png",
+      "overwrite": false
+    },
+    {
+      "type": "image",
+      "key": "treasure chest",
+      "url": "assets/image/treasure chest.png",
+      "overwrite": false
+    },
+    {
+      "type": "spritesheet",
+      "key": "treasure chest1",
+      "url": "assets/image/treasure chest.png",
+      "frameWidth": 35,
+      "frameHeight": 35,
+      "frameMax": -1,
+      "margin": 0,
+      "spacing": 0
+    },
+    {
+      "type": "script",
+      "key": "game2",
+      "url": "assets/canvas/game2.js"
+    },
+    {
+      "type": "script",
+      "key": "BlocklyGame1",
+      "url": "assets/canvas/BlocklyGame1.js"
     }
   ],
   "game": [
@@ -110,7 +182,7 @@
     },
     {
       "type": "atlas",
-      "key": "Attributes1",
+      "key": "Attributes",
       "textureURL": "assets/atlas/Attributes.png",
       "atlasURL": "assets/atlas/Attributes.json",
       "format": "TEXTURE_ATLAS_JSON_HASH"
@@ -170,10 +242,46 @@
       "frameMax": -1,
       "margin": 0,
       "spacing": 0
+    },
+    {
+      "type": "image",
+      "key": "phaser-dude",
+      "url": "assets/image/phaser-dude.png",
+      "overwrite": false
+    },
+    {
+      "type": "image",
+      "key": "arrow",
+      "url": "assets/image/arrow.png",
+      "overwrite": false
+    },
+    {
+      "type": "image",
+      "key": "arrow_horiz_green",
+      "url": "assets/image/arrow_horiz_green.png",
+      "overwrite": false
+    },
+    {
+      "type": "image",
+      "key": "arrow_horiz_red",
+      "url": "assets/image/arrow_horiz_red.png",
+      "overwrite": false
+    },
+    {
+      "type": "image",
+      "key": "arrow_vertic_green",
+      "url": "assets/image/arrow_vertic_green.png",
+      "overwrite": false
+    },
+    {
+      "type": "image",
+      "key": "arrow_vertic_red",
+      "url": "assets/image/arrow_vertic_red.png",
+      "overwrite": false
     }
   ],
   "meta": {
-    "generated": "1547466974274",
+    "generated": "1550339788197",
     "app": "Phaser Editor",
     "url": "http://phasereditor.boniatillo.com",
     "version": "1.0",

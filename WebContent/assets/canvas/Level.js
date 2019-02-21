@@ -22,9 +22,6 @@ Level.prototype.constructor = Level;
 
 Level.prototype.init = function () {
 	
-	this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
-	this.scale.pageAlignHorizontally = true;
-	this.scale.pageAlignVertically = true;
 	this.stage.backgroundColor = '#ffffff';
 	
 };
@@ -39,7 +36,6 @@ Level.prototype.create = function () {
 	
 	this.initScene();
 	this.world.setBounds(0, 0, 20000, 20000);
-	this.cursors = this.input.keyboard.createCursorKeys();
 	
 	var _bottomLayer = this.add.tilemap('bottomLayer', 32, 32);
 	_bottomLayer.addTilesetImage('base_out_atlas1');
@@ -53,11 +49,11 @@ Level.prototype.create = function () {
 	
 	var _BlockLayer = this.add.tilemap('BlockLayer', 32, 32);
 	_BlockLayer.addTilesetImage('base_out_atlas1');
-	_BlockLayer.setCollision([38]);
+	_BlockLayer.setCollision([38,234]);
 	var _BlockLayer_layer = _BlockLayer.createLayer(0);
 	_BlockLayer_layer.resizeWorld();
 	
-	var _player = this.add.sprite(83.0, 27.0, 'atlas', 'misa-front-walk.000');
+	var _player = this.add.sprite(320.0, 224.0, 'atlas', 'misa-front-walk.000');
 	_player.animations.add('Back', ['misa-back-walk.000', 'misa-back-walk.001', 'misa-back-walk.002', 'misa-back-walk.003'], 6, true);
 	_player.animations.add('Left', ['misa-left-walk.000', 'misa-left-walk.001', 'misa-left-walk.002', 'misa-left-walk.003'], 6, true);
 	_player.animations.add('Front', ['misa-front-walk.000', 'misa-front-walk.001', 'misa-front-walk.002', 'misa-front-walk.003'], 6, true);
@@ -70,6 +66,7 @@ Level.prototype.create = function () {
 	_player.body.setSize(32.0, 32.0, 0.0, 32.0);
 	
 	var _Hole = this.add.group();
+	_Hole.position.setTo(0.0, 768.0);
 	
 	this.add.sprite(512.0, 416.0, 'base_out_atlas', 161, _Hole);
 	
@@ -83,17 +80,23 @@ Level.prototype.create = function () {
 	
 	this.add.sprite(512.0, 480.0, 'base_out_atlas', 225, _Hole);
 	
-	var _monster = this.add.sprite(641.0, 520.0, 'monster', 'sprite1');
-	var _monster_Auto = _monster.animations.add('Auto', ['sprite1', 'sprite2', 'sprite6'], 2, true);
-	_monster_Auto.play();
-	this.game.physics.arcade.enable(_monster);
+	var _keyYellow = this.add.sprite(480.0, 256.0, 'keyYellow');
+	_keyYellow.scale.setTo(0.45714285714285713, 0.45714285714285713);
+	this.game.physics.arcade.enable(_keyYellow);
+	
+	var _treasure_chest = this.add.sprite(640.0, 256.0, 'treasure chest1', 0);
+	_treasure_chest.scale.setTo(0.9142857142857143, 0.9142857142857143);
+	var _treasure_chest_open = _treasure_chest.animations.add('open', [1, 2, 3, 4, 5, 6], 8, false);
+	_treasure_chest_open.killOnComplete = true;
+	this.game.physics.arcade.enable(_treasure_chest);
+	
+	var _group = this.add.group();
+	_group.position.setTo(-32.0, -384.0);
 	
 	
 	
 	// fields
 	
-	this.fBottomLayer = _bottomLayer;
-	this.fBottomLayer_layer = _bottomLayer_layer;
 	this.fMidLayer = _MidLayer;
 	this.fMidLayer_layer = _MidLayer_layer;
 	this.fBlockLayer = _BlockLayer;
@@ -102,66 +105,109 @@ Level.prototype.create = function () {
 	this.fHole = _Hole;
 	this.fHole2 = _Hole2;
 	this.fHole1 = _Hole1;
-	this.fMonster = _monster;
+	this.fKeyYellow = _keyYellow;
+	this.fTreasure_chest = _treasure_chest;
+	this.fGroup = _group;
 	//this.camera.follow(this.fPlayer);
 	if (game1Pass){
 		this.fPlayer.x = playerX;
 		this.fPlayer.y = playerY;
 		this.fMonster.visible = false;
 	}
+	this.cursors = this.input.keyboard.createCursorKeys();
+	this.fPlayer.body.collideWorldBounds=true;
 	
 };
 
 /* --- end generated code --- */
 var map;
+var key = false;
 Level.prototype.initScene = function () {
     
 };
 Level.prototype.update = function () {
-	
+	this.fPlayer.body.velocity.set(0);
 	//if (checkOverlap(this.fPlayer,this.fBase_out_atlas2)&&!IsIn){
 		//state = this.game.state.getCurrentState();
 		//localStorage.setItem ('state',this.game.state.getCurrentState());
-	if((checkOverlap(this.fPlayer,this.fHole2)||checkOverlap(this.fPlayer,this.fHole1))){
-		this.state.add("Level2", Level2);
-		this.state.start("Level2");
+	if (this.fKeyYellow.exists){	
+		this.physics.arcade.collide(this.fPlayer,this.fKeyYellow, getKey, null, this);
 	}
-	if(checkOverlap(this.fPlayer,this.fMonster)&&!game1Pass){
-		playerX = this.fPlayer.x;
-		playerY = this.fPlayer.y;
-		this.state.add("game1", game1);
-		this.state.start("game1");
+	this.physics.arcade.collide(this.fPlayer,this.fTreasure_chest,IsOpenChest, null, this);
+	this.fTreasure_chest.x = 640.0;
+	this.fTreasure_chest.y = 256.0;
+	
+	this.physics.arcade.collide(this.fPlayer,this.fBlockLayer_layer);
+	
+	if (testmode){
+		if (this.cursors.left.isDown)
+	    {
+	    	// move to the left
+			
+	    	this.fPlayer.play('Left');
+	    	this.fPlayer.body.velocity.x -= 150;
+	    	//this.fPlayer.body.x -= 32;
+	    	play = 'LeftStay';
+	        
+	    }else if (this.cursors.right.isDown)
+	    {
+	    	// move to the right
+	    	this.fPlayer.play('Right');
+	    	this.fPlayer.body.velocity.x += 150;
+	    	//this.fPlayer.body.x += 32;
+	    	play = 'RightStay';
+	    }
+	    else  if (this.cursors.up.isDown)
+	    {
+	    	// move to the up
+	    	this.fPlayer.play('Back');
+	    	this.fPlayer.body.velocity.y -= 150;
+	    	//this.fPlayer.body.y -= 32;
+	    	play = 'BackStay';
+	    }else if (this.cursors.down.isDown)
+	    {
+	    	// move to the down
+	    	this.fPlayer.play('Front');
+	    	this.fPlayer.body.velocity.y += 150;
+	    	//this.fPlayer.body.y += 32;
+	    	play = 'FrontStay';
+	    }else{
+	    	this.fPlayer.play(play);
+	    }
+
 	}
-	this.physics.arcade.collide(this.fPlayer, this.fBlockLayer_layer);
-	this.fPlayer.body.velocity.set(0);
-    if (this.cursors.left.isDown|| goToTheLeft)
+	
+	if ( goToTheLeft)
     {
     	// move to the left
-    	this.fPlayer.play('Left');
-    	this.fPlayer.body.velocity.x -= 200;
+		//101.05263157894632
+		goToTheLeft=false;
+    	//tween = this.add.tween(this.fPlayer).to( { x: this.fPlayer.body.velocity.x -= 101.05263157894632});
+    	this.fPlayer.body.x -= 32;
     	play = 'LeftStay';
         
-    }else if (this.cursors.right.isDown|| goToTheRight)
+    }else if (goToTheRight)
     {
     	// move to the right
-    	this.fPlayer.play('Right');
-    	this.fPlayer.body.velocity.x += 200;
+    	//tween = this.add.tween(this.fPlayer).to( { x: this.fPlayer.body.velocity.x += 101.5961552827511});
+    	goToTheRight=false;
+    	this.fPlayer.body.x += 32;
     	play = 'RightStay';
     }
-    else  if (this.cursors.up.isDown|| goToTheUp)
+    else  if (goToTheUp)
     {
     	// move to the up
-    	this.fPlayer.play('Back');
-    	this.fPlayer.body.velocity.y -= 200;
+    	//tween = this.add.tween(this.fPlayer).to( { y: this.fPlayer.body.velocity.y -= 101.5961552827511});
+    	goToTheUp=false;
+    	this.fPlayer.body.y -= 32;
     	play = 'BackStay';
-    }else if (this.cursors.down.isDown|| goToTheDown)
+    }else if (goToTheDown)
     {
     	// move to the down
-    	this.fPlayer.play('Front');
-    	this.fPlayer.body.velocity.y += 200;
+    	//tween = this.add.tween(this.fPlayer).to( { y: this.fPlayer.body.velocity.y += 101.5961552827511});
+    	goToTheDown=false;
+    	this.fPlayer.body.y += 32;
     	play = 'FrontStay';
-    }else{
-    	this.fPlayer.play(play);
     }
 
 };

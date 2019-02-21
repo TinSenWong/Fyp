@@ -717,4 +717,4 @@ var PhaserInput;
     Plugin.onKeyboardClose = new Phaser.Signal();
     PhaserInput.Plugin = Plugin;
 })(PhaserInput || (PhaserInput = {}));
-//# sourceMappingURL=phaser-input.js.map
+

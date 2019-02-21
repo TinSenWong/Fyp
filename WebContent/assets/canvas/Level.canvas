@@ -2,8 +2,8 @@
   "canvas-version": 2,
   "settings": {
     "className": "Level",
-    "sceneWidth": 1250,
-    "sceneHeight": 950,
+    "sceneWidth": 1200,
+    "sceneHeight": 800,
     "generateOnSave": true,
     "enableStepping": true,
     "lang": "JAVA_SCRIPT",
@@ -19,13 +19,10 @@
       200
     ],
     "showGrid": true,
-    "create_before": "this.initScene();\r\nthis.world.setBounds(0, 0, 20000, 20000);\r\nthis.cursors = this.input.keyboard.createCursorKeys();",
-    "create_after": "//this.camera.follow(this.fPlayer);\r\nif (game1Pass){\r\n\tthis.fPlayer.x = playerX;\r\n\tthis.fPlayer.y = playerY;\r\n\tthis.fMonster.visible = false;\r\n}"
+    "create_before": "this.initScene();\r\nthis.world.setBounds(0, 0, 20000, 20000);\r\n",
+    "create_after": "//this.camera.follow(this.fPlayer);\r\nif (game1Pass){\r\n\tthis.fPlayer.x = playerX;\r\n\tthis.fPlayer.y = playerY;\r\n\tthis.fMonster.visible = false;\r\n}\r\nthis.cursors = this.input.keyboard.createCursorKeys();\r\nthis.fPlayer.body.collideWorldBounds=true;"
   },
   "stateSettings": {
-    "scaleMode": "SHOW_ALL",
-    "pageAlignHorizontally": true,
-    "pageAlignVertically": true,
     "stageBackgroundColor": [
       255,
       255,
@@ -49,7 +46,6 @@
           "asset": "0",
           "info": {
             "editorName": "bottomLayer",
-            "editorField": true,
             "tilesetImage": {
               "file": "WebContent/assets/pack.json",
               "section": "maze",
@@ -83,7 +79,10 @@
               "section": "maze",
               "asset": "base_out_atlas1"
             },
-            "collision.indexes": [38]
+            "collision.indexes": [
+              38,
+              234
+            ]
           }
         },
         {
@@ -94,7 +93,7 @@
             "editorName": "player",
             "editorField": true,
             "x": 320,
-            "y": 192,
+            "y": 224,
             "animations": [
               {
                 "name": "Back",
@@ -175,6 +174,7 @@
           "info": {
             "editorName": "Hole",
             "editorField": true,
+            "y": 768,
             "setAll": [],
             "children": [
               {
@@ -243,26 +243,57 @@
           }
         },
         {
-          "type": "atlas-sprite",
-          "id": "3ee56e50-5085-47f7-8b9c-34482350ddcf",
+          "type": "image",
+          "id": "9c46bbf3-410f-4705-91a5-352f54b29fd9",
           "asset": "10",
           "info": {
-            "editorName": "monster",
+            "editorName": "keyYellow",
             "editorField": true,
-            "x": 641,
-            "y": 520,
+            "x": 480,
+            "y": 256,
+            "scale.x": 0.45714285714285713,
+            "scale.y": 0.45714285714285713,
+            "data": "",
+            "body": {"type": "ARCADE_RECT"}
+          }
+        },
+        {
+          "type": "spritesheet",
+          "id": "5ba8e1bf-98b0-4879-a487-b6798f3001e4",
+          "asset": "11",
+          "info": {
+            "editorName": "treasure_chest",
+            "editorField": true,
+            "x": 640,
+            "y": 256,
+            "scale.x": 0.9142857142857143,
+            "scale.y": 0.9142857142857143,
             "animations": [{
-              "name": "Auto",
-              "frameRate": 2,
-              "loop": true,
-              "autoPlay": true,
+              "name": "open",
+              "frameRate": 8,
+              "killOnComplete": true,
               "frames": [
-                "sprite1",
-                "sprite2",
-                "sprite6"
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6"
               ]
             }],
             "body": {"type": "ARCADE_RECT"}
+          }
+        },
+        {
+          "type": "group",
+          "id": "d465dd97-7db3-4599-9f51-d1221295b982",
+          "info": {
+            "editorName": "group",
+            "editorField": true,
+            "x": -32,
+            "y": -384,
+            "setAll": [],
+            "children": []
           }
         }
       ]
@@ -330,8 +361,13 @@
     "10": {
       "file": "WebContent/assets/pack.json",
       "section": "maze",
-      "asset": "monster",
-      "sprite": "sprite1"
+      "asset": "keyYellow"
+    },
+    "11": {
+      "file": "WebContent/assets/pack.json",
+      "section": "maze",
+      "asset": "treasure chest1",
+      "sprite": "0"
     }
   },
   "prefab-table": {}

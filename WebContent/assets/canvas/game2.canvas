@@ -1,0 +1,668 @@
+{
+  "canvas-version": 2,
+  "settings": {
+    "className": "game2",
+    "sceneWidth": 1200,
+    "sceneHeight": 800,
+    "generateOnSave": true,
+    "enableStepping": true,
+    "lang": "JAVA_SCRIPT",
+    "baseClass": "Phaser.State",
+    "backgroundColor": [
+      180,
+      180,
+      180
+    ],
+    "gridColor": [
+      200,
+      200,
+      200
+    ],
+    "showGrid": true,
+    "create_before": "this.initScene();",
+    "create_after": "hideGame(true);\r\n_Attributes.callAll('events.onInputDown.add', 'events.onInputDown', clone, this);\r\nsubmitBtn.events.onInputDown.add(clearPutAns,this);\r\nsubmitBtn.events.onInputDown.add(show2,this);\r\nsubmitBtn.events.onInputDown.add(clearShowAns,this);\r\nresetBtn.events.onInputDown.add(clearShowAns,this);\r\n\r\nthis.shadowTexture = this.game.add.bitmapData(this.game.width, this.game.height);\r\nvar lightSprite = this.game.add.image(0, 0, this.shadowTexture);\r\n\tlightSprite.blendMode = Phaser.blendModes.MULTIPLY;\r\n\t\r\n\t    // Simulate a pointer click/tap input at the center of the stage\r\n\t    // when the example begins running.\r\n\t    this.game.input.activePointer.x = this.game.width/2;\r\n\t    this.game.input.activePointer.y = this.game.height/2;\r\n\t",
+    "state_preload_before": "this.load.nineSlice('btn', 'assets/image/btn_clean.png', 20, 23, 27, 28);"
+  },
+  "stateSettings": {
+    "stageBackgroundColor": [
+      0,
+      0,
+      0
+    ],
+    "autoLoad": true,
+    "preloadSpriteId": "",
+    "preloadSprite_direction": 0,
+    "load.pack": []
+  },
+  "world": {
+    "type": "group",
+    "id": "bd1d40a3-09a7-4efc-8654-3c440dc16b8c",
+    "info": {
+      "editorName": "game2",
+      "setAll": [],
+      "children": [
+        {
+          "type": "image",
+          "id": "517f09ac-f697-4516-b6ed-20e6bba41c0d",
+          "asset": "0",
+          "info": {
+            "editorName": "magic",
+            "x": 205,
+            "y": 663,
+            "scale.x": 1.2021289068867396,
+            "scale.y": 1.2662553444408484
+          }
+        },
+        {
+          "type": "image",
+          "id": "dfb6477f-9e1f-4e81-9b0b-606d5fa318f4",
+          "asset": "1",
+          "info": {
+            "editorName": "magicScroll",
+            "y": 96,
+            "scale.x": 2.9219199360104247,
+            "scale.y": 3.188193756629527
+          }
+        },
+        {
+          "type": "image",
+          "id": "ebe9eeb0-62b4-4f30-8a6f-d6dc18dcc33e",
+          "asset": "2",
+          "info": {
+            "editorName": "magicbook",
+            "x": 608,
+            "y": 160,
+            "scale.x": 1.6632639862702872,
+            "scale.y": 2.33670394786625
+          }
+        },
+        {
+          "type": "group",
+          "id": "31f19b23-63c9-48d3-8c30-c7f6b3f175c0",
+          "info": {
+            "editorName": "ansGroup",
+            "editorField": true,
+            "x": 576,
+            "y": 160,
+            "setAll": [],
+            "children": [
+              {
+                "type": "tileSprite",
+                "id": "ed2da3dc-2d74-47c7-9113-c40cb4784322",
+                "asset": "3",
+                "info": {
+                  "editorName": "ansPosition2",
+                  "editorField": true,
+                  "x": 448,
+                  "y": 128,
+                  "scale.x": 0.5512193711095514,
+                  "scale.y": 0.47368424656941077,
+                  "alpha": 4,
+                  "body": {
+                    "type": "ARCADE_RECT",
+                    "bounceX": 1,
+                    "bounceY": 1,
+                    "width": 0,
+                    "height": 0
+                  },
+                  "width": 123,
+                  "height": 114
+                }
+              },
+              {
+                "type": "tileSprite",
+                "id": "b225bcd2-6b8a-4499-9d39-226106f2421a",
+                "asset": "3",
+                "info": {
+                  "editorName": "ansPosition1",
+                  "editorField": true,
+                  "x": 288,
+                  "y": 128,
+                  "scale.x": 0.5512193711095514,
+                  "scale.y": 0.47368424656941077,
+                  "alpha": 4,
+                  "body": {
+                    "type": "ARCADE_RECT",
+                    "bounceX": 1,
+                    "bounceY": 1,
+                    "width": 0,
+                    "height": 0
+                  },
+                  "width": 123,
+                  "height": 114
+                }
+              },
+              {
+                "type": "tileSprite",
+                "id": "0fe9dc80-71d5-45ee-9960-fd43b0faa862",
+                "asset": "3",
+                "info": {
+                  "editorName": "ansPosition",
+                  "editorField": true,
+                  "x": 128,
+                  "y": 128,
+                  "scale.x": 0.5512193711095514,
+                  "scale.y": 0.47368424656941077,
+                  "alpha": 4,
+                  "body": {
+                    "type": "ARCADE_RECT",
+                    "bounceX": 1,
+                    "bounceY": 1,
+                    "width": 0,
+                    "height": 0
+                  },
+                  "width": 123,
+                  "height": 114
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "group",
+          "id": "18684821-6538-45f6-a6a9-a90227edf3fc",
+          "info": {
+            "editorName": "Attributes",
+            "editorField": true,
+            "x": 20,
+            "y": -2,
+            "physicsGroup": true,
+            "setAll": [{
+              "key": "inputEnabled",
+              "value": "true"
+            }],
+            "children": [
+              {
+                "type": "atlas-sprite",
+                "id": "454dba75-0991-4e48-bcca-172dfdf0a0e6",
+                "asset": "4",
+                "info": {
+                  "editorName": "terra",
+                  "editorField": true,
+                  "x": 212,
+                  "y": 773,
+                  "scale.x": 0.5199998985185398,
+                  "scale.y": 0.5636362374094385,
+                  "anchor.x": 0.5,
+                  "anchor.y": 0.5,
+                  "body": {
+                    "type": "ARCADE_CIRCLE",
+                    "offsetX": 19.321063995361328,
+                    "offsetY": 4.278034210205078,
+                    "radius": 38.5
+                  }
+                }
+              },
+              {
+                "type": "atlas-sprite",
+                "id": "dac0a46f-3c1b-4877-8ba7-fbbf6fc1027e",
+                "asset": "5",
+                "info": {
+                  "editorName": "Thunder",
+                  "editorField": true,
+                  "x": 192,
+                  "y": 710,
+                  "scale.x": 0.8628571063178712,
+                  "scale.y": 0.5538463300881171,
+                  "anchor.x": 0.5,
+                  "anchor.y": 0.5,
+                  "body": {
+                    "type": "ARCADE_CIRCLE",
+                    "offsetX": -2.328756332397461,
+                    "offsetY": 15.237896919250488,
+                    "radius": 17.5
+                  }
+                }
+              },
+              {
+                "type": "atlas-sprite",
+                "id": "6cc8549d-c91f-4aa1-a612-9135e78ca27d",
+                "asset": "6",
+                "info": {
+                  "editorName": "water",
+                  "editorField": true,
+                  "x": 300,
+                  "y": 710,
+                  "scale.x": 0.7360000675251507,
+                  "scale.y": 0.6526316591816703,
+                  "anchor.x": 0.5,
+                  "anchor.y": 0.5,
+                  "body": {
+                    "type": "ARCADE_CIRCLE",
+                    "offsetX": -0.6552162170410156,
+                    "offsetY": 14.039745330810547,
+                    "radius": 25
+                  }
+                }
+              },
+              {
+                "type": "atlas-sprite",
+                "id": "789cfc58-6b61-4872-b263-1fb8089f9d6f",
+                "asset": "7",
+                "info": {
+                  "editorName": "wood",
+                  "editorField": true,
+                  "x": 280,
+                  "y": 773,
+                  "scale.x": 0.7090907970983089,
+                  "scale.y": 0.6684209058433127,
+                  "anchor.x": 0.5,
+                  "anchor.y": 0.5,
+                  "body": {
+                    "type": "ARCADE_CIRCLE",
+                    "offsetX": 1.1334800720214844,
+                    "offsetY": 6.012378692626953,
+                    "radius": 33
+                  }
+                }
+              },
+              {
+                "type": "atlas-sprite",
+                "id": "b1824e27-c354-4266-a250-e40a126708e8",
+                "asset": "8",
+                "info": {
+                  "editorName": "fire",
+                  "editorField": true,
+                  "x": 249,
+                  "y": 658,
+                  "scale.x": 0.6852457119694998,
+                  "scale.y": 0.5550561384930743,
+                  "anchor.x": 0.5,
+                  "anchor.y": 0.5,
+                  "body": {
+                    "type": "ARCADE_CIRCLE",
+                    "offsetX": -1.4661884307861328,
+                    "offsetY": 16.29067039489746,
+                    "radius": 30.5
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "group",
+          "id": "86355a30-d913-40d2-8b93-3cba58bd00ed",
+          "info": {
+            "editorName": "rightans",
+            "x": 21,
+            "y": -1,
+            "setAll": [],
+            "children": [
+              {
+                "type": "spritesheet",
+                "id": "bc6cfe9c-32e6-44b8-86d8-8e3773c4a6e0",
+                "asset": "3",
+                "info": {
+                  "editorName": "rightansPosition2",
+                  "x": 173,
+                  "y": 321,
+                  "scale.x": 0.6066338691568852,
+                  "scale.y": 0.5149474140978532,
+                  "anchor.x": 0.5,
+                  "anchor.y": 0.5
+                }
+              },
+              {
+                "type": "spritesheet",
+                "id": "1f393b18-475c-4795-98ed-815e45f287ec",
+                "asset": "3",
+                "info": {
+                  "editorName": "rightansPosition1",
+                  "x": 265,
+                  "y": 324,
+                  "scale.x": 0.6066338691568852,
+                  "scale.y": 0.5149474140978532,
+                  "anchor.x": 0.5,
+                  "anchor.y": 0.5
+                }
+              },
+              {
+                "type": "spritesheet",
+                "id": "ee9fb9e0-d5eb-4310-8b81-46d65bfb0544",
+                "asset": "3",
+                "info": {
+                  "editorName": "rightansPosition",
+                  "x": 162,
+                  "y": 247,
+                  "scale.x": 0.6066338691568852,
+                  "scale.y": 0.5149474140978532,
+                  "anchor.x": 0.5,
+                  "anchor.y": 0.5
+                }
+              },
+              {
+                "type": "atlas-sprite",
+                "id": "85e543e1-70e8-40b6-9570-b91832f75b5f",
+                "asset": "8",
+                "info": {
+                  "editorName": "fire1",
+                  "x": 151,
+                  "y": 298,
+                  "scale.x": 0.6852457119694998,
+                  "scale.y": 0.5550561384930743
+                }
+              },
+              {
+                "type": "atlas-sprite",
+                "id": "c5b32dbf-a3e0-4d06-8ddb-4225a05faa44",
+                "asset": "6",
+                "info": {
+                  "editorName": "water1",
+                  "x": 145,
+                  "y": 220,
+                  "scale.x": 0.7360000675251507,
+                  "scale.y": 0.6526316591816703
+                }
+              },
+              {
+                "type": "atlas-sprite",
+                "id": "e8b26ee6-fcf1-4f9d-80cd-e253bcc8a6ef",
+                "asset": "8",
+                "info": {
+                  "editorName": "fire2",
+                  "x": 244,
+                  "y": 296,
+                  "scale.x": 0.6852457119694998,
+                  "scale.y": 0.5550561384930743
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "id": "979ecf97-95b6-4e41-841e-58ae7a38f206",
+          "info": {
+            "editorName": "text",
+            "x": 110,
+            "y": 233,
+            "text": "a ="
+          }
+        },
+        {
+          "type": "text",
+          "id": "1e6ac46e-67e7-4b28-b9db-9034a953e14d",
+          "info": {
+            "editorName": "text1",
+            "x": 110,
+            "y": 314,
+            "text": "b ="
+          }
+        },
+        {
+          "type": "text",
+          "id": "fdc33172-07d1-4a00-99ce-f73269c62380",
+          "info": {
+            "editorName": "text2",
+            "x": 115,
+            "y": 401,
+            "text": "¿é¥X b , a;"
+          }
+        },
+        {
+          "type": "text",
+          "id": "c977136d-ef53-4bce-9d5c-071219c4e75a",
+          "info": {
+            "editorName": "text3",
+            "x": 224,
+            "y": 233,
+            "text": ";"
+          }
+        },
+        {
+          "type": "text",
+          "id": "27117d22-8efd-40f2-859a-f97ca34ad058",
+          "info": {
+            "editorName": "text4",
+            "x": 340,
+            "y": 318,
+            "text": ";"
+          }
+        },
+        {
+          "type": "group",
+          "id": "0d8843f3-2329-4bb5-be5b-48105f24ab73",
+          "info": {
+            "editorName": "ansAttributes",
+            "editorField": true,
+            "x": 21,
+            "y": -1,
+            "setAll": [],
+            "children": []
+          }
+        },
+        {
+          "type": "group",
+          "id": "37f5ca8b-8520-442e-920d-f37bc8601162",
+          "info": {
+            "editorName": "cloneAns",
+            "editorField": true,
+            "x": 21,
+            "y": -1,
+            "setAll": [],
+            "children": []
+          }
+        },
+        {
+          "type": "group",
+          "id": "9e15db20-b0de-4985-8ee5-83c2e5641b48",
+          "info": {
+            "editorName": "HPGroup",
+            "editorField": true,
+            "x": 21,
+            "y": -1,
+            "setAll": [],
+            "children": [
+              {
+                "type": "spritesheet",
+                "id": "96bd5317-52ec-4c4a-b400-111505f84ee0",
+                "asset": "9",
+                "info": {
+                  "editorName": "hp3",
+                  "x": 259,
+                  "y": 37,
+                  "scale.x": 2.1492804711165077,
+                  "scale.y": 2.1492807122751274,
+                  "animations": [{
+                    "name": "play",
+                    "frameRate": 60,
+                    "frames": [
+                      "1",
+                      "2",
+                      "3",
+                      "4",
+                      "5",
+                      "6",
+                      "7",
+                      "8",
+                      "9",
+                      "10",
+                      "11",
+                      "12",
+                      "13",
+                      "14",
+                      "15"
+                    ]
+                  }]
+                }
+              },
+              {
+                "type": "spritesheet",
+                "id": "f3b8aa2b-7a4f-4593-86b3-d2c69d837287",
+                "asset": "9",
+                "info": {
+                  "editorName": "hp2",
+                  "x": 148,
+                  "y": 37,
+                  "scale.x": 2.1492804711165077,
+                  "scale.y": 2.1492807122751274,
+                  "animations": [{
+                    "name": "play",
+                    "frameRate": 60,
+                    "frames": [
+                      "0",
+                      "1",
+                      "2",
+                      "3",
+                      "4",
+                      "5",
+                      "6",
+                      "7",
+                      "8",
+                      "9",
+                      "10",
+                      "11",
+                      "12",
+                      "13",
+                      "14",
+                      "15"
+                    ]
+                  }]
+                }
+              },
+              {
+                "type": "spritesheet",
+                "id": "bb4efc5a-9a62-4732-b3d9-f388686698fc",
+                "asset": "9",
+                "info": {
+                  "editorName": "hp1",
+                  "x": 37,
+                  "y": 37,
+                  "scale.x": 2.1492804711165077,
+                  "scale.y": 2.1492807122751274,
+                  "animations": [{
+                    "name": "play",
+                    "frameRate": 60,
+                    "frames": [
+                      "0",
+                      "1",
+                      "2",
+                      "3",
+                      "4",
+                      "5",
+                      "6",
+                      "7",
+                      "8",
+                      "9",
+                      "10",
+                      "11",
+                      "12",
+                      "13",
+                      "14",
+                      "15"
+                    ]
+                  }]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "atlas-sprite",
+          "id": "ca6233ec-3fc0-4d67-8277-88034a3f7b97",
+          "asset": "10",
+          "info": {
+            "editorName": "monster",
+            "editorField": true,
+            "x": 1184,
+            "scale.x": -3.039040655493502,
+            "scale.y": 3.384639910744491,
+            "animations": [
+              {
+                "name": "player",
+                "frameRate": 2,
+                "loop": true,
+                "autoPlay": true,
+                "frames": [
+                  "sprite3",
+                  "sprite4"
+                ]
+              },
+              {
+                "name": "destroy",
+                "frameRate": 6,
+                "killOnComplete": true,
+                "frames": [
+                  "sprite10",
+                  "sprite11",
+                  "sprite12",
+                  "sprite13",
+                  "sprite14",
+                  "sprite9"
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "type": "STATE",
+  "asset-table": {
+    "0": {
+      "file": "WebContent/assets/pack.json",
+      "section": "game",
+      "asset": "magic"
+    },
+    "1": {
+      "file": "WebContent/assets/pack.json",
+      "section": "game",
+      "asset": "magicScroll"
+    },
+    "2": {
+      "file": "WebContent/assets/pack.json",
+      "section": "game",
+      "asset": "magicbook"
+    },
+    "3": {
+      "file": "WebContent/assets/pack.json",
+      "section": "game",
+      "asset": "ansPosition",
+      "sprite": "0"
+    },
+    "4": {
+      "file": "WebContent/assets/pack.json",
+      "section": "game",
+      "asset": "Attributes1",
+      "sprite": "terra"
+    },
+    "5": {
+      "file": "WebContent/assets/pack.json",
+      "section": "game",
+      "asset": "Attributes1",
+      "sprite": "Thunder"
+    },
+    "6": {
+      "file": "WebContent/assets/pack.json",
+      "section": "game",
+      "asset": "Attributes1",
+      "sprite": "water"
+    },
+    "7": {
+      "file": "WebContent/assets/pack.json",
+      "section": "game",
+      "asset": "Attributes1",
+      "sprite": "wood"
+    },
+    "8": {
+      "file": "WebContent/assets/pack.json",
+      "section": "game",
+      "asset": "Attributes1",
+      "sprite": "fire"
+    },
+    "9": {
+      "file": "WebContent/assets/pack.json",
+      "section": "game",
+      "asset": "hp heart",
+      "sprite": "0"
+    },
+    "10": {
+      "file": "WebContent/assets/pack.json",
+      "section": "maze",
+      "asset": "monster",
+      "sprite": "sprite2"
+    }
+  },
+  "prefab-table": {}
+}

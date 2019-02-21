@@ -1,0 +1,254 @@
+{
+  "canvas-version": 2,
+  "settings": {
+    "className": "Level03",
+    "sceneWidth": 1200,
+    "sceneHeight": 800,
+    "generateOnSave": true,
+    "enableStepping": true,
+    "lang": "JAVA_SCRIPT",
+    "baseClass": "Phaser.State",
+    "backgroundColor": [
+      180,
+      180,
+      180
+    ],
+    "gridColor": [
+      200,
+      200,
+      200
+    ],
+    "showGrid": true,
+    "create_after": "this.cursors = this.input.keyboard.createCursorKeys();\r\nthis.fPlayer.body.collideWorldBounds=true;\r\nthis.camera.setPosition(3840,0);"
+  },
+  "stateSettings": {
+    "stageBackgroundColor": [
+      0,
+      0,
+      0
+    ],
+    "autoLoad": true,
+    "preloadSpriteId": "",
+    "preloadSprite_direction": 0,
+    "load.pack": []
+  },
+  "world": {
+    "type": "group",
+    "id": "75f72739-3b31-4a2f-aac8-44e246638b96",
+    "info": {
+      "editorName": "Level03",
+      "setAll": [],
+      "children": [
+        {
+          "type": "tilemap",
+          "id": "d9561d31-2042-4f5d-b23a-82175a776a1d",
+          "asset": "0",
+          "info": {
+            "editorName": "bottomLayer",
+            "editorField": true,
+            "y": -1,
+            "tilesetImage": {
+              "file": "WebContent/assets/pack.json",
+              "section": "maze",
+              "asset": "base_out_atlas1"
+            }
+          }
+        },
+        {
+          "type": "tilemap",
+          "id": "1e2fd76a-3007-4a6e-b687-41b726ea2538",
+          "asset": "1",
+          "info": {
+            "editorName": "BlockLayer",
+            "editorField": true,
+            "y": -1,
+            "tilesetImage": {
+              "file": "WebContent/assets/pack.json",
+              "section": "maze",
+              "asset": "base_out_atlas1"
+            },
+            "collision.indexes": [
+              38,
+              234
+            ]
+          }
+        },
+        {
+          "type": "tilemap",
+          "id": "5f10a146-f10e-4004-b12e-7e91eaad86f9",
+          "asset": "2",
+          "info": {
+            "editorName": "MidLayer",
+            "editorField": true,
+            "y": -1,
+            "tilesetImage": {
+              "file": "WebContent/assets/pack.json",
+              "section": "maze",
+              "asset": "base_out_atlas1"
+            }
+          }
+        },
+        {
+          "type": "atlas-sprite",
+          "id": "687b8a0e-4644-4c93-9c77-1823148b0f3e",
+          "asset": "3",
+          "info": {
+            "editorName": "player",
+            "editorField": true,
+            "x": 3968,
+            "y": 224,
+            "animations": [
+              {
+                "name": "Back",
+                "frameRate": 6,
+                "loop": true,
+                "frames": [
+                  "misa-back-walk.000",
+                  "misa-back-walk.001",
+                  "misa-back-walk.002",
+                  "misa-back-walk.003"
+                ]
+              },
+              {
+                "name": "Left",
+                "frameRate": 6,
+                "loop": true,
+                "frames": [
+                  "misa-left-walk.000",
+                  "misa-left-walk.001",
+                  "misa-left-walk.002",
+                  "misa-left-walk.003"
+                ]
+              },
+              {
+                "name": "Front",
+                "frameRate": 6,
+                "loop": true,
+                "frames": [
+                  "misa-front-walk.000",
+                  "misa-front-walk.001",
+                  "misa-front-walk.002",
+                  "misa-front-walk.003"
+                ]
+              },
+              {
+                "name": "Right",
+                "frameRate": 6,
+                "loop": true,
+                "frames": [
+                  "misa-right-walk.000",
+                  "misa-right-walk.001",
+                  "misa-right-walk.002",
+                  "misa-right-walk.003"
+                ]
+              },
+              {
+                "name": "BackStay",
+                "frameRate": 6,
+                "frames": ["misa-back"]
+              },
+              {
+                "name": "FrontStay",
+                "frameRate": 6,
+                "frames": ["misa-front"]
+              },
+              {
+                "name": "LeftStay",
+                "frameRate": 6,
+                "frames": ["misa-left"]
+              },
+              {
+                "name": "RightStay",
+                "frameRate": 6,
+                "frames": ["misa-right"]
+              }
+            ],
+            "body": {
+              "type": "ARCADE_RECT",
+              "offsetY": 32,
+              "width": 32,
+              "height": 32
+            }
+          }
+        },
+        {
+          "type": "image",
+          "id": "01cda1cc-06ac-4b27-83fc-028509463b37",
+          "asset": "4",
+          "info": {
+            "editorName": "keyYellow",
+            "editorField": true,
+            "x": 4032,
+            "y": 192,
+            "scale.x": 0.45714285714285713,
+            "scale.y": 0.45714285714285713,
+            "data": "",
+            "body": {"type": "ARCADE_RECT"}
+          }
+        },
+        {
+          "type": "spritesheet",
+          "id": "653ca4b9-c271-4c54-9859-9e0731c67fe8",
+          "asset": "5",
+          "info": {
+            "editorName": "treasure_chest",
+            "editorField": true,
+            "x": 4384,
+            "y": 704,
+            "scale.x": 0.9142857142857143,
+            "scale.y": 0.9142857142857143,
+            "animations": [{
+              "name": "open",
+              "frameRate": 8,
+              "frames": [
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6"
+              ]
+            }],
+            "body": {"type": "ARCADE_RECT"}
+          }
+        }
+      ]
+    }
+  },
+  "type": "STATE",
+  "asset-table": {
+    "0": {
+      "file": "WebContent/assets/pack.json",
+      "section": "maze",
+      "asset": "bottomLayer"
+    },
+    "1": {
+      "file": "WebContent/assets/pack.json",
+      "section": "maze",
+      "asset": "BlockLayer"
+    },
+    "2": {
+      "file": "WebContent/assets/pack.json",
+      "section": "maze",
+      "asset": "MidLayer"
+    },
+    "3": {
+      "file": "WebContent/assets/pack.json",
+      "section": "maze",
+      "asset": "atlas",
+      "sprite": "misa-front-walk.000"
+    },
+    "4": {
+      "file": "WebContent/assets/pack.json",
+      "section": "maze",
+      "asset": "keyYellow"
+    },
+    "5": {
+      "file": "WebContent/assets/pack.json",
+      "section": "maze",
+      "asset": "treasure chest1",
+      "sprite": "0"
+    }
+  },
+  "prefab-table": {}
+}

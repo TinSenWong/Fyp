@@ -1,0 +1,172 @@
+{
+  "canvas-version": 2,
+  "settings": {
+    "className": "BlocklyGame1",
+    "sceneWidth": 1200,
+    "sceneHeight": 800,
+    "generateOnSave": true,
+    "enableStepping": false,
+    "lang": "JAVA_SCRIPT",
+    "baseClass": "Phaser.State",
+    "backgroundColor": [
+      180,
+      180,
+      180
+    ],
+    "gridColor": [
+      200,
+      200,
+      200
+    ],
+    "showGrid": true,
+    "create_before": "hideGrid(true);",
+    "create_after": "this.input.mouse.mouseWheelCallback=scroll;\r\n_scrollingMap.setAll('inputEnabled', true);\r\n_scrollingMap.setAll('input.allowHorizontalDrag', false);\r\n_DownArrow.inputEnabled = true;\r\n_UpArrow.inputEnabled = true;\r\nthis.playerInputMask = game.add.graphics();\r\nthis.playerInputMask.inputEnabled=true;\r\nthis.playerInputMask.beginFill(0x000000);\r\nthis.playerInputMask.drawRect( -50+1030,276,100, 405 );\r\nthis.playerInputMask.endFill();\r\nthis.WeaknessOutputMask = game.add.graphics();\r\nthis.WeaknessOutputMask.inputEnabled=true;\r\nthis.WeaknessOutputMask.beginFill(0x000000);\r\nthis.WeaknessOutputMask.drawRect(330,30,600, 50);\r\nthis.WeaknessOutputMask.endFill();\r\naddweaknessGroup(randonWeakness(3));",
+    "state_preload_before": "this.load.image('dude', 'assets/image/phaser-dude.png');\r\nthis.load.pack('maze', 'assets/pack.json');"
+  },
+  "stateSettings": {
+    "stageBackgroundColor": [
+      0,
+      0,
+      0
+    ],
+    "autoLoad": true,
+    "preloadSpriteId": "",
+    "preloadSprite_direction": 0,
+    "load.pack": []
+  },
+  "world": {
+    "type": "group",
+    "id": "c62e43d8-256a-48b3-bcb9-e9363d9444bd",
+    "info": {
+      "editorName": "BlocklyGame1",
+      "setAll": [],
+      "children": [
+        {
+          "type": "group",
+          "id": "00c0a078-969f-41e1-a13d-974c4dfbd20f",
+          "info": {
+            "editorName": "scrollingMap",
+            "editorField": true,
+            "setAll": [],
+            "children": []
+          }
+        },
+        {
+          "type": "image",
+          "id": "5b073edc-318a-45ff-9f5a-bfae1feaa699",
+          "asset": "0",
+          "info": {
+            "editorName": "DownArrow",
+            "editorField": true,
+            "x": 1004,
+            "y": 696,
+            "scale.x": 3.2499999111367655,
+            "scale.y": 3.1249998635029796
+          }
+        },
+        {
+          "type": "image",
+          "id": "b62dce38-bf65-44e2-8ce8-262952b7dee8",
+          "asset": "0",
+          "info": {
+            "editorName": "UpArrow",
+            "editorField": true,
+            "x": 1082,
+            "y": 274,
+            "rotation": 3.141592653589793,
+            "scale.x": 3.2499999111367655,
+            "scale.y": 3.1249998635029796
+          }
+        },
+        {
+          "type": "image",
+          "id": "9081a095-77d6-42e0-abed-b55868e483fa",
+          "asset": "1",
+          "info": {
+            "editorName": "arrow_horiz_green",
+            "x": 263,
+            "y": 58,
+            "rotation": 3.141592653589793,
+            "scale.x": 0.19539994060907695,
+            "scale.y": 0.2569600464866019,
+            "anchor.x": 1,
+            "anchor.y": 0.5
+          }
+        },
+        {
+          "type": "image",
+          "id": "3897f457-17c2-4870-b4da-c0f3fae82d13",
+          "asset": "1",
+          "info": {
+            "editorName": "arrow_horiz_green",
+            "x": 997,
+            "y": 57,
+            "rotation": 3.141592653589793,
+            "scale.x": -0.19539994060907695,
+            "scale.y": 0.2569600464866019,
+            "anchor.x": 1,
+            "anchor.y": 0.5
+          }
+        },
+        {
+          "type": "atlas-sprite",
+          "id": "d88b1c39-a092-4328-bcfb-23c0efc30d9c",
+          "asset": "2",
+          "info": {
+            "editorName": "sprite",
+            "x": 410,
+            "y": 242,
+            "scale.x": 4.709094305625377,
+            "scale.y": 4.840729181895337,
+            "animations": [
+              {
+                "name": "play",
+                "frameRate": 1,
+                "loop": true,
+                "frames": [
+                  "sprite1",
+                  "sprite2"
+                ]
+              },
+              {
+                "name": "destroy",
+                "frameRate": 5,
+                "killOnComplete": true,
+                "field": true,
+                "autoPlay": true,
+                "frames": [
+                  "sprite10",
+                  "sprite11",
+                  "sprite12",
+                  "sprite13",
+                  "sprite14",
+                  "sprite9"
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "type": "STATE",
+  "asset-table": {
+    "0": {
+      "file": "WebContent/assets/pack.json",
+      "section": "game",
+      "asset": "arrow"
+    },
+    "1": {
+      "file": "WebContent/assets/pack.json",
+      "section": "game",
+      "asset": "arrow_horiz_green"
+    },
+    "2": {
+      "file": "WebContent/assets/pack.json",
+      "section": "maze",
+      "asset": "monster",
+      "sprite": "sprite1"
+    }
+  },
+  "prefab-table": {}
+}

@@ -1,0 +1,25 @@
+#phaser {
+  position: relative;
+}
+
+.grid {
+  height: 800px;
+  width: 1200px;
+  background-image: repeating-linear-gradient(0deg, transparent, transparent 31px, #d8d7d2 31px, #d8d7d2 32px), repeating-linear-gradient(-90deg, transparent, transparent 31px, #d8d7d2 31px, #d8d7d2 32px);
+  background-size: 32px 32px;
+  position: absolute;
+  opacity: 0.5;
+  top: 0;
+  left: 0;
+  display: block;
+  pointer-events: none;
+  content: " ";
+}
+
+#debug-grid:target {
+  display: none;
+}
+html,
+body {
+  height: 100%;
+}

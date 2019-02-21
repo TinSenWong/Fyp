@@ -73,27 +73,27 @@ game1.prototype.create = function () {
 	var _Attributes = this.add.physicsGroup(Phaser.Physics.ARCADE);
 	_Attributes.position.setTo(-1.0, -1.0);
 	
-	var _terra = this.add.sprite(212.0, 773.0, 'Attributes1', 'terra', _Attributes);
+	var _terra = this.add.sprite(212.0, 773.0, 'Attributes', 'terra', _Attributes);
 	_terra.scale.setTo(0.5199998985185398, 0.5636362374094385);
 	_terra.anchor.setTo(0.5, 0.5);
 	_terra.body.setCircle(38.5, 19.321063995361328, 4.278034210205078);
 	
-	var _Thunder = this.add.sprite(192.0, 710.0, 'Attributes1', 'Thunder', _Attributes);
+	var _Thunder = this.add.sprite(192.0, 710.0, 'Attributes', 'Thunder', _Attributes);
 	_Thunder.scale.setTo(0.8628571063178712, 0.5538463300881171);
 	_Thunder.anchor.setTo(0.5, 0.5);
 	_Thunder.body.setCircle(17.5, -2.328756332397461, 15.237896919250488);
 	
-	var _water = this.add.sprite(300.0, 710.0, 'Attributes1', 'water', _Attributes);
+	var _water = this.add.sprite(300.0, 710.0, 'Attributes', 'water', _Attributes);
 	_water.scale.setTo(0.7360000675251507, 0.6526316591816703);
 	_water.anchor.setTo(0.5, 0.5);
 	_water.body.setCircle(25.0, -0.6552162170410156, 14.039745330810547);
 	
-	var _wood = this.add.sprite(280.0, 773.0, 'Attributes1', 'wood', _Attributes);
+	var _wood = this.add.sprite(280.0, 773.0, 'Attributes', 'wood', _Attributes);
 	_wood.scale.setTo(0.7090907970983089, 0.6684209058433127);
 	_wood.anchor.setTo(0.5, 0.5);
 	_wood.body.setCircle(33.0, 1.1334800720214844, 6.012378692626953);
 	
-	var _fire = this.add.sprite(249.0, 658.0, 'Attributes1', 'fire', _Attributes);
+	var _fire = this.add.sprite(249.0, 658.0, 'Attributes', 'fire', _Attributes);
 	_fire.scale.setTo(0.6852457119694998, 0.5550561384930743);
 	_fire.anchor.setTo(0.5, 0.5);
 	_fire.body.setCircle(30.5, -1.4661884307861328, 16.29067039489746);
@@ -112,11 +112,11 @@ game1.prototype.create = function () {
 	_rightansPosition.scale.setTo(0.6066338691568852, 0.5149474140978532);
 	_rightansPosition.anchor.setTo(0.5, 0.5);
 	
-	this.add.sprite(726.0, 247.0, 'Attributes1', 'fire', _rightans);
+	this.add.sprite(726.0, 247.0, 'Attributes', 'fire', _rightans);
 	
-	this.add.sprite(861.0, 248.0, 'Attributes1', 'fire', _rightans);
+	this.add.sprite(861.0, 248.0, 'Attributes', 'fire', _rightans);
 	
-	this.add.sprite(1001.0, 257.0, 'Attributes1', 'water', _rightans);
+	this.add.sprite(1001.0, 257.0, 'Attributes', 'water', _rightans);
 	
 	this.add.text(89.0, 234.0, 'a =', {"font":"bold 20px Arial"});
 	
@@ -187,11 +187,13 @@ game1.prototype.create = function () {
 	this.fCloneAns = _cloneAns;
 	this.fMonster = _monster;
 	this.fHPGroup = _HPGroup;
-	
+	hideGame(true);
 	_Attributes.callAll('events.onInputDown.add', 'events.onInputDown', clone, this);
 	//_Attributes.callAll('input.enableDrag', 'input');
+	submitBtn.events.onInputDown.add(clearPutAns,this);
 	submitBtn.events.onInputDown.add(show,this);
-	resetBtn.events.onInputDown.add(reset,this);
+	submitBtn.events.onInputDown.add(clearShowAns,this);
+	resetBtn.events.onInputDown.add(clearShowAns,this);
 			
 	this.shadowTexture = this.game.add.bitmapData(this.game.width, this.game.height);
 	var lightSprite = this.game.add.image(0, 0, this.shadowTexture);
@@ -245,19 +247,16 @@ function OnTweenComplete(){
 		this.fMonster.play('destroy').onComplete.add(function(){
 			game1Pass = true;
 			alert("你打贏了 貪食怪!");
-			this.state.add("level", Level);
-			this.state.start("level");
+			hideGame(false);
+			this.state.add("Level04", Level04);
+			this.state.start("Level04");
 		}, this);
-		
 	},this);
 	
 }
 
-function AnsGroupOverlap(obj){
-	alert(getBounds);
-}
+
 function clone(obj){
-	console.log("pick "+obj.frame);
 	var DragStop = false;
 	var isAns= true;
 	
@@ -301,23 +300,6 @@ function clone(obj){
 		    },this);
 }	  
 
-function spriteInputListener(sprite, pointer) {   
-	
-	sprite.events.onDragStart.add(function(sprite, pointer){
-		  
-	},this);
-	sprite.events.onDragStop.add(function(sprite, pointer){
-		for (var i = 0; i < this.fAttributes.children.length;i++){
-			for (var key in sprite){
-				
-			}
-			
-		}
-		
-
-		
-	},this);
-}
 function check(_ansGroup) {   
 	//for (i = 0; i < _ansGroup.children.length;i++){
 	var isCorrect = false;
@@ -337,7 +319,6 @@ function show(){
 	
 	btn_Submit=true;
 	_ansGroup = this.fAnsGroup;
-	console.log(this);
 	iscomplete = true;
 	
 	for (i = 0; i < _ansGroup.children.length;i++){
@@ -351,25 +332,27 @@ function show(){
 		
 		for (i = 0; i < _ansGroup.children.length;i++){
 			if (_ansGroup.children[i].name!=""){
-				displayAns = this.add.sprite(this.fOutput.children[i].x, this.fOutput.children[i].y, 'Attributes1', _ansGroup.children[i].name, this.fAnsAttributes);
+				displayAns = this.add.sprite(this.fOutput.children[i].x, this.fOutput.children[i].y, 'Attributes', _ansGroup.children[i].name, this.fAnsAttributes);
 				displayAns.anchor.setTo(0.5,0.5);
 				//amination: this.add.tween(ans).to({ x: -200 }, 7500, Phaser.Easing.Quadratic.InOut, true, 0, 1000, false);
 				
 			}
 		}
-	}
-	if (check(_ansGroup)) {
-		this.ShowAttack();
-	}else{
-		
-		hp -= 1;
-		this.fHPGroup.children[hp].play('play');
-		if (hp == 0){
-			confirm('你死了  重新遊玩');
-			this.state.add("game1", Level);
-			this.state.start("game1");
+		if (check(_ansGroup)) {
+			this.ShowAttack();
+		}else{
+			this.fCloneAns.clear;
+			hp -= 1;
+			this.fHPGroup.children[hp].play('play');
+			if (hp == 0){
+				confirm('你死了  重新遊玩');
+				hideGame(false);
+				this.state.add("Level04", Level04);
+				this.state.start("Level04");
+			}
 		}
 	}
+	
 }
 
 var btn_Submit = false;
@@ -393,60 +376,25 @@ game1.prototype.initScene = function () {
 
 
 game1.prototype.render = function () {
-	this.game.debug.inputInfo(32, 150);
-	this.game.debug.spriteInfo(this.fAnsGroup.children[2], 32, 32);
+	//this.game.debug.inputInfo(32, 150);
+	//this.game.debug.spriteInfo(this.fAnsGroup.children[2], 32, 32);
 };
 
-function reset(){
+function clearPutAns(){
 	length = this.fAnsAttributes.length;
 	for (i = 0; i < length;i++){
-		this.fAnsAttributes.remove(this.fAnsAttributes.children[0]);
+		this.fAnsAttributes.removeAll(true);
 	}
+}
+function clearShowAns(){
+
 	length = this.fCloneAns.length;
 	for (i = 0; i < length;i++){
 		this.fCloneAns.removeAll(true);
 	}
-	localStorage.clear();
 
 }
 
-
-function lock(clone,isAns){
-	
-	if (clone.frameName == "fire"){
-		if (isAns){
-	    	clone.x = 263;
-	    	clone.y = 622;
-	    }
-	}
-	if (clone.frameName == "water"){
-		if (isAns){
-	    	clone.x = 330.0;
-	    	clone.y = 683.0;
-	    }			
-	}
-	if (clone.frameName == "Thunder"){
-		if (isAns){
-	    	clone.x = 180.0;
-	    	clone.y = 676.0;
-	    }
-	}
-	if (clone.frameName == "wood"){
-		if (isAns){
-	    	clone.x = 303.0;
-	    	clone.y = 757.0;
-	    }
-	}
-	if (clone.frameName == "terra"){
-		if (isAns){
-	    	clone.x = 206;
-	    	clone.y = 757;
-	    }
-	}
-	
-	
-	
-}
 function checkOverlap(spriteA, spriteB) {
 	
     var boundsA = spriteA.getBounds();
