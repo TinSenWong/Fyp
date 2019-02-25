@@ -104,6 +104,7 @@ BlocklyGame1.prototype.update = function () {
 		scrollByArrow(-5);
 	}
 	if (correct){
+		alert('true');
 		correct=false;
 	}
 	this.WeaknessOutputMask.belongsTo=weaknessGroup;
@@ -115,6 +116,19 @@ BlocklyGame1.prototype.render = function () {
 
 	this.game.debug.inputInfo(32, 32);
 	
+}
+function setMaxBlock(num){
+	workspace.dispose();
+	workspace = Blockly.inject('blocklyDiv',
+	{
+    	
+    	maxBlocks:num,
+        media: 'google-blockly/media/',
+        toolbox: document.getElementById('toolbox')
+    });
+	
+	onWorkspaceChange();
+    
 }
 function generateElement(element){
 	elements[elements.length] = element;
@@ -135,7 +149,6 @@ function addPlayerInputList(element){
 		playerInput.createMultiple(1,'Attributes',element,true);
 	}
     if ((playerInput.children.length) % 10 == 0 && (playerInput.children.length) != 0){
-    	alert("length:"+playerInput.children.length);
     	playerInput.y-=405;
     }
     playerInput.align(1, 999, 0, 90);
@@ -195,8 +208,6 @@ function checkInput(){
 	if (count==weaknessGroup.children.length){
 		correct = true;
 	}
-	alert();
-	
 }
 function randonWeakness(number){
 	var weakness =[];

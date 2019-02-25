@@ -1,9 +1,3 @@
-var workspace = Blockly.inject('blocklyDiv',
-    {
-		maxBlocks: maxBlock,
-        media: 'google-blockly/media/',
-        toolbox: document.getElementById('toolbox')
-    });
 Blockly.JavaScript.addReservedWords('exit');
 var outputArea = document.getElementById('output');
 var runButton = document.getElementById('runButton');
