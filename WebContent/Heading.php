@@ -61,16 +61,6 @@
             </div>
         </div>
     </nav>
-
-    <!-- Page Content -->
-    <br>
-    <br>
-    <br>
-
-    <!-- Page Heading -->
-
-
-
     <!-- Bootstrap core JavaScript -->
 
     <script src="vendor/jquery/jquery.min.js"></script>

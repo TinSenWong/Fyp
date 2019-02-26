@@ -1,6 +1,3 @@
-#phaser {
-  position: relative;
-}
 
 .grid {
   height: 800px;
@@ -18,8 +15,4 @@
 
 #debug-grid:target {
   display: none;
-}
-html,
-body {
-  height: 100%;
 }

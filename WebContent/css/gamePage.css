@@ -1,27 +1,8 @@
-.navUl {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
+#gameDiv{
+    position: absolute;
+    top: 5%;
 }
-
-.navLi {
-    float: left;
-}
-
-.navLi a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-.navLi a:hover:not(.active) {
-    background-color: #111;
-}
-
-.proFile {
-    background-color: #8888ff;
+html,
+body {
+    height: 100%;
 }

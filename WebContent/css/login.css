@@ -1,108 +1,95 @@
 
-h1 {
-    color: #FFF;
+body{
+background-color: #444444;
+}
+h1{
+  color: #FFF;
+}
+.login-block {
+
+  align-content: center;
+  background: #666666;
+  background: -webkit-linear-gradient(to bottom, #AAAAAA, #666666);
+  background: linear-gradient(to bottom, #AAAAAA, #444444);
+  float: left;
+  width: 100%;
+  padding: 180px 0;
 }
 
 .banner-sec {
-    background-size: cover;
-    min-height: 500px;
-    border-radius: 0 10px 10px 0;
-    padding: 0;
+  background-size: cover;
+  min-height: 500px;
+  border-radius: 0 10px 10px 0;
+  padding: 0;
 }
 
-.Img {
-    width: 70%;
-    float:left;
-}
-.carousel{
+.container {
 
+  width: 100%;
+  background: #DDDDDD;
+  border-radius: 10px;
+  box-shadow: 15px 20px 0px rgba(0, 0, 0, 0.1);
 }
+
 .carousel-inner {
-
-    border-radius: 0 10px 10px 0;
+  border-radius: 0 10px 10px 0;
 }
 
 .carousel-caption {
-    text-align: left;
-    left: 5%;
-}
-.login{
-    width: 30%;
-    padding: 40px 30px;
-    float:left;
-}
-.login-sec {
-    width: 30%;
-    height: auto;
-    padding: 40px 30px;
+  text-align: left;
+  left: 5%;
 }
 
+.login-sec {
+  padding: 50px 30px;
+  position: relative;
+}
+
+
 .login-sec h2 {
-    margin-bottom: 30px;
-    font-weight: 800;
-    font-size: 30px;
-    color: #000000;
+  margin-bottom: 30px;
+  font-weight: 800;
+  font-size: 30px;
+  color: #000000;
 }
 
 .login-sec h2:after {
-    content: "";
-    width: 100px;
-    height: 5px;
-    background: #FFFFFF;
-    display: block;
-    margin-top: 20px;
-    border-radius: 3px;
-    margin-left: auto;
-    margin-right: auto
+  content: "";
+  width: 100px;
+  height: 5px;
+  background: #FFFFFF;
+  display: block;
+  margin-top: 20px;
+  border-radius: 3px;
+  margin-left: auto;
+  margin-right: auto
 }
 
 .btn-login {
 
-    background: #DE6262;
-    color: #fff;
-    font-weight: 600;
+  background: #DE6262;
+  color: #fff;
+  font-weight: 600;
 }
 
 meter {
-    margin: 0 auto 1em;
-    width: 100%;
-    height: 0.5em;
+  margin: 0 auto 1em;
+  width: 100%;
+  height: 0.5em;
 }
 
 meter::-webkit-meter-bar {
-    background: none;
-    background-color: rgba(0, 0, 0, 0.1);
+  background: none;
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
-meter[value="1"]::-webkit-meter-optimum-value {
-    background: red;
-}
-
-meter[value="2"]::-webkit-meter-optimum-value {
-    background: yellow;
-}
-
-meter[value="3"]::-webkit-meter-optimum-value {
-    background: orange;
-}
-
-meter[value="4"]::-webkit-meter-optimum-value {
-    background: green;
-}
+meter[value="1"]::-webkit-meter-optimum-value { background: red; }
+meter[value="2"]::-webkit-meter-optimum-value { background: yellow; }
+meter[value="3"]::-webkit-meter-optimum-value { background: orange; }
+meter[value="4"]::-webkit-meter-optimum-value { background: green; }
 
 /* Gecko based browsers */
-meter[value="1"]::-moz-meter-bar {
-    background: red;
-}
-
-meter[value="2"]::-moz-meter-bar {
-    background: yellow;
-}
-
-meter[value="3"]::-moz-meter-bar {
-    background: orange;
-}
-
-meter[value="4"]::-moz-meter-bar {
-    background: green;
-}
+meter[value="1"]::-moz-meter-bar { background: red; }
+meter[value="2"]::-moz-meter-bar { background: yellow; }
+meter[value="3"]::-moz-meter-bar { background: orange; }
+meter[value="4"]::-moz-meter-bar { background: green; }

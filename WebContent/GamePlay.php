@@ -35,7 +35,6 @@
         <div id="debug-grid" class="grid" hidden></div>
     </div>
     <div id="gameButton">
-
     	<button onclick="selectLevel()" id="selectLevel">Select Level</button>
     	<button onclick="runCode()" id="runButton">Run JavaScript</button>
     </div>
@@ -43,7 +42,7 @@
     	<p id='runTime'></p>
     	<lable id="blocklyNum">1</lable>
     </div>
-    <div id="blocklyDiv" style="position: absolute; top: 0px; right: 0px; height: 100%; width: 700px"></div>
+    <div id="blocklyDiv" style="position: absolute; top: 5%; right: 0px; ; height: 85%; width: 700px"></div>
 
 
 </div>
