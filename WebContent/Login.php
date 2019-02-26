@@ -18,28 +18,8 @@
                 var password = $('#password').val();
                 //var successphone = document.getElementById('successphone');
                 //first time login account;
-                if (username == "andy" && password == "123") {
-                    alert("Welcome " + username + " !\nPlease reset the password.");
-                    window.location = "firstTimeLogin.html";
-                } else if (username == "jo" && password == "123") {
-                    alert("Welcome " + username + " !");
-                    //teaching staff
-                    window.location = "search_teaching.html";
-                } else if (username == "jo12345" && password == "123") {
-                    alert("Welcome " + username + " !");
-                    //non-teaching staff
-                    window.location = "search_non_teaching.html";
-                } else if (username == "edward" && password == "123") {
-                    alert("Welcome " + username + " !");
-                    //students 
-                    window.location = "search_students.html";
-                } else if (username == "kinpan" && password == "123") {
-                    alert("Welcome " + username + " !");
-                    //alumni 
-                    window.location = "search_alumni.html";
-                } else {
-                    alert("The account is not exist.");
-                }
+                window.location = "index.php";
+
             })
 
             $("#send").click(function () {
@@ -47,15 +27,12 @@
                 var phone = $('#phone').val();
                 var successemail = document.getElementById('successemail');
                 var color = "#FF0000";
-                //alert("123");
                 if (email == "reset@gmail.com" || phone == "24400998") {
                     //successemail.innerHTML = "The default password has been sent.<br />Please check your email or sms!";
                     successemail.innerHTML = "" + "<font color=" + color + ">The default password has been sent.<br />Please check your email or sms!</font>";
                     setTimeout(function () {
                         $("#reset").modal('hide');
                     }, 3000);
-                } else {
-                    //
                 }
             })
         });
