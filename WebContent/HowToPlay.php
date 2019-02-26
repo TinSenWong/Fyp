@@ -46,7 +46,7 @@
                 <div class="tab-content mt-2">
                     <div class="tab-pane fade show active" id="menu" role="tabpanel">
                         <h4>Menu</h4>
-                        <div class="well" style="text-align: center;"><img src="src/menu.jpg" width="500" height="500"/>
+                        <div class="well" style="text-align: center;"><img src="src/menu.jpg" width="800"/>
                         </div>
                         <!--                        <button class="btn btn-secondary" id="menuCon">Continue</button>-->
                     </div>
