@@ -29,13 +29,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
-<div>
-    <ul class='navUl'>
-        <li class='navLi'><a href="Leaderboard.html">Leaderboard</a></li>
-        <li class='navLi' style="float:right"><a class="proFile"  href="#proFile">ProFile</a></li>
-        <li class='navLi'><a href="#about">About us</a></li>
-    </ul>
-</div>
+<?php include 'Heading.php'; ?>
 <div id="gameDiv">
     <div id="phaser">
         <div id="debug-grid" class="grid" hidden></div>
