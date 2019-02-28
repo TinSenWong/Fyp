@@ -126,9 +126,16 @@ function setMaxBlock(num){
         media: 'google-blockly/media/',
         toolbox: document.getElementById('toolbox')
     });
-	
+    generateCodeAndLoadIntoInterpreter();
+    workspace.addChangeListener(function (event) {
+        if (!(event instanceof Blockly.Events.Ui)) {
+            // Something changed. Parser needs to be reloaded.
+            resetInterpreter();
+            generateCodeAndLoadIntoInterpreter();
+        }
+    });
 	onWorkspaceChange();
-    
+
 }
 function generateElement(element){
 	elements[elements.length] = element;
@@ -200,7 +207,8 @@ function scroll() {
 }
 function checkInput(){
 	var count=0;
-	for (i = 0;i<playerInput.children.length;i++){
+	for (i = 0;i<playerInput.children.length-1;i++){
+		alert(playerInput.length+":"+weaknessGroup.length);
 		if (playerInput.children[i].frameName==weaknessGroup.children[i].frameName){
 			count+=1;
 		}
