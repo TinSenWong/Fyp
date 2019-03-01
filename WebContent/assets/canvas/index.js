@@ -120,9 +120,10 @@ playGame.prototype = {
                         game = new Phaser.Game(1200, 800, Phaser.Auto, 'phaser');
                         switch (selestLevel) {
                             case 0:
-                                game.state.add("Level", Level);
-                                game.state.start("Level");
+                                game.state.add("Level1", Level1);
+                                game.state.start("Level1");
                                 break;
+                                /*
                             case 1:
                             	game.state.add("Level2", Level2);
                                 game.state.start("Level2");
@@ -147,8 +148,11 @@ playGame.prototype = {
                             	game.state.add("Level05", Level05);
                                 game.state.start("Level05");
                                 break;
+                                */
                         }
+
                         break;
+
                     }
                 }
             } else {

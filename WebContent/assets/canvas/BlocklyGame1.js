@@ -10,7 +10,6 @@
  * BlocklyGame1.
  */
 function BlocklyGame1() {
-	
 	Phaser.State.call(this);
 	
 }

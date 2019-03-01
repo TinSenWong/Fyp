@@ -14,14 +14,9 @@
     <script src="lib/phaser-input.js"></script>
     <script src="lib/phaser-nineslice.js"></script>
     <script src="lib/phaser-kinetic-scrolling-plugin.js"></script>
-    <script src="js/Main.js"></script>
+    <script src="assets/canvas/function.js"></script>
     <script src="assets/canvas/index.js"></script>
-    <script src="assets/canvas/Level.js"></script>
-    <script src="assets/canvas/Level01.js"></script>
-    <script src="assets/canvas/Level2.js"></script>
-    <script src="assets/canvas/Level03.js"></script>
-    <script src="assets/canvas/Level04.js"></script>
-    <script src="assets/canvas/Level05.js"></script>
+    <script src="assets/canvas/Level1.js"></script>
     <script src="assets/canvas/game1.js"></script>
     <script src="js/wait_block.js"></script>
     <script src="js/movement_block.js"></script>
@@ -32,7 +27,7 @@
 <?php include 'Heading.php'; ?>
 <div id="gameDiv">
     <div id="phaser">
-        <div id="debug-grid" class="grid" hidden></div>
+        <div id="debug-grid" class="grid"></div>
     </div>
     <div id="gameButton">
     	<button onclick="selectLevel()" id="selectLevel">Select Level</button>
