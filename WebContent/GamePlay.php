@@ -15,8 +15,8 @@
     <script src="lib/phaser-nineslice.js"></script>
     <script src="lib/phaser-kinetic-scrolling-plugin.js"></script>
     <script src="assets/canvas/function.js"></script>
-    <script src="assets/canvas/index.js"></script>
     <script src="assets/canvas/Level1.js"></script>
+    <script src="assets/canvas/index.js"></script>
     <script src="assets/canvas/game1.js"></script>
     <script src="js/wait_block.js"></script>
     <script src="js/movement_block.js"></script>
@@ -406,7 +406,7 @@
     hideGame(true);
     var workspace = Blockly.inject('blocklyDiv',
         {
-    	    	maxBlocks:2,
+    	    	maxBlocks:99,
     	        media: 'google-blockly/media/',
     	        toolbox: document.getElementById('toolbox')
     });
