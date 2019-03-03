@@ -81,8 +81,6 @@ function getKey(){
 	this.fKeyYellow.destroy();
 }
 function IsOpenChest(){
-	this.fTreasure_chest.x = 1728;
-	this.fTreasure_chest.y = 160;
 	if (key){
 		this.fTreasure_chest.play('open').onComplete.add(function(){
 			if (hp==1){
@@ -107,4 +105,18 @@ function IsOpenChest(){
 	        game.state.start("playGame");
 		}, this);
 	}
+}
+function sleep(milliseconds) {
+    var start = new Date().getTime();
+    for (var i = 0; i < 1e7; i++) {
+        if ((new Date().getTime() - start) > milliseconds){
+            break;
+        }
+    }
+}
+function wait(millisecondsToWait) {
+    setTimeout( function() {
+
+    },millisecondsToWait)
+    sleep(millisecondsToWait);
 }

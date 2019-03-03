@@ -576,8 +576,8 @@ Level1.prototype.update = function () {
 		this.physics.arcade.collide(this.fPlayer,this.fKeyYellow, getKey, null, this);
 	}
 	this.physics.arcade.collide(this.fPlayer,this.fTreasure_chest,IsOpenChest, null, this);
-	this.fTreasure_chest.x = 640.0;
-	this.fTreasure_chest.y = 256.0;
+	//this.fTreasure_chest.x = 640.0;
+	//this.fTreasure_chest.y = 256.0;
 	
 	
 	
@@ -619,6 +619,7 @@ Level1.prototype.update = function () {
 	}
 	// set movement value
 		if (goToTheLeft){
+			
 			playerX = this.fPlayer.x;
 			goToTheLeft=false;
 			goLeft = true;
@@ -639,6 +640,7 @@ Level1.prototype.update = function () {
 			goDown = true;
 			expX = playerY + 32;
 		}
+		
 		this.physics.arcade.collide(this.fPlayer,this.fBlock,function(){
 			if (player.animations.currentAnim.name == "Left"){
 				this.fPlayer.play('LeftStay');
@@ -649,28 +651,33 @@ Level1.prototype.update = function () {
 			}else if (player.animations.currentAnim.name == "Front"){
 				this.fPlayer.play('FrontStay');
 			}
-			tween.pause();
+			if (tween!=null){
+				tween.pause();
+			}
+			
 			this.fPlayer.x =  Math.round(this.fPlayer.x / 32)*32;
 			this.fPlayer.y =  Math.round(this.fPlayer.y / 32)*32;
-			
 		},null,this);
-		if (goLeft){// move to the left
-			//if (this.fPlayer.x > expX){
-			//	this.fPlayer.play('Left');
-			//	this.fPlayer.body.velocity.x -= 150;
-			//}else if(this.fPlayer.x < expX){
-			//	goLeft=false;
-			//	this.fPlayer.x =  Math.round(this.fPlayer.x / 32)*32;
-				
-			//	this.fPlayer.play('LeftStay');
-			//}
-			goLeft=false;
-	    	tween = this.add.tween(this.fPlayer).to({ x: this.fPlayer.x-32 }, 500, Phaser.Easing.Quadratic.InOut, true);
-	    	tween.onStart.add(function(){this.fPlayer.play('Left');},this);
-	    	tween.onComplete.add(function(){this.fPlayer.play('LeftStay');},this);
 		
-		//tween = this.add.tween(this.fPlayer).to({ x: this.fPlayer.x-32 }, 500, Phaser.Easing.Quadratic.InOut, true);
-	    	//this.fPlayer.body.x -= 32;
+	if (goLeft){// move to the left
+		//if (this.fPlayer.x > expX){
+		//	this.fPlayer.play('Left');
+		//	this.fPlayer.body.velocity.x -= 150;
+		//}else if(this.fPlayer.x < expX){
+		//	goLeft=false;
+		//	this.fPlayer.x =  Math.round(this.fPlayer.x / 32)*32;
+			
+		//	this.fPlayer.play('LeftStay');
+		//}
+		goLeft=false;
+		that = this;
+		tween = that.add.tween(that.fPlayer).to({ x: that.fPlayer.x-32 }, 200, Phaser.Easing.Quadratic.InOut, true);
+		tween.onStart.add(function(){that.fPlayer.play('Left');});
+		tween.onComplete.add(function(){that.fPlayer.play('LeftStay');});
+		
+		
+		
+		
     }else if (goRight)// move to the right
     {
     	goRight=false;
@@ -716,6 +723,7 @@ function checkOverlap(spriteA, spriteB) {
 }
  
 // -- user code here --
+var that;
 var tween;
 var touchWall= false;
 var goToTheRight = false;
