@@ -16,6 +16,9 @@
     <script src="lib/phaser-kinetic-scrolling-plugin.js"></script>
     <script src="assets/canvas/function.js"></script>
     <script src="assets/canvas/Level1.js"></script>
+    <script src="assets/canvas/Level2.js"></script>
+    <script src="assets/canvas/Level3.js"></script>
+    <script src="assets/canvas/Level4.js"></script>
     <script src="assets/canvas/index.js"></script>
     <script src="assets/canvas/game1.js"></script>
     <script src="js/wait_block.js"></script>
@@ -43,7 +46,7 @@
 </div>
 
 <xml id="toolbox" style="display: none">
-    <category name="movement" colour="#a55b6d">
+    <category name="movement" colour="#a55b6d" >
         <block type="move_right"></block>
         <block type="move_left"></block>
         <block type="move_up"></block>

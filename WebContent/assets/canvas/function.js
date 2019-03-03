@@ -120,3 +120,29 @@ function wait(millisecondsToWait) {
     },millisecondsToWait)
     sleep(millisecondsToWait);
 }
+
+function changeToolbox(toolbox,maxBlockNum){
+    workspace.dispose();
+    workspace = Blockly.inject('blocklyDiv',
+        {
+            maxBlocks:maxBlockNum,
+            media: 'google-blockly/media/',
+            toolbox: toolbox
+        });
+    generateCodeAndLoadIntoInterpreter();
+    workspace.addChangeListener(function (event) {
+        if (!(event instanceof Blockly.Events.Ui)) {
+            // Something changed. Parser needs to be reloaded.
+            resetInterpreter();
+            generateCodeAndLoadIntoInterpreter();
+        }
+    });
+    onWorkspaceChange();
+}
+
+
+
+
+
+
+

@@ -4,6 +4,7 @@ var playGame = function (game) {};
 playGame.prototype = {
     preload: function () {
         // level thumbnail 
+    	
         game.load.spritesheet("levelthumb", "assets/image/levelthumb.png", 60, 60);
         // level pages at the bottom
         game.load.image("levelpages", "assets/image/levelpages.png");
@@ -63,7 +64,8 @@ playGame.prototype = {
                     // setting tint color according to page cumber
                     thumb.tint = colors[k];
                     // each level has a number...
-                    thumb.levelNumber = k * (rows * columns) + j * columns + i;
+                 
+                    thumb.levelNumber = k * (rows * columns) + j * columns + i+1;//change************************************************************************+1
                     // assigning each thumbnail a frame according to its stars value
                     thumb.frame = parseInt(stars[thumb.levelNumber]) + 1;
                     // which we are going to write inside the thumbnail
@@ -118,34 +120,37 @@ playGame.prototype = {
                         hideGame(false);
                         game.destroy();
                         game = new Phaser.Game(1200, 800, Phaser.Auto, 'phaser');
+                        key = false;
                         switch (selestLevel) {
-                            case 0:
+                            case 1:
                                 game.state.add("Level1", Level1);
                                 game.state.start("Level1");
                                 break;
-                                /*
-                            case 1:
+
+                            case 2:
                             	game.state.add("Level2", Level2);
                                 game.state.start("Level2");
                             	
                                 break;
-                            case 2:
-                            	game.state.add("Level03", Level03);
-                                game.state.start("Level03");
-                                break;
+                                
                             case 3:
+                            	game.state.add("Level3", Level3);
+                                game.state.start("Level3");
+                                break;
+                                
+                            case 4:
                             	
-                                game.state.add("Level04", Level04);
+                                game.state.add("Level04", Level4);
                                 game.state.start("Level04");
                                 
                                 break;
-                            case 4:
-                            	
-                                game.state.add("Level01", Level01);
+                            case 5:
+                            	/*
+                                game.state.add("Level01", Level5);
                                 game.state.start("Level01");
                                 break;
-                            case 5:
-                            	game.state.add("Level05", Level05);
+                            case 6:
+                            	game.state.add("Level05", Level6);
                                 game.state.start("Level05");
                                 break;
                                 */

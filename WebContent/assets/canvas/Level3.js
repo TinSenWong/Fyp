@@ -7,34 +7,34 @@
 
 
 /**
- * Level1.
+ * Level3.
  */
-function Level1() {
+function Level3() {
 	
 	Phaser.State.call(this);
 	
 }
 
 /** @type Phaser.State */
-var Level1_proto = Object.create(Phaser.State.prototype);
-Level1.prototype = Level1_proto;
-Level1.prototype.constructor = Level1;
+var Level3_proto = Object.create(Phaser.State.prototype);
+Level3.prototype = Level3_proto;
+Level3.prototype.constructor = Level3;
 
-Level1.prototype.init = function () {
+Level3.prototype.init = function () {
 	
 	this.stage.backgroundColor = '#ffffff';
 	
 };
 
-Level1.prototype.preload = function () {
+Level3.prototype.preload = function () {
 	
-	changeToolbox(toolbox,4);
+	changeToolbox(toolbox,20);
 	
 	this.load.pack('maze', 'assets/pack.json');
 	
 };
 
-Level1.prototype.create = function () {
+Level3.prototype.create = function () {
 	
 	this.initScene();
 	this.world.setBounds(0, 0, 20000, 20000);
@@ -49,26 +49,11 @@ Level1.prototype.create = function () {
 	var _MidLayer_layer = _MidLayer.createLayer(0);
 	_MidLayer_layer.resizeWorld();
 	
-	var _Hole = this.add.group();
-	_Hole.position.setTo(0.0, 768.0);
-	
-	this.add.sprite(512.0, 416.0, 'base_out_atlas', 161, _Hole);
-	
-	this.add.sprite(544.0, 416.0, 'base_out_atlas', 162, _Hole);
-	
-	var _Hole2 = this.add.sprite(544.0, 448.0, 'base_out_atlas', 194, _Hole);
-	
-	var _Hole1 = this.add.sprite(512.0, 448.0, 'base_out_atlas', 193, _Hole);
-	
-	this.add.sprite(544.0, 480.0, 'base_out_atlas', 226, _Hole);
-	
-	this.add.sprite(512.0, 480.0, 'base_out_atlas', 225, _Hole);
-	
-	var _keyYellow = this.add.sprite(320.0, 256.0, 'keyYellow');
+	var _keyYellow = this.add.sprite(384.0, 288.0, 'keyYellow');
 	_keyYellow.scale.setTo(0.45714285714285713, 0.45714285714285713);
 	this.game.physics.arcade.enable(_keyYellow);
 	
-	var _treasure_chest = this.add.sprite(384.0, 256.0, 'treasure chest1', 0);
+	var _treasure_chest = this.add.sprite(256.0, 288.0, 'treasure chest1', 0);
 	_treasure_chest.scale.setTo(0.9142857142857143, 0.9142857142857143);
 	var _treasure_chest_open = _treasure_chest.animations.add('open', [1, 2, 3, 4, 5, 6], 8, false);
 	_treasure_chest_open.killOnComplete = true;
@@ -85,19 +70,19 @@ Level1.prototype.create = function () {
 	var _base_out_atlas = this.add.sprite(224.0, 288.0, 'base_out_atlas', 234, _block);
 	this.game.physics.arcade.enable(_base_out_atlas);
 	
-	var _base_out_atlas = this.add.sprite(256.0, 288.0, 'base_out_atlas', 234, _block);
+	var _base_out_atlas = this.add.sprite(224.0, 416.0, 'base_out_atlas', 234, _block);
 	this.game.physics.arcade.enable(_base_out_atlas);
 	
-	var _base_out_atlas = this.add.sprite(288.0, 288.0, 'base_out_atlas', 234, _block);
+	var _base_out_atlas = this.add.sprite(256.0, 416.0, 'base_out_atlas', 234, _block);
 	this.game.physics.arcade.enable(_base_out_atlas);
 	
-	var _base_out_atlas = this.add.sprite(320.0, 288.0, 'base_out_atlas', 234, _block);
+	var _base_out_atlas = this.add.sprite(288.0, 416.0, 'base_out_atlas', 234, _block);
 	this.game.physics.arcade.enable(_base_out_atlas);
 	
-	var _base_out_atlas = this.add.sprite(352.0, 288.0, 'base_out_atlas', 234, _block);
+	var _base_out_atlas = this.add.sprite(320.0, 416.0, 'base_out_atlas', 234, _block);
 	this.game.physics.arcade.enable(_base_out_atlas);
 	
-	var _base_out_atlas = this.add.sprite(384.0, 288.0, 'base_out_atlas', 234, _block);
+	var _base_out_atlas = this.add.sprite(352.0, 416.0, 'base_out_atlas', 234, _block);
 	this.game.physics.arcade.enable(_base_out_atlas);
 	
 	var _base_out_atlas = this.add.sprite(416.0, 288.0, 'base_out_atlas', 234, _block);
@@ -502,9 +487,6 @@ Level1.prototype.create = function () {
 	var _base_out_atlas = this.add.sprite(288.0, 224.0, 'base_out_atlas', 234, _block);
 	this.game.physics.arcade.enable(_base_out_atlas);
 	
-	var _base_out_atlas = this.add.sprite(320.0, 224.0, 'base_out_atlas', 234, _block);
-	this.game.physics.arcade.enable(_base_out_atlas);
-	
 	var _base_out_atlas = this.add.sprite(352.0, 224.0, 'base_out_atlas', 234, _block);
 	this.game.physics.arcade.enable(_base_out_atlas);
 	
@@ -515,6 +497,48 @@ Level1.prototype.create = function () {
 	this.game.physics.arcade.enable(_base_out_atlas);
 	
 	var _base_out_atlas = this.add.sprite(1184.0, 512.0, 'base_out_atlas', 234, _block);
+	this.game.physics.arcade.enable(_base_out_atlas);
+	
+	var _base_out_atlas = this.add.sprite(320.0, 224.0, 'base_out_atlas', 234, _block);
+	this.game.physics.arcade.enable(_base_out_atlas);
+	
+	var _base_out_atlas = this.add.sprite(224.0, 320.0, 'base_out_atlas', 234, _block);
+	this.game.physics.arcade.enable(_base_out_atlas);
+	
+	var _base_out_atlas = this.add.sprite(384.0, 416.0, 'base_out_atlas', 234, _block);
+	this.game.physics.arcade.enable(_base_out_atlas);
+	
+	var _base_out_atlas = this.add.sprite(352.0, 352.0, 'base_out_atlas', 234, _block);
+	this.game.physics.arcade.enable(_base_out_atlas);
+	
+	var _base_out_atlas = this.add.sprite(352.0, 288.0, 'base_out_atlas', 234, _block);
+	this.game.physics.arcade.enable(_base_out_atlas);
+	
+	var _base_out_atlas = this.add.sprite(416.0, 384.0, 'base_out_atlas', 234, _block);
+	this.game.physics.arcade.enable(_base_out_atlas);
+	
+	var _base_out_atlas = this.add.sprite(416.0, 352.0, 'base_out_atlas', 234, _block);
+	this.game.physics.arcade.enable(_base_out_atlas);
+	
+	var _base_out_atlas = this.add.sprite(416.0, 320.0, 'base_out_atlas', 234, _block);
+	this.game.physics.arcade.enable(_base_out_atlas);
+	
+	var _base_out_atlas = this.add.sprite(416.0, 416.0, 'base_out_atlas', 234, _block);
+	this.game.physics.arcade.enable(_base_out_atlas);
+	
+	var _base_out_atlas = this.add.sprite(224.0, 384.0, 'base_out_atlas', 234, _block);
+	this.game.physics.arcade.enable(_base_out_atlas);
+	
+	var _base_out_atlas = this.add.sprite(224.0, 352.0, 'base_out_atlas', 234, _block);
+	this.game.physics.arcade.enable(_base_out_atlas);
+	
+	var _base_out_atlas = this.add.sprite(288.0, 256.0, 'base_out_atlas', 234, _block);
+	this.game.physics.arcade.enable(_base_out_atlas);
+	
+	var _base_out_atlas = this.add.sprite(288.0, 288.0, 'base_out_atlas', 234, _block);
+	this.game.physics.arcade.enable(_base_out_atlas);
+	
+	var _base_out_atlas = this.add.sprite(352.0, 320.0, 'base_out_atlas', 234, _block);
 	this.game.physics.arcade.enable(_base_out_atlas);
 	
 	var _player = this.add.sprite(256.0, 224.0, 'atlas', 'misa-front-walk.000');
@@ -535,9 +559,6 @@ Level1.prototype.create = function () {
 	
 	this.fMidLayer = _MidLayer;
 	this.fMidLayer_layer = _MidLayer_layer;
-	this.fHole = _Hole;
-	this.fHole2 = _Hole2;
-	this.fHole1 = _Hole1;
 	this.fKeyYellow = _keyYellow;
 	this.fTreasure_chest = _treasure_chest;
 	this.fBlock = _block;
@@ -555,12 +576,10 @@ Level1.prototype.create = function () {
 };
 
 /* --- end generated code --- */
-var map;
-var key = false;
-Level1.prototype.initScene = function () {
+Level3.prototype.initScene = function () {
     
 };
-Level1.prototype.update = function () {
+Level3.prototype.update = function () {
 	this.fPlayer.body.velocity.set(0);
 	//if (checkOverlap(this.fPlayer,this.fBase_out_atlas2)&&!IsIn){
 		//state = this.game.state.getCurrentState();
@@ -568,12 +587,10 @@ Level1.prototype.update = function () {
 	if (this.fKeyYellow.exists){	
 		this.physics.arcade.collide(this.fPlayer,this.fKeyYellow, getKey, null, this);
 	}
+	
 	this.physics.arcade.collide(this.fPlayer,this.fTreasure_chest,IsOpenChest, null, this);
 	//this.fTreasure_chest.x = 640.0;
-	//this.fTreasure_chest.y = 256.0;
-	
-	
-	
+	//this.fTreasure_chest.y = 256.0;	
 	if (testmode){
 		if (this.cursors.left.isDown)
 	    {
@@ -708,7 +725,7 @@ Level1.prototype.update = function () {
     }
 
 };
-Level1.prototype.render = function () {
+Level3.prototype.render = function () {
 	//this.game.debug.bodyInfo(this.fPlayer,32, 150);
 	//this.game.debug.body(this.fPlayer);
 };
@@ -730,9 +747,9 @@ function checkOverlap(spriteA, spriteB) {
 // -- user code here --
 var toolbox = '<xml id="toolbox" style="display: none">';
 toolbox += ' <block type="move_right"></block>';
-//toolbox += '<block type="move_left"></block>';
-//toolbox += '<block type="move_up"></block>';
-//toolbox += '<block type="move_down"></block>';
+toolbox += '<block type="move_left"></block>';
+toolbox += '<block type="move_up"></block>';
+toolbox += '<block type="move_down"></block>';
 toolbox += '</xml>';
 
 var that;

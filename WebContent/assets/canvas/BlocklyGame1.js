@@ -116,26 +116,7 @@ BlocklyGame1.prototype.render = function () {
 	this.game.debug.inputInfo(32, 32);
 	
 }
-function setMaxBlock(num){
-	workspace.dispose();
-	workspace = Blockly.inject('blocklyDiv',
-	{
-    	
-    	maxBlocks:num,
-        media: 'google-blockly/media/',
-        toolbox: document.getElementById('toolbox')
-    });
-    generateCodeAndLoadIntoInterpreter();
-    workspace.addChangeListener(function (event) {
-        if (!(event instanceof Blockly.Events.Ui)) {
-            // Something changed. Parser needs to be reloaded.
-            resetInterpreter();
-            generateCodeAndLoadIntoInterpreter();
-        }
-    });
-	onWorkspaceChange();
 
-}
 function generateElement(element){
 	elements[elements.length] = element;
 }
