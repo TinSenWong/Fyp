@@ -19,6 +19,7 @@
     <script src="assets/canvas/Level2.js"></script>
     <script src="assets/canvas/Level3.js"></script>
     <script src="assets/canvas/Level4.js"></script>
+    <script src="assets/canvas/Level5.js"></script>
     <script src="assets/canvas/index.js"></script>
     <script src="assets/canvas/game1.js"></script>
     <script src="js/wait_block.js"></script>
@@ -415,8 +416,8 @@
     });
     function onWorkspaceChange(event) {
         document.getElementById('blocklyNum').textContent =
-           "You have  "+workspace.remainingCapacity()+" block(s) can use.";
-      }
+            "You have  "+workspace.remainingCapacity()+" block(s) can use.";
+    }
 
     workspace.addChangeListener(onWorkspaceChange);
     onWorkspaceChange();

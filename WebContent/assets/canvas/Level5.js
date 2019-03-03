@@ -7,26 +7,26 @@
 
 
 /**
- * Level4.
+ * Level5.
  */
-function Level4() {
+function Level5() {
 	
 	Phaser.State.call(this);
 	
 }
 
 /** @type Phaser.State */
-var Level4_proto = Object.create(Phaser.State.prototype);
-Level4.prototype = Level4_proto;
-Level4.prototype.constructor = Level4;
+var Level5_proto = Object.create(Phaser.State.prototype);
+Level5.prototype = Level5_proto;
+Level5.prototype.constructor = Level5;
 
-Level4.prototype.init = function () {
+Level5.prototype.init = function () {
 	
 	this.stage.backgroundColor = '#ffffff';
 	
 };
 
-Level4.prototype.preload = function () {
+Level5.prototype.preload = function () {
 	
 	changeToolbox(toolbox,20);
 	
@@ -34,7 +34,7 @@ Level4.prototype.preload = function () {
 	
 };
 
-Level4.prototype.create = function () {
+Level5.prototype.create = function () {
 	
 	this.initScene();
 	this.world.setBounds(0, 0, 20000, 20000);
@@ -615,10 +615,10 @@ Level4.prototype.create = function () {
 };
 
 /* --- end generated code --- */
-Level4.prototype.initScene = function () {
+Level5.prototype.initScene = function () {
     
 };
-Level4.prototype.update = function () {
+Level5.prototype.update = function () {
 	this.fPlayer.body.velocity.set(0);
 	//if (checkOverlap(this.fPlayer,this.fBase_out_atlas2)&&!IsIn){
 		//state = this.game.state.getCurrentState();
@@ -764,7 +764,7 @@ Level4.prototype.update = function () {
     }
 
 };
-Level4.prototype.render = function () {
+Level5.prototype.render = function () {
 	//this.game.debug.bodyInfo(this.fPlayer,32, 150);
 	//this.game.debug.body(this.fPlayer);
 };
@@ -789,6 +789,13 @@ toolbox += ' <block type="move_right"></block>';
 toolbox += '<block type="move_left"></block>';
 toolbox += '<block type="move_up"></block>';
 toolbox += '<block type="move_down"></block>';
+toolbox += '<block type="controls_repeat_ext">';
+toolbox += '<value name="TIMES">';
+toolbox += '    <shadow type="math_number">';
+toolbox += '        <field name="NUM">10</field>';
+toolbox += '   </shadow>';
+toolbox += '</value>';
+toolbox += '</block>';
 toolbox += '</xml>';
 
 var that;

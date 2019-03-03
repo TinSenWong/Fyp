@@ -1,7 +1,7 @@
 {
   "canvas-version": 2,
   "settings": {
-    "className": "Level4",
+    "className": "Level5",
     "sceneWidth": 1200,
     "sceneHeight": 800,
     "generateOnSave": true,

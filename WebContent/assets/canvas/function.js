@@ -137,6 +137,8 @@ function changeToolbox(toolbox,maxBlockNum){
             generateCodeAndLoadIntoInterpreter();
         }
     });
+
+    workspace.addChangeListener(onWorkspaceChange);
     onWorkspaceChange();
 }
 

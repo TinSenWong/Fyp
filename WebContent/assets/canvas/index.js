@@ -145,13 +145,14 @@ playGame.prototype = {
                                 
                                 break;
                             case 5:
-                            	/*
-                                game.state.add("Level01", Level5);
-                                game.state.start("Level01");
+                            	
+                                game.state.add("Level5", Level5);
+                                game.state.start("Level5");
                                 break;
+                                /*
                             case 6:
-                            	game.state.add("Level05", Level6);
-                                game.state.start("Level05");
+                            	game.state.add("Level6", Level6);
+                                game.state.start("Level6");
                                 break;
                                 */
                         }
