@@ -123,34 +123,32 @@ playGame.prototype = {
                         key = false;
                         switch (selestLevel) {
                             case 1:
-                                var toolbox = '<xml id="toolbox" style="display: none">';
+                                toolbox = '<xml id="toolbox" style="display: none">';
                                 toolbox += ' <block type="move_right"></block>';
 //toolbox += '<block type="move_left"></block>';
 //toolbox += '<block type="move_up"></block>';
 //toolbox += '<block type="move_down"></block>';
                                 toolbox += '</xml>';
-
-
+                                changeToolbox(toolbox,4);
                                 game.state.add("Level1", Level1);
                                 game.state.start("Level1");
                                 break;
 
                             case 2:
-                                var toolbox = '<xml id="toolbox" style="display: none">';
+                                toolbox = '<xml id="toolbox" style="display: none">';
                                 toolbox += ' <block type="move_right"></block>';
                                 toolbox += '<block type="move_left"></block>';
                                 toolbox += '<block type="move_up"></block>';
                                 toolbox += '<block type="move_down"></block>';
                                 toolbox += '</xml>';
                                 changeToolbox(toolbox,6);
-
                             	game.state.add("Level2", Level2);
                                 game.state.start("Level2");
                             	
                                 break;
                                 
                             case 3:
-                                var toolbox = '<xml id="toolbox" style="display: none">';
+                                toolbox = '<xml id="toolbox" style="display: none">';
                                 toolbox += ' <block type="move_right"></block>';
                                 toolbox += '<block type="move_left"></block>';
                                 toolbox += '<block type="move_up"></block>';
@@ -163,7 +161,7 @@ playGame.prototype = {
                                 break;
                                 
                             case 4:
-                                var toolbox = '<xml id="toolbox" style="display: none">';
+                                toolbox = '<xml id="toolbox" style="display: none">';
                                 toolbox += ' <block type="move_right"></block>';
                                 toolbox += '<block type="move_left"></block>';
                                 toolbox += '<block type="move_up"></block>';
@@ -175,7 +173,7 @@ playGame.prototype = {
                                 
                                 break;
                             case 5:
-                                var toolbox = '<xml id="toolbox" style="display: none">';
+                                toolbox = '<xml id="toolbox" style="display: none">';
                                 toolbox += ' <block type="move_right"></block>';
                                 toolbox += '<block type="move_left"></block>';
                                 toolbox += '<block type="move_up"></block>';

@@ -1,6 +1,7 @@
 //main
 var game;
 var maxBlock;
+var toolbox;
 // colors is actually the array of level pages
 var colors = ["0xffffff", "0xff0000", "0x00ff00", "0x0000ff", "0xffff00"];
 // columns of thumbnails in each page
