@@ -10,7 +10,6 @@
  * BlocklyGame1.
  */
 function BlocklyGame1() {
-	
 	Phaser.State.call(this);
 	
 }
@@ -31,7 +30,8 @@ BlocklyGame1.prototype.preload = function () {
 	
 	this.load.pack('game', 'assets/pack.json');
 	this.load.pack('maze', 'assets/pack.json');
-	
+    playerInput = this.add.group();
+    weaknessGroup = game.add.group();
 };
 
 BlocklyGame1.prototype.create = function () {
@@ -117,19 +117,7 @@ BlocklyGame1.prototype.render = function () {
 	this.game.debug.inputInfo(32, 32);
 	
 }
-function setMaxBlock(num){
-	workspace.dispose();
-	workspace = Blockly.inject('blocklyDiv',
-	{
-    	
-    	maxBlocks:num,
-        media: 'google-blockly/media/',
-        toolbox: document.getElementById('toolbox')
-    });
-	
-	onWorkspaceChange();
-    
-}
+
 function generateElement(element){
 	elements[elements.length] = element;
 }
@@ -200,7 +188,8 @@ function scroll() {
 }
 function checkInput(){
 	var count=0;
-	for (i = 0;i<playerInput.children.length;i++){
+	for (i = 0;i<playerInput.children.length-1;i++){
+		alert(playerInput.length+":"+weaknessGroup.length);
 		if (playerInput.children[i].frameName==weaknessGroup.children[i].frameName){
 			count+=1;
 		}
@@ -222,5 +211,3 @@ var tilesprite;
 var elements = new Array();
 var firstElement;
 var frontX = 1030, frontY = 276;
-var playerInput = game.add.group();
-var weaknessGroup = game.add.group();

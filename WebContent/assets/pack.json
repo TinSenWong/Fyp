@@ -40,11 +40,6 @@
       "overwrite": false
     },
     {
-      "type": "script",
-      "key": "game1",
-      "url": "assets/canvas/game1.js"
-    },
-    {
       "type": "atlas",
       "key": "monster",
       "textureURL": "assets/atlas/monster.png",
@@ -78,11 +73,6 @@
       "spacing": 0
     },
     {
-      "type": "script",
-      "key": "Level2",
-      "url": "assets/canvas/Level2.js"
-    },
-    {
       "type": "tilemap",
       "key": "BlockLayer",
       "url": "assets/tilemaps/maze._Block.csv",
@@ -101,21 +91,6 @@
       "format": "CSV"
     },
     {
-      "type": "script",
-      "key": "Level01",
-      "url": "assets/canvas/Level01.js"
-    },
-    {
-      "type": "script",
-      "key": "Level",
-      "url": "assets/canvas/Level.js"
-    },
-    {
-      "type": "script",
-      "key": "index",
-      "url": "assets/canvas/index.js"
-    },
-    {
       "type": "spritesheet",
       "key": "tiles_spritesheet",
       "url": "assets/image/tiles_spritesheet.png",
@@ -124,21 +99,6 @@
       "frameMax": -1,
       "margin": 0,
       "spacing": 0
-    },
-    {
-      "type": "script",
-      "key": "Level05",
-      "url": "assets/canvas/Level05.js"
-    },
-    {
-      "type": "script",
-      "key": "Level03",
-      "url": "assets/canvas/Level03.js"
-    },
-    {
-      "type": "script",
-      "key": "Level04",
-      "url": "assets/canvas/Level04.js"
     },
     {
       "type": "image",
@@ -161,16 +121,6 @@
       "frameMax": -1,
       "margin": 0,
       "spacing": 0
-    },
-    {
-      "type": "script",
-      "key": "game2",
-      "url": "assets/canvas/game2.js"
-    },
-    {
-      "type": "script",
-      "key": "BlocklyGame1",
-      "url": "assets/canvas/BlocklyGame1.js"
     }
   ],
   "game": [
@@ -281,7 +231,7 @@
     }
   ],
   "meta": {
-    "generated": "1550339788197",
+    "generated": "1551672948904",
     "app": "Phaser Editor",
     "url": "http://phasereditor.boniatillo.com",
     "version": "1.0",

@@ -1,7 +1,16 @@
-#gameDiv{
+#phaser{
     position: absolute;
     top: 5%;
 }
+#gameButton{
+    position: absolute;
+    bottom: 10%;
+}
+#displayText{
+    position: absolute;
+    bottom: 15%;
+}
+
 html,
 body {
     height: 100%;

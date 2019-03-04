@@ -7,34 +7,33 @@
 
 
 /**
- * Level2.
+ * Level1.
  */
-function Level2() {
+function Level1() {
 	
 	Phaser.State.call(this);
 	
 }
 
 /** @type Phaser.State */
-var Level2_proto = Object.create(Phaser.State.prototype);
-Level2.prototype = Level2_proto;
-Level2.prototype.constructor = Level2;
+var Level1_proto = Object.create(Phaser.State.prototype);
+Level1.prototype = Level1_proto;
+Level1.prototype.constructor = Level1;
 
-Level2.prototype.init = function () {
+Level1.prototype.init = function () {
 	
 	this.stage.backgroundColor = '#ffffff';
 	
 };
 
-Level2.prototype.preload = function () {
+Level1.prototype.preload = function () {
 	
-	changeToolbox(toolbox,6);
-	
+
 	this.load.pack('maze', 'assets/pack.json');
 	
 };
 
-Level2.prototype.create = function () {
+Level1.prototype.create = function () {
 	
 	this.initScene();
 	this.world.setBounds(0, 0, 20000, 20000);
@@ -64,7 +63,7 @@ Level2.prototype.create = function () {
 	
 	this.add.sprite(512.0, 480.0, 'base_out_atlas', 225, _Hole);
 	
-	var _keyYellow = this.add.sprite(320.0, 224.0, 'keyYellow');
+	var _keyYellow = this.add.sprite(320.0, 256.0, 'keyYellow');
 	_keyYellow.scale.setTo(0.45714285714285713, 0.45714285714285713);
 	this.game.physics.arcade.enable(_keyYellow);
 	
@@ -502,7 +501,7 @@ Level2.prototype.create = function () {
 	var _base_out_atlas = this.add.sprite(288.0, 224.0, 'base_out_atlas', 234, _block);
 	this.game.physics.arcade.enable(_base_out_atlas);
 	
-	var _base_out_atlas = this.add.sprite(288.0, 192.0, 'base_out_atlas', 234, _block);
+	var _base_out_atlas = this.add.sprite(320.0, 224.0, 'base_out_atlas', 234, _block);
 	this.game.physics.arcade.enable(_base_out_atlas);
 	
 	var _base_out_atlas = this.add.sprite(352.0, 224.0, 'base_out_atlas', 234, _block);
@@ -515,12 +514,6 @@ Level2.prototype.create = function () {
 	this.game.physics.arcade.enable(_base_out_atlas);
 	
 	var _base_out_atlas = this.add.sprite(1184.0, 512.0, 'base_out_atlas', 234, _block);
-	this.game.physics.arcade.enable(_base_out_atlas);
-	
-	var _base_out_atlas = this.add.sprite(320.0, 192.0, 'base_out_atlas', 234, _block);
-	this.game.physics.arcade.enable(_base_out_atlas);
-	
-	var _base_out_atlas = this.add.sprite(352.0, 192.0, 'base_out_atlas', 234, _block);
 	this.game.physics.arcade.enable(_base_out_atlas);
 	
 	var _player = this.add.sprite(256.0, 224.0, 'atlas', 'misa-front-walk.000');
@@ -561,10 +554,12 @@ Level2.prototype.create = function () {
 };
 
 /* --- end generated code --- */
-Level2.prototype.initScene = function () {
+var map;
+var key = false;
+Level1.prototype.initScene = function () {
     
 };
-Level2.prototype.update = function () {
+Level1.prototype.update = function () {
 	this.fPlayer.body.velocity.set(0);
 	//if (checkOverlap(this.fPlayer,this.fBase_out_atlas2)&&!IsIn){
 		//state = this.game.state.getCurrentState();
@@ -712,7 +707,7 @@ Level2.prototype.update = function () {
     }
 
 };
-Level2.prototype.render = function () {
+Level1.prototype.render = function () {
 	//this.game.debug.bodyInfo(this.fPlayer,32, 150);
 	//this.game.debug.body(this.fPlayer);
 };

@@ -1,7 +1,7 @@
 {
   "canvas-version": 2,
   "settings": {
-    "className": "Level2",
+    "className": "Level1",
     "sceneWidth": 1200,
     "sceneHeight": 800,
     "generateOnSave": true,
@@ -21,7 +21,7 @@
     "showGrid": true,
     "create_before": "this.initScene();\r\nthis.world.setBounds(0, 0, 20000, 20000);\r\n",
     "create_after": "//this.camera.follow(this.fPlayer);\r\nif (game1Pass){\r\n\tthis.fPlayer.x = playerX;\r\n\tthis.fPlayer.y = playerY;\r\n\tthis.fMonster.visible = false;\r\n}\r\nthis.cursors = this.input.keyboard.createCursorKeys();\r\nthis.fPlayer.body.collideWorldBounds=true;\r\nplayer = this.fPlayer;",
-    "state_preload_before": "changeToolbox(toolbox,6);"
+    "state_preload_before": "changeToolbox(toolbox,4);"
   },
   "stateSettings": {
     "stageBackgroundColor": [
@@ -150,7 +150,7 @@
             "editorName": "keyYellow",
             "editorField": true,
             "x": 320,
-            "y": 224,
+            "y": 256,
             "scale.x": 0.45714285714285713,
             "scale.y": 0.45714285714285713,
             "data": "",
@@ -1692,8 +1692,8 @@
                 "asset": "10",
                 "info": {
                   "editorName": "base_out_atlas",
-                  "x": 288,
-                  "y": 192,
+                  "x": 320,
+                  "y": 224,
                   "body": {"type": "ARCADE_RECT"}
                 }
               },
@@ -1738,28 +1738,6 @@
                   "editorName": "base_out_atlas",
                   "x": 1184,
                   "y": 512,
-                  "body": {"type": "ARCADE_RECT"}
-                }
-              },
-              {
-                "type": "spritesheet",
-                "id": "0909c805-7c7b-488b-9b63-209275e0dc5f",
-                "asset": "10",
-                "info": {
-                  "editorName": "base_out_atlas",
-                  "x": 320,
-                  "y": 192,
-                  "body": {"type": "ARCADE_RECT"}
-                }
-              },
-              {
-                "type": "spritesheet",
-                "id": "43a32752-2d0b-4533-acd6-6c69f61bf648",
-                "asset": "10",
-                "info": {
-                  "editorName": "base_out_atlas",
-                  "x": 352,
-                  "y": 192,
                   "body": {"type": "ARCADE_RECT"}
                 }
               }
