@@ -14,7 +14,9 @@
     <script src="lib/phaser-input.js"></script>
     <script src="lib/phaser-nineslice.js"></script>
     <script src="lib/phaser-kinetic-scrolling-plugin.js"></script>
+
     <script src="assets/canvas/function.js"></script>
+
     <script src="assets/canvas/Level1.js"></script>
     <script src="assets/canvas/Level2.js"></script>
     <script src="assets/canvas/Level3.js"></script>
@@ -27,12 +29,14 @@
     <script src="assets/canvas/Level10.js"></script>
     <script src="assets/canvas/index.js"></script>
     <script src="assets/canvas/game1.js"></script>
+    <script src="assets/canvas/BlocklyGame1.js"></script>
+
     <script src="js/wait_block.js"></script>
     <script src="js/movement_block.js"></script>
     <script src="js/movement_stub.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
-<body onresize="resize()">
+<body>
 <?php include 'Heading.php'; ?>
 <div id="gameDiv">
     <div id="phaser">

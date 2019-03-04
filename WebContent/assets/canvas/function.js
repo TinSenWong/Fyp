@@ -28,6 +28,8 @@ var lastOrder;
 var isSelectLevel = true;
 var screenWidth = screen.width;
 var screenHeight = screen.height * 0.8;
+var playerInput;
+var weaknessGroup;
 function selectLevel(){
 	if (game != null) {
         game.destroy();
@@ -145,13 +147,22 @@ function changeToolbox(toolbox,maxBlockNum){
     onWorkspaceChange();
 }
 
+function viewAllBlockly() {
+    workspace.dispose();
+    workspace = Blockly.inject('blocklyDiv',
+        {
+            media: 'google-blockly/media/',
+            toolbox: document.getElementById("toolbox")
+        });
+    generateCodeAndLoadIntoInterpreter();
+    workspace.addChangeListener(function (event) {
+        if (!(event instanceof Blockly.Events.Ui)) {
+            // Something changed. Parser needs to be reloaded.
+            resetInterpreter();
+            generateCodeAndLoadIntoInterpreter();
+        }
+    });
 
-function resize(){
-    $("head").append('<script src="assets/canvas/index.js"></script>');
-
+    workspace.addChangeListener(onWorkspaceChange);
+    onWorkspaceChange();
 }
-
-
-
-
-

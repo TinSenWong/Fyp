@@ -30,7 +30,8 @@ BlocklyGame1.prototype.preload = function () {
 	
 	this.load.pack('game', 'assets/pack.json');
 	this.load.pack('maze', 'assets/pack.json');
-	
+    playerInput = this.add.group();
+    weaknessGroup = game.add.group();
 };
 
 BlocklyGame1.prototype.create = function () {
@@ -210,5 +211,3 @@ var tilesprite;
 var elements = new Array();
 var firstElement;
 var frontX = 1030, frontY = 276;
-var playerInput = game.add.group();
-var weaknessGroup = game.add.group();
