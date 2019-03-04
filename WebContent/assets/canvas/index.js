@@ -190,12 +190,99 @@ playGame.prototype = {
                                 game.state.add("Level5", Level5);
                                 game.state.start("Level5");
                                 break;
-                                /*
+
                             case 6:
+                                toolbox = '<xml id="toolbox" style="display: none">';
+                                toolbox += ' <block type="move_right"></block>';
+                                toolbox += '<block type="move_left"></block>';
+                                toolbox += '<block type="move_up"></block>';
+                                toolbox += '<block type="move_down"></block>';
+                                toolbox += '<block type="controls_repeat_ext">';
+                                toolbox += '<value name="TIMES">';
+                                toolbox += '    <shadow type="math_number">';
+                                toolbox += '        <field name="NUM">10</field>';
+                                toolbox += '   </shadow>';
+                                toolbox += '</value>';
+                                toolbox += '</block>';
+                                toolbox += '</xml>';
+                                changeToolbox(toolbox,20);
                             	game.state.add("Level6", Level6);
                                 game.state.start("Level6");
                                 break;
-                                */
+
+                            case 7:
+                                toolbox = '<xml id="toolbox" style="display: none">';
+                                toolbox += ' <block type="move_right"></block>';
+                                toolbox += '<block type="move_left"></block>';
+                                toolbox += '<block type="move_up"></block>';
+                                toolbox += '<block type="move_down"></block>';
+                                toolbox += '<block type="controls_repeat_ext">';
+                                toolbox += '<value name="TIMES">';
+                                toolbox += '    <shadow type="math_number">';
+                                toolbox += '        <field name="NUM">10</field>';
+                                toolbox += '   </shadow>';
+                                toolbox += '</value>';
+                                toolbox += '</block>';
+                                toolbox += '</xml>';
+                                changeToolbox(toolbox,20);
+                            	game.state.add("Level7", Level7);
+                                game.state.start("Level7");
+                                break;
+                            case 8:
+                                toolbox = '<xml id="toolbox" style="display: none">';
+                                toolbox += ' <block type="move_right"></block>';
+                                toolbox += '<block type="move_left"></block>';
+                                toolbox += '<block type="move_up"></block>';
+                                toolbox += '<block type="move_down"></block>';
+                                toolbox += '<block type="controls_repeat_ext">';
+                                toolbox += '<value name="TIMES">';
+                                toolbox += '    <shadow type="math_number">';
+                                toolbox += '        <field name="NUM">10</field>';
+                                toolbox += '   </shadow>';
+                                toolbox += '</value>';
+                                toolbox += '</block>';
+                                toolbox += '</xml>';
+                                changeToolbox(toolbox,20);
+                            	game.state.add("Level8", Level8);
+                                game.state.start("Level8");
+                                break;
+                            case 9:
+                                toolbox = '<xml id="toolbox" style="display: none">';
+                                toolbox += ' <block type="move_right"></block>';
+                                toolbox += '<block type="move_left"></block>';
+                                toolbox += '<block type="move_up"></block>';
+                                toolbox += '<block type="move_down"></block>';
+                                toolbox += '<block type="controls_repeat_ext">';
+                                toolbox += '<value name="TIMES">';
+                                toolbox += '    <shadow type="math_number">';
+                                toolbox += '        <field name="NUM">10</field>';
+                                toolbox += '   </shadow>';
+                                toolbox += '</value>';
+                                toolbox += '</block>';
+                                toolbox += '</xml>';
+                                changeToolbox(toolbox,20);
+                            	game.state.add("Level9", Level9);
+                                game.state.start("Level9");
+                                break;
+                            case 10:
+                                toolbox = '<xml id="toolbox" style="display: none">';
+                                toolbox += ' <block type="move_right"></block>';
+                                toolbox += '<block type="move_left"></block>';
+                                toolbox += '<block type="move_up"></block>';
+                                toolbox += '<block type="move_down"></block>';
+                                toolbox += '<block type="controls_repeat_ext">';
+                                toolbox += '<value name="TIMES">';
+                                toolbox += '    <shadow type="math_number">';
+                                toolbox += '        <field name="NUM">10</field>';
+                                toolbox += '   </shadow>';
+                                toolbox += '</value>';
+                                toolbox += '</block>';
+                                toolbox += '</xml>';
+                                changeToolbox(toolbox,20);
+                            	game.state.add("Level10", Level10);
+                                game.state.start("Level10");
+                                break;
+
                         }
 
                         break;

@@ -7,36 +7,33 @@
 
 
 /**
- * Level5.
+ * Level7.
  */
-function Level5() {
+function Level7() {
 	
 	Phaser.State.call(this);
 	
 }
 
 /** @type Phaser.State */
-var Level5_proto = Object.create(Phaser.State.prototype);
-Level5.prototype = Level5_proto;
-Level5.prototype.constructor = Level5;
+var Level7_proto = Object.create(Phaser.State.prototype);
+Level7.prototype = Level7_proto;
+Level7.prototype.constructor = Level7;
 
-Level5.prototype.init = function () {
+Level7.prototype.init = function () {
 	
 	this.stage.backgroundColor = '#ffffff';
 	
 };
 
-Level5.prototype.preload = function () {
+Level7.prototype.preload = function () {
 	
-	changeToolbox(toolbox,20);
 	
 	this.load.pack('maze', 'assets/pack.json');
 	
 };
 
-Level5.prototype.create = function () {
-	
-	this.initScene();
+Level7.prototype.create = function () {
 	this.world.setBounds(0, 0, 20000, 20000);
 	
 	var _bottomLayer = this.add.tilemap('bottomLayer', 32, 32);
@@ -49,7 +46,7 @@ Level5.prototype.create = function () {
 	var _MidLayer_layer = _MidLayer.createLayer(0);
 	_MidLayer_layer.resizeWorld();
 	
-	var _keyYellow = this.add.sprite(512.0, 256.0, 'keyYellow');
+	var _keyYellow = this.add.sprite(352.0, 320.0, 'keyYellow');
 	_keyYellow.scale.setTo(0.45714285714285713, 0.45714285714285713);
 	this.game.physics.arcade.enable(_keyYellow);
 	
@@ -556,28 +553,22 @@ Level5.prototype.create = function () {
 	var _base_out_atlas = this.add.sprite(480.0, 320.0, 'base_out_atlas', 234, _block);
 	this.game.physics.arcade.enable(_base_out_atlas);
 	
-	var _base_out_atlas = this.add.sprite(544.0, 224.0, 'base_out_atlas', 234, _block);
+	var _base_out_atlas = this.add.sprite(576.0, 352.0, 'base_out_atlas', 234, _block);
 	this.game.physics.arcade.enable(_base_out_atlas);
 	
-	var _base_out_atlas = this.add.sprite(288.0, 288.0, 'base_out_atlas', 234, _block);
+	var _base_out_atlas = this.add.sprite(544.0, 352.0, 'base_out_atlas', 234, _block);
 	this.game.physics.arcade.enable(_base_out_atlas);
 	
-	var _base_out_atlas = this.add.sprite(320.0, 288.0, 'base_out_atlas', 234, _block);
-	this.game.physics.arcade.enable(_base_out_atlas);
-	
-	var _base_out_atlas = this.add.sprite(352.0, 288.0, 'base_out_atlas', 234, _block);
-	this.game.physics.arcade.enable(_base_out_atlas);
-	
-	var _base_out_atlas = this.add.sprite(384.0, 288.0, 'base_out_atlas', 234, _block);
-	this.game.physics.arcade.enable(_base_out_atlas);
-	
-	var _base_out_atlas = this.add.sprite(416.0, 288.0, 'base_out_atlas', 234, _block);
-	this.game.physics.arcade.enable(_base_out_atlas);
-	
-	var _base_out_atlas = this.add.sprite(448.0, 288.0, 'base_out_atlas', 234, _block);
+	var _base_out_atlas = this.add.sprite(512.0, 352.0, 'base_out_atlas', 234, _block);
 	this.game.physics.arcade.enable(_base_out_atlas);
 	
 	var _base_out_atlas = this.add.sprite(480.0, 352.0, 'base_out_atlas', 234, _block);
+	this.game.physics.arcade.enable(_base_out_atlas);
+	
+	var _base_out_atlas = this.add.sprite(512.0, 224.0, 'base_out_atlas', 234, _block);
+	this.game.physics.arcade.enable(_base_out_atlas);
+	
+	var _base_out_atlas = this.add.sprite(704.0, 288.0, 'base_out_atlas', 234, _block);
 	this.game.physics.arcade.enable(_base_out_atlas);
 	
 	var _player = this.add.sprite(256.0, 224.0, 'atlas', 'misa-front-walk.000');
@@ -591,6 +582,12 @@ Level5.prototype.create = function () {
 	_player.animations.add('RightStay', ['misa-right'], 6, false);
 	this.game.physics.arcade.enable(_player);
 	_player.body.setSize(31.9999999999, 31.9999999999, 0.0, 32.0);
+	
+	var _base_out_atlas = this.add.sprite(416.0, 288.0, 'base_out_atlas', 234);
+	this.game.physics.arcade.enable(_base_out_atlas);
+	
+	var _base_out_atlas = this.add.sprite(448.0, 288.0, 'base_out_atlas', 234);
+	this.game.physics.arcade.enable(_base_out_atlas);
 	
 	
 	
@@ -615,10 +612,10 @@ Level5.prototype.create = function () {
 };
 
 /* --- end generated code --- */
-Level5.prototype.initScene = function () {
+Level7.prototype.initScene = function () {
     
 };
-Level5.prototype.update = function () {
+Level7.prototype.update = function () {
 	this.fPlayer.body.velocity.set(0);
 	//if (checkOverlap(this.fPlayer,this.fBase_out_atlas2)&&!IsIn){
 		//state = this.game.state.getCurrentState();
@@ -764,7 +761,7 @@ Level5.prototype.update = function () {
     }
 
 };
-Level5.prototype.render = function () {
+Level7.prototype.render = function () {
 	//this.game.debug.bodyInfo(this.fPlayer,32, 150);
 	//this.game.debug.body(this.fPlayer);
 };

@@ -20,6 +20,11 @@
     <script src="assets/canvas/Level3.js"></script>
     <script src="assets/canvas/Level4.js"></script>
     <script src="assets/canvas/Level5.js"></script>
+    <script src="assets/canvas/Level6.js"></script>
+    <script src="assets/canvas/Level7.js"></script>
+    <script src="assets/canvas/Level8.js"></script>
+    <script src="assets/canvas/Level9.js"></script>
+    <script src="assets/canvas/Level10.js"></script>
     <script src="assets/canvas/index.js"></script>
     <script src="assets/canvas/game1.js"></script>
     <script src="js/wait_block.js"></script>
