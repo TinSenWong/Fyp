@@ -28,8 +28,6 @@ Level4.prototype.init = function () {
 
 Level4.prototype.preload = function () {
 	
-	changeToolbox(toolbox,20);
-	
 	this.load.pack('maze', 'assets/pack.json');
 	
 };
@@ -784,12 +782,7 @@ function checkOverlap(spriteA, spriteB) {
 }
  
 // -- user code here --
-var toolbox = '<xml id="toolbox" style="display: none">';
-toolbox += ' <block type="move_right"></block>';
-toolbox += '<block type="move_left"></block>';
-toolbox += '<block type="move_up"></block>';
-toolbox += '<block type="move_down"></block>';
-toolbox += '</xml>';
+
 
 var that;
 var tween;

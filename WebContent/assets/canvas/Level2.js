@@ -732,12 +732,7 @@ function checkOverlap(spriteA, spriteB) {
 }
  
 // -- user code here --
-var toolbox = '<xml id="toolbox" style="display: none">';
-toolbox += ' <block type="move_right"></block>';
-toolbox += '<block type="move_left"></block>';
-toolbox += '<block type="move_up"></block>';
-toolbox += '<block type="move_down"></block>';
-toolbox += '</xml>';
+
 
 var that;
 var tween;
