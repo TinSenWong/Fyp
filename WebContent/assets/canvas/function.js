@@ -26,11 +26,13 @@ var game1Pass = false;
 var game2Pass = false;
 var lastOrder;
 var isSelectLevel = true;
+var screenWidth = screen.width;
+var screenHeight = screen.height * 0.8;
 function selectLevel(){
 	if (game != null) {
         game.destroy();
     }
-	game = new Phaser.Game(document.body.offsetWidth,document.body.offsetHeight, Phaser.Auto, 'phaser');
+	game = new Phaser.Game(screenWidth,screenHeight, Phaser.Auto, 'phaser');
 
 	game.state.add("PlayGame", playGame);
     game.state.start("PlayGame");
@@ -144,6 +146,10 @@ function changeToolbox(toolbox,maxBlockNum){
 }
 
 
+function resize(){
+    $("head").append('<script src="assets/canvas/index.js"></script>');
+
+}
 
 
 

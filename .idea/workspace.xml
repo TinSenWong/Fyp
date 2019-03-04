@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="eaaf6313-c3e6-45b3-af30-a285f54606bb" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
-    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,9 +14,9 @@
         <counts>
           <entry key="project.closed" value="8" />
           <entry key="project.open.time.0" value="1" />
-          <entry key="project.open.time.5" value="6" />
+          <entry key="project.open.time.5" value="7" />
           <entry key="project.open.time.6" value="4" />
-          <entry key="project.opened" value="11" />
+          <entry key="project.opened" value="12" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -43,42 +42,46 @@
         <counts>
           <entry key="css" value="116" />
           <entry key="html" value="11" />
-          <entry key="js" value="211" />
-          <entry key="php" value="138" />
+          <entry key="js" value="290" />
+          <entry key="php" value="148" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="116" />
           <entry key="HTML" value="11" />
-          <entry key="JavaScript" value="211" />
-          <entry key="PHP" value="138" />
+          <entry key="JavaScript" value="290" />
+          <entry key="PHP" value="148" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="GamePlay.php" pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WebContent/GamePlay.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="26" column="38" selection-start-line="26" selection-start-column="38" selection-end-line="26" selection-end-column="38" />
+            <state relative-caret-position="292">
+              <caret line="27" column="50" lean-forward="true" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="50" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WebContent/index.php">
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WebContent/assets/canvas/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="518">
-              <caret line="205" column="24" selection-start-line="205" selection-start-column="24" selection-end-line="205" selection-end-column="24" />
+            <state relative-caret-position="5852">
+              <caret line="320" column="5" lean-forward="true" selection-start-line="320" selection-start-column="5" selection-end-line="320" selection-end-column="5" />
               <folding>
+                <element signature="n#style#0;n#xml#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#xml#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#xml#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#xml#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#xml#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#xml#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#xml#0;n#!!top" expanded="true" />
@@ -90,11 +93,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="function.js" pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/WebContent/assets/canvas/function.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1790">
-              <caret line="19" column="29" selection-start-line="19" selection-start-column="29" selection-end-line="19" selection-end-column="29" />
+            <state relative-caret-position="551">
+              <caret line="29" column="39" lean-forward="true" selection-start-line="29" selection-start-column="39" selection-end-line="29" selection-end-column="39" />
             </state>
           </provider>
         </entry>
@@ -131,9 +134,9 @@
         <option value="$PROJECT_DIR$/WebContent/js/run.js" />
         <option value="$PROJECT_DIR$/WebContent/assets/canvas/BlocklyGame1.js" />
         <option value="$PROJECT_DIR$/WebContent/assets/canvas/Level1.js" />
-        <option value="$PROJECT_DIR$/WebContent/assets/canvas/function.js" />
         <option value="$PROJECT_DIR$/WebContent/assets/canvas/index.js" />
         <option value="$PROJECT_DIR$/WebContent/GamePlay.php" />
+        <option value="$PROJECT_DIR$/WebContent/assets/canvas/function.js" />
       </list>
     </option>
   </component>
@@ -149,7 +152,7 @@
     </packageJsonPaths>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.2" />
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="960" />
     <option name="width" value="960" />
     <option name="height" value="1040" />
@@ -240,36 +243,37 @@
       <workItem from="1551497167771" duration="8412000" />
       <workItem from="1551586110849" duration="8652000" />
       <workItem from="1551672270671" duration="2264000" />
+      <workItem from="1551704138658" duration="1919000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33491000" />
+    <option name="totallyTimeSpent" value="35410000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="960" y="0" width="960" height="1040" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="PHP-CGI Server" order="12" />
-      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
-      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Terminal" order="10" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2690678" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="right" id="Database" order="3" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13219616" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32855567" />
+      <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info anchor="bottom" id="Terminal" order="10" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info anchor="bottom" id="PHP-CGI Server" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32855567" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -279,13 +283,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/WebContent/GamePlay.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7999">
-          <caret line="421" column="4" selection-start-line="421" selection-start-column="4" selection-end-line="422" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/google-blockly/tests/jsunit/run_jsunit_tests_in_browser.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="194">
@@ -351,18 +348,18 @@
     <entry file="file://$PROJECT_DIR$/WebContent/assets/canvas/Level3.js" />
     <entry file="file://$PROJECT_DIR$/WebContent/assets/canvas/BlocklyGame1.js" />
     <entry file="file://$PROJECT_DIR$/WebContent/js/run.js" />
-    <entry file="file://$PROJECT_DIR$/WebContent/assets/canvas/function.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1790">
-          <caret line="19" column="29" selection-start-line="19" selection-start-column="29" selection-end-line="19" selection-end-column="29" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/WebContent/index.php">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/assets/canvas/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="518">
-          <caret line="205" column="24" selection-start-line="205" selection-start-column="24" selection-end-line="205" selection-end-column="24" />
+        <state relative-caret-position="5852">
+          <caret line="320" column="5" lean-forward="true" selection-start-line="320" selection-start-column="5" selection-end-line="320" selection-end-column="5" />
           <folding>
+            <element signature="n#style#0;n#xml#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#xml#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#xml#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#xml#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#xml#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#xml#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#xml#0;n#!!top" expanded="true" />
@@ -373,13 +370,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/index.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/GamePlay.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="26" column="38" selection-start-line="26" selection-start-column="38" selection-end-line="26" selection-end-column="38" />
+        <state relative-caret-position="292">
+          <caret line="27" column="50" lean-forward="true" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/assets/canvas/function.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="551">
+          <caret line="29" column="39" lean-forward="true" selection-start-line="29" selection-start-column="39" selection-end-line="29" selection-end-column="39" />
         </state>
       </provider>
     </entry>

@@ -27,7 +27,7 @@ playGame.prototype = {
         // setting game background color
         game.stage.backgroundColor = "#222222";
         // just a text placed on the top of the stage to show level page
-        this.pageText = game.add.text(game.width / 2, 16, "Swipe to select level page (1 / " + colors.length + ")", {
+        this.pageText = game.add.text(game.width / 2, 50, "Swipe to select level page (1 / " + colors.length + ")", {
             font: "18px Arial",
             fill: "#ffffff"
         })
