@@ -30,7 +30,6 @@
     <script src="assets/canvas/Level10.js"></script>
     <script src="assets/canvas/index.js"></script>
     <script src="assets/canvas/game1.js"></script>
-    <script src="assets/canvas/BlocklyGame1.js"></script>
     <script src="assets/canvas/breakWallGame.js"></script>
     <script src="assets/canvas/breakWallGame2.js"></script>
 

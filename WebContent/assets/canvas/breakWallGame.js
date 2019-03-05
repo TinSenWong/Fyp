@@ -71,10 +71,12 @@ function generateElement(element){
 	elements[elements.length] = element;
 }
 function resetElement(){
+	if (playerInput!=null){
 	playerInput.destroy();
 	playerInput = game.add.group();
 	playerInput.x = 24;
 	playerInput.y = 450;
+	}
 	elements = new Array();
 }
 
@@ -138,16 +140,22 @@ function scroll() {
 }
 function checkInput(){
 	var count=0;
-	for (i = 0;i<playerInput.children.length;i++){
-		//alert(playerInput.length+":"+weaknessGroup.length);
-		console.log(playerInput.children[i].frameName+":"+weaknessGroup.children[i].frameName);
-		if (playerInput.children[i].frameName==weaknessGroup.children[i].frameName){
-			count+=1;
-			console.log(count+"c")
+	if (playerInput != null){
+		if (playerInput.length==weaknessGroup.length){
+			for (i = 0;i<playerInput.children.length;i++){
+				//alert(playerInput.length+":"+weaknessGroup.length);
+				if (playerInput.children[i].frameName==weaknessGroup.children[i].frameName){
+					count+=1;
+					console.log(count+"c")
+				}else{
+					break;
+				}
+			}
+			if (count==weaknessGroup.children.length){
+				correct = true;
+			}
 		}
-	}
-	if (count==weaknessGroup.children.length){
-		correct = true;
+		
 	}
 }
 function randonWeakness(number){

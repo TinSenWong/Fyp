@@ -89,6 +89,7 @@ function getKey(){
 function IsOpenChest(){
 	if (key){
 		this.fTreasure_chest.play('open').onComplete.add(function(){
+			alert(level);
 			if (hp==1){
 				stars[level] = 1;
 		        if (stars[level + 1] != undefined && stars[level + 1] == -1) {
