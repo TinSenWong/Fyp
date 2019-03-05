@@ -73,8 +73,8 @@ function generateElement(element){
 function resetElement(){
 	playerInput.destroy();
 	playerInput = game.add.group();
-	playerInput.x = 1030;
-	playerInput.y = 276;
+	playerInput.x = 24;
+	playerInput.y = 450;
 	elements = new Array();
 }
 
