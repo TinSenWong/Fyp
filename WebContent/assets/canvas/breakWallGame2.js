@@ -7,38 +7,45 @@
 
 
 /**
- * breakWallGame.
+ * breakWallGame2.
  */
-function breakWallGame() {
+function breakWallGame2() {
 	
 	Phaser.State.call(this);
 	
 }
 
 /** @type Phaser.State */
-var breakWallGame_proto = Object.create(Phaser.State.prototype);
-breakWallGame.prototype = breakWallGame_proto;
-breakWallGame.prototype.constructor = breakWallGame;
+var breakWallGame2_proto = Object.create(Phaser.State.prototype);
+breakWallGame2.prototype = breakWallGame2_proto;
+breakWallGame2.prototype.constructor = breakWallGame2;
 
-breakWallGame.prototype.init = function () {
+breakWallGame2.prototype.init = function () {
 	
 };
 
-breakWallGame.prototype.preload = function () {
+breakWallGame2.prototype.preload = function () {
 	
 	this.load.pack('game', 'assets/pack.json');
 	this.load.pack('maze', 'assets/pack.json');
 	playerInput = this.add.group();
 	weaknessGroup = game.add.group();
 	hideGrid(true);
-	toolbox = '<xml id="toolbox" style="display: none">';
-	toolbox += '  <block type="input"></block>';
-	toolbox += '</xml>';
+		toolbox = '<xml id="toolbox" style="display: none">';
+		toolbox += '  <block type="input"></block>';
+		toolbox += '<block type="controls_repeat_ext">';
+		toolbox += '   <value name="TIMES">';
+		toolbox += '<shadow type="math_number">';
+		toolbox += '    <field name="NUM">10</field>';
+		toolbox += '</shadow>';
+		toolbox += '</value>';
+		toolbox += '</block>';
+		toolbox += '</xml>';
 	changeToolbox(toolbox,20);
 	
 };
 
-breakWallGame.prototype.create = function () {
+breakWallGame2.prototype.create = function () {
 	
 	this.playerInputMask = game.add.graphics();
 	this.playerInputMask.inputEnabled=true;
@@ -56,14 +63,14 @@ breakWallGame.prototype.create = function () {
 };
 
 /* --- end generated code --- */
-breakWallGame.prototype.update = function () {
+breakWallGame2.prototype.update = function () {
 	if (correct){
 		alert('true');
 		correct=false;
 	}
 
 };
-breakWallGame.prototype.render = function () {
+breakWallGame2.prototype.render = function () {
 	this.game.debug.inputInfo(32, 32);
 };
 
@@ -76,6 +83,7 @@ function resetElement(){
 	playerInput.x = 24;
 	playerInput.y = 450;
 	elements = new Array();
+	currentRow=0;
 }
 
 function addPlayerInputList(element){
@@ -83,12 +91,17 @@ function addPlayerInputList(element){
 		firstElement = playerInput.createMultiple(1,'Attributes',element,true);
 	}else{
 		playerInput.createMultiple(1,'Attributes',element,true);
+		if (playerInput.children.length % 20==0){
+	    	currentRow+=1;
+	    }
+		//playerInput.children[playerInput.children.length-1].x+=playerInput.children[playerInput.children.length-1].x+90;
+		//playerInput.children[playerInput.children.length-1].y+=currentRow*90;
 	}
     if ((playerInput.children.length) % 10 == 0 && (playerInput.children.length) != 0){
-    	playerInput.y-=405;
     }
-    //playerInput.align(1, 0, 0, 90);
+    
     playerInput.align(90, 50, 90, 0);
+    //playerInput.align(1, 0, 0, 90);
     playerInput.scale.set(0.5);
     return playerInput;
 }
@@ -125,30 +138,34 @@ function scrollWeaknessByArrow(y) {
    });
 }
 function scroll() { 
-        if(playerInput.alpha>0.3){
-        	playerInput.forEach(function(i,idx,array) {
-            	if (array.length >=10){
-            		i.y+=game.input.mouse.wheelDelta*9/(Math.floor(playerInput.children.length)/10);
-            	}else{
-            		i.y+=game.input.mouse.wheelDelta*9;
-            	}
-            }, this);
-        }
+    if(playerInput.alpha>0.3){
+    	playerInput.forEach(function(i,idx,array) {
+        	if (array.length >=10){
+        		i.y+=game.input.mouse.wheelDelta*9/(Math.floor(playerInput.children.length)/10);
+        	}else{
+        		i.y+=game.input.mouse.wheelDelta*9;
+        	}
+        }, this);
+    }
 
 }
 function checkInput(){
 	var count=0;
-	for (i = 0;i<playerInput.children.length;i++){
-		//alert(playerInput.length+":"+weaknessGroup.length);
-		console.log(playerInput.children[i].frameName+":"+weaknessGroup.children[i].frameName);
-		if (playerInput.children[i].frameName==weaknessGroup.children[i].frameName){
-			count+=1;
-			console.log(count+"c")
+	if (playerInput.length==weaknessGroup.length){
+		for (i = 0;i<playerInput.children.length;i++){
+			//alert(playerInput.length+":"+weaknessGroup.length);
+			if (playerInput.children[i].frameName==weaknessGroup.children[i].frameName){
+				count+=1;
+				console.log(count+"c")
+			}else{
+				break;
+			}
+		}
+		if (count==weaknessGroup.children.length){
+			correct = true;
 		}
 	}
-	if (count==weaknessGroup.children.length){
-		correct = true;
-	}
+	
 }
 function randonWeakness(number){
 	var weakness =[];
