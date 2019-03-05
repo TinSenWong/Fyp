@@ -14,7 +14,8 @@
 
 <body>
 <?php include 'Heading.php'; ?>
-
+<br/>
+<br/>
 <div class="container">
     <h1 >Leaderboard</h1>
     <select>
@@ -25,34 +26,42 @@
         <option>Archivement</option>
     </select>
     <input type="text" style="text-align:center">
-    <input type="button" value="Search">
+    <input type="button" value="Search" class="btn-primary">
     <table class="table">
         <thead class="table-secondary">
         <tr>
             <th scope="col">Rank</th>
             <th scope="col">Username</th>
             <th scope="col">Score</th>
-            <th scope="col">Archivement</th>
+            <th scope="col">Number of Archivement</th>
         </tr>
         </thead>
         <tbody>
         <tr>
             <th scope="row">1</th>
             <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
+            <td>500</td>
+            <td>10</td>
         </tr>
         <tr>
             <th scope="row">2</th>
             <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
+            <td>400</td>
+            <td>9</td>
         </tr>
         <tr>
             <th scope="row">3</th>
             <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
+            <td>300</td>
+            <td>5</td>
+        </tr>
+        <br/>
+        <hr/>
+        <tr style="background-color: red">
+            <th>Your Rank: (#)</th>
+            <td>Andy</td>
+            <td>20</td>
+            <td>5</td>
         </tr>
         </tbody>
     </table>
