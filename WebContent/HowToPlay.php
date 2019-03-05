@@ -11,7 +11,6 @@
     <title>Document</title>
 </head>
 <body>
-<?php include "Heading.php"; ?>
 <div class="container mt-5">
     <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modal">How to play</button>
     <!-- <button class="btn btn-primary btn-lg" data-target="#video">Video</button> -->

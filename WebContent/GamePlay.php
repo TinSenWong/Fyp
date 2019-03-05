@@ -41,11 +41,14 @@
 
 <body>
     <?php include 'Heading.php'; ?>
+    <?php include 'HowToPlay.php'; ?>
+
     <div id="gameDiv" class="container-fluid">
         <div id="phaser">
             <div id="debug-grid" class="grid"></div>
         </div>
         <div style="position: absolute; top: 5%; left: 1250px; ; height: 75%; width: 700px">
+            <button id="howPlay" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modal">How to play</button>
             <div id="gameButton">
                 <button onclick="selectLevel()" id="selectLevel"><img src="webImage/back.png" height="42" width="42">Select Level</button>
                 <button onclick="runCode()" id="runButton"><img src="webImage/move.jpg" height="42" width="25"> Run JavaScript</button>
@@ -398,13 +401,14 @@
 
         function hideGame(Hide) {
             if (Hide) {
-
+                document.getElementById('howPlay').style.visibility = 'hidden';
                 document.getElementById('blocklyDiv').style.visibility = 'hidden';
                 document.getElementById('debug-grid').style.visibility = 'hidden';
                 document.getElementById('selectLevel').style.visibility = 'hidden';
                 document.getElementById('gameButton').style.visibility = 'hidden';
                 document.getElementById('displayText').style.visibility = 'hidden';
             } else {
+                document.getElementById('howPlay').style.visibility = 'visible';
                 document.getElementById('blocklyDiv').style.visibility = 'visible';
                 document.getElementById('debug-grid').style.visibility = 'visible';
                 document.getElementById('selectLevel').style.visibility = 'visible';
