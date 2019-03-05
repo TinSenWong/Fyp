@@ -83,8 +83,8 @@ function addPlayerInputList(element){
     return playerInput;
 }
 function addweaknessGroup(weakness){
-	weaknessGroup.x = 340;
-	weaknessGroup.y = 34;
+	weaknessGroup.x = 24;
+	weaknessGroup.y = 50;
 	for(i=0;i<weakness.length;i++){
 		weaknessGroup.createMultiple(1,'Attributes',weakness[i],true);
 		if ((weakness.length) % 10 == 0 && (weakness.length) != 0){
