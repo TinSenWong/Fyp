@@ -14,7 +14,19 @@
 <?php include "Heading.php"; ?>
 <div class="container mt-5">
     <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modal">How to play</button>
+    <!-- <button class="btn btn-primary btn-lg" data-target="#video">Video</button> -->
+    <h2>Here is the video of the game.</h2>
 </div>
+<br/>
+
+
+<!-- Show Video of game -->
+<!--<div class="embed-responsive embed-responsive-16by9">-->
+<!--    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>-->
+<!--</div>-->
+
+
+<!-- Modal of how to play-->
 <div class="container">
     <div id="modal" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
          aria-labelledby="myLargeModalLabel"
@@ -27,6 +39,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
+
                 <div class="modal-body">
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                         <li class="nav-item">
@@ -46,7 +59,7 @@
                 <div class="tab-content mt-2">
                     <div class="tab-pane fade show active" id="menu" role="tabpanel">
                         <h4>Menu</h4>
-                        <div class="well" style="text-align: center;"><img src="src/menu.jpg" width="800"/>
+                        <div class="well" style="text-align: center;"><img src="src/menu.jpg" width="500" height="500"/>
                         </div>
                         <!--                        <button class="btn btn-secondary" id="menuCon">Continue</button>-->
                     </div>

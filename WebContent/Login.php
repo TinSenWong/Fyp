@@ -9,7 +9,7 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link href="css/login.css" rel="stylesheet" id="bootstrap-css">
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.2.0/zxcvbn.js"></script>
     <script>
         $(document).ready(function () {
@@ -41,11 +41,8 @@
 </head>
 
 <body>
-<?php include 'Heading.php'; ?>
+<?php //include 'Heading.php'; ?>
 <section class="login-block">
-    <div class="text-title">
-        <h1 class="text-center">Library System</h1>
-    </div>
     <br/>
     <div class="container">
         <div class="row">
@@ -93,20 +90,6 @@
                                     <input type="email" name="email" class="form-control" placeholder="Email"
                                            id="email">
                                 </div>
-                                <p align="center">OR</p>
-                                <div class="form-group">
-                                    Please choose you region of your phone number
-                                    <br>
-                                    <select>
-                                        <option>+852</option>
-                                        <option>+86</option>
-                                        <option>+123</option>
-                                        <option>+8787</option>
-                                        <option>+369</option>
-                                        <option>+420</option>
-                                    </select>
-                                    <input type="tel" name="phone" class="form-control" placeholder="Phone" id="phone">
-                                </div>
                             </div>
                             <div class="modal-footer">
                                 <input type="button" class="btn btn-primary" value="Send" id="send">
@@ -123,21 +106,15 @@
                     <ol class="carousel-indicators">
                         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                         <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
                     </ol>
                     <div class="carousel-inner" role="listbox">
                         <div class="carousel-item active">
-                            <img class="d-block img-fluid" src="webImage/A.jpg" alt="First slide">
+                            <img class="d-block img-fluid" src="#" alt="First slide">
                             <div class="carousel-caption d-none d-md-block">
                             </div>
                         </div>
                         <div class="carousel-item">
-                            <img class="d-block img-fluid" src="webImage/A.jpg" alt="First slide">
-                            <div class="carousel-caption d-none d-md-block">
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block img-fluid" src="webImage/A.jpg" alt="First slide">
+                            <img class="d-block img-fluid" src="#" alt="Second slide">
                             <div class="carousel-caption d-none d-md-block">
                             </div>
                         </div>
