@@ -10,7 +10,6 @@
  * BlocklyGame1.
  */
 function BlocklyGame1() {
-	
 	Phaser.State.call(this);
 	
 }
@@ -28,17 +27,17 @@ BlocklyGame1.prototype.preload = function () {
 	
 	this.load.image('dude', 'assets/image/phaser-dude.png');
 	this.load.pack('maze', 'assets/pack.json');
+	
 	this.load.pack('game', 'assets/pack.json');
 	this.load.pack('maze', 'assets/pack.json');
-	playerInput = this.add.group();
-	weaknessGroup = game.add.group();
-
-	
+    playerInput = this.add.group();
+    weaknessGroup = game.add.group();
 };
 
 BlocklyGame1.prototype.create = function () {
 	
 	hideGrid(true);
+	
 	var _scrollingMap = this.add.group();
 	
 	var _DownArrow = this.add.sprite(1004.0, 696.0, 'arrow');
@@ -79,13 +78,13 @@ BlocklyGame1.prototype.create = function () {
 	_UpArrow.inputEnabled = true;
 	this.playerInputMask = game.add.graphics();
 	this.playerInputMask.inputEnabled=true;
-	this.playerInputMask.beginFill(0xFFFFFF);
+	this.playerInputMask.beginFill(0x000000);
 	this.playerInputMask.drawRect( -50+1030,276,100, 405 );
 	this.playerInputMask.endFill();
 	this.WeaknessOutputMask = game.add.graphics();
 	this.WeaknessOutputMask.inputEnabled=true;
-	this.WeaknessOutputMask.beginFill(0x000077);
-	this.WeaknessOutputMask.drawRect(0,0,600, 400);
+	this.WeaknessOutputMask.beginFill(0x000000);
+	this.WeaknessOutputMask.drawRect(330,30,600, 50);
 	this.WeaknessOutputMask.endFill();
 	addweaknessGroup(randonWeakness(3));
 	
@@ -114,8 +113,10 @@ BlocklyGame1.prototype.update = function () {
 	playerInput.mask = this.playerInputMask;
 };
 BlocklyGame1.prototype.render = function () {
+
 	this.game.debug.inputInfo(32, 32);
-};
+	
+}
 
 function generateElement(element){
 	elements[elements.length] = element;
