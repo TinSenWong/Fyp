@@ -64,8 +64,8 @@ BlocklyGame1.prototype.create = function () {
 	var _sprite_destroy = _sprite.animations.add('destroy', ['sprite10', 'sprite11', 'sprite12', 'sprite13', 'sprite14', 'sprite9'], 5, false);
 	_sprite_destroy.killOnComplete = true;
 	_sprite_destroy.play();
-	
-	
+
+
 	
 	// fields
 	

@@ -28,22 +28,28 @@ breakWallGame.prototype.preload = function () {
 	
 	this.load.pack('game', 'assets/pack.json');
 	this.load.pack('maze', 'assets/pack.json');
-	playerInput = game.add.group();
+	playerInput = this.add.group();
 	weaknessGroup = game.add.group();
 	hideGrid(true);
+	toolbox = '<xml id="toolbox" style="display: none">';
+	toolbox += '  <block type="input"></block>';
+	toolbox += '</xml>';
+	changeToolbox(toolbox,20);
 	
 };
 
 breakWallGame.prototype.create = function () {
 	
-	this.blue = game.add.graphics();
-	this.blue.beginFill(0x7FFF00);
-	this.blue.drawRect( 0,400,1000, 400 );
-	this.blue.endFill();
-	this.green = game.add.graphics();
-	this.green.beginFill(0x98F5FF);
-	this.green.drawRect(0,0,1000, 400);
-	this.green.endFill();
+	this.playerInputMask = game.add.graphics();
+	this.playerInputMask.inputEnabled=true;
+	this.playerInputMask.beginFill(0x7FFF00);
+	this.playerInputMask.drawRect( 0,400,1000, 400 );
+	this.playerInputMask.endFill();
+	this.WeaknessOutputMask = game.add.graphics();
+	this.WeaknessOutputMask.inputEnabled=true;
+	this.WeaknessOutputMask.beginFill(0x98F5FF);
+	this.WeaknessOutputMask.drawRect(0,0,1000, 400);
+	this.WeaknessOutputMask.endFill();
 	addweaknessGroup(randonWeakness(3));
 	
 	
@@ -51,7 +57,10 @@ breakWallGame.prototype.create = function () {
 
 /* --- end generated code --- */
 breakWallGame.prototype.update = function () {
-
+	if (correct){
+		alert('true');
+		correct=false;
+	}
 
 };
 breakWallGame.prototype.render = function () {
@@ -78,7 +87,7 @@ function addPlayerInputList(element){
     if ((playerInput.children.length) % 10 == 0 && (playerInput.children.length) != 0){
     	playerInput.y-=405;
     }
-    playerInput.align(1, 999, 0, 90);
+    playerInput.align(1, 0, 0, 90);
     playerInput.scale.set(0.5);
     return playerInput;
 }
@@ -128,10 +137,12 @@ function scroll() {
 }
 function checkInput(){
 	var count=0;
-	for (i = 0;i<playerInput.children.length-1;i++){
-		alert(playerInput.length+":"+weaknessGroup.length);
+	for (i = 0;i<playerInput.children.length;i++){
+		//alert(playerInput.length+":"+weaknessGroup.length);
+		console.log(playerInput.children[i].frameName+":"+weaknessGroup.children[i].frameName);
 		if (playerInput.children[i].frameName==weaknessGroup.children[i].frameName){
 			count+=1;
+			console.log(count+"c")
 		}
 	}
 	if (count==weaknessGroup.children.length){

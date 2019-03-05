@@ -125,9 +125,6 @@ playGame.prototype = {
                             case 1:
                                 toolbox = '<xml id="toolbox" style="display: none">';
                                 toolbox += ' <block type="move_right"></block>';
-//toolbox += '<block type="move_left"></block>';
-//toolbox += '<block type="move_up"></block>';
-//toolbox += '<block type="move_down"></block>';
                                 toolbox += '</xml>';
                                 changeToolbox(toolbox,4);
                                 game.state.add("Level1", Level1);

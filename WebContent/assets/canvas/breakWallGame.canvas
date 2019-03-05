@@ -20,7 +20,7 @@
     ],
     "showGrid": true,
     "create_before": "this.playerInputMask = game.add.graphics();\r\nthis.playerInputMask.inputEnabled=true;\r\nthis.playerInputMask.beginFill(0x7FFF00);\r\nthis.playerInputMask.drawRect( 0,400,1000, 400 );\r\nthis.playerInputMask.endFill();\r\nthis.WeaknessOutputMask = game.add.graphics();\r\nthis.WeaknessOutputMask.inputEnabled=true;\r\nthis.WeaknessOutputMask.beginFill(0x98F5FF);\r\nthis.WeaknessOutputMask.drawRect(0,0,1000, 400);\r\nthis.WeaknessOutputMask.endFill();\r\naddweaknessGroup(randonWeakness(3));",
-    "state_preload_before": "this.load.pack('game', 'assets/pack.json');\r\nthis.load.pack('maze', 'assets/pack.json');\r\nplayerInput = this.add.group();\r\nweaknessGroup = game.add.group();\r\nhideGrid(true);"
+    "state_preload_before": "this.load.pack('game', 'assets/pack.json');\r\nthis.load.pack('maze', 'assets/pack.json');\r\nplayerInput = this.add.group();\r\nweaknessGroup = game.add.group();\r\nhideGrid(true);\r\ntoolbox = '<xml id=\"toolbox\" style=\"display: none\">';\r\ntoolbox += '  <block type=\"input\"><\/block>';\r\ntoolbox += '<\/xml>';\r\nchangeToolbox(toolbox,20);"
   },
   "stateSettings": {
     "stageBackgroundColor": [
