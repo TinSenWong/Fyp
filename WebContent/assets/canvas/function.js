@@ -30,6 +30,7 @@ var screenWidth = screen.width;
 var screenHeight = screen.height * 0.8;
 var playerInput;
 var weaknessGroup;
+var currentRow=0;
 function selectLevel(){
 	if (game != null) {
         game.destroy();

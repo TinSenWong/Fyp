@@ -15,10 +15,10 @@ playGame.prototype = {
     	runCount = 0;
     	hideGame(true);
         // the first level has zero stars, to it's playable although not finished
-        stars[0] = 0
+        stars[1] = 0
         // the remaining levels have -1 stars, this means they are still locked
         for (var l = 1; l < columns * rows * colors.length; l++) {
-            stars[l] = -1;
+            stars[2] = -1;
         }
         // retrieving stars string from local storage or converting stars array to a string
         this.savedData = localStorage.getItem(localStorageName) == null ? stars.toString() : localStorage.getItem(localStorageName);
