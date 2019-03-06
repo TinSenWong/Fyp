@@ -113,7 +113,7 @@ playGame.prototype = {
                     var bounds = this.scrollingMap.children[i].getBounds();
                     // before we start a level, let's check the level is not locked that means it's not on frame zero  
                     if (bounds.contains(pointer.x, pointer.y) && this.scrollingMap.children[i].frame > 0) {
-                        alert("Welcome to Level " + this.scrollingMap.children[i].levelNumber+1);
+                        alert("Welcome to Level " + this.scrollingMap.children[i].levelNumber);
                         var selestLevel = this.scrollingMap.children[i].levelNumber;
                         level = selestLevel;
 //                        game.state.start("PlayLevel");
