@@ -36,7 +36,8 @@ function selectLevel(){
 	if (game != null) {
         game.destroy();
     }
-	game = new Phaser.Game(screenWidth,screenHeight, Phaser.Auto, 'phaser');
+    alert();
+	game = new Phaser.Game($(document).width(),$(document).height(), Phaser.Auto, 'phaser');
 
 	game.state.add("PlayGame", playGame);
     game.state.start("PlayGame");

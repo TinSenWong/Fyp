@@ -43,7 +43,7 @@
     <?php include 'Heading.php'; ?>
     <?php include 'HowToPlay.php'; ?>
 
-    <div id="gameDiv" class="container-fluid">
+    <div id="gameDiv">
         <div id="phaser">
             <div id="debug-grid" class="grid"></div>
         </div>
