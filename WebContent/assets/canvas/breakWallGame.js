@@ -51,14 +51,13 @@ breakWallGame.prototype.create = function () {
 	this.WeaknessOutputMask.drawRect(0,0,1000, 400);
 	this.WeaknessOutputMask.endFill();
 	addweaknessGroup(randonWeakness(3));
-	
-	
+
 };
 
 /* --- end generated code --- */
 breakWallGame.prototype.update = function () {
 	if (correct){
-		alert('true');
+		messageBox("You Win!",300,200),this;
 		correct=false;
 	}
 
