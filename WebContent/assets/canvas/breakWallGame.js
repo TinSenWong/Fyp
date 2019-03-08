@@ -35,6 +35,7 @@ breakWallGame.prototype.preload = function () {
 	toolbox += '  <block type="input"></block>';
 	toolbox += '</xml>';
 	changeToolbox(toolbox,20);
+	limitTime=3;
 	
 };
 
@@ -51,7 +52,18 @@ breakWallGame.prototype.create = function () {
 	this.WeaknessOutputMask.drawRect(0,0,1000, 400);
 	this.WeaknessOutputMask.endFill();
 	addweaknessGroup(randonWeakness(3));
-
+	
+	var _worngTime = this.add.text(1000.0, 50.0, 'Worng    :0', {"font":"bold 28px Arial"});
+	
+	var _limitTime = this.add.text(1002.0, 113.0, "Attempts :" + limitTime , {"font":"bold 28px Arial"});
+	
+	
+	
+	// fields
+	
+	this.fWorngTime = _worngTime;
+	this.fLimitTime = _limitTime;
+	
 };
 
 /* --- end generated code --- */
@@ -59,6 +71,30 @@ breakWallGame.prototype.update = function () {
 	if (correct){
 		messageBox("You Win!",300,200),this;
 		correct=false;
+	}
+	if (checkInput){
+		checkInput = false;
+		var count=0;
+		if (playerInput != null){
+			if (playerInput.length==weaknessGroup.length){
+				for (i = 0;i<playerInput.children.length;i++){
+					//alert(playerInput.length+":"+weaknessGroup.length);
+					if (playerInput.children[i].frameName==weaknessGroup.children[i].frameName){
+						count+=1;
+					}else{
+						continue;
+					}
+				}
+			}
+			if (count==weaknessGroup.children.length){
+				correct = true;
+			}else{
+				this.fWorngTime.setText("Worng    :" + ++worngTime );
+				
+				this.fLimitTime.setText("Attempts :" + --limitTime );
+			}
+		}
+		
 	}
 
 };
@@ -137,26 +173,7 @@ function scroll() {
         }
 
 }
-function checkInput(){
-	var count=0;
-	if (playerInput != null){
-		if (playerInput.length==weaknessGroup.length){
-			for (i = 0;i<playerInput.children.length;i++){
-				//alert(playerInput.length+":"+weaknessGroup.length);
-				if (playerInput.children[i].frameName==weaknessGroup.children[i].frameName){
-					count+=1;
-					console.log(count+"c")
-				}else{
-					break;
-				}
-			}
-			if (count==weaknessGroup.children.length){
-				correct = true;
-			}
-		}
-		
-	}
-}
+
 function randonWeakness(number){
 	var weakness =[];
 	for (i=0;i<number;i++){

@@ -32,6 +32,8 @@ var playerInput;
 var weaknessGroup;
 var currentRow=0;
 var correct;
+var worngTime=0;
+var checkInput=false;
 function selectLevel(){
 	if (game != null) {
         game.destroy();
