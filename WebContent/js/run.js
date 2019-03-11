@@ -110,7 +110,7 @@ function runCode() {
                         setTimeout(runner, 10);
                     } else {
                         // Program is complete.
-                        checkInput();
+                        checkInput = true;
                         console.log('\n\n<< complete >>');
                         resetInterpreter();
                         resetStepUi(false);
@@ -119,6 +119,7 @@ function runCode() {
             };
             runner();
         }, 1);
+
         resetElement();
         runCount += 1;
         document.getElementById('runTime').innerHTML = '<h2>RunTime :' + runCount + '</h2>';

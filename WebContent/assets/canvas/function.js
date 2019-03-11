@@ -31,11 +31,14 @@ var screenHeight = screen.height * 0.8;
 var playerInput;
 var weaknessGroup;
 var currentRow=0;
+var correct;
+var worngTime=0;
+var checkInput=false;
 function selectLevel(){
 	if (game != null) {
         game.destroy();
     }
-	game = new Phaser.Game(screenWidth,screenHeight, Phaser.Auto, 'phaser');
+	game = new Phaser.Game($(document).width(),$(document).height(), Phaser.Auto, 'phaser');
 
 	game.state.add("PlayGame", playGame);
     game.state.start("PlayGame");
@@ -89,6 +92,7 @@ function getKey(){
 function IsOpenChest(){
 	if (key){
 		this.fTreasure_chest.play('open').onComplete.add(function(){
+			alert(level);
 			if (hp==1){
 				stars[level] = 1;
 		        if (stars[level + 1] != undefined && stars[level + 1] == -1) {
@@ -167,3 +171,109 @@ function viewAllBlockly() {
     workspace.addChangeListener(onWorkspaceChange);
     onWorkspaceChange();
 }
+function messageBox(text,w,h){
+
+        //if exists
+        if (this.msgBox) {
+            this.msgBox.destroy();
+        }
+        //make a group to hold all the elements
+        var msgBox = game.add.group();
+        //make the back of the message box
+        var back = game.add.sprite(0, 0, "boxBack");
+        //make the close button
+        var closeButton = game.add.sprite(0, 0, "closeButton");
+        //make a text field
+        var text1 = game.add.text(0, 0, text);
+        //set the textfeild to wrap if the text is too long
+        text1.wordWrap = true;
+        //make the width of the wrap 90% of the width
+        //of the message box
+        text1.wordWrapWidth = w * .9;
+        //
+        //
+        //
+        //add the elements to the group
+        msgBox.add(back);
+        msgBox.add(closeButton);
+        msgBox.add(text1);
+        //
+        //set the close button
+        //in the center horizontally
+        //and near the bottom of the box vertically
+        closeButton.x = w / 2 - closeButton.width / 2;
+        closeButton.y = h - closeButton.height;
+        //enable the button for input
+        closeButton.inputEnabled = true;
+        //add a listener to destroy the box when the button is pressed
+        closeButton.events.onInputDown.add(function(){
+            this.msgBox.destroy();
+        }, this);
+        //
+        //
+        //set the message box in the center of the screen
+        msgBox.x = game.width / 2 - msgBox.width / 2;
+        msgBox.y = game.height / 2 - msgBox.height / 2;
+        //
+        //set the text in the middle of the message box
+        text1.x = w / 2 - text1.width / 2;
+        text1.y = h / 2 - text1.height / 2;
+        //make a state reference to the messsage box
+        this.msgBox = msgBox;
+
+}
+/*function messageBox(text,w,h){
+    var buttonTest=game.add.sprite(w,h,"testButton");
+    buttonTest.anchor.set(0.5,0.5);
+    buttonTest.inputEnabled=true;
+    buttonTest.events.onInputDown.add(function () {
+        //if exists
+        if (this.msgBox) {
+            this.msgBox.destroy();
+        }
+        //make a group to hold all the elements
+        var msgBox = game.add.group();
+        //make the back of the message box
+        var back = game.add.sprite(0, 0, "boxBack");
+        //make the close button
+        var closeButton = game.add.sprite(0, 0, "closeButton");
+        //make a text field
+        var text1 = game.add.text(0, 0, text);
+        //set the textfeild to wrap if the text is too long
+        text1.wordWrap = true;
+        //make the width of the wrap 90% of the width
+        //of the message box
+        text1.wordWrapWidth = w * .9;
+        //
+        //
+        //
+        //add the elements to the group
+        msgBox.add(back);
+        msgBox.add(closeButton);
+        msgBox.add(text1);
+        //
+        //set the close button
+        //in the center horizontally
+        //and near the bottom of the box vertically
+        closeButton.x = w / 2 - closeButton.width / 2;
+        closeButton.y = h - closeButton.height;
+        //enable the button for input
+        closeButton.inputEnabled = true;
+        //add a listener to destroy the box when the button is pressed
+        closeButton.events.onInputDown.add(function(){
+            this.msgBox.destroy();
+        }, this);
+        //
+        //
+        //set the message box in the center of the screen
+        msgBox.x = game.width / 2 - msgBox.width / 2;
+        msgBox.y = game.height / 2 - msgBox.height / 2;
+        //
+        //set the text in the middle of the message box
+        text1.x = w / 2 - text1.width / 2;
+        text1.y = h / 2 - text1.height / 2;
+        //make a state reference to the messsage box
+        this.msgBox = msgBox;
+
+    },this);
+}*/

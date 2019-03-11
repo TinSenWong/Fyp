@@ -2,8 +2,8 @@
   "canvas-version": 2,
   "settings": {
     "className": "breakWallGame",
-    "sceneWidth": 640,
-    "sceneHeight": 360,
+    "sceneWidth": 1200,
+    "sceneHeight": 800,
     "generateOnSave": true,
     "enableStepping": false,
     "lang": "JAVA_SCRIPT",
@@ -20,7 +20,7 @@
     ],
     "showGrid": true,
     "create_before": "this.playerInputMask = game.add.graphics();\r\nthis.playerInputMask.inputEnabled=true;\r\nthis.playerInputMask.beginFill(0x7FFF00);\r\nthis.playerInputMask.drawRect( 0,400,1000, 400 );\r\nthis.playerInputMask.endFill();\r\nthis.WeaknessOutputMask = game.add.graphics();\r\nthis.WeaknessOutputMask.inputEnabled=true;\r\nthis.WeaknessOutputMask.beginFill(0x98F5FF);\r\nthis.WeaknessOutputMask.drawRect(0,0,1000, 400);\r\nthis.WeaknessOutputMask.endFill();\r\naddweaknessGroup(randonWeakness(3));",
-    "state_preload_before": "this.load.pack('game', 'assets/pack.json');\r\nthis.load.pack('maze', 'assets/pack.json');\r\nplayerInput = this.add.group();\r\nweaknessGroup = game.add.group();\r\nhideGrid(true);\r\ntoolbox = '<xml id=\"toolbox\" style=\"display: none\">';\r\ntoolbox += '  <block type=\"input\"><\/block>';\r\ntoolbox += '<\/xml>';\r\nchangeToolbox(toolbox,20);"
+    "state_preload_before": "this.load.pack('game', 'assets/pack.json');\r\nthis.load.pack('maze', 'assets/pack.json');\r\nplayerInput = this.add.group();\r\nweaknessGroup = game.add.group();\r\nhideGrid(true);\r\ntoolbox = '<xml id=\"toolbox\" style=\"display: none\">';\r\ntoolbox += '  <block type=\"input\"><\/block>';\r\ntoolbox += '<\/xml>';\r\nchangeToolbox(toolbox,20);\r\nlimitTime=3;"
   },
   "stateSettings": {
     "stageBackgroundColor": [
@@ -39,7 +39,32 @@
     "info": {
       "editorName": "breakWallGame.canvas",
       "setAll": [],
-      "children": []
+      "children": [
+        {
+          "type": "text",
+          "id": "72e04cc0-122d-4e9a-9f92-ff107c70b9ad",
+          "info": {
+            "editorName": "worngTime",
+            "editorField": true,
+            "x": 1000,
+            "y": 50,
+            "text": "Worng Time",
+            "style.fontSize": 28
+          }
+        },
+        {
+          "type": "text",
+          "id": "e621b02c-b972-4242-ad4a-39ee850a202a",
+          "info": {
+            "editorName": "limitTime",
+            "editorField": true,
+            "x": 1002,
+            "y": 113,
+            "text": "Limit Time",
+            "style.fontSize": 28
+          }
+        }
+      ]
     }
   },
   "type": "STATE",

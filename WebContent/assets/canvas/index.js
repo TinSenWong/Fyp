@@ -15,10 +15,10 @@ playGame.prototype = {
     	runCount = 0;
     	hideGame(true);
         // the first level has zero stars, to it's playable although not finished
-        stars[1] = 0
+        stars[0] = 0;
         // the remaining levels have -1 stars, this means they are still locked
         for (var l = 1; l < columns * rows * colors.length; l++) {
-            stars[2] = -1;
+            stars[l] = -1;
         }
         // retrieving stars string from local storage or converting stars array to a string
         this.savedData = localStorage.getItem(localStorageName) == null ? stars.toString() : localStorage.getItem(localStorageName);
@@ -65,11 +65,11 @@ playGame.prototype = {
                     thumb.tint = colors[k];
                     // each level has a number...
                  
-                    thumb.levelNumber = k * (rows * columns) + j * columns + i+1;//change************************************************************************+1
+                    thumb.levelNumber = k * (rows * columns) + j * columns + i;//change************************************************************************+1
                     // assigning each thumbnail a frame according to its stars value
                     thumb.frame = parseInt(stars[thumb.levelNumber]) + 1;
                     // which we are going to write inside the thumbnail
-                    var levelText = game.add.text(0, 0, thumb.levelNumber, {
+                    var levelText = game.add.text(0, 0, thumb.levelNumber+1, {
                         font: "24px Arial",
                         fill: "#000000"
                     })
@@ -121,7 +121,7 @@ playGame.prototype = {
                         game.destroy();
                         game = new Phaser.Game(1200, 800, Phaser.Auto, 'phaser');
                         key = false;
-                        switch (selestLevel) {
+                        switch (selestLevel+1) {
                             case 1:
                                 toolbox = '<xml id="toolbox" style="display: none">';
                                 toolbox += ' <block type="move_right"></block>';
@@ -372,6 +372,7 @@ playLevel.prototype = {
         });
         threeStarLevel.inputEnabled = true;
         threeStarLevel.events.onInputDown.add(function () {
+        	alert(level);
             stars[level] = 3;
             if (stars[level + 1] != undefined && stars[level + 1] == -1) {
                 stars[level + 1] = 0;
