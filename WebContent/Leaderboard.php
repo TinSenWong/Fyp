@@ -17,7 +17,7 @@
 <br/>
 <br/>
 <div class="container">
-    <h1 >Leaderboard</h1>
+    <h1>Leaderboard</h1>
     <select>
         <option>All</option>
         <option>Rank</option>
@@ -37,6 +37,22 @@
         </tr>
         </thead>
         <tbody>
+        <!-- SELECT DB-->
+        <?php
+        $conn = GETSQLLink();
+
+        $query = "SELECT * FROM `userinfo` ";
+
+        $res = $conn->query($query);
+        if ($res->num_rows > 0) {
+            while ($row = $res->fetch_assoc()) {
+                echo "<tr><th scope=\"row\" >" . $row["UserID"] . "</th><td>" . $row["userName"] . "</tr>";
+            }
+        } else {
+            echo "0 结果";
+        }
+        $conn->close();
+        ?>
         <tr>
             <th scope="row">1</th>
             <td>Mark</td>

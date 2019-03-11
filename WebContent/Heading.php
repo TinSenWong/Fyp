@@ -21,7 +21,7 @@
 </head>
 
 <body>
-
+    <?php include_once 'sql.php'; ?>
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container-fluid">
@@ -105,8 +105,8 @@
             </div>
         </div>
     </div>
-<br/>
-<br/>
+    <br />
+    <br />
 </body>
 
 </html>
