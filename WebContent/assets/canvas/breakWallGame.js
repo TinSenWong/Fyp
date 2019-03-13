@@ -29,13 +29,14 @@ breakWallGame.prototype.preload = function () {
 	this.load.pack('game', 'assets/pack.json');
 	this.load.pack('maze', 'assets/pack.json');
 	playerInput = this.add.group();
-	weaknessGroup = game.add.group();
+	weaknessGroup = this.add.group();
 	hideGrid(true);
 	toolbox = '<xml id="toolbox" style="display: none">';
 	toolbox += '  <block type="input"></block>';
 	toolbox += '</xml>';
 	changeToolbox(toolbox,20);
 	limitTime=3;
+	round=3;
 	
 };
 
@@ -53,24 +54,21 @@ breakWallGame.prototype.create = function () {
 	this.WeaknessOutputMask.endFill();
 	addweaknessGroup(randonWeakness(3));
 	
-	var _worngTime = this.add.text(1000.0, 50.0, 'Worng    :0', {"font":"bold 28px Arial"});
-	
-	var _limitTime = this.add.text(1002.0, 113.0, "Attempts :" + limitTime , {"font":"bold 28px Arial"});
-	
-	
-	
-	// fields
+	var _worngTime = this.add.text(1000.0, 50.0, 'Worng:'+worngTime, {"font":"bold 28px Arial"});
+	var _limitTime = this.add.text(1002.0, 113.0, "Attempts :" + limitTime, {"font":"bold 28px Arial"});
+	var _finishTime = this.add.text(997.0, 667.0, 'Finish:'+finish+'/'+round, {"font":"bold 28px Arial"});
 	
 	this.fWorngTime = _worngTime;
 	this.fLimitTime = _limitTime;
+	this.fFinishTime = _finishTime;	
+	
 	
 };
 
 /* --- end generated code --- */
 breakWallGame.prototype.update = function () {
-	if (correct){
+	if (finish==round){
 		messageBox("You Win!",300,200),this;
-		correct=false;
 	}
 	if (checkInput){
 		checkInput = false;
@@ -87,7 +85,10 @@ breakWallGame.prototype.update = function () {
 				}
 			}
 			if (count==weaknessGroup.children.length){
-				correct = true;
+				weaknessGroup.destroy();
+				game.state.start("breakWallGame");
+				
+				this.fFinishTime.setText("Finish:    :" + ++finish );
 			}else{
 				this.fWorngTime.setText("Worng    :" + ++worngTime );
 				
@@ -106,6 +107,7 @@ function generateElement(element){
 	elements[elements.length] = element;
 }
 function resetElement(){
+
 	if (playerInput!=null){
 	playerInput.destroy();
 	playerInput = game.add.group();

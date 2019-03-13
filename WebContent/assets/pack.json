@@ -125,12 +125,6 @@
   ],
   "game": [
     {
-      "type": "image",
-      "key": "Attributes",
-      "url": "assets/image/Attributes.png",
-      "overwrite": false
-    },
-    {
       "type": "atlas",
       "key": "Attributes",
       "textureURL": "assets/atlas/Attributes.png",
@@ -249,7 +243,7 @@
     }
   ],
   "meta": {
-    "generated": "1551929427043",
+    "generated": "1552464380385",
     "app": "Phaser Editor",
     "url": "http://phasereditor.boniatillo.com",
     "version": "1.0",

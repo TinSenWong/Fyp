@@ -1,7 +1,7 @@
 {
   "canvas-version": 2,
   "settings": {
-    "className": "breakWallGame",
+    "className": "breakWallGame3",
     "sceneWidth": 640,
     "sceneHeight": 360,
     "generateOnSave": true,

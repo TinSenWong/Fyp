@@ -34,6 +34,8 @@ var currentRow=0;
 var correct;
 var worngTime=0;
 var checkInput=false;
+var finish=0;
+var round=0;
 function selectLevel(){
 	if (game != null) {
         game.destroy();

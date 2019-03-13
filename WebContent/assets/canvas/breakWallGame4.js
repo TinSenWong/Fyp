@@ -7,24 +7,24 @@
 
 
 /**
- * breakWallGame.
+ * breakWallGame4.
  */
-function breakWallGame() {
+function breakWallGame4() {
 	
 	Phaser.State.call(this);
 	
 }
 
 /** @type Phaser.State */
-var breakWallGame_proto = Object.create(Phaser.State.prototype);
-breakWallGame.prototype = breakWallGame_proto;
-breakWallGame.prototype.constructor = breakWallGame;
+var breakWallGame4_proto = Object.create(Phaser.State.prototype);
+breakWallGame4.prototype = breakWallGame4_proto;
+breakWallGame4.prototype.constructor = breakWallGame4;
 
-breakWallGame.prototype.init = function () {
+breakWallGame4.prototype.init = function () {
 	
 };
 
-breakWallGame.prototype.preload = function () {
+breakWallGame4.prototype.preload = function () {
 	
 	this.load.pack('game', 'assets/pack.json');
 	this.load.pack('maze', 'assets/pack.json');
@@ -38,7 +38,7 @@ breakWallGame.prototype.preload = function () {
 	
 };
 
-breakWallGame.prototype.create = function () {
+breakWallGame4.prototype.create = function () {
 	
 	this.playerInputMask = game.add.graphics();
 	this.playerInputMask.inputEnabled=true;
