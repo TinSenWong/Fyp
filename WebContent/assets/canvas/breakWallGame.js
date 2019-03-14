@@ -29,10 +29,12 @@ breakWallGame.prototype.preload = function () {
 	this.load.pack('game', 'assets/pack.json');
 	this.load.pack('maze', 'assets/pack.json');
 	playerInput = this.add.group();
-	weaknessGroup = this.add.group();
+	weaknessGroup = game.add.group();
 	hideGrid(true);
 	toolbox = '<xml id="toolbox" style="display: none">';
 	toolbox += '  <block type="input"></block>';
+	toolbox += '  <block type="newRow"></block>';
+	toolbox += '  <block type="null"></block>';
 	toolbox += '</xml>';
 	changeToolbox(toolbox,20);
 	limitTime=3;
@@ -115,6 +117,8 @@ function resetElement(){
 	playerInput.y = 450;
 	}
 	elements = new Array();
+	currentRow=0;
+	currentCol=0;
 }
 
 function addPlayerInputList(element){
@@ -123,11 +127,18 @@ function addPlayerInputList(element){
 	}else{
 		playerInput.createMultiple(1,'Attributes',element,true);
 	}
-    if ((playerInput.children.length) % 10 == 0 && (playerInput.children.length) != 0){
-    	playerInput.y-=405;
+    if ((playerInput.children.length) % 20 == 0 && (playerInput.children.length) != 0){
+    	//currentRow = Math.round(playerInput.length/20);
+    	
     }
-    //playerInput.align(1, 0, 0, 90);
-    playerInput.align(90, 50, 90, 0);
+    
+    
+    
+	//playerInput.align(90, 50, 90, 90);
+    playerInputList[currentRow][currentCol]=playerInput.children[playerInput.children.length-1];
+    playerInput.children[playerInput.children.length-1].y += currentRow*90;
+    playerInput.children[playerInput.children.length-1].x += currentCol*90;
+    currentCol+=1;
     playerInput.scale.set(0.5);
     return playerInput;
 }
@@ -183,4 +194,6 @@ function randonWeakness(number){
 	}
 	return weakness;
 }
+
+
 // -- user code here --

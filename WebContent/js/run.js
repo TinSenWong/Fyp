@@ -38,6 +38,8 @@ function initApi(interpreter, scope) {
     initInterpreterGoUp(interpreter, scope);
     initInterpreterGoDown(interpreter, scope);
     initInterpreterGetInput(interpreter, scope);
+    initInterpreterSpace(interpreter, scope);
+    initInterpreterNewLine(interpreter, scope);
     // Add an API function for highlighting blocks.
     var wrapper = function (id) {
         id = id ? id.toString() : '';
