@@ -125,12 +125,6 @@
   ],
   "game": [
     {
-      "type": "image",
-      "key": "Attributes",
-      "url": "assets/image/Attributes.png",
-      "overwrite": false
-    },
-    {
       "type": "atlas",
       "key": "Attributes",
       "textureURL": "assets/atlas/Attributes.png",
@@ -228,10 +222,28 @@
       "key": "arrow_vertic_red",
       "url": "assets/image/arrow_vertic_red.png",
       "overwrite": false
+    },
+    {
+      "type": "image",
+      "key": "boxBack",
+      "url": "assets/image/boxBack.png",
+      "overwrite": false
+    },
+    {
+      "type": "image",
+      "key": "closeButton",
+      "url": "assets/image/closeButton.png",
+      "overwrite": false
+    },
+    {
+      "type": "image",
+      "key": "testButton",
+      "url": "assets/image/testButton.png",
+      "overwrite": false
     }
   ],
   "meta": {
-    "generated": "1551672948904",
+    "generated": "1552464380385",
     "app": "Phaser Editor",
     "url": "http://phasereditor.boniatillo.com",
     "version": "1.0",

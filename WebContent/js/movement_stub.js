@@ -2,6 +2,42 @@
 Define the move_right function without js interpreter. 
 */
 var x;
+
+Blockly.JavaScript['newRow'] = function(block) {
+    var code = 'newLine();\n'; // make sure to keep the \n or it will not work correctly
+    return code;
+};
+
+
+function initInterpreterNewLine(interpreter, scope) {
+    // uses to time outs, terminates the upward motion before termination moving right
+    Blockly.JavaScript.addReservedWords('newLine');
+
+    var wrapper = interpreter.createAsyncFunction(
+        function(callback) {
+            setTimeout(function(){nextline(); callback();},  300);
+        });
+    interpreter.setProperty(scope, 'newLine', wrapper);
+
+}
+Blockly.JavaScript['null'] = function(block) {
+    var code = 'space();\n'; // make sure to keep the \n or it will not work correctly
+    return code;
+};
+
+
+function initInterpreterSpace(interpreter, scope) {
+    // uses to time outs, terminates the upward motion before termination moving right
+    Blockly.JavaScript.addReservedWords('space');
+
+    var wrapper = interpreter.createAsyncFunction(
+        function(callback) {
+            setTimeout(function(){space(); callback();},  300);
+        });
+    interpreter.setProperty(scope, 'space', wrapper);
+
+}
+
 Blockly.JavaScript['move_right'] = function(block) {
     var code = 'goRightBlock();\n'; // make sure to keep the \n or it will not work correctly
     return code;

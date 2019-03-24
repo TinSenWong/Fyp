@@ -36,9 +36,6 @@
                     <li class="nav-item">
                         <a class="nav-link" href="GamePlay.php">Play Game</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="HowToPlay.php">How To Play</a>
-                    </li>
                     <li class="nav-item ">
                         <a class="nav-link" href="Leaderboard.php">Leaderboard</a>
                     </li>

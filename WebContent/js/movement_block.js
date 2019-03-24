@@ -1,5 +1,32 @@
 /* Generate blocks with https://blockly-demo.appspot.com/static/demos/blockfactory/index.html */
 
+
+Blockly.Blocks['newRow'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("Next Line");
+        this.setInputsInline(false);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(330);
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+};
+
+Blockly.Blocks['null'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("Space");
+        this.setInputsInline(false);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(330);
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+};
+
 Blockly.Blocks['move_right'] = {
     init: function () {
         this.appendDummyInput()

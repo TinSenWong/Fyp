@@ -38,6 +38,8 @@ function initApi(interpreter, scope) {
     initInterpreterGoUp(interpreter, scope);
     initInterpreterGoDown(interpreter, scope);
     initInterpreterGetInput(interpreter, scope);
+    initInterpreterSpace(interpreter, scope);
+    initInterpreterNewLine(interpreter, scope);
     // Add an API function for highlighting blocks.
     var wrapper = function (id) {
         id = id ? id.toString() : '';
@@ -110,7 +112,7 @@ function runCode() {
                         setTimeout(runner, 10);
                     } else {
                         // Program is complete.
-                        checkInput();
+                        checkInput = true;
                         console.log('\n\n<< complete >>');
                         resetInterpreter();
                         resetStepUi(false);
@@ -119,6 +121,7 @@ function runCode() {
             };
             runner();
         }, 1);
+
         resetElement();
         runCount += 1;
         document.getElementById('runTime').innerHTML = '<h2>RunTime :' + runCount + '</h2>';
