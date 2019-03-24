@@ -39,7 +39,10 @@ var finish=0;
 var round=0;
 var currentRow=0;
 var currentCol=0;
+var weekCurrentRow = 0;
+var weekCurrentCol = 0;
 var playerInputList =createArray(10,20);
+var weaknessGroupList =createArray(10,20);
 function createArray(length) {
     var arr = new Array(length || 0),
         i = length;
@@ -65,6 +68,8 @@ function selectLevel(){
 		game.plugins.add(Phaser.Plugin.KineticScrolling);
 	});
 	var context = new AudioContext();
+    worngTime=0;
+    finish=0;
 };
 
 //level
@@ -187,7 +192,7 @@ function viewAllBlockly() {
     workspace.addChangeListener(onWorkspaceChange);
     onWorkspaceChange();
 }
-function messageBox(text,w,h){
+function messageBox(text,w,h,callback){
 
         //if exists
         if (this.msgBox) {
@@ -224,6 +229,7 @@ function messageBox(text,w,h){
         //add a listener to destroy the box when the button is pressed
         closeButton.events.onInputDown.add(function(){
             this.msgBox.destroy();
+            callback();
         }, this);
         //
         //
@@ -237,6 +243,15 @@ function messageBox(text,w,h){
         //make a state reference to the messsage box
         this.msgBox = msgBox;
 
+}
+function weekSpace(){
+    if (weekCurrentCol<20){
+        weekCurrentCol+=1;
+    }
+}
+function weekNextline(){
+    weekCurrentRow+=1;
+    weekCurrentCol=0;
 }
 function space(){
     if (currentCol<20){

@@ -33,15 +33,19 @@ breakWallGame2.prototype.preload = function () {
 	hideGrid(true);
 	toolbox = '<xml id="toolbox" style="display: none">';
 	toolbox += '  <block type="input"></block>';
-	toolbox += '<block type="controls_repeat_ext">';
-	toolbox += '   <value name="TIMES">';
-	toolbox += '<shadow type="math_number">';
-	toolbox += '    <field name="NUM">10</field>';
-	toolbox += '</shadow>';
-	toolbox += '</value>';
+	//toolbox += '  <block type="newRow"></block>';
+	toolbox += '  <block type="null"></block>';
+	//toolbox += '<block type="controls_repeat_ext">';
+	//toolbox += '   <value name="TIMES">';
+	//toolbox += '<shadow type="math_number">';
+	//toolbox += '    <field name="NUM">10</field>';
+	//toolbox += '</shadow>';
+	//toolbox += '</value>';
 	toolbox += '</block>';
 	toolbox += '</xml>';
 	changeToolbox(toolbox,20);
+	limitTime=3;
+	round = 3;
 	
 };
 
@@ -57,7 +61,15 @@ breakWallGame2.prototype.create = function () {
 	this.WeaknessOutputMask.beginFill(0x98F5FF);
 	this.WeaknessOutputMask.drawRect(0,0,1000, 400);
 	this.WeaknessOutputMask.endFill();
-	addweaknessGroup(randonWeakness(3));
+	addweaknessGroupGame2(randonWeakness(3));
+	
+	var _worngTime = this.add.text(1000.0, 50.0, 'Worng:'+worngTime, {"font":"bold 28px Arial"});
+	var _limitTime = this.add.text(1002.0, 113.0, "Attempts :" + limitTime, {"font":"bold 28px Arial"});
+	var _finishTime = this.add.text(997.0, 667.0, 'Finish:'+finish+'/'+round, {"font":"bold 28px Arial"});
+	
+	this.fWorngTime = _worngTime;
+	this.fLimitTime = _limitTime;
+	this.fFinishTime = _finishTime;	
 	
 	
 };
@@ -68,11 +80,63 @@ breakWallGame2.prototype.update = function () {
 		alert('true');
 		correct=false;
 	}
+	if (finish==round){
+		messageBox("You Win!",300,200),this;
+	}
+	if (checkInput){
+		checkInput = false;
+		var count=0;
+		if (playerInput != null){
+			if (playerInput.length==weaknessGroup.length){
+				for (i = 0;i<playerInput.children.length;i++){
+					//alert(playerInput.length+":"+weaknessGroup.length);
+					if (playerInput.children[i].frameName==weaknessGroup.children[i].frameName){
+						count+=1;
+					}else{
+						continue;
+					}
+				}
+			}
+			if (count==weaknessGroup.children.length){
+				weaknessGroup.destroy();
+				game.state.start("breakWallGame");
+				
+				this.fFinishTime.setText("Finish:    :" + ++finish );
+			}else{
+				this.fWorngTime.setText("Worng    :" + ++worngTime );
+				
+				this.fLimitTime.setText("Attempts :" + --limitTime );
+			}
+		}
+		
+	}
 
 };
 breakWallGame2.prototype.render = function () {
 	this.game.debug.inputInfo(32, 32);
 };
-
+function addweaknessGroupGame2(weakness){
+	weaknessGroup.x = 24;
+	weaknessGroup.y = 50;
+	var randomSpace = Math.floor((Math.random()*weakness.length)-1);
+	for(i=0;i<weakness.length;i++){
+		weaknessGroup.createMultiple(1,'Attributes',weakness[i],true);
+		//if ((weakness.length) % 10 == 0 && (weakness.length) != 0){
+	    //	weaknessGroup.x-=400;
+	    //}
+		if(i==randomSpace){
+			alert(randomSpace);
+			weekSpace();
+		}
+		weaknessGroupList[weekCurrentRow][weekCurrentCol]=weaknessGroup.children[weaknessGroup.children.length-1];
+		weaknessGroup.children[weaknessGroup.children.length-1].y += weekCurrentRow*90;
+		weaknessGroup.children[weaknessGroup.children.length-1].x += weekCurrentCol*90;
+		weekCurrentCol+=1;
+		weaknessGroup.scale.set(0.5);
+	}
+	
+	game.world.bringToTop(weaknessGroup);
+    return weaknessGroup;
+}
 
 // -- user code here --
