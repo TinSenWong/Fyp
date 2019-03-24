@@ -248,8 +248,8 @@ function OnTweenComplete(){
 			game1Pass = true;
 			alert("你打贏了 貪食怪!");
 			hideGame(false);
-			this.state.add("Level04", Level04);
-			this.state.start("Level04");
+			this.state.add("Level6", Level6);
+			this.state.start("Level6");
 		}, this);
 	},this);
 	

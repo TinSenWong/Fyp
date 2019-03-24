@@ -80,7 +80,7 @@ playGame.prototype = {
                 }
             }
             // now it's time to place page thumbnail selectors, in a way they are centered on the stage
-            this.pageSelectors[k] = game.add.button(game.width / 2 + (k - Math.floor(colors.length / 2) + 0.5 * (1 - colors.length % 2)) * 40, game.height - 40, "levelpages", function (e) {
+            /*this.pageSelectors[k] = game.add.button(game.width / 2 + (k - Math.floor(colors.length / 2) + 0.5 * (1 - colors.length % 2)) * 40, game.height - 40, "levelpages", function (e) {
                 // each page thumbnail once clicked will scroll the map by "difference" pages
                 var difference = e.pageIndex - this.currentPage;
                 // changePage will handle scrolling
@@ -98,6 +98,7 @@ playGame.prototype = {
             } else {
                 this.pageSelectors[k].height = 15;
             }
+            */
         }
         // when we start dragging, we just save horizontal map position
         this.scrollingMap.events.onDragStart.add(function (sprite, pointer) {
@@ -113,7 +114,7 @@ playGame.prototype = {
                     var bounds = this.scrollingMap.children[i].getBounds();
                     // before we start a level, let's check the level is not locked that means it's not on frame zero  
                     if (bounds.contains(pointer.x, pointer.y) && this.scrollingMap.children[i].frame > 0) {
-                        alert("Welcome to Level " + this.scrollingMap.children[i].levelNumber);
+                        alert("Welcome to Level " + (this.scrollingMap.children[i].levelNumber+1));
                         var selestLevel = this.scrollingMap.children[i].levelNumber;
                         level = selestLevel;
 //                        game.state.start("PlayLevel");

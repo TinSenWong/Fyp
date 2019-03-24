@@ -3,7 +3,8 @@ var game;
 var maxBlock;
 var toolbox;
 // colors is actually the array of level pages
-var colors = ["0xffffff", "0xff0000", "0x00ff00", "0x0000ff", "0xffff00"];
+var colors = ["0xffffff"];
+//var colors = ["0xffffff", "0xff0000", "0x00ff00", "0x0000ff", "0xffff00"];
 // columns of thumbnails in each page
 var columns = 9;
 // rows of thumbnails in each page
@@ -108,7 +109,6 @@ function getKey(){
 function IsOpenChest(){
 	if (key){
 		this.fTreasure_chest.play('open').onComplete.add(function(){
-			alert(level);
 			if (hp==1){
 				stars[level] = 1;
 		        if (stars[level + 1] != undefined && stars[level + 1] == -1) {

@@ -662,7 +662,8 @@ Level6.prototype.create = function () {
 	if (game1Pass){
 		this.fPlayer.x = playerX;
 		this.fPlayer.y = playerY;
-		this.fMonster.visible = false;
+		this.fMonster.destroy();
+		game1Pass=false;
 	}
 	this.cursors = this.input.keyboard.createCursorKeys();
 	this.fPlayer.body.collideWorldBounds=true;
@@ -675,7 +676,8 @@ Level6.prototype.initScene = function () {
     
 };
 Level6.prototype.update = function () {
-	if (this.fMonster.exists){
+	if (!game1Pass){
+		
 		this.physics.arcade.collide(this.fPlayer, this.fMonster,function (){
 			playerX = this.fMonster.x;
 			

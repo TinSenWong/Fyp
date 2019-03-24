@@ -59,18 +59,6 @@ Level4.prototype.create = function () {
 	_treasure_chest_open.killOnComplete = true;
 	this.game.physics.arcade.enable(_treasure_chest);
 	
-	var _player = this.add.sprite(256.0, 224.0, 'atlas', 'misa-front-walk.000');
-	_player.animations.add('Back', ['misa-back-walk.000', 'misa-back-walk.001', 'misa-back-walk.002', 'misa-back-walk.003'], 6, true);
-	_player.animations.add('Left', ['misa-left-walk.000', 'misa-left-walk.001', 'misa-left-walk.002', 'misa-left-walk.003'], 6, true);
-	_player.animations.add('Front', ['misa-front-walk.000', 'misa-front-walk.001', 'misa-front-walk.002', 'misa-front-walk.003'], 6, true);
-	_player.animations.add('Right', ['misa-right-walk.000', 'misa-right-walk.001', 'misa-right-walk.002', 'misa-right-walk.003'], 6, true);
-	_player.animations.add('BackStay', ['misa-back'], 6, false);
-	_player.animations.add('FrontStay', ['misa-front'], 6, false);
-	_player.animations.add('LeftStay', ['misa-left'], 6, false);
-	_player.animations.add('RightStay', ['misa-right'], 6, false);
-	this.game.physics.arcade.enable(_player);
-	_player.body.setSize(31.9999999999, 31.9999999999, 0.0, 32.0);
-	
 	var _block = this.add.group();
 	_block.position.setTo(512.0, 384.0);
 	
@@ -690,6 +678,18 @@ Level4.prototype.create = function () {
 	this.game.physics.arcade.enable(_base_out_atlas);
 	_base_out_atlas.body.immovable = true;
 	
+	var _player = this.add.sprite(256.0, 224.0, 'atlas', 'misa-front-walk.000');
+	_player.animations.add('Back', ['misa-back-walk.000', 'misa-back-walk.001', 'misa-back-walk.002', 'misa-back-walk.003'], 6, true);
+	_player.animations.add('Left', ['misa-left-walk.000', 'misa-left-walk.001', 'misa-left-walk.002', 'misa-left-walk.003'], 6, true);
+	_player.animations.add('Front', ['misa-front-walk.000', 'misa-front-walk.001', 'misa-front-walk.002', 'misa-front-walk.003'], 6, true);
+	_player.animations.add('Right', ['misa-right-walk.000', 'misa-right-walk.001', 'misa-right-walk.002', 'misa-right-walk.003'], 6, true);
+	_player.animations.add('BackStay', ['misa-back'], 6, false);
+	_player.animations.add('FrontStay', ['misa-front'], 6, false);
+	_player.animations.add('LeftStay', ['misa-left'], 6, false);
+	_player.animations.add('RightStay', ['misa-right'], 6, false);
+	this.game.physics.arcade.enable(_player);
+	_player.body.setSize(31.9999999999, 31.9999999999, 0.0, 32.0);
+	
 	
 	
 	// fields
@@ -698,8 +698,8 @@ Level4.prototype.create = function () {
 	this.fMidLayer_layer = _MidLayer_layer;
 	this.fKeyYellow = _keyYellow;
 	this.fTreasure_chest = _treasure_chest;
-	this.fPlayer = _player;
 	this.fBlock = _block;
+	this.fPlayer = _player;
 	//this.camera.follow(this.fPlayer);
 	if (game1Pass){
 		this.fPlayer.x = playerX;

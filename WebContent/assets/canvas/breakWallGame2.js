@@ -31,16 +31,16 @@ breakWallGame2.prototype.preload = function () {
 	playerInput = this.add.group();
 	weaknessGroup = game.add.group();
 	hideGrid(true);
-		toolbox = '<xml id="toolbox" style="display: none">';
-		toolbox += '  <block type="input"></block>';
-		toolbox += '<block type="controls_repeat_ext">';
-		toolbox += '   <value name="TIMES">';
-		toolbox += '<shadow type="math_number">';
-		toolbox += '    <field name="NUM">10</field>';
-		toolbox += '</shadow>';
-		toolbox += '</value>';
-		toolbox += '</block>';
-		toolbox += '</xml>';
+	toolbox = '<xml id="toolbox" style="display: none">';
+	toolbox += '  <block type="input"></block>';
+	toolbox += '<block type="controls_repeat_ext">';
+	toolbox += '   <value name="TIMES">';
+	toolbox += '<shadow type="math_number">';
+	toolbox += '    <field name="NUM">10</field>';
+	toolbox += '</shadow>';
+	toolbox += '</value>';
+	toolbox += '</block>';
+	toolbox += '</xml>';
 	changeToolbox(toolbox,20);
 	
 };
