@@ -21,6 +21,7 @@
     "showGrid": true,
     "create_before": "this.initScene();\r\nthis.world.setBounds(0, 0, 20000, 20000);\r\n",
     "create_after": "//this.camera.follow(this.fPlayer);\r\nif (game1Pass){\r\n\tthis.fPlayer.x = playerX;\r\n\tthis.fPlayer.y = playerY;\r\n\tthis.fMonster.visible = false;\r\n}\r\nthis.cursors = this.input.keyboard.createCursorKeys();\r\nthis.fPlayer.body.collideWorldBounds=true;\r\nplayer = this.fPlayer;",
+    "state_constructor_before": "hp = 4;",
     "state_preload_before": "changeToolbox(toolbox,20);"
   },
   "stateSettings": {
@@ -75,8 +76,8 @@
           "info": {
             "editorName": "keyYellow",
             "editorField": true,
-            "x": 352,
-            "y": 192,
+            "x": 416,
+            "y": 256,
             "scale.x": 0.45714285714285713,
             "scale.y": 0.45714285714285713,
             "data": "",
@@ -90,7 +91,7 @@
           "info": {
             "editorName": "treasure_chest",
             "editorField": true,
-            "x": 448,
+            "x": 512,
             "y": 256,
             "scale.x": 0.9142857142857143,
             "scale.y": 0.9142857142857143,
@@ -153,23 +154,12 @@
               },
               {
                 "type": "spritesheet",
-                "id": "e9dd5155-f7f8-4a33-9ff5-5fde51825d47",
-                "asset": "4",
-                "info": {
-                  "editorName": "base_out_atlas",
-                  "x": 224,
-                  "y": 416,
-                  "body": {"type": "ARCADE_RECT"}
-                }
-              },
-              {
-                "type": "spritesheet",
                 "id": "04a4b48f-1b3f-4b26-9e28-398818f9c454",
                 "asset": "4",
                 "info": {
                   "editorName": "base_out_atlas",
                   "x": 256,
-                  "y": 416,
+                  "y": 384,
                   "body": {"type": "ARCADE_RECT"}
                 }
               },
@@ -180,7 +170,7 @@
                 "info": {
                   "editorName": "base_out_atlas",
                   "x": 288,
-                  "y": 416,
+                  "y": 384,
                   "body": {"type": "ARCADE_RECT"}
                 }
               },
@@ -191,7 +181,7 @@
                 "info": {
                   "editorName": "base_out_atlas",
                   "x": 320,
-                  "y": 416,
+                  "y": 384,
                   "body": {"type": "ARCADE_RECT"}
                 }
               },
@@ -202,7 +192,7 @@
                 "info": {
                   "editorName": "base_out_atlas",
                   "x": 352,
-                  "y": 416,
+                  "y": 384,
                   "body": {"type": "ARCADE_RECT"}
                 }
               },
@@ -213,7 +203,7 @@
                 "info": {
                   "editorName": "base_out_atlas",
                   "x": 480,
-                  "y": 416,
+                  "y": 384,
                   "body": {"type": "ARCADE_RECT"}
                 }
               },
@@ -224,7 +214,7 @@
                 "info": {
                   "editorName": "base_out_atlas",
                   "x": 448,
-                  "y": 416,
+                  "y": 384,
                   "body": {"type": "ARCADE_RECT"}
                 }
               },
@@ -1707,7 +1697,7 @@
                 "info": {
                   "editorName": "base_out_atlas",
                   "x": 384,
-                  "y": 416,
+                  "y": 384,
                   "body": {"type": "ARCADE_RECT"}
                 }
               },
@@ -1757,23 +1747,12 @@
               },
               {
                 "type": "spritesheet",
-                "id": "23c07fbd-5751-4d32-91b6-9bd8b19a57a0",
-                "asset": "4",
-                "info": {
-                  "editorName": "base_out_atlas",
-                  "x": 544,
-                  "y": 416,
-                  "body": {"type": "ARCADE_RECT"}
-                }
-              },
-              {
-                "type": "spritesheet",
                 "id": "a8d214f2-c045-4746-84cf-5a6d9346f8c9",
                 "asset": "4",
                 "info": {
                   "editorName": "base_out_atlas",
                   "x": 512,
-                  "y": 416,
+                  "y": 384,
                   "body": {"type": "ARCADE_RECT"}
                 }
               },
@@ -1784,7 +1763,7 @@
                 "info": {
                   "editorName": "base_out_atlas",
                   "x": 416,
-                  "y": 416,
+                  "y": 384,
                   "body": {"type": "ARCADE_RECT"}
                 }
               },
@@ -1834,45 +1813,12 @@
               },
               {
                 "type": "spritesheet",
-                "id": "1e41e7b0-ab55-4a65-9f77-cdeb69919a69",
-                "asset": "4",
-                "info": {
-                  "editorName": "base_out_atlas",
-                  "x": 480,
-                  "y": 256,
-                  "body": {"type": "ARCADE_RECT"}
-                }
-              },
-              {
-                "type": "spritesheet",
-                "id": "23ff3c7d-094e-40f6-bad5-0f3fafde254a",
-                "asset": "4",
-                "info": {
-                  "editorName": "base_out_atlas",
-                  "x": 480,
-                  "y": 288,
-                  "body": {"type": "ARCADE_RECT"}
-                }
-              },
-              {
-                "type": "spritesheet",
                 "id": "fe4fbc91-afd1-4c98-887d-c25298ed36c9",
                 "asset": "4",
                 "info": {
                   "editorName": "base_out_atlas",
-                  "x": 480,
-                  "y": 320,
-                  "body": {"type": "ARCADE_RECT"}
-                }
-              },
-              {
-                "type": "spritesheet",
-                "id": "efbb83fd-26d2-48c3-835c-650b6caa0fd1",
-                "asset": "4",
-                "info": {
-                  "editorName": "base_out_atlas",
-                  "x": 576,
-                  "y": 352,
+                  "x": 544,
+                  "y": 224,
                   "body": {"type": "ARCADE_RECT"}
                 }
               },
@@ -1889,45 +1835,12 @@
               },
               {
                 "type": "spritesheet",
-                "id": "208885ef-326a-46bb-83a5-b02f362eeda3",
-                "asset": "4",
-                "info": {
-                  "editorName": "base_out_atlas",
-                  "x": 512,
-                  "y": 352,
-                  "body": {"type": "ARCADE_RECT"}
-                }
-              },
-              {
-                "type": "spritesheet",
-                "id": "8a8a6e64-fe00-4339-839a-913ee504c407",
-                "asset": "4",
-                "info": {
-                  "editorName": "base_out_atlas",
-                  "x": 480,
-                  "y": 352,
-                  "body": {"type": "ARCADE_RECT"}
-                }
-              },
-              {
-                "type": "spritesheet",
                 "id": "e661de8d-36b6-48ea-b4c6-3d75918db1e9",
                 "asset": "4",
                 "info": {
                   "editorName": "base_out_atlas",
                   "x": 512,
                   "y": 224,
-                  "body": {"type": "ARCADE_RECT"}
-                }
-              },
-              {
-                "type": "spritesheet",
-                "id": "1f1cd6e8-cb6f-486e-b39a-cf5ba6a2f554",
-                "asset": "4",
-                "info": {
-                  "editorName": "base_out_atlas",
-                  "x": 704,
-                  "y": 288,
                   "body": {"type": "ARCADE_RECT"}
                 }
               }
@@ -2018,25 +1931,205 @@
           }
         },
         {
-          "type": "spritesheet",
-          "id": "6a0da548-084d-4975-a19e-84d8d95e29ef",
-          "asset": "4",
+          "type": "group",
+          "id": "1e565664-6e8a-4c42-860a-edbc1c95d6bb",
           "info": {
-            "editorName": "base_out_atlas",
-            "x": 416,
-            "y": 288,
-            "body": {"type": "ARCADE_RECT"}
+            "editorName": "HPGroup",
+            "editorField": true,
+            "setAll": [],
+            "children": [
+              {
+                "type": "spritesheet",
+                "id": "98be25a9-f450-46e9-ad26-3c224ae99978",
+                "asset": "6",
+                "info": {
+                  "editorName": "hp3",
+                  "x": 224,
+                  "y": 32,
+                  "scale.x": 2.1492804711165077,
+                  "scale.y": 2.1492807122751274,
+                  "animations": [{
+                    "name": "play",
+                    "frameRate": 60,
+                    "frames": [
+                      "1",
+                      "2",
+                      "3",
+                      "4",
+                      "5",
+                      "6",
+                      "7",
+                      "8",
+                      "9",
+                      "10",
+                      "11",
+                      "12",
+                      "13",
+                      "14",
+                      "15"
+                    ]
+                  }]
+                }
+              },
+              {
+                "type": "spritesheet",
+                "id": "bbf3809f-6810-4d1d-a3f9-82b12dd98e0f",
+                "asset": "6",
+                "info": {
+                  "editorName": "hp2",
+                  "x": 128,
+                  "y": 32,
+                  "scale.x": 2.1492804711165077,
+                  "scale.y": 2.1492807122751274,
+                  "animations": [{
+                    "name": "play",
+                    "frameRate": 60,
+                    "frames": [
+                      "0",
+                      "1",
+                      "2",
+                      "3",
+                      "4",
+                      "5",
+                      "6",
+                      "7",
+                      "8",
+                      "9",
+                      "10",
+                      "11",
+                      "12",
+                      "13",
+                      "14",
+                      "15"
+                    ]
+                  }]
+                }
+              },
+              {
+                "type": "spritesheet",
+                "id": "d3e71b81-f457-4e18-9a29-2eb72d316da2",
+                "asset": "6",
+                "info": {
+                  "editorName": "hp1",
+                  "x": 37,
+                  "y": 37,
+                  "scale.x": 2.1492804711165077,
+                  "scale.y": 2.1492807122751274,
+                  "animations": [{
+                    "name": "play",
+                    "frameRate": 60,
+                    "frames": [
+                      "0",
+                      "1",
+                      "2",
+                      "3",
+                      "4",
+                      "5",
+                      "6",
+                      "7",
+                      "8",
+                      "9",
+                      "10",
+                      "11",
+                      "12",
+                      "13",
+                      "14",
+                      "15"
+                    ]
+                  }]
+                }
+              },
+              {
+                "type": "spritesheet",
+                "id": "232979e5-51d6-497e-ab63-12ba4f34067f",
+                "asset": "6",
+                "info": {
+                  "editorName": "hp4",
+                  "x": 320,
+                  "y": 32,
+                  "scale.x": 2.1492804711165077,
+                  "scale.y": 2.1492807122751274,
+                  "animations": [{
+                    "name": "play",
+                    "frameRate": 60,
+                    "frames": [
+                      "1",
+                      "2",
+                      "3",
+                      "4",
+                      "5",
+                      "6",
+                      "7",
+                      "8",
+                      "9",
+                      "10",
+                      "11",
+                      "12",
+                      "13",
+                      "14",
+                      "15"
+                    ]
+                  }]
+                }
+              }
+            ]
           }
         },
         {
-          "type": "spritesheet",
-          "id": "eb03196b-28ba-481f-be39-a4834da488d5",
-          "asset": "4",
+          "type": "group",
+          "id": "5b452703-f528-461f-96a6-cb96cb36ecd5",
           "info": {
-            "editorName": "base_out_atlas",
-            "x": 448,
-            "y": 288,
-            "body": {"type": "ARCADE_RECT"}
+            "editorName": "spike",
+            "editorField": true,
+            "x": -128,
+            "y": 192,
+            "setAll": [],
+            "children": [
+              {
+                "type": "spritesheet",
+                "id": "4f202345-f924-4ef5-b263-7bcdc2657fe2",
+                "asset": "7",
+                "info": {
+                  "editorName": "base_out_atlas4",
+                  "x": 480,
+                  "y": 64,
+                  "body": {"type": "ARCADE_RECT"}
+                }
+              },
+              {
+                "type": "spritesheet",
+                "id": "cb5c657e-4c3f-4392-ba11-d841c2db38aa",
+                "asset": "7",
+                "info": {
+                  "editorName": "base_out_atlas4",
+                  "x": 480,
+                  "y": 160,
+                  "body": {"type": "ARCADE_RECT"}
+                }
+              },
+              {
+                "type": "spritesheet",
+                "id": "018b9cba-1b2f-4daa-b5eb-ba8ce6c0a73f",
+                "asset": "7",
+                "info": {
+                  "editorName": "base_out_atlas4",
+                  "x": 480,
+                  "y": 128,
+                  "body": {"type": "ARCADE_RECT"}
+                }
+              },
+              {
+                "type": "spritesheet",
+                "id": "30d1cd20-9cd0-4ccf-b44c-a652ea4e7123",
+                "asset": "7",
+                "info": {
+                  "editorName": "base_out_atlas4",
+                  "x": 480,
+                  "y": 96,
+                  "body": {"type": "ARCADE_RECT"}
+                }
+              }
+            ]
           }
         }
       ]
@@ -2076,6 +2169,18 @@
       "section": "maze",
       "asset": "atlas",
       "sprite": "misa-front-walk.000"
+    },
+    "6": {
+      "file": "WebContent/assets/pack.json",
+      "section": "game",
+      "asset": "hp heart",
+      "sprite": "0"
+    },
+    "7": {
+      "file": "WebContent/assets/pack.json",
+      "section": "maze",
+      "asset": "base_out_atlas",
+      "sprite": "258"
     }
   },
   "prefab-table": {}
