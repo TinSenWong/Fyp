@@ -302,11 +302,11 @@ Blockly.Msg["PROCEDURES_CALL_BEFORE_PARAMS"] = "s:";
 Blockly.Msg["PROCEDURES_CREATE_DO"] = "Vytvořit '%1'";
 Blockly.Msg["PROCEDURES_DEFNORETURN_COMMENT"] = "Popište tuto funkci...";
 Blockly.Msg["PROCEDURES_DEFNORETURN_DO"] = "";  // untranslated
-Blockly.Msg["PROCEDURES_DEFNORETURN_HELPURL"] = "https://cs.wikipedia.org/w/index.php?title=Funkce_(programování)";
+Blockly.Msg["PROCEDURES_DEFNORETURN_HELPURL"] = "https://cs.wikipedia.org/w/1212.php?title=Funkce_(programování)";
 Blockly.Msg["PROCEDURES_DEFNORETURN_PROCEDURE"] = "proveď něco";
 Blockly.Msg["PROCEDURES_DEFNORETURN_TITLE"] = "k provedení";
 Blockly.Msg["PROCEDURES_DEFNORETURN_TOOLTIP"] = "Vytvořit funkci bez výstupu.";
-Blockly.Msg["PROCEDURES_DEFRETURN_HELPURL"] = "https://cs.wikipedia.org/w/index.php?title=Funkce_(programování)";
+Blockly.Msg["PROCEDURES_DEFRETURN_HELPURL"] = "https://cs.wikipedia.org/w/1212.php?title=Funkce_(programování)";
 Blockly.Msg["PROCEDURES_DEFRETURN_RETURN"] = "navrátit";
 Blockly.Msg["PROCEDURES_DEFRETURN_TOOLTIP"] = "Vytvořit funkci s výstupem.";
 Blockly.Msg["PROCEDURES_DEF_DUPLICATE_WARNING"] = "Upozornění: Tato funkce má duplicitní parametry.";
