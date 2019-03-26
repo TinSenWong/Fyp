@@ -68,7 +68,9 @@ breakWallGame.prototype.create = function () {
 /* --- end generated code --- */
 breakWallGame.prototype.update = function () {
 	if (finish==round){
-		messageBox("You Win!",300,200),this;
+		messageBox('win',winMsg(),300,200,function(){
+			
+		}),this;
 	}
 	if (checkInput){
 		checkInput = false;
@@ -94,8 +96,10 @@ breakWallGame.prototype.update = function () {
 				
 				this.fLimitTime.setText("Attempts :" + --limitTime );
 				if(limitTime==0){
-					messageBox("Oh No!",300,200,function(){
-						alert();
+					messageBox('lose',lostMsg(),300,200,function(){
+						game.state.add("breakWallGame", breakWallGame);
+						game.state.start("breakWallGame");
+				        worngTime=0;
 					}),this;
 				}
 			}
