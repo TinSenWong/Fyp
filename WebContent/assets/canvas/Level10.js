@@ -550,17 +550,20 @@ Level10.prototype.create = function () {
 	
 	var _HPGroup = this.add.group();
 	
-	var _hp3 = this.add.sprite(224.0, 32.0, 'hp heart', 0, _HPGroup);
+	var _hp3 = this.add.sprite(37.0, 37.0, 'hp heart', 0, _HPGroup);
 	_hp3.scale.setTo(2.1492804711165077, 2.1492807122751274);
-	_hp3.animations.add('play', [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], 60, false);
+	_hp3.animations.add('play', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], 60, false);
+	_hp3.animations.add('heal', [15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0], 60, false);
 	
 	var _hp2 = this.add.sprite(128.0, 32.0, 'hp heart', 0, _HPGroup);
 	_hp2.scale.setTo(2.1492804711165077, 2.1492807122751274);
 	_hp2.animations.add('play', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], 60, false);
+	_hp2.animations.add('heal', [15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0], 60, false);
 	
-	var _hp1 = this.add.sprite(37.0, 37.0, 'hp heart', 0, _HPGroup);
+	var _hp1 = this.add.sprite(224.0, 32.0, 'hp heart', 0, _HPGroup);
 	_hp1.scale.setTo(2.1492804711165077, 2.1492807122751274);
 	_hp1.animations.add('play', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], 60, false);
+	_hp1.animations.add('heal', [15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0], 60, false);
 	
 	var _spike = this.add.group();
 	_spike.position.setTo(-128.0, 192.0);
@@ -569,6 +572,9 @@ Level10.prototype.create = function () {
 	this.game.physics.arcade.enable(_base_out_atlas4);
 	
 	var _base_out_atlas4 = this.add.sprite(480.0, 96.0, 'base_out_atlas', 258, _spike);
+	this.game.physics.arcade.enable(_base_out_atlas4);
+	
+	var _base_out_atlas4 = this.add.sprite(448.0, 96.0, 'base_out_atlas', 258, _spike);
 	this.game.physics.arcade.enable(_base_out_atlas4);
 	
 	var _hearts = this.add.group();

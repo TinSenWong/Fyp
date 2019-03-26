@@ -103,11 +103,25 @@ function collisionHandler(){
 		
 	}
 }
+function collisionHandler2(){
+	hp -= 1;
+	this.fHPGroup.children[1].play('play');
+	if (hp == 0){
+		if(confirm('你死了  重新遊玩')){
+			hp = 3;
+			this.state.add("game1", Level10);
+			this.state.start("game1");
+		}else{
+			this.state.add("playGame", playGame);
+			this.state.start("playGame");
+		}
+		
+	}
+}
 function collisionHeal(){
 	hp += 1;
-	this.fHPGroup.children[0].play('play');
+	this.fHPGroup.children[hp-1].play('heal');
 	this.fHearts.children[i].destroy();
-	
 }
 function getKey(){
 	key = true;
