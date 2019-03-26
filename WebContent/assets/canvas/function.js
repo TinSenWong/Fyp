@@ -93,7 +93,8 @@ function collisionHandler(){
 	this.fSpike.children[i].destroy();
 	if (hp == 0){
 		if(confirm('你死了  重新遊玩')){
-			this.state.add("game1", Level01);
+			hp = 3;
+			this.state.add("game1", Level10);
 			this.state.start("game1");
 		}else{
 			this.state.add("playGame", playGame);
@@ -101,6 +102,12 @@ function collisionHandler(){
 		}
 		
 	}
+}
+function collisionHeal(){
+	hp += 1;
+	this.fHPGroup.children[0].play('play');
+	this.fHearts.children[i].destroy();
+	
 }
 function getKey(){
 	key = true;

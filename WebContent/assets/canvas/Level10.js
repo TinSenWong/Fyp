@@ -12,8 +12,6 @@
 function Level10() {
 	
 	Phaser.State.call(this);
-	hp = 4;
-	
 	
 }
 
@@ -52,7 +50,7 @@ Level10.prototype.create = function () {
 	var _MidLayer_layer = _MidLayer.createLayer(0);
 	_MidLayer_layer.resizeWorld();
 	
-	var _keyYellow = this.add.sprite(416.0, 256.0, 'keyYellow');
+	var _keyYellow = this.add.sprite(480.0, 256.0, 'keyYellow');
 	_keyYellow.scale.setTo(0.45714285714285713, 0.45714285714285713);
 	this.game.physics.arcade.enable(_keyYellow);
 	
@@ -73,22 +71,22 @@ Level10.prototype.create = function () {
 	var _base_out_atlas = this.add.sprite(224.0, 288.0, 'base_out_atlas', 234, _block);
 	this.game.physics.arcade.enable(_base_out_atlas);
 	
-	var _base_out_atlas = this.add.sprite(256.0, 384.0, 'base_out_atlas', 234, _block);
+	var _base_out_atlas = this.add.sprite(256.0, 320.0, 'base_out_atlas', 234, _block);
 	this.game.physics.arcade.enable(_base_out_atlas);
 	
-	var _base_out_atlas = this.add.sprite(288.0, 384.0, 'base_out_atlas', 234, _block);
+	var _base_out_atlas = this.add.sprite(288.0, 320.0, 'base_out_atlas', 234, _block);
 	this.game.physics.arcade.enable(_base_out_atlas);
 	
-	var _base_out_atlas = this.add.sprite(320.0, 384.0, 'base_out_atlas', 234, _block);
+	var _base_out_atlas = this.add.sprite(320.0, 320.0, 'base_out_atlas', 234, _block);
 	this.game.physics.arcade.enable(_base_out_atlas);
 	
-	var _base_out_atlas = this.add.sprite(352.0, 384.0, 'base_out_atlas', 234, _block);
+	var _base_out_atlas = this.add.sprite(352.0, 320.0, 'base_out_atlas', 234, _block);
 	this.game.physics.arcade.enable(_base_out_atlas);
 	
-	var _base_out_atlas = this.add.sprite(480.0, 384.0, 'base_out_atlas', 234, _block);
+	var _base_out_atlas = this.add.sprite(480.0, 320.0, 'base_out_atlas', 234, _block);
 	this.game.physics.arcade.enable(_base_out_atlas);
 	
-	var _base_out_atlas = this.add.sprite(448.0, 384.0, 'base_out_atlas', 234, _block);
+	var _base_out_atlas = this.add.sprite(448.0, 320.0, 'base_out_atlas', 234, _block);
 	this.game.physics.arcade.enable(_base_out_atlas);
 	
 	var _base_out_atlas = this.add.sprite(0.0, 0.0, 'base_out_atlas', 234, _block);
@@ -487,9 +485,6 @@ Level10.prototype.create = function () {
 	var _base_out_atlas = this.add.sprite(288.0, 224.0, 'base_out_atlas', 234, _block);
 	this.game.physics.arcade.enable(_base_out_atlas);
 	
-	var _base_out_atlas = this.add.sprite(544.0, 352.0, 'base_out_atlas', 234, _block);
-	this.game.physics.arcade.enable(_base_out_atlas);
-	
 	var _base_out_atlas = this.add.sprite(352.0, 224.0, 'base_out_atlas', 234, _block);
 	this.game.physics.arcade.enable(_base_out_atlas);
 	
@@ -511,7 +506,7 @@ Level10.prototype.create = function () {
 	var _base_out_atlas = this.add.sprite(224.0, 320.0, 'base_out_atlas', 234, _block);
 	this.game.physics.arcade.enable(_base_out_atlas);
 	
-	var _base_out_atlas = this.add.sprite(384.0, 384.0, 'base_out_atlas', 234, _block);
+	var _base_out_atlas = this.add.sprite(384.0, 320.0, 'base_out_atlas', 234, _block);
 	this.game.physics.arcade.enable(_base_out_atlas);
 	
 	var _base_out_atlas = this.add.sprite(480.0, 224.0, 'base_out_atlas', 234, _block);
@@ -523,19 +518,13 @@ Level10.prototype.create = function () {
 	var _base_out_atlas = this.add.sprite(544.0, 288.0, 'base_out_atlas', 234, _block);
 	this.game.physics.arcade.enable(_base_out_atlas);
 	
-	var _base_out_atlas = this.add.sprite(544.0, 384.0, 'base_out_atlas', 234, _block);
+	var _base_out_atlas = this.add.sprite(544.0, 320.0, 'base_out_atlas', 234, _block);
 	this.game.physics.arcade.enable(_base_out_atlas);
 	
-	var _base_out_atlas = this.add.sprite(512.0, 384.0, 'base_out_atlas', 234, _block);
+	var _base_out_atlas = this.add.sprite(512.0, 320.0, 'base_out_atlas', 234, _block);
 	this.game.physics.arcade.enable(_base_out_atlas);
 	
-	var _base_out_atlas = this.add.sprite(416.0, 384.0, 'base_out_atlas', 234, _block);
-	this.game.physics.arcade.enable(_base_out_atlas);
-	
-	var _base_out_atlas = this.add.sprite(224.0, 384.0, 'base_out_atlas', 234, _block);
-	this.game.physics.arcade.enable(_base_out_atlas);
-	
-	var _base_out_atlas = this.add.sprite(224.0, 352.0, 'base_out_atlas', 234, _block);
+	var _base_out_atlas = this.add.sprite(416.0, 320.0, 'base_out_atlas', 234, _block);
 	this.game.physics.arcade.enable(_base_out_atlas);
 	
 	var _base_out_atlas = this.add.sprite(544.0, 320.0, 'base_out_atlas', 234, _block);
@@ -545,12 +534,6 @@ Level10.prototype.create = function () {
 	this.game.physics.arcade.enable(_base_out_atlas);
 	
 	var _base_out_atlas = this.add.sprite(544.0, 224.0, 'base_out_atlas', 234, _block);
-	this.game.physics.arcade.enable(_base_out_atlas);
-	
-	var _base_out_atlas = this.add.sprite(544.0, 352.0, 'base_out_atlas', 234, _block);
-	this.game.physics.arcade.enable(_base_out_atlas);
-	
-	var _base_out_atlas = this.add.sprite(512.0, 224.0, 'base_out_atlas', 234, _block);
 	this.game.physics.arcade.enable(_base_out_atlas);
 	
 	var _player = this.add.sprite(256.0, 224.0, 'atlas', 'misa-front-walk.000');
@@ -579,24 +562,21 @@ Level10.prototype.create = function () {
 	_hp1.scale.setTo(2.1492804711165077, 2.1492807122751274);
 	_hp1.animations.add('play', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], 60, false);
 	
-	var _hp4 = this.add.sprite(320.0, 32.0, 'hp heart', 0, _HPGroup);
-	_hp4.scale.setTo(2.1492804711165077, 2.1492807122751274);
-	_hp4.animations.add('play', [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], 60, false);
-	
 	var _spike = this.add.group();
 	_spike.position.setTo(-128.0, 192.0);
 	
 	var _base_out_atlas4 = this.add.sprite(480.0, 64.0, 'base_out_atlas', 258, _spike);
 	this.game.physics.arcade.enable(_base_out_atlas4);
 	
-	var _base_out_atlas4 = this.add.sprite(480.0, 160.0, 'base_out_atlas', 258, _spike);
-	this.game.physics.arcade.enable(_base_out_atlas4);
-	
-	var _base_out_atlas4 = this.add.sprite(480.0, 128.0, 'base_out_atlas', 258, _spike);
-	this.game.physics.arcade.enable(_base_out_atlas4);
-	
 	var _base_out_atlas4 = this.add.sprite(480.0, 96.0, 'base_out_atlas', 258, _spike);
 	this.game.physics.arcade.enable(_base_out_atlas4);
+	
+	var _hearts = this.add.group();
+	_hearts.position.setTo(-128.0, 192.0);
+	
+	var _heart = this.add.sprite(544.0, 64.0, 'heart', null, _hearts);
+	_heart.scale.setTo(0.4047615829565869, 0.4047615829565869);
+	this.game.physics.arcade.enable(_heart);
 	
 	
 	
@@ -610,6 +590,7 @@ Level10.prototype.create = function () {
 	this.fPlayer = _player;
 	this.fHPGroup = _HPGroup;
 	this.fSpike = _spike;
+	this.fHearts = _hearts;
 	//this.camera.follow(this.fPlayer);
 	if (game1Pass){
 		this.fPlayer.x = playerX;
@@ -630,6 +611,9 @@ Level10.prototype.update = function () {
 	this.fPlayer.body.velocity.set(0);
 	for (i = 0;i < this.fSpike.children.length;i++){
 		this.physics.arcade.collide(this.fPlayer,this.fSpike.children[i], collisionHandler, null, this);
+	}
+	for (i = 0;i < this.fHearts.children.length;i++){
+		this.physics.arcade.collide(this.fPlayer,this.fHearts.children[i], collisionHeal, null, this);
 	}
 	if (this.fKeyYellow.exists){	
 		this.physics.arcade.collide(this.fPlayer,this.fKeyYellow, getKey, null, this);
