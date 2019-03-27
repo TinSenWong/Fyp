@@ -33,8 +33,6 @@ breakWallGame.prototype.preload = function () {
 	hideGrid(true);
 	toolbox = '<xml id="toolbox" style="display: none">';
 	toolbox += '  <block type="input"></block>';
-	toolbox += '  <block type="newRow"></block>';
-	toolbox += '  <block type="null"></block>';
 	toolbox += '</xml>';
 	changeToolbox(toolbox,20);
 	limitTime=3;
@@ -54,7 +52,7 @@ breakWallGame.prototype.create = function () {
 	this.WeaknessOutputMask.beginFill(0x98F5FF);
 	this.WeaknessOutputMask.drawRect(0,0,1000, 400);
 	this.WeaknessOutputMask.endFill();
-	addweaknessGroup(randonWeakness(3));
+	addweaknessGroupGame1(randonWeakness(3));
 	
 	var _worngTime = this.add.text(1000.0, 50.0, 'Worng:'+worngTime, {"font":"bold 28px Arial"});
 	var _limitTime = this.add.text(1002.0, 113.0, "Attempts :" + limitTime, {"font":"bold 28px Arial"});
@@ -70,7 +68,9 @@ breakWallGame.prototype.create = function () {
 /* --- end generated code --- */
 breakWallGame.prototype.update = function () {
 	if (finish==round){
-		messageBox("You Win!",300,200),this;
+		messageBox('win',winMsg(),300,200,function(){
+			
+		}),this;
 	}
 	if (checkInput){
 		checkInput = false;
@@ -95,10 +95,18 @@ breakWallGame.prototype.update = function () {
 				this.fWorngTime.setText("Worng    :" + ++worngTime );
 				
 				this.fLimitTime.setText("Attempts :" + --limitTime );
+				if(limitTime==0){
+					messageBox('lose',lostMsg(),300,200,function(){
+						game.state.add("breakWallGame", breakWallGame);
+						game.state.start("breakWallGame");
+				        worngTime=0;
+					}),this;
+				}
 			}
 		}
 		
 	}
+	
 
 };
 breakWallGame.prototype.render = function () {
@@ -132,8 +140,6 @@ function addPlayerInputList(element){
     	
     }
     
-    
-    
 	//playerInput.align(90, 50, 90, 90);
     playerInputList[currentRow][currentCol]=playerInput.children[playerInput.children.length-1];
     playerInput.children[playerInput.children.length-1].y += currentRow*90;
@@ -142,7 +148,7 @@ function addPlayerInputList(element){
     playerInput.scale.set(0.5);
     return playerInput;
 }
-function addweaknessGroup(weakness){
+function addweaknessGroupGame1(weakness){
 	weaknessGroup.x = 24;
 	weaknessGroup.y = 50;
 	for(i=0;i<weakness.length;i++){

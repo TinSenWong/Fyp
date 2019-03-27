@@ -246,10 +246,23 @@
       "key": "testButton",
       "url": "assets/image/testButton.png",
       "overwrite": false
+    },
+    {
+      "type": "image",
+      "key": "OKButton",
+      "url": "assets/image/OKButton.png",
+      "overwrite": false
+    },
+    {
+      "type": "image",
+      "key": "Backselect",
+      "url": "assets/image/Backselect.png",
+      "overwrite": false
     }
   ],
   "meta": {
-    "generated": "1553638685892",
+
+    "generated": "1553611949310",
     "app": "Phaser Editor",
     "url": "http://phasereditor.boniatillo.com",
     "version": "1.0",

@@ -39,7 +39,10 @@ var finish=0;
 var round=0;
 var currentRow=0;
 var currentCol=0;
+var weekCurrentRow = 0;
+var weekCurrentCol = 0;
 var playerInputList =createArray(10,20);
+var weaknessGroupList =createArray(10,20);
 function createArray(length) {
     var arr = new Array(length || 0),
         i = length;
@@ -65,6 +68,8 @@ function selectLevel(){
 		game.plugins.add(Phaser.Plugin.KineticScrolling);
 	});
 	var context = new AudioContext();
+    worngTime=0;
+    finish=0;
 };
 
 //level
@@ -78,6 +83,14 @@ var playerX;
 var map;
 var key = false;
 var hp = 3;
+var engNeverGiveUp =['Don\'t give up the chance of success.','Stick to your dream, never give up.','Be generous, atmosphere, don\'t give up!','Real warrior never give up..','Until the last moment, never give up.','Not indulgence, do not give up. Just for a better tomorrow.','Winners never quit, quitters never succeed.','Action speak louder than words.','Never say die.','Zero in your target，and go for it.','Believe in yourself.','Keep on going never give up.','Hold on to the end, never give up, is the guarantee of success, as long as you don\'t give up, you will have the opportunity, as long as give up, he certainly would not have succeeded.','That’s will coming along nicely.','Don\'t give up! Don\'t give up! Don\'t give up! Important words three times.'];
+var engGoodJob=['Incredible!','Incomparable!','You\'re Awesome !','Keep it up! ','Lovely! ','Perfect!  ','WoW,Beautiful work','Bravo! ','Cool! ','Clever!','Excellent! ','Fabulous! ','Fantastic!','Good work.','Impressive! ']
+function lostMsg() {
+    return engNeverGiveUp[Math.round(Math.random() * 14)];
+}
+function winMsg(){
+    return engGoodJob[Math.round(Math.random()*14)];
+}
 function checkOverlap(spriteA, spriteB) {
  
     var boundsA = spriteA.getBounds();
@@ -150,7 +163,7 @@ function IsOpenChest(){
 	        localStorage.setItem(localStorageName, stars.toString());
 	        this.state.add("playGame", playGame);
 	        game.state.start("playGame");
-		}, this);
+    }, this);
 	}
 }
 function sleep(milliseconds) {
@@ -208,7 +221,7 @@ function viewAllBlockly() {
     workspace.addChangeListener(onWorkspaceChange);
     onWorkspaceChange();
 }
-function messageBox(text,w,h){
+function messageBox(type,text,w,h,callback){
 
         //if exists
         if (this.msgBox) {
@@ -219,7 +232,8 @@ function messageBox(text,w,h){
         //make the back of the message box
         var back = game.add.sprite(0, 0, "boxBack");
         //make the close button
-        var closeButton = game.add.sprite(0, 0, "closeButton");
+
+
         //make a text field
         var text1 = game.add.text(0, 0, text);
         //set the textfeild to wrap if the text is too long
@@ -227,37 +241,71 @@ function messageBox(text,w,h){
         //make the width of the wrap 90% of the width
         //of the message box
         text1.wordWrapWidth = w * .9;
-        //
-        //
-        //
         //add the elements to the group
         msgBox.add(back);
-        msgBox.add(closeButton);
+
         msgBox.add(text1);
-        //
+        if (type=='lose'){
+            var closeButton = game.add.sprite(0, 0, "closeButton");
+            var Backselect = game.add.sprite(0, 0, "Backselect");
+            Backselect.scale.setTo(0.60, 0.60);
+            closeButton.scale.setTo(0.65, 0.58);
+            msgBox.add(closeButton);
+            msgBox.add(Backselect);
         //set the close button
         //in the center horizontally
         //and near the bottom of the box vertically
-        closeButton.x = w / 2 - closeButton.width / 2;
-        closeButton.y = h - closeButton.height;
+            Backselect.x = w / 8 - Backselect.width / 8 -10;
+            Backselect.y = h - Backselect.height+60;
+            closeButton.x = w / 8 - closeButton.width / 8+150;
+            closeButton.y = h - closeButton.height+55;
         //enable the button for input
-        closeButton.inputEnabled = true;
+            Backselect.inputEnabled = true;
+            closeButton.inputEnabled = true;
         //add a listener to destroy the box when the button is pressed
-        closeButton.events.onInputDown.add(function(){
+            Backselect.events.onInputDown.add(function() {
+                this.msgBox.destroy();
+                selectLevel();
+            }, this);
+            closeButton.events.onInputDown.add(function(){
             this.msgBox.destroy();
+            callback();
         }, this);
-        //
-        //
+        }else if(type=='win'){
+            var okButton = game.add.sprite(0,0,"OKButton");
+            msgBox.add(okButton);
+            //set the ok button
+            //in the center horizontally
+            //and near the bottom of the box vertically
+            okButton.x = w / 2 - okButton.width / 2;
+            okButton.y = h - okButton.height+50;
+            //enable the button for input
+            okButton.inputEnabled = true;
+            //add a listener to destroy the box when the button is pressed
+            okButton.events.onInputDown.add(function(){
+                this.msgBox.destroy();
+                callback();
+            }, this);
+        }
+
         //set the message box in the center of the screen
         msgBox.x = game.width / 2 - msgBox.width / 2;
         msgBox.y = game.height / 2 - msgBox.height / 2;
-        //
         //set the text in the middle of the message box
         text1.x = w / 2 - text1.width / 2;
         text1.y = h / 2 - text1.height / 2;
         //make a state reference to the messsage box
         this.msgBox = msgBox;
 
+}
+function weekSpace(){
+    if (weekCurrentCol<20){
+        weekCurrentCol+=1;
+    }
+}
+function weekNextline(){
+    weekCurrentRow+=1;
+    weekCurrentCol=0;
 }
 function space(){
     if (currentCol<20){
