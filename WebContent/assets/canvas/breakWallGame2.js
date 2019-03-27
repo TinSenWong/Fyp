@@ -106,6 +106,14 @@ breakWallGame2.prototype.update = function () {
 				this.fWorngTime.setText("Worng    :" + ++worngTime );
 				
 				this.fLimitTime.setText("Attempts :" + --limitTime );
+				
+				if(limitTime==0){
+					messageBox('lose',lostMsg(),300,200,function(){
+						game.state.add("breakWallGame2", breakWallGame2);
+						game.state.start("breakWallGame2");
+				        worngTime=0;
+					}),this;
+				}
 			}
 		}
 		
@@ -118,6 +126,7 @@ breakWallGame2.prototype.render = function () {
 function addweaknessGroupGame2(weakness){
 	weaknessGroup.x = 24;
 	weaknessGroup.y = 50;
+	weekCurrentCol=0;
 	var randomSpace = Math.floor((Math.random()*weakness.length)-1);
 	for(i=0;i<weakness.length;i++){
 		weaknessGroup.createMultiple(1,'Attributes',weakness[i],true);
@@ -125,7 +134,7 @@ function addweaknessGroupGame2(weakness){
 	    //	weaknessGroup.x-=400;
 	    //}
 		if(i==randomSpace){
-			alert(randomSpace);
+			
 			weekSpace();
 		}
 		weaknessGroupList[weekCurrentRow][weekCurrentCol]=weaknessGroup.children[weaknessGroup.children.length-1];
