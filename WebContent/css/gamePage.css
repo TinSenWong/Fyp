@@ -2,15 +2,17 @@
     position: absolute;
     top: 5%;
 }
-#gameButton{
+#gameButtonDIV{
     position: absolute;
-    bottom: 10%;
-}
-#displayText{
-    position: absolute;
-    bottom: 15%;
+    top : 80%;
 }
 
+
+#displayText {
+    position: absolute;
+    left: 0;
+    top: 85%;
+}
 html,
 body {
     height: 100%;

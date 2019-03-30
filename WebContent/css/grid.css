@@ -1,9 +1,12 @@
-
+:root {
+  --gird-size: 32px;
+  --start-line: 31px;
+}
 .grid {
   height: 800px;
   width: 1200px;
-  background-image: repeating-linear-gradient(0deg, transparent, transparent 31px, #d8d7d2 31px, #d8d7d2 32px), repeating-linear-gradient(-90deg, transparent, transparent 31px, #d8d7d2 31px, #d8d7d2 32px);
-  background-size: 32px 32px;
+  background-image: repeating-linear-gradient(0deg, transparent, transparent var(--start-line), #d8d7d2 var(--start-line), #d8d7d2 var(--gird-size)), repeating-linear-gradient(-90deg, transparent, transparent var(--start-line), #d8d7d2 var(--start-line), #d8d7d2 var(--gird-size));
+  background-size: var(--gird-size) var(--gird-size);
   position: absolute;
   opacity: 0.5;
   top: 0;

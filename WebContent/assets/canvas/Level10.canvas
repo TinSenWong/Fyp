@@ -2016,28 +2016,6 @@
               "height": 31.9999999999
             }
           }
-        },
-        {
-          "type": "spritesheet",
-          "id": "6a0da548-084d-4975-a19e-84d8d95e29ef",
-          "asset": "4",
-          "info": {
-            "editorName": "base_out_atlas",
-            "x": 416,
-            "y": 288,
-            "body": {"type": "ARCADE_RECT"}
-          }
-        },
-        {
-          "type": "spritesheet",
-          "id": "eb03196b-28ba-481f-be39-a4834da488d5",
-          "asset": "4",
-          "info": {
-            "editorName": "base_out_atlas",
-            "x": 448,
-            "y": 288,
-            "body": {"type": "ARCADE_RECT"}
-          }
         }
       ]
     }

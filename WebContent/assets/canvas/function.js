@@ -43,6 +43,7 @@ var weekCurrentRow = 0;
 var weekCurrentCol = 0;
 var playerInputList =createArray(10,20);
 var weaknessGroupList =createArray(10,20);
+var currentScreen;
 function createArray(length) {
     var arr = new Array(length || 0),
         i = length;
@@ -58,7 +59,7 @@ function selectLevel(){
 	if (game != null) {
         game.destroy();
     }
-	game = new Phaser.Game($(document).width(),$(document).height(), Phaser.Auto, 'phaser');
+	game = new Phaser.Game($(document).width()*0.99,$(document).height(), Phaser.Auto, 'phaser');
 
 	game.state.add("PlayGame", playGame);
     game.state.start("PlayGame");

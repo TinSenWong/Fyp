@@ -586,12 +586,6 @@ Level10.prototype.create = function () {
 	this.game.physics.arcade.enable(_player);
 	_player.body.setSize(31.9999999999, 31.9999999999, 0.0, 32.0);
 	
-	var _base_out_atlas = this.add.sprite(416.0, 288.0, 'base_out_atlas', 234);
-	this.game.physics.arcade.enable(_base_out_atlas);
-	
-	var _base_out_atlas = this.add.sprite(448.0, 288.0, 'base_out_atlas', 234);
-	this.game.physics.arcade.enable(_base_out_atlas);
-	
 	
 	
 	// fields

@@ -76,31 +76,6 @@ game2.prototype.create = function () {
 	var _Attributes = this.add.physicsGroup(Phaser.Physics.ARCADE);
 	_Attributes.position.setTo(20.0, -2.0);
 	
-	var _terra = this.add.sprite(212.0, 773.0, 'Attributes', 'terra', _Attributes);
-	_terra.scale.setTo(0.5199998985185398, 0.5636362374094385);
-	_terra.anchor.setTo(0.5, 0.5);
-	_terra.body.setCircle(38.5, 19.321063995361328, 4.278034210205078);
-	
-	var _Thunder = this.add.sprite(192.0, 710.0, 'Attributes', 'Thunder', _Attributes);
-	_Thunder.scale.setTo(0.8628571063178712, 0.5538463300881171);
-	_Thunder.anchor.setTo(0.5, 0.5);
-	_Thunder.body.setCircle(17.5, -2.328756332397461, 15.237896919250488);
-	
-	var _water = this.add.sprite(300.0, 710.0, 'Attributes', 'water', _Attributes);
-	_water.scale.setTo(0.7360000675251507, 0.6526316591816703);
-	_water.anchor.setTo(0.5, 0.5);
-	_water.body.setCircle(25.0, -0.6552162170410156, 14.039745330810547);
-	
-	var _wood = this.add.sprite(280.0, 773.0, 'Attributes', 'wood', _Attributes);
-	_wood.scale.setTo(0.7090907970983089, 0.6684209058433127);
-	_wood.anchor.setTo(0.5, 0.5);
-	_wood.body.setCircle(33.0, 1.1334800720214844, 6.012378692626953);
-	
-	var _fire = this.add.sprite(249.0, 658.0, 'Attributes', 'fire', _Attributes);
-	_fire.scale.setTo(0.6852457119694998, 0.5550561384930743);
-	_fire.anchor.setTo(0.5, 0.5);
-	_fire.body.setCircle(30.5, -1.4661884307861328, 16.29067039489746);
-	
 	var _rightans = this.add.group();
 	_rightans.position.setTo(21.0, -1.0);
 	
@@ -115,15 +90,6 @@ game2.prototype.create = function () {
 	var _rightansPosition = this.add.sprite(162.0, 247.0, 'ansPosition', 0, _rightans);
 	_rightansPosition.scale.setTo(0.6066338691568852, 0.5149474140978532);
 	_rightansPosition.anchor.setTo(0.5, 0.5);
-	
-	var _fire1 = this.add.sprite(151.0, 298.0, 'Attributes', 'fire', _rightans);
-	_fire1.scale.setTo(0.6852457119694998, 0.5550561384930743);
-	
-	var _water1 = this.add.sprite(145.0, 220.0, 'Attributes', 'water', _rightans);
-	_water1.scale.setTo(0.7360000675251507, 0.6526316591816703);
-	
-	var _fire2 = this.add.sprite(244.0, 296.0, 'Attributes', 'fire', _rightans);
-	_fire2.scale.setTo(0.6852457119694998, 0.5550561384930743);
 	
 	this.add.text(110.0, 233.0, 'a =', {"font":"bold 20px Arial"});
 	
@@ -173,18 +139,15 @@ game2.prototype.create = function () {
 	this.fAnsPosition1 = _ansPosition1;
 	this.fAnsPosition = _ansPosition;
 	this.fAttributes = _Attributes;
-	this.fTerra = _terra;
-	this.fThunder = _Thunder;
-	this.fWater = _water;
-	this.fWood = _wood;
-	this.fFire = _fire;
 	this.fAnsAttributes = _ansAttributes;
 	this.fCloneAns = _cloneAns;
 	this.fHPGroup = _HPGroup;
 	this.fMonster = _monster;
 	hideGame(true);
 	_Attributes.callAll('events.onInputDown.add', 'events.onInputDown', clone, this);
+	submitBtn.events.onInputDown.add(clearPutAns,this);
 	submitBtn.events.onInputDown.add(show2,this);
+	submitBtn.events.onInputDown.add(clearShowAns,this);
 	resetBtn.events.onInputDown.add(clearShowAns,this);
 	
 	this.shadowTexture = this.game.add.bitmapData(this.game.width, this.game.height);

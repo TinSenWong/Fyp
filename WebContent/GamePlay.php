@@ -6,6 +6,9 @@
     <title>Blockly</title>
     <link rel="stylesheet" type="text/css" href="css/grid.css">
     <link rel="stylesheet" type="text/css" href="css/gamePage.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/octicons/4.4.0/font/octicons.min.css" rel="stylesheet">
+    <link href="src/jquery-bootstrap-modal-steps.js"/>
     <script src="google-blockly/blockly_compressed.js"></script>
     <script src="google-blockly/blocks_compressed.js"></script>
     <script src="google-blockly/javascript_compressed.js"></script>
@@ -30,9 +33,7 @@
     <script src="assets/canvas/Level10.js"></script>
     <script src="assets/canvas/Level11.js"></script>
     <script src="assets/canvas/Level12.js"></script>
-    <script src="assets/canvas/Level13.js"></script>
-    <script src="assets/canvas/Level14.js"></script>
-    <script src="assets/canvas/Level15.js"></script>
+
     <script src="assets/canvas/index.js"></script>
     <script src="assets/canvas/game1.js"></script>
     <script src="assets/canvas/breakWallGame.js"></script>
@@ -41,28 +42,26 @@
     <script src="js/wait_block.js"></script>
     <script src="js/movement_block.js"></script>
     <script src="js/movement_stub.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="jquery/jquery.min.js"></script>
+
 </head>
 
-<body>
+<body onresize="resizeCanvas()">
     <?php include 'Heading.php'; ?>
-    <?php include 'HowToPlay.php'; ?>
 
     <div id="gameDiv">
         <div id="phaser">
             <div id="debug-grid" class="grid"></div>
         </div>
-        <div id="gameButton" style="position: absolute; top: 5%; left: 1250px; ; height: 75%; width: 700px">
-            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modal">How to play</button>
-            <div style="position: absolute; top: 750px">
+        <div id="gameButtonDIV" style="">
                 <button onclick="selectLevel()" id="selectLevel"><img src="webImage/back.png" height="42" width="42">Select Level</button>
                 <button onclick="runCode()" id="runButton"><img src="webImage/move.jpg" height="42" width="25"> Run JavaScript</button>
-            </div>
+                <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modal">How to play</button>
         </div>
-        <div id='displayText' style="position: absolute;top: 4%; right: 0px;width:700px">
+        <div id='displayText'>
             <p id='runTime'></p>
             <h2>
-                <lable id="blocklyNum">1</lable>
+                <lable id="blocklyNum"></lable>
             </h2>
         </div>
         <div id="blocklyDiv" style="position: absolute; top: 9%; right: 0px; ; height: 85%; width: 700px"></div>
@@ -398,8 +397,161 @@
         <category name="Variables" colour="#A65C81" custom="VARIABLE"></category>
         <category name="Functions" colour="#9A5CA6" custom="PROCEDURE"></category>
     </xml>
+    <div class="container">
+        <div id="modal" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
+             aria-labelledby="myLargeModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="wizard-title">How to play?</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                    <div class="modal-body">
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" data-toggle="tab" href="#menu" role="tab">Menu</a>
+                            <li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#life" role="tab">Life</a>
+                            <li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#key" role="tab">Get Key</a>
+                            <li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#stone" role="tab">Stone</a>
+                            <li>
+                        </ul>
+                    </div>
+                    <div class="tab-content mt-2">
+                        <div class="tab-pane fade show active" id="menu" role="tabpanel">
+                            <h4>Menu</h4>
+                            <div class="well" style="text-align: center;"><img src="src/menu.jpg" width="500" height="500"/>
+                            </div>
+                            <!--                        <button class="btn btn-secondary" id="menuCon">Continue</button>-->
+                        </div>
+                        <div class="tab-pane fade" id="life" role="tabpanel">
+                            <h4>Life</h4>
+                            <div class="col-md-8 banner-sec" style="text-align: center">
+                                <div id="life1" class="carousel slide" data-ride="carousel"
+                                     style="text-align: center">
+                                    <ol class="carousel-indicators">
+                                        <li data-target="#life1" data-slide-to="0" class="active"></li>
+                                        <li data-target="#life1" data-slide-to="1"></li>
+                                        <li data-target="#life1" data-slide-to="2"></li>
+                                        <li data-target="#life1" data-slide-to="3"></li>
+                                        <li data-target="#life1" data-slide-to="4"></li>
+                                    </ol>
+                                    <div class="carousel-inner" role="listbox" style="text-align: center">
+                                        <div class="carousel-item active" style="text-align: center">
+                                            <img class="d-block img-fluid" src="src/life.jpg" alt="First slide" width="500"
+                                                 height="500">
+                                            <div class="carousel-caption d-none d-md-block">
+                                            </div>
+                                        </div>
+                                        <div class="carousel-item" style="text-align: center">
+                                            <img class="d-block img-fluid" src="src/increase_life1.jpg" alt="First slide"
+                                                 width="500" height="500">
+                                            <div class="carousel-caption d-none d-md-block">
+                                            </div>
+                                        </div>
+                                        <div class="carousel-item" style="text-align: center">
+                                            <img class="d-block img-fluid" src="src/increase_life2.jpg" alt="First slide"
+                                                 width="500" height="500">
+                                            <div class="carousel-caption d-none d-md-block">
+                                            </div>
+                                        </div>
+                                        <div class="carousel-item" style="text-align: center">
+                                            <img class="d-block img-fluid" src="src/decrease_life1.jpg" alt="First slide"
+                                                 width="500" height="500">
+                                            <div class="carousel-caption d-none d-md-block">
+                                            </div>
+                                        </div>
+                                        <div class="carousel-item" style="text-align: center">
+                                            <img class="d-block img-fluid" src="src/decrease_life2.jpg" alt="First slide"
+                                                 width="500" height="500">
+                                            <div class="carousel-caption d-none d-md-block">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="key" role="tabpanel">
+                            <h4>Key</h4>
+                            <div class="col-md-8 banner-sec" style="text-align: center">
+                                <div id="key1" class="carousel slide" data-ride="carousel"
+                                     style="text-align: center">
+                                    <ol class="carousel-indicators">
+                                        <li data-target="#key1" data-slide-to="0" class="active"></li>
+                                        <li data-target="#key1" data-slide-to="1"></li>
+                                    </ol>
+                                    <div class="carousel-inner" role="listbox" style="text-align: center">
+                                        <div class="carousel-item active" style="text-align: center">
+                                            <img class="d-block img-fluid" src="src/getkey1.jpg" alt="First slide"
+                                                 width="500"
+                                                 height="500">
+                                            <div class="carousel-caption d-none d-md-block">
+                                            </div>
+                                        </div>
+                                        <div class="carousel-item" style="text-align: center">
+                                            <img class="d-block img-fluid" src="src/getkey2.jpg" alt="First slide"
+                                                 width="500"
+                                                 height="500">
+                                            <div class="carousel-caption d-none d-md-block">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="stone" role="tabpanel">
+                            <h4>Stone</h4>
+                            <div class="col-md-8 banner-sec" style="text-align: center">
+                                <div id="stone1" class="carousel slide" data-ride="carousel"
+                                     style="text-align: center">
+                                    <ol class="carousel-indicators">
+                                        <li data-target="#stone1" data-slide-to="0" class="active"></li>
+                                        <li data-target="#stone1" data-slide-to="1"></li>
+                                    </ol>
+                                    <div class="carousel-inner" role="listbox" style="text-align: center">
+                                        <div class="carousel-item active" style="text-align: center">
+                                            <img class="d-block img-fluid" src="src/stone1.jpg" alt="First slide"
+                                                 width="500"
+                                                 height="500">
+                                            <div class="carousel-caption d-none d-md-block">
+                                            </div>
+                                        </div>
+                                        <div class="carousel-item" style="text-align: center">
+                                            <img class="d-block img-fluid" src="src/stone2.jpg" alt="First slide"
+                                                 width="500"
+                                                 height="500">
+                                            <div class="carousel-caption d-none d-md-block">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <script>
         goSelectLevel();
+        $('#modalToggle').click(function () {
+            $('#modal').modal({
+                backdrop: 'static'
+            });
+        });
+
         var runCount = 0;
            document.getElementById('phaser').style.height = '100%';
            document.getElementById('phaser').style.width = '100%';
@@ -409,13 +561,13 @@
                 document.getElementById('blocklyDiv').style.visibility = 'hidden';
                 document.getElementById('debug-grid').style.visibility = 'hidden';
                 document.getElementById('selectLevel').style.visibility = 'hidden';
-                document.getElementById('gameButton').style.visibility = 'hidden';
+                document.getElementById('gameButtonDIV').style.visibility = 'hidden';
                 document.getElementById('displayText').style.visibility = 'hidden';
             } else {
                 document.getElementById('blocklyDiv').style.visibility = 'visible';
                 document.getElementById('debug-grid').style.visibility = 'visible';
                 document.getElementById('selectLevel').style.visibility = 'visible';
-                document.getElementById('gameButton').style.visibility = 'visible';
+                document.getElementById('gameButtonDIV').style.visibility = 'visible';
                 document.getElementById('displayText').style.visibility = 'visible';
             }
         }
@@ -433,12 +585,12 @@
             selectLevel()
         }
         hideGame(true);
+
         var workspace = Blockly.inject('blocklyDiv', {
             maxBlocks: 99,
             media: 'google-blockly/media/',
             toolbox: document.getElementById('toolbox')
         });
-
         function onWorkspaceChange(event) {
             document.getElementById('blocklyNum').textContent =
                 "You have  " + workspace.remainingCapacity() + " block(s) can use.";
@@ -447,6 +599,37 @@
         workspace.addChangeListener(onWorkspaceChange);
         onWorkspaceChange();
 
+        function resizeCanvas()
+        {
+            var blocklyDiv = document.getElementById('blocklyDiv');
+            if (currentScreen == 'level') {
+                if (window.innerWidth>640&&window.innerWidth<1900){
+
+                    blocklyDiv.style.width = window.innerWidth*0.3 + 'px';
+                    blocklyDiv.style.height = window.innerHeight*0.8 + 'px';
+                    game.width = window.innerWidth*0.625;
+                    game.height = game.width*(2/3);
+
+                    $('#debug-grid').height(game.height);
+                    $('#debug-grid').width(game.width);
+                    $('#blocklyNum').style.top = "90%";
+                    document.documentElement.style.setProperty('--gird-size', game.width/37.5+'px');
+                    document.documentElement.style.setProperty('--start-line', game.width/37.5-1+'px');
+
+                }else{
+                    blocklyDiv.style.width = window.innerWidth*0.35 + 'px';
+                    document.documentElement.style.setProperty('--gird-size', game.width/37.5+'px');
+                    document.documentElement.style.setProperty('--start-line', game.width/37.5-1+'px');
+                }
+
+            }else{
+
+                    game.width = window.innerWidth;
+                    game.height = window.innerWidth/2;
+
+            }
+        }
+        window.addEventListener('resize', resizeCanvas, false);
     </script>
 
     <script src="js/run.js"></script>

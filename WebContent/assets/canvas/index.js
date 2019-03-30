@@ -4,7 +4,7 @@ var playGame = function (game) {};
 playGame.prototype = {
     preload: function () {
         // level thumbnail 
-    	
+    	currentScreen = 'selectlevel';
         game.load.spritesheet("levelthumb", "assets/image/levelthumb.png", 60, 60);
         // level pages at the bottom
         game.load.image("levelpages", "assets/image/levelpages.png");
@@ -120,9 +120,12 @@ playGame.prototype = {
 //                        game.state.start("PlayLevel");
                         hideGame(false);
                         game.destroy();
+                        
                         game = new Phaser.Game(1200, 800, Phaser.Auto, 'phaser');
+                       
                         key = false;
                         hp = 3 ;
+                        currentScreen = 'level';
                         switch (selestLevel+1) {
                             case 1:
                                 toolbox = '<xml id="toolbox" style="display: none">';
@@ -373,7 +376,6 @@ playGame.prototype = {
                                 break;
 
                         }
-
                         break;
 
                     }
