@@ -603,7 +603,7 @@
         {
             var blocklyDiv = document.getElementById('blocklyDiv');
             if (currentScreen == 'level') {
-                if (window.innerWidth>640&&window.innerWidth<1900){
+                if (window.innerWidth>640&&window.innerWidth<2000){
 
                     blocklyDiv.style.width = window.innerWidth*0.3 + 'px';
                     blocklyDiv.style.height = window.innerHeight*0.8 + 'px';
@@ -612,7 +612,6 @@
 
                     $('#debug-grid').height(game.height);
                     $('#debug-grid').width(game.width);
-                    $('#blocklyNum').style.top = "90%";
                     document.documentElement.style.setProperty('--gird-size', game.width/37.5+'px');
                     document.documentElement.style.setProperty('--start-line', game.width/37.5-1+'px');
 

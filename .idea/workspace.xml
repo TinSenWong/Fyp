@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="eaaf6313-c3e6-45b3-af30-a285f54606bb" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/WebContent/Heading.php" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/Heading.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebContent/HowToPlay.php" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/HowToPlay.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebContent/Leaderboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/Leaderboard.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebContent/Login.php" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/Login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebContent/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/index.php" afterDir="false" />
-    </list>
+    <list default="true" id="68bc1c96-b28e-4451-a2e4-16d57dba80c4" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,111 +10,61 @@
   </component>
   <component name="FUSProjectUsageTrigger">
     <session id="320237012">
-      <usages-collector id="statistics.file.extensions.edit">
+      <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="js" value="4" />
-          <entry key="php" value="8" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="JavaScript" value="4" />
-          <entry key="PHP" value="8" />
+          <entry key="project.closed" value="3" />
+          <entry key="project.open.time.3" value="2" />
+          <entry key="project.open.time.4" value="2" />
+          <entry key="project.opened" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="js" value="1" />
-          <entry key="php" value="1" />
+          <entry key="php" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JavaScript" value="1" />
-          <entry key="PHP" value="1" />
+          <entry key="PHP" value="4" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="php" value="3" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="PHP" value="3" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-<<<<<<< HEAD
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/WebContent/GamePlay.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="185">
-              <caret line="64" column="15" lean-forward="true" selection-start-line="64" selection-start-column="15" selection-end-line="64" selection-end-column="15" />
-            </state>
-          </provider>
-=======
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WebContent/index.php">
-          <provider selected="true" editor-type-id="text-editor" />
->>>>>>> ff8e11872b3333e714f6e2c26dec9ee428872921
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WebContent/HowToPlay.php">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/WebContent/Heading.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="633">
-              <caret line="53" column="107" selection-start-line="53" selection-start-column="107" selection-end-line="53" selection-end-column="107" />
-              <folding>
-                <element signature="e#3219#3226#1#HTML" expanded="true" />
-                <element signature="e#4287#4294#1#HTML" expanded="true" />
-              </folding>
+            <state relative-caret-position="153">
+              <caret line="422" column="32" lean-forward="true" selection-start-line="422" selection-start-column="32" selection-end-line="422" selection-end-column="32" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WebContent/Login.php">
+        <entry file="file://$PROJECT_DIR$/WebContent/1212.php">
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
   </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>run</find>
-      <find>Level</find>
-      <find>myInterpreter</find>
-      <find>initInterpreterWaitForSeconds</find>
-      <find>time</find>
-      <find>map</find>
-      <find>onWorkspaceChange</find>
-      <find>game</find>
-      <find>BlocklyGame1</find>
-      <find>viewAllBlockly</find>
-      <find>checkInput</find>
-    </findStrings>
-  </component>
   <component name="Git.Settings">
-    <option name="ROOT_SYNC" value="DONT_SYNC" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/WebContent/index.html" />
-        <option value="$PROJECT_DIR$/WebContent/google-blockly/demos/plane/generated/ca.js" />
-        <option value="$PROJECT_DIR$/WebContent/Leaderboard.php" />
-        <option value="$PROJECT_DIR$/WebContent/Login.php" />
-        <option value="$PROJECT_DIR$/WebContent/Heading.php" />
-        <option value="$PROJECT_DIR$/WebContent/js/Main.js" />
-        <option value="$PROJECT_DIR$/WebContent/css/grid.css" />
-        <option value="$PROJECT_DIR$/WebContent/css/gamePage.css" />
-        <option value="$PROJECT_DIR$/WebContent/assets/canvas/Level.js" />
-        <option value="$PROJECT_DIR$/WebContent/js/run.js" />
-        <option value="$PROJECT_DIR$/WebContent/assets/canvas/Level1.js" />
-        <option value="$PROJECT_DIR$/WebContent/assets/canvas/function.js" />
-        <option value="$PROJECT_DIR$/WebContent/assets/canvas/index.js" />
         <option value="$PROJECT_DIR$/WebContent/GamePlay.php" />
-        <option value="$PROJECT_DIR$/WebContent/assets/canvas/BlocklyGame1.js" />
       </list>
     </option>
   </component>
@@ -130,10 +74,20 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.1" />
-  <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="width" value="1440" />
-    <option name="height" value="900" />
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths>
+      <path value="$PROJECT_DIR$/WebContent/google-blockly/package.json" />
+    </packageJsonPaths>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.2">
+    <include_path>
+      <path value="C:/xampp/php/PEAR" />
+    </include_path>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="985" />
+    <option name="width" value="935" />
+    <option name="height" value="1040" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -157,20 +111,7 @@
               <item name="Fyp" type="b2602c69:ProjectViewProjectNode" />
               <item name="Fyp" type="462c0819:PsiDirectoryNode" />
               <item name="WebContent" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Fyp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Fyp" type="462c0819:PsiDirectoryNode" />
-              <item name="WebContent" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="canvas" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Fyp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Fyp" type="462c0819:PsiDirectoryNode" />
-              <item name="WebContent" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -180,18 +121,10 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
-  </component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Andy\Desktop\Phaser Editor\workspace\Fyp\WebContent\webImage" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Andy\Desktop\Phaser Editor\workspace\Fyp\WebContent\WebImg" />
-    </key>
+    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -210,49 +143,29 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="eaaf6313-c3e6-45b3-af30-a285f54606bb" name="Default Changelist" comment="" />
-      <created>1550754349223</created>
+      <changelist id="68bc1c96-b28e-4451-a2e4-16d57dba80c4" name="Default Changelist" comment="" />
+      <created>1553942716423</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1550754349223</updated>
-      <workItem from="1550754350368" duration="274000" />
-      <workItem from="1551173612175" duration="2193000" />
-      <workItem from="1551182404220" duration="3935000" />
-      <workItem from="1551191744650" duration="1109000" />
-      <workItem from="1551192867439" duration="32000" />
-      <workItem from="1551246599947" duration="633000" />
-      <workItem from="1551247817523" duration="1252000" />
-      <workItem from="1551436064601" duration="1751000" />
-      <workItem from="1551442391535" duration="2984000" />
-      <workItem from="1551497167771" duration="8412000" />
-      <workItem from="1551586110849" duration="8652000" />
-      <workItem from="1551672270671" duration="2264000" />
-      <workItem from="1551704138658" duration="4064000" />
-      <workItem from="1551780503896" duration="195000" />
+      <updated>1553942716423</updated>
+      <workItem from="1553942718976" duration="54000" />
+      <workItem from="1553942786011" duration="183000" />
+      <workItem from="1553942982182" duration="39000" />
+      <workItem from="1553943033252" duration="792000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-<<<<<<< HEAD
-    <option name="totallyTimeSpent" value="40100000" />
+    <option name="totallyTimeSpent" value="1068000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="960" y="0" width="960" height="1040" extended-state="0" />
-    <editor active="true" />
+    <frame x="985" y="0" width="935" height="1040" extended-state="1" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2822222" />
-=======
-    <option name="totallyTimeSpent" value="37756000" />
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18669528" />
->>>>>>> ff8e11872b3333e714f6e2c26dec9ee428872921
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26628572" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32855567" />
+      <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -273,126 +186,20 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/WebContent/google-blockly/tests/jsunit/run_jsunit_tests_in_browser.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="38" column="38" selection-start-line="38" selection-start-column="38" selection-end-line="38" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/google-blockly/appengine/redirect.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="22" column="19" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/google-blockly/demos/blockfactory/block_exporter_controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="24" column="65" selection-start-line="24" selection-start-column="65" selection-end-line="24" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/google-blockly/demos/blockfactory/app_controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="688" column="66" selection-start-line="688" selection-start-column="66" selection-end-line="688" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/index.html" />
-    <entry file="file://$PROJECT_DIR$/WebContent/google-blockly/demos/plane/generated/ca.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="12" column="186" lean-forward="true" selection-start-line="12" selection-start-column="186" selection-end-line="12" selection-end-column="186" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/webImage/c.jpg" />
-    <entry file="file://$PROJECT_DIR$/WebContent/webImage/b.jpg" />
-    <entry file="file://$PROJECT_DIR$/WebContent/webImage/A.jpg" />
-    <entry file="file://$PROJECT_DIR$/WebContent/webImage/a.png" />
-    <entry file="file://$PROJECT_DIR$/WebContent/Leaderboard.php" />
-    <entry file="file://$PROJECT_DIR$/WebContent/HowToPlay.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/login.html" />
-    <entry file="file://$PROJECT_DIR$/WebContent/Leaderboard.html" />
-    <entry file="file://$PROJECT_DIR$/WebContent/Login.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/css/octicons.css" />
-    <entry file="file://$PROJECT_DIR$/WebContent/css/login.css" />
-    <entry file="file://$PROJECT_DIR$/WebContent/js/movement_block.js" />
     <entry file="file://$PROJECT_DIR$/WebContent/Heading.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="633">
-          <caret line="53" column="107" selection-start-line="53" selection-start-column="107" selection-end-line="53" selection-end-column="107" />
-          <folding>
-            <element signature="e#3219#3226#1#HTML" expanded="true" />
-            <element signature="e#4287#4294#1#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/js/wait_block.js" />
-    <entry file="file://$PROJECT_DIR$/WebContent/js/Leaderboard.js" />
-    <entry file="file://$PROJECT_DIR$/WebContent/js/movement_stub.js" />
-    <entry file="file://$PROJECT_DIR$/WebContent/js/Main.js" />
-    <entry file="file://$PROJECT_DIR$/WebContent/css/grid.css" />
-    <entry file="file://$PROJECT_DIR$/WebContent/assets/canvas/old/Level05.js" />
-    <entry file="file://$PROJECT_DIR$/WebContent/JS-Interpreter/interpreter.js" />
-    <entry file="file://$PROJECT_DIR$/WebContent/JS-Interpreter/acorn.js" />
-    <entry file="file://$PROJECT_DIR$/WebContent/JS-Interpreter/acorn_interpreter.js" />
-    <entry file="file://$PROJECT_DIR$/WebContent/Footer.php" />
-    <entry file="file://$PROJECT_DIR$/WebContent/JS-Interpreter/index.html" />
-    <entry file="file://$PROJECT_DIR$/WebContent/css/gamePage.css" />
-    <entry file="file://$PROJECT_DIR$/WebContent/assets/canvas/Level1.js" />
-    <entry file="file://$PROJECT_DIR$/WebContent/assets/canvas/Level3.js" />
-    <entry file="file://$PROJECT_DIR$/WebContent/assets/canvas/game1.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7201">
-          <caret line="379" column="15" selection-start-line="379" selection-start-column="11" selection-end-line="379" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/index.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/assets/canvas/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="129" column="65" selection-start-line="129" selection-start-column="65" selection-end-line="129" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/assets/canvas/BlocklyGame1.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="136" column="5" lean-forward="true" selection-start-line="136" selection-start-column="5" selection-end-line="136" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/assets/canvas/function.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="367">
-          <caret line="149" column="23" selection-start-line="149" selection-start-column="9" selection-end-line="149" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/js/run.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="388">
-          <caret line="112" column="37" lean-forward="true" selection-start-line="112" selection-start-column="37" selection-end-line="112" selection-end-column="37" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/WebContent/1212.php">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/GamePlay.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="64" column="15" lean-forward="true" selection-start-line="64" selection-start-column="15" selection-end-line="64" selection-end-column="15" />
+        <state relative-caret-position="153">
+          <caret line="422" column="32" lean-forward="true" selection-start-line="422" selection-start-column="32" selection-end-line="422" selection-end-column="32" />
         </state>
       </provider>
     </entry>
