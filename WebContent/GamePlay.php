@@ -604,21 +604,26 @@
             var blocklyDiv = document.getElementById('blocklyDiv');
             if (currentScreen == 'level') {
                 if (window.innerWidth>640&&window.innerWidth<2000){
+                        blocklyDiv.style.width = window.innerWidth*0.3 + 'px';
+                        blocklyDiv.style.height = window.innerHeight*0.8 + 'px';
+                        game.width = window.innerWidth*0.625;
+                        game.height = game.width*(2/3);
 
-                    blocklyDiv.style.width = window.innerWidth*0.3 + 'px';
-                    blocklyDiv.style.height = window.innerHeight*0.8 + 'px';
-                    game.width = window.innerWidth*0.625;
-                    game.height = game.width*(2/3);
+                        $('#debug-grid').height(game.height);
+                        $('#debug-grid').width(game.width);
+                        document.documentElement.style.setProperty('--gird-size', game.width/37.5+'px');
+                        document.documentElement.style.setProperty('--start-line', game.width/37.5-1+'px');
 
+
+
+                }else if (window.innerWidth>2000){
+                    game.width = 1200;
+                    game.height = 800;
                     $('#debug-grid').height(game.height);
-                    $('#debug-grid').width(game.width);
-                    document.documentElement.style.setProperty('--gird-size', game.width/37.5+'px');
-                    document.documentElement.style.setProperty('--start-line', game.width/37.5-1+'px');
-
-                }else{
+                    $('#debug-grid').width(game.width);s
                     blocklyDiv.style.width = window.innerWidth*0.35 + 'px';
-                    document.documentElement.style.setProperty('--gird-size', game.width/37.5+'px');
-                    document.documentElement.style.setProperty('--start-line', game.width/37.5-1+'px');
+                    document.documentElement.style.setProperty('--gird-size', '32px');
+                    document.documentElement.style.setProperty('--start-line', '32px');
                 }
 
             }else{
