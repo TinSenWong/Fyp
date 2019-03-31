@@ -107,8 +107,6 @@ function runCode() {
                     if (hasMore) {
                         // Execution is currently blocked by some async call.
                         // Try again later.
-
-
                         setTimeout(runner, 10);
                     } else {
                         // Program is complete.
@@ -121,9 +119,13 @@ function runCode() {
             };
             runner();
         }, 1);
-
+        if (workspace.getAllBlocks().length==0){
+            alert('You have no command to run!')
+        }else{
+            runCount += 1;
+        }
         resetElement();
-        runCount += 1;
+
         document.getElementById('runTime').innerHTML = '<h2>RunTime :' + runCount + '</h2>';
         return;
     }

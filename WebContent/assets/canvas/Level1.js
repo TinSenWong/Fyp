@@ -773,9 +773,8 @@ Level1.prototype.update = function () {
 		//	this.fPlayer.play('LeftStay');
 		//}
 		goLeft=false;
-		that = this;
-		tween = that.add.tween(that.fPlayer).to({ x: that.fPlayer.x-32 }, 200, Phaser.Easing.Quadratic.InOut, true);
-		tween.onStart.add(function(){that.fPlayer.play('Left');});
+		tween = this.add.tween(this.fPlayer).to({ x: this.fPlayer.x-32 }, 200, Phaser.Easing.Quadratic.InOut, true);
+		tween.onStart.add(function(){this.fPlayer.play('Left');});
 		tween.onComplete.add(function(){
             this.fPlayer.play('LeftStay');
             this.fPlayer.x =  Math.round(this.fPlayer.x / 32)*32;
@@ -828,19 +827,9 @@ function resetPlayerXY(){
 	
 }
 
-function checkOverlap(spriteA, spriteB) {
- 
-    var boundsA = spriteA.getBounds();
-    var boundsB = spriteB.getBounds();              
- 
-    return Phaser.Rectangle.intersects(boundsA, boundsB);
- 
-}
  
 // -- user code here --
 
-
-var that;
 var tween;
 var touchWall= false;
 var goToTheRight = false;

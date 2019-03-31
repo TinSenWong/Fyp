@@ -123,6 +123,7 @@ function getKey(){
 function IsOpenChest(){
 	if (key){
 		this.fTreasure_chest.play('open').onComplete.add(function(){
+
 			if (hp==1){
 				stars[level] = 1;
 		        if (stars[level + 1] != undefined && stars[level + 1] == -1) {
@@ -141,8 +142,8 @@ function IsOpenChest(){
 			}
 			
 	        localStorage.setItem(localStorageName, stars.toString());
-	        this.state.add("playGame", playGame);
-	        game.state.start("playGame");
+            messageBox(true)
+
     }, this);
 	}
 }
@@ -201,7 +202,7 @@ function viewAllBlockly() {
     workspace.addChangeListener(onWorkspaceChange);
     onWorkspaceChange();
 }
-function messageBox(type,text,w,h,callback){
+function messageBox(IsWin,w,h,callback){
 
         //if exists
         if (this.msgBox) {
@@ -214,22 +215,23 @@ function messageBox(type,text,w,h,callback){
         //make the close button
 
 
-        //make a text field
-        var text1 = game.add.text(0, 0, text);
-        //set the textfeild to wrap if the text is too long
-        text1.wordWrap = true;
-        //make the width of the wrap 90% of the width
-        //of the message box
-        text1.wordWrapWidth = w * .9;
+
         //add the elements to the group
         msgBox.add(back);
 
-        msgBox.add(text1);
-        if (type=='lose'){
+        if (!IsWin){
+            var text1 = game.add.text(0, 0, lostMsg());
             var closeButton = game.add.sprite(0, 0, "closeButton");
             var Backselect = game.add.sprite(0, 0, "Backselect");
             Backselect.scale.setTo(0.60, 0.60);
             closeButton.scale.setTo(0.65, 0.58);
+            //make a text field
+            //set the textfeild to wrap if the text is too long
+            text1.wordWrap = true;
+            //make the width of the wrap 90% of the width
+            //of the message box
+            text1.wordWrapWidth = w * .9;
+            msgBox.add(text1);
             msgBox.add(closeButton);
             msgBox.add(Backselect);
         //set the close button
@@ -251,9 +253,17 @@ function messageBox(type,text,w,h,callback){
             this.msgBox.destroy();
             callback();
         }, this);
-        }else if(type=='win'){
+        }else if(IsWin){
+            var text1 = game.add.text(0, 0, winMsg());
             var okButton = game.add.sprite(0,0,"OKButton");
+            //make a text field
+            //set the textfeild to wrap if the text is too long
+            text1.wordWrap = true;
+            //make the width of the wrap 90% of the width
+            //of the message box
+            text1.wordWrapWidth = w * .9;
             msgBox.add(okButton);
+            msgBox.add(text1);
             //set the ok button
             //in the center horizontally
             //and near the bottom of the box vertically

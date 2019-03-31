@@ -19,7 +19,7 @@
       200
     ],
     "showGrid": true,
-    "create_before": "this.playerInputMask = game.add.graphics();\r\nthis.playerInputMask.inputEnabled=true;\r\nthis.playerInputMask.beginFill(0x7FFF00);\r\nthis.playerInputMask.drawRect( 0,400,1000, 400 );\r\nthis.playerInputMask.endFill();\r\nthis.WeaknessOutputMask = game.add.graphics();\r\nthis.WeaknessOutputMask.inputEnabled=true;\r\nthis.WeaknessOutputMask.beginFill(0x98F5FF);\r\nthis.WeaknessOutputMask.drawRect(0,0,1000, 400);\r\nthis.WeaknessOutputMask.endFill();\r\naddweaknessGroupGame1(randonWeakness(3));\r\n\r\nvar _worngTime = this.add.text(1000.0, 50.0, 'Worng:'+worngTime, {\"font\":\"bold 28px Arial\"});\r\nvar _limitTime = this.add.text(1002.0, 113.0, \"Attempts :\" + limitTime, {\"font\":\"bold 28px Arial\"});\r\nvar _finishTime = this.add.text(997.0, 667.0, 'Finish:'+finish+'/'+round, {\"font\":\"bold 28px Arial\"});\r\n\r\nthis.fWorngTime = _worngTime;\r\nthis.fLimitTime = _limitTime;\r\nthis.fFinishTime = _finishTime;\t",
+    "create_before": "this.playerInputMask = game.add.graphics();\r\nthis.playerInputMask.inputEnabled=true;\r\nthis.playerInputMask.beginFill(0x7FFF00);\r\nthis.playerInputMask.drawRect( 100,300,900, 300 );\r\nthis.playerInputMask.endFill();\r\nthis.WeaknessOutputMask = game.add.graphics();\r\nthis.WeaknessOutputMask.inputEnabled=true;\r\nthis.WeaknessOutputMask.beginFill(0x98F5FF);\r\nthis.WeaknessOutputMask.drawRect(100,0,900, 300);\r\nthis.WeaknessOutputMask.endFill();\r\nthis.heartArea = game.add.graphics();\r\nthis.heartArea.inputEnabled=true;\r\nthis.heartArea.beginFill(0x7FFF00);\r\nthis.heartArea.drawRect( 0,0,100,600 );\r\naddweaknessGroupGame1(randonWeakness(3));\r\n\r\nvar _worngTime = this.add.text(1000.0, 50.0, 'Worng:'+worngTime, {\"font\":\"bold 28px Arial\"});\r\nvar _limitTime = this.add.text(1002.0, 113.0, \"Attempts :\" + limitTime, {\"font\":\"bold 28px Arial\"});\r\nvar _finishTime = this.add.text(997.0, 667.0, 'Finish:'+finish+'/'+round, {\"font\":\"bold 28px Arial\"});\r\n\r\nthis.fWorngTime = _worngTime;\r\nthis.fLimitTime = _limitTime;\r\nthis.fFinishTime = _finishTime;\t",
     "state_preload_before": "this.load.pack('game', 'assets/pack.json');\r\nthis.load.pack('maze', 'assets/pack.json');\r\nplayerInput = this.add.group();\r\nweaknessGroup = game.add.group();\r\nhideGrid(true);\r\ntoolbox = '<xml id=\"toolbox\" style=\"display: none\">';\r\ntoolbox += '  <block type=\"input\"><\/block>';\r\ntoolbox += '<\/xml>';\r\nchangeToolbox(toolbox,20);\r\nlimitTime=3;\r\nround=3;"
   },
   "stateSettings": {
@@ -39,10 +39,209 @@
     "info": {
       "editorName": "breakWallGame.canvas",
       "setAll": [],
-      "children": []
+      "children": [
+        {
+          "type": "group",
+          "id": "54ce9185-21e3-4dc4-9b89-020f4a36d648",
+          "info": {
+            "editorName": "HPGroup",
+            "editorField": true,
+            "x": 29,
+            "y": 195,
+            "setAll": [],
+            "children": [
+              {
+                "type": "spritesheet",
+                "id": "5fb564d0-6292-45ed-a555-74fa8f5c6769",
+                "asset": "0",
+                "info": {
+                  "editorName": "hp3",
+                  "x": -23,
+                  "y": 32,
+                  "scale.x": 2.1492804711165077,
+                  "scale.y": 2.1492807122751274,
+                  "animations": [{
+                    "name": "play",
+                    "frameRate": 60,
+                    "frames": [
+                      "1",
+                      "2",
+                      "3",
+                      "4",
+                      "5",
+                      "6",
+                      "7",
+                      "8",
+                      "9",
+                      "10",
+                      "11",
+                      "12",
+                      "13",
+                      "14",
+                      "15"
+                    ]
+                  }]
+                }
+              },
+              {
+                "type": "spritesheet",
+                "id": "fbd6b3ec-61fd-48a4-8704-fe30df46b7b3",
+                "asset": "0",
+                "info": {
+                  "editorName": "hp2",
+                  "x": -23,
+                  "y": -68,
+                  "scale.x": 2.1492804711165077,
+                  "scale.y": 2.1492807122751274,
+                  "animations": [{
+                    "name": "play",
+                    "frameRate": 60,
+                    "frames": [
+                      "0",
+                      "1",
+                      "2",
+                      "3",
+                      "4",
+                      "5",
+                      "6",
+                      "7",
+                      "8",
+                      "9",
+                      "10",
+                      "11",
+                      "12",
+                      "13",
+                      "14",
+                      "15"
+                    ]
+                  }]
+                }
+              },
+              {
+                "type": "spritesheet",
+                "id": "b45a1c79-8ecf-4f4f-838f-7c5c6549242b",
+                "asset": "0",
+                "info": {
+                  "editorName": "hp1",
+                  "x": -23,
+                  "y": -168,
+                  "scale.x": 2.1492804711165077,
+                  "scale.y": 2.1492807122751274,
+                  "animations": [{
+                    "name": "play",
+                    "frameRate": 60,
+                    "frames": [
+                      "0",
+                      "1",
+                      "2",
+                      "3",
+                      "4",
+                      "5",
+                      "6",
+                      "7",
+                      "8",
+                      "9",
+                      "10",
+                      "11",
+                      "12",
+                      "13",
+                      "14",
+                      "15"
+                    ]
+                  }]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "atlas-sprite",
+          "id": "4c864ef6-2eb0-469f-9be5-868a4a75d55f",
+          "asset": "1",
+          "info": {
+            "editorName": "misa_right",
+            "x": 33,
+            "y": 549,
+            "scale.x": 3.4624001776418343,
+            "scale.y": 3.7540000855073545
+          }
+        },
+        {
+          "type": "image",
+          "id": "d68eb1bb-4cd4-48ed-b902-66a3b0840a3c",
+          "asset": "2",
+          "info": {
+            "editorName": "magic",
+            "x": 153,
+            "y": 685
+          }
+        },
+        {
+          "type": "atlas-sprite",
+          "id": "303f8ff1-e6b1-418e-b7b6-5a2a38506302",
+          "asset": "3",
+          "info": {
+            "editorName": "monster",
+            "editorField": true,
+            "x": 991,
+            "y": 626,
+            "scale.x": -3.039040655493502,
+            "scale.y": 3.384639910744491,
+            "animations": [
+              {
+                "name": "player",
+                "frameRate": 2,
+                "loop": true,
+                "autoPlay": true,
+                "frames": [
+                  "sprite3",
+                  "sprite4"
+                ]
+              },
+              {
+                "name": "destroy",
+                "frameRate": 6,
+                "killOnComplete": true,
+                "frames": [
+                  "sprite10",
+                  "sprite11",
+                  "sprite12",
+                  "sprite13",
+                  "sprite14",
+                  "sprite9"
+                ]
+              }
+            ]
+          }
+        }
+      ]
     }
   },
   "type": "STATE",
-  "asset-table": {},
+  "asset-table": {
+    "0": {
+      "file": "WebContent/assets/pack.json",
+      "section": "game",
+      "asset": "hp heart",
+      "sprite": "0"
+    },
+    "1": {
+      "file": "WebContent/assets/pack.json",
+      "section": "maze",
+      "asset": "atlas",
+      "sprite": "misa-right"
+    },
+    "2": {
+      "file": "WebContent/assets/pack.json",
+      "section": "game",
+      "asset": "magic"
+    },
+    "3": {
+      "file": "WebContent/assets/pack.json",
+      "section": "maze",
+      "asset": "monster",
+      "sprite": "sprite2"
+    }
+  },
   "prefab-table": {}
 }

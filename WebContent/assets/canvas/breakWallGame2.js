@@ -81,7 +81,9 @@ breakWallGame2.prototype.update = function () {
 		correct=false;
 	}
 	if (finish==round){
-		messageBox("You Win!",300,200),this;
+		messageBox(true,300,200,function(){
+			selectlevel();
+		}),this;
 	}
 	if (checkInput){
 		checkInput = false;
@@ -108,7 +110,7 @@ breakWallGame2.prototype.update = function () {
 				this.fLimitTime.setText("Attempts :" + --limitTime );
 				
 				if(limitTime==0){
-					messageBox('lose',lostMsg(),300,200,function(){
+					messageBox(false,300,200,function(){
 						game.state.add("breakWallGame2", breakWallGame2);
 						game.state.start("breakWallGame2");
 				        worngTime=0;

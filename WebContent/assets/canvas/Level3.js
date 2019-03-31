@@ -53,18 +53,6 @@ Level3.prototype.create = function () {
 	_keyYellow.scale.setTo(0.45714285714285713, 0.45714285714285713);
 	this.game.physics.arcade.enable(_keyYellow);
 	
-	var _player = this.add.sprite(256.0, 224.0, 'atlas', 'misa-front-walk.000');
-	_player.animations.add('Back', ['misa-back-walk.000', 'misa-back-walk.001', 'misa-back-walk.002', 'misa-back-walk.003'], 6, true);
-	_player.animations.add('Left', ['misa-left-walk.000', 'misa-left-walk.001', 'misa-left-walk.002', 'misa-left-walk.003'], 6, true);
-	_player.animations.add('Front', ['misa-front-walk.000', 'misa-front-walk.001', 'misa-front-walk.002', 'misa-front-walk.003'], 6, true);
-	_player.animations.add('Right', ['misa-right-walk.000', 'misa-right-walk.001', 'misa-right-walk.002', 'misa-right-walk.003'], 6, true);
-	_player.animations.add('BackStay', ['misa-back'], 6, false);
-	_player.animations.add('FrontStay', ['misa-front'], 6, false);
-	_player.animations.add('LeftStay', ['misa-left'], 6, false);
-	_player.animations.add('RightStay', ['misa-right'], 6, false);
-	this.game.physics.arcade.enable(_player);
-	_player.body.setSize(31.9999999999, 31.9999999999, 0.0, 32.0);
-	
 	var _treasure_chest = this.add.sprite(384.0, 256.0, 'treasure chest1', 0);
 	_treasure_chest.scale.setTo(0.9142857142857143, 0.9142857142857143);
 	var _treasure_chest_open = _treasure_chest.animations.add('open', [1, 2, 3, 4, 5, 6], 8, false);
@@ -647,6 +635,18 @@ Level3.prototype.create = function () {
 	this.game.physics.arcade.enable(_base_out_atlas);
 	_base_out_atlas.body.immovable = true;
 	
+	var _player = this.add.sprite(256.0, 224.0, 'atlas', 'misa-front-walk.000');
+	_player.animations.add('Back', ['misa-back-walk.000', 'misa-back-walk.001', 'misa-back-walk.002', 'misa-back-walk.003'], 6, true);
+	_player.animations.add('Left', ['misa-left-walk.000', 'misa-left-walk.001', 'misa-left-walk.002', 'misa-left-walk.003'], 6, true);
+	_player.animations.add('Front', ['misa-front-walk.000', 'misa-front-walk.001', 'misa-front-walk.002', 'misa-front-walk.003'], 6, true);
+	_player.animations.add('Right', ['misa-right-walk.000', 'misa-right-walk.001', 'misa-right-walk.002', 'misa-right-walk.003'], 6, true);
+	_player.animations.add('BackStay', ['misa-back'], 6, false);
+	_player.animations.add('FrontStay', ['misa-front'], 6, false);
+	_player.animations.add('LeftStay', ['misa-left'], 6, false);
+	_player.animations.add('RightStay', ['misa-right'], 6, false);
+	this.game.physics.arcade.enable(_player);
+	_player.body.setSize(31.9999999999, 31.9999999999, 0.0, 32.0);
+	
 	
 	
 	// fields
@@ -654,9 +654,9 @@ Level3.prototype.create = function () {
 	this.fMidLayer = _MidLayer;
 	this.fMidLayer_layer = _MidLayer_layer;
 	this.fKeyYellow = _keyYellow;
-	this.fPlayer = _player;
 	this.fTreasure_chest = _treasure_chest;
 	this.fBlock = _block;
+	this.fPlayer = _player;
 	//this.camera.follow(this.fPlayer);
 	if (game1Pass){
 		this.fPlayer.x = playerX;
@@ -774,9 +774,8 @@ Level3.prototype.update = function () {
 		//	this.fPlayer.play('LeftStay');
 		//}
 		goLeft=false;
-		that = this;
-		tween = that.add.tween(that.fPlayer).to({ x: that.fPlayer.x-32 }, 200, Phaser.Easing.Quadratic.InOut, true);
-		tween.onStart.add(function(){that.fPlayer.play('Left');});
+		tween = this.add.tween(this.fPlayer).to({ x: this.fPlayer.x-32 }, 200, Phaser.Easing.Quadratic.InOut, true);
+		tween.onStart.add(function(){this.fPlayer.play('Left');});
 		tween.onComplete.add(function(){
             this.fPlayer.play('LeftStay');
             this.fPlayer.x =  Math.round(this.fPlayer.x / 32)*32;
@@ -813,9 +812,6 @@ Level3.prototype.update = function () {
             this.fPlayer.x =  Math.round(this.fPlayer.x / 32)*32;
             this.fPlayer.y =  Math.round(this.fPlayer.y / 32)*32;
     	},this);
-
-	    	// move to the down
-	    	//this.fPlayer.body.y += 32;
     }
 
 };
@@ -823,11 +819,6 @@ Level3.prototype.render = function () {
 	//this.game.debug.bodyInfo(this.fPlayer,32, 150);
 	//this.game.debug.body(this.fPlayer);
 };
-function resetPlayerXY(){
-	//var remainder = this.fPlayer.x - Math.floor(this.fPlayer.x);
-
-	
-}
 
 function checkOverlap(spriteA, spriteB) {
  
@@ -840,7 +831,6 @@ function checkOverlap(spriteA, spriteB) {
  
 // -- user code here --
 
-var that;
 var tween;
 var touchWall= false;
 var goToTheRight = false;
