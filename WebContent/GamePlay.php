@@ -32,6 +32,9 @@
     <script src="assets/canvas/Level10.js"></script>
     <script src="assets/canvas/Level11.js"></script>
     <script src="assets/canvas/Level12.js"></script>
+    <script src="assets/canvas/Level13.js"></script>
+    <script src="assets/canvas/Level14.js"></script>
+    <script src="assets/canvas/Level15.js"></script>
 
     <script src="assets/canvas/index.js"></script>
     <script src="assets/canvas/game1.js"></script>
