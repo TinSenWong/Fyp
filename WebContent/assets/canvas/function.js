@@ -116,6 +116,11 @@ function collisionHandler(){
 		
 	}
 }
+function collisionHeal(){
+    hp += 1;
+    this.fHPGroup.children[hp-1].play('heal');
+    this.fHearts.children[i].destroy();
+}
 function getKey(){
 	key = true;
 	this.fKeyYellow.destroy();
