@@ -27,8 +27,14 @@ Level4.prototype.init = function () {
 };
 
 Level4.prototype.preload = function () {
-	
-	changeToolbox(toolbox,20);
+
+    toolbox = '<xml id="toolbox" style="display: none">';
+    toolbox += ' <block type="move_right"></block>';
+    toolbox += '<block type="move_left"></block>';
+    toolbox += '<block type="move_up"></block>';
+    toolbox += '<block type="move_down"></block>';
+    toolbox += '</xml>';
+    changeToolbox(toolbox,20);
 	
 	this.load.pack('maze', 'assets/pack.json');
 	
@@ -700,12 +706,6 @@ Level4.prototype.create = function () {
 	this.fTreasure_chest = _treasure_chest;
 	this.fBlock = _block;
 	this.fPlayer = _player;
-	//this.camera.follow(this.fPlayer);
-	if (game1Pass){
-		this.fPlayer.x = playerX;
-		this.fPlayer.y = playerY;
-		this.fMonster.visible = false;
-	}
 	this.cursors = this.input.keyboard.createCursorKeys();
 	this.fPlayer.body.collideWorldBounds=true;
 	player = this.fPlayer;

@@ -27,8 +27,21 @@ Level8.prototype.init = function () {
 };
 
 Level8.prototype.preload = function () {
-	
-	changeToolbox(toolbox,20);
+
+    toolbox = '<xml id="toolbox" style="display: none">';
+    toolbox += ' <block type="move_right"></block>';
+    toolbox += '<block type="move_left"></block>';
+    toolbox += '<block type="move_up"></block>';
+    toolbox += '<block type="move_down"></block>';
+    toolbox += '<block type="controls_repeat_ext">';
+    toolbox += '<value name="TIMES">';
+    toolbox += '    <shadow type="math_number">';
+    toolbox += '        <field name="NUM">10</field>';
+    toolbox += '   </shadow>';
+    toolbox += '</value>';
+    toolbox += '</block>';
+    toolbox += '</xml>';
+    changeToolbox(toolbox,20);
 	
 	this.load.pack('maze', 'assets/pack.json');
 	

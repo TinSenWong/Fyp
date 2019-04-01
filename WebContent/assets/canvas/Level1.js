@@ -27,7 +27,9 @@ Level1.prototype.init = function () {
 };
 
 Level1.prototype.preload = function () {
-	
+    toolbox = '<xml id="toolbox" style="display: none">';
+    toolbox += ' <block type="move_right"></block>';
+    toolbox += '</xml>';
 	changeToolbox(toolbox,4);
 	
 	this.load.pack('maze', 'assets/pack.json');

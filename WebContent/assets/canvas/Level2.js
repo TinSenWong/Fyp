@@ -27,9 +27,14 @@ Level2.prototype.init = function () {
 };
 
 Level2.prototype.preload = function () {
-	
-	changeToolbox(toolbox,6);
-	
+
+    toolbox = '<xml id="toolbox" style="display: none">';
+    toolbox += ' <block type="move_right"></block>';
+    toolbox += '<block type="move_left"></block>';
+    toolbox += '<block type="move_up"></block>';
+    toolbox += '<block type="move_down"></block>';
+    toolbox += '</xml>';
+    changeToolbox(toolbox,6);
 	this.load.pack('maze', 'assets/pack.json');
 	
 };

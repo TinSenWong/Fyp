@@ -27,8 +27,21 @@ Level5.prototype.init = function () {
 };
 
 Level5.prototype.preload = function () {
-	
-	changeToolbox(toolbox,20);
+
+    toolbox = '<xml id="toolbox" style="display: none">';
+    toolbox += ' <block type="move_right"></block>';
+    toolbox += '<block type="move_left"></block>';
+    toolbox += '<block type="move_up"></block>';
+    toolbox += '<block type="move_down"></block>';
+    toolbox += '<block type="controls_repeat_ext">';
+    toolbox += '<value name="TIMES">';
+    toolbox += '    <shadow type="math_number">';
+    toolbox += '        <field name="NUM">10</field>';
+    toolbox += '   </shadow>';
+    toolbox += '</value>';
+    toolbox += '</block>';
+    toolbox += '</xml>';
+    changeToolbox(toolbox,20);
 	
 	this.load.pack('maze', 'assets/pack.json');
 	
@@ -739,12 +752,6 @@ Level5.prototype.create = function () {
 	this.fTreasure_chest = _treasure_chest;
 	this.fBlock = _block;
 	this.fPlayer = _player;
-	//this.camera.follow(this.fPlayer);
-	if (game1Pass){
-		this.fPlayer.x = playerX;
-		this.fPlayer.y = playerY;
-		this.fMonster.visible = false;
-	}
 	this.cursors = this.input.keyboard.createCursorKeys();
 	this.fPlayer.body.collideWorldBounds=true;
 	player = this.fPlayer;

@@ -36,7 +36,7 @@ var correct;
 var worngTime=0;
 var checkInput=false;
 var finish=0;
-var round=0;
+var enemyHP=3;
 var currentRow=0;
 var currentCol=0;
 var weekCurrentRow = 0;
@@ -44,6 +44,7 @@ var weekCurrentCol = 0;
 var playerInputList =createArray(10,20);
 var weaknessGroupList =createArray(10,20);
 var currentScreen;
+var levelState;
 function createArray(length) {
     var arr = new Array(length || 0),
         i = length;
@@ -147,7 +148,7 @@ function IsOpenChest(){
 			}
 			
 	        localStorage.setItem(localStorageName, stars.toString());
-            messageBox(true)
+            messageBox(true,300,200,function(){selectLevel()});
 
     }, this);
 	}

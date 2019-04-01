@@ -36,15 +36,12 @@ breakWallGame.prototype.preload = function () {
 	toolbox += '</xml>';
 	changeToolbox(toolbox,20);
 	limitTime=3;
-	round=3;
-	
 	this.load.pack('game', 'assets/pack.json');
 	this.load.pack('maze', 'assets/pack.json');
 	
 };
 
 breakWallGame.prototype.create = function () {
-	
 	this.playerInputMask = game.add.graphics();
 	this.playerInputMask.inputEnabled=true;
 	this.playerInputMask.beginFill(0x7FFF00);
@@ -63,7 +60,7 @@ breakWallGame.prototype.create = function () {
 	
 	var _worngTime = this.add.text(1000.0, 50.0, 'Worng:'+worngTime, {"font":"bold 28px Arial"});
 	var _limitTime = this.add.text(1002.0, 113.0, "Attempts :" + limitTime, {"font":"bold 28px Arial"});
-	var _finishTime = this.add.text(997.0, 667.0, 'Finish:'+finish+'/'+round, {"font":"bold 28px Arial"});
+	var _finishTime = this.add.text(997.0, 667.0, 'Enemy HP:'+enemyHP, {"font":"bold 28px Arial"});
 	
 	this.fWorngTime = _worngTime;
 	this.fLimitTime = _limitTime;
@@ -123,30 +120,48 @@ breakWallGame.prototype.update = function () {
 				}
 			}
 			if (count==weaknessGroup.children.length){
-				
-				if ((finish+1)==round){
-					var fireball = this.add.sprite(150.0,700.0, 'fireball', 24);
-					fireball.scale.setTo(1.9674997027108243, 1.5625000174710881);
-					var fireball_play = fireball.animations.add('play', [32, 33, 34, 35], 10, true);
-					fireball_play.play();
-					
-					tween = this.add.tween(fireball).to({ x: 880, y: 700}, 1000, "Linear", true, 500);   
+				var fireball = this.add.sprite(150.0,680.0, 'fireball', 24);
+				fireball.scale.setTo(1.9674997027108243, 1.5625000174710881);
+				var fireball_play = fireball.animations.add('play', [32, 33, 34, 35], 10, true);
+				fireball_play.play();
+				if (--enemyHP == 0){
+					tween = this.add.tween(fireball).to({ x: 800, y: 680}, 1000, "Linear", true, 500);   
 					tween.onComplete.add(function() {
 						fireball.destroy();
 						this.fMonster.play('destroy').onComplete.add(function(){
 							game1Pass = true;
-							this.fFinishTime.setText('Finish:'+ ++finish +'/'+round);
+							this.fFinishTime.setText('Enemy HP:'+ enemyHP);
 							messageBox(true,300,200,function(){
 								finish = 0;
-								selectLevel()
+								hideGrid(false);
+								game.state.start("level");
 							}),this;
 						}, this);
 					},this);
 					
 				}else{
-					weaknessGroup.destroy();
-					finish++;
-					game.state.start("breakWallGame");
+					tween = this.add.tween(fireball).to({ x: 800, y: 680}, 1000, "Linear", true, 500);   
+					tween.onComplete.add(function() {
+						fireball.destroy();
+					},this);
+					
+					var that = this;
+					setTimeout(function() {
+						var style = { font: "65px Arial", fill: "#00000", align: "center" };
+						var text = that.add.text(910,650, "-1", style);
+					    text.anchor.set(0.5);
+					    text.alpha = 0.1;  
+					    hitTween = that.add.tween(text).to( { alpha: 1,y: 600 }, 1500, "Linear", true);
+						hitTween.onComplete.add(function() {
+							
+					    	this.fFinishTime.setText('Enemy HP:'+ enemyHP);
+							weaknessGroup.destroy();
+							this.state.add("breakWallGame", breakWallGame);
+							game.state.start("breakWallGame");
+					    },that);
+						}, 1300);
+					
+					
 				}
 			}else{
 				this.fWorngTime.setText("Worng    :" + ++worngTime );
@@ -193,7 +208,7 @@ function addPlayerInputList(element){
 		playerInput.createMultiple(1,'Attributes',element,true);
 	}
     if ((playerInput.children.length) % 20 == 0 && (playerInput.children.length) != 0){
-    	//currentRow = Math.round(playerInput.length/20);
+    	//currentRow = Math.enemyHP(playerInput.length/20);
     	
     }
     

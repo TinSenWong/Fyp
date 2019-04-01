@@ -27,8 +27,20 @@ Level6.prototype.init = function () {
 };
 
 Level6.prototype.preload = function () {
-	
-	changeToolbox(toolbox,20);
+	toolbox = '<xml id="toolbox" style="display: none">';
+    toolbox += ' <block type="move_right"></block>';
+    toolbox += '<block type="move_left"></block>';
+    toolbox += '<block type="move_up"></block>';
+    toolbox += '<block type="move_down"></block>';
+    toolbox += '<block type="controls_repeat_ext">';
+    toolbox += '<value name="TIMES">';
+    toolbox += '    <shadow type="math_number">';
+    toolbox += '        <field name="NUM">10</field>';
+    toolbox += '   </shadow>';
+    toolbox += '</value>';
+    toolbox += '</block>';
+    toolbox += '</xml>';
+    changeToolbox(toolbox,20);
 	
 	this.load.pack('maze', 'assets/pack.json');
 	
@@ -673,17 +685,15 @@ Level6.prototype.create = function () {
 
 /* --- end generated code --- */
 Level6.prototype.initScene = function () {
-    
 };
 Level6.prototype.update = function () {
 	if (!game1Pass){
-		
 		this.physics.arcade.collide(this.fPlayer, this.fMonster,function (){
 			playerX = this.fMonster.x;
-			
 			playerY = this.fMonster.y-32;
-			this.state.add("game1", game1);
-			this.state.start("game1");
+			game.state.add("level",this);
+			game.state.add("newGame", breakWallGame);
+			game.state.start("newGame");
 		}, null, this);
 	}
 	
