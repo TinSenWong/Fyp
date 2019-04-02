@@ -39,7 +39,6 @@
     <script src="assets/canvas/index.js"></script>
     <script src="assets/canvas/game1.js"></script>
     <script src="assets/canvas/breakWallGame.js"></script>
-    <script src="assets/canvas/breakWallGame2.js"></script>
 
     <script src="js/wait_block.js"></script>
     <script src="js/movement_block.js"></script>
