@@ -668,7 +668,7 @@ Level2.prototype.create = function () {
 	this.fBlock = _block;
 	this.fPlayer = _player;
 	//this.camera.follow(this.fPlayer);
-	if (game1Pass){
+	if (gamePass){
 		this.fPlayer.x = playerX;
 		this.fPlayer.y = playerY;
 		this.fMonster.visible = false;
