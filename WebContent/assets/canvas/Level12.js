@@ -641,7 +641,6 @@ Level12.prototype.create = function () {
 	this.fSpike = _spike;
 	this.fHearts = _hearts;
 	this.fMonster = _monster;
-	this.fMonster = _monster;
 	//this.camera.follow(this.fPlayer);
 	if (gamePass){
 		this.fPlayer.x = playerX;
@@ -664,12 +663,23 @@ Level12.prototype.update = function () {
 		this.physics.arcade.collide(this.fPlayer,this.fSpike.children[i], collisionHandler, null, this);
 	}
 	for (i = 0;i < this.fHearts.children.length;i++){
-		this.physics.arcade.collide(this.fPlayer,this.fHearts.children[i], collisionHeal, null, this);
+		this.physics.arcade.collide(this.fPlayer,this.fHearts, collisionHeal, null, this);
 	}
 	if (this.fKeyYellow.exists){	
 		this.physics.arcade.collide(this.fPlayer,this.fKeyYellow, getKey, null, this);
 	}
-	
+	if (!gamePass){
+		this.physics.arcade.collide(this.fPlayer, this.fMonster,function (){
+			playerX = this.fMonster.x;
+			playerY = this.fMonster.y-32;
+			game.state.add("level",this);
+			gameIndex = 3;
+			enemyHP=3;
+			game.state.add("newGame", breakWallGame);
+			game.state.start("newGame");
+			
+		}, null, this);
+	}
 	this.physics.arcade.collide(this.fPlayer,this.fTreasure_chest,IsOpenChest, null, this);
 	//this.fTreasure_chest.x = 640.0;
 	//this.fTreasure_chest.y = 256.0;	
@@ -752,15 +762,7 @@ Level12.prototype.update = function () {
 		},null,this);
 		
 	if (goLeft){// move to the left
-		//if (this.fPlayer.x > expX){
-		//	this.fPlayer.play('Left');
-		//	this.fPlayer.body.velocity.x -= 150;
-		//}else if(this.fPlayer.x < expX){
-		//	goLeft=false;
-		//	this.fPlayer.x =  Math.round(this.fPlayer.x / 32)*32;
-			
-		//	this.fPlayer.play('LeftStay');
-		//}
+
 		goLeft=false;
 		that = this;
 		tween = that.add.tween(that.fPlayer).to({ x: that.fPlayer.x-32 }, 200, Phaser.Easing.Quadratic.InOut, true);

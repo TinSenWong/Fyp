@@ -32,7 +32,7 @@ var playerInput;
 var weaknessGroup;
 var currentRow=0;
 var correct;
-var worngTime=0;
+var wrongTime=0;
 var checkInput=false;
 var finish=0;
 var enemyHP=3;
@@ -44,6 +44,7 @@ var playerInputList =createArray(10,20);
 var weaknessGroupList =createArray(10,20);
 var currentScreen;
 var levelState;
+var limitTime=3;;
 function createArray(length) {
     var arr = new Array(length || 0),
         i = length;
@@ -68,7 +69,6 @@ function selectLevel(){
 		game.plugins.add(PhaserNineSlice.Plugin);
 		game.plugins.add(Phaser.Plugin.KineticScrolling);
 	});
-	var context = new AudioContext();
     worngTime=0;
     finish=0;
 };
@@ -117,9 +117,12 @@ function collisionHandler(){
 	}
 }
 function collisionHeal(){
-    hp += 1;
-    this.fHPGroup.children[hp-1].play('heal');
-    this.fHearts.children[i].destroy();
+    if (hp<3) {
+        hp += 1;
+        this.fHPGroup.children[hp-1].play('heal');
+        this.fHearts.children[i].destroy();
+    }
+
 }
 function getKey(){
 	key = true;
@@ -406,3 +409,88 @@ function nextline(){
 
     },this);
 }*/
+var gameIndex;
+function inGame(index){
+    
+    if (index == 1){
+        addweaknessGroupGame1(randonWeakness(1));
+    }else if (index == 2){
+        addweaknessGroupGame1(randonWeakness(2));
+    }else if (index == 3){
+        addweaknessGroupGame1(randonWeakness(3));
+    }else if (index == 4){
+        addweaknessGroupGame2(randonWeakness(3));
+    }
+}
+// Game
+function addPlayerInputList(element){
+    if (playerInput.children.length==0){
+        firstElement = playerInput.createMultiple(1,'Attributes',element,true);
+    }else{
+        playerInput.createMultiple(1,'Attributes',element,true);
+    }
+    if ((playerInput.children.length) % 20 == 0 && (playerInput.children.length) != 0){
+        //currentRow = Math.enemyHP(playerInput.length/20);
+
+    }
+
+    //playerInput.align(90, 50, 90, 90);
+    playerInputList[currentRow][currentCol]=playerInput.children[playerInput.children.length-1];
+    playerInput.children[playerInput.children.length-1].y += currentRow*90;
+    playerInput.children[playerInput.children.length-1].x += currentCol*90;
+    currentCol+=1;
+    playerInput.scale.set(0.5);
+    return playerInput;
+}
+function addweaknessGroupGame1(weakness){
+    playerInput = game.add.group();
+    weaknessGroup = game.add.group();
+    hideGrid(true);
+    toolbox = '<xml id="toolbox" style="display: none">';
+    toolbox += '  <block type="input"></block>';
+    toolbox += '</xml>';
+    changeToolbox(toolbox,20);
+
+    weaknessGroup.x = 120;
+    weaknessGroup.y = 30;
+    for(i=0;i<weakness.length;i++){
+        weaknessGroup.createMultiple(1,'Attributes',weakness[i],true);
+        weaknessGroup.align(90, 50, 90, 0);
+        weaknessGroup.scale.set(0.5);
+    }
+    game.world.bringToTop(weaknessGroup);
+    return weaknessGroup;
+}
+//with space
+function addweaknessGroupGame2(weakness){
+    playerInput = game.add.group();
+    weaknessGroup = game.add.group();
+    hideGrid(true);
+
+    toolbox = '<xml id="toolbox" style="display: none">';
+    toolbox += '  <block type="input"></block>';
+    toolbox += '  <block type="null"></block>';
+    toolbox += '</xml>';
+    changeToolbox(toolbox,20);
+
+    weaknessGroup.x = 120;
+    weaknessGroup.y = 30;
+    weekCurrentCol=0;
+    var randomSpace = Math.floor((Math.random()*weakness.length)-1);
+    for(i=0;i<weakness.length;i++){
+        weaknessGroup.createMultiple(1,'Attributes',weakness[i],true);
+
+        if(i==randomSpace){
+
+            weekSpace();
+        }
+        weaknessGroupList[weekCurrentRow][weekCurrentCol]=weaknessGroup.children[weaknessGroup.children.length-1];
+        weaknessGroup.children[weaknessGroup.children.length-1].y += weekCurrentRow*90;
+        weaknessGroup.children[weaknessGroup.children.length-1].x += weekCurrentCol*90;
+        weekCurrentCol+=1;
+        weaknessGroup.scale.set(0.5);
+    }
+
+    game.world.bringToTop(weaknessGroup);
+    return weaknessGroup;
+}

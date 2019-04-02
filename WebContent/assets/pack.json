@@ -127,11 +127,6 @@
       "key": "heart",
       "url": "assets/image/heart.png",
       "overwrite": false
-    },
-    {
-      "type": "script",
-      "key": "a",
-      "url": "assets/canvas/a.js"
     }
   ],
   "game": [
@@ -266,7 +261,7 @@
     }
   ],
   "meta": {
-    "generated": "1554207548172",
+    "generated": "1554213327259",
     "app": "Phaser Editor",
     "url": "http://phasereditor.boniatillo.com",
     "version": "1.0",

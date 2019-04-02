@@ -28,20 +28,11 @@ breakWallGame.prototype.preload = function () {
 	
 	this.load.pack('game', 'assets/pack.json');
 	this.load.pack('maze', 'assets/pack.json');
-	playerInput = this.add.group();
-	weaknessGroup = game.add.group();
-	hideGrid(true);
-	toolbox = '<xml id="toolbox" style="display: none">';
-	toolbox += '  <block type="input"></block>';
-	toolbox += '</xml>';
-	changeToolbox(toolbox,20);
-	limitTime=3;
-	this.load.pack('game', 'assets/pack.json');
-	this.load.pack('maze', 'assets/pack.json');
 	
 };
 
 breakWallGame.prototype.create = function () {
+	
 	this.playerInputMask = game.add.graphics();
 	this.playerInputMask.inputEnabled=true;
 	this.playerInputMask.beginFill(0xF6F641);
@@ -55,16 +46,14 @@ breakWallGame.prototype.create = function () {
 	this.heartArea = game.add.graphics();
 	this.heartArea.beginFill(0xF6ADF3);
 	this.heartArea.drawRect( 0,0,100,600 );
-	addweaknessGroupGame1(randonWeakness(3));
-	
 	this.animeArea = game.add.graphics();
 	this.animeArea.beginFill(0x35AC27);
 	this.animeArea.drawRect( 0,600,1000,600 );
-	var _worngTime = this.add.text(1000.0, 50.0, 'Worng:'+worngTime, {"font":"bold 28px Arial"});
+	var _wrongTime = this.add.text(1000.0, 50.0, 'Wrong:'+wrongTime, {"font":"bold 28px Arial"});
 	var _limitTime = this.add.text(1002.0, 113.0, "Attempts :" + limitTime, {"font":"bold 28px Arial"});
 	var _finishTime = this.add.text(997.0, 667.0, 'Enemy HP:'+enemyHP, {"font":"bold 28px Arial"});
 	
-	this.fWorngTime = _worngTime;
+	this.fWrongTime = _wrongTime;
 	this.fLimitTime = _limitTime;
 	this.fFinishTime = _finishTime;	
 	
@@ -101,6 +90,7 @@ breakWallGame.prototype.create = function () {
 	
 	this.fHPGroup = _HPGroup;
 	this.fMonster = _monster;
+	inGame(gameIndex);
 	
 };
 
@@ -203,36 +193,7 @@ function resetElement(){
 	currentCol=0;
 }
 
-function addPlayerInputList(element){
-	if (playerInput.children.length==0){
-		firstElement = playerInput.createMultiple(1,'Attributes',element,true);
-	}else{
-		playerInput.createMultiple(1,'Attributes',element,true);
-	}
-    if ((playerInput.children.length) % 20 == 0 && (playerInput.children.length) != 0){
-    	//currentRow = Math.enemyHP(playerInput.length/20);
-    	
-    }
-    
-	//playerInput.align(90, 50, 90, 90);
-    playerInputList[currentRow][currentCol]=playerInput.children[playerInput.children.length-1];
-    playerInput.children[playerInput.children.length-1].y += currentRow*90;
-    playerInput.children[playerInput.children.length-1].x += currentCol*90;
-    currentCol+=1;
-    playerInput.scale.set(0.5);
-    return playerInput;
-}
-function addweaknessGroupGame1(weakness){
-	weaknessGroup.x = 120;
-	weaknessGroup.y = 30;
-	for(i=0;i<weakness.length;i++){
-		weaknessGroup.createMultiple(1,'Attributes',weakness[i],true);
-		weaknessGroup.align(90, 50, 90, 0);
-		weaknessGroup.scale.set(0.5);
-	}
-	game.world.bringToTop(weaknessGroup);
-    return weaknessGroup;
-}
+
 
 function scrollByArrow(y) {
 	
