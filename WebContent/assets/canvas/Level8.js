@@ -730,6 +730,15 @@ Level8.prototype.update = function () {
 	if (this.fKeyYellow.exists){	
 		this.physics.arcade.collide(this.fPlayer,this.fKeyYellow, getKey, null, this);
 	}
+	if (!gamePass){
+		this.physics.arcade.collide(this.fPlayer, this.fMonster,function (){
+			playerX = this.fMonster.x;
+			playerY = this.fMonster.y-32;
+			game.state.add("level",this);
+			game.state.add("newGame", breakWallGame);
+			game.state.start("newGame");
+		}, null, this);
+	}
 	
 	this.physics.arcade.collide(this.fPlayer,this.fTreasure_chest,IsOpenChest, null, this);
 	//this.fTreasure_chest.x = 640.0;
