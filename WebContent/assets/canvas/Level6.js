@@ -693,6 +693,7 @@ Level6.prototype.update = function () {
 			playerX = this.fMonster.x;
 			playerY = this.fMonster.y-32;
 			game.state.add("level",this);
+			gameIndex = 1;
 			game.state.add("newGame", breakWallGame);
 			game.state.start("newGame");
 		}, null, this);

@@ -49,6 +49,13 @@ breakWallGame.prototype.create = function () {
 	this.animeArea = game.add.graphics();
 	this.animeArea.beginFill(0x35AC27);
 	this.animeArea.drawRect( 0,600,1000,600 );
+	var _wrongTime = this.add.text(1000.0, 50.0, 'Wrong:'+wrongTime, {"font":"bold 28px Arial"});
+	var _limitTime = this.add.text(1002.0, 113.0, "Attempts :" + limitTime, {"font":"bold 28px Arial"});
+	var _finishTime = this.add.text(997.0, 667.0, 'Enemy HP:'+enemyHP, {"font":"bold 28px Arial"});
+	
+	this.fWrongTime = _wrongTime;
+	this.fLimitTime = _limitTime;
+	this.fFinishTime = _finishTime;	
 	
 	var _HPGroup = this.add.group();
 	_HPGroup.position.setTo(29.0, 195.0);
@@ -84,6 +91,7 @@ breakWallGame.prototype.create = function () {
 	this.fHPGroup = _HPGroup;
 	this.fMonster = _monster;
 	inGame(gameIndex);
+	
 };
 
 /* --- end generated code --- */

@@ -32,7 +32,7 @@ var playerInput;
 var weaknessGroup;
 var currentRow=0;
 var correct;
-var worngTime=0;
+var wrongTime=0;
 var checkInput=false;
 var finish=0;
 var enemyHP=3;
@@ -44,6 +44,7 @@ var playerInputList =createArray(10,20);
 var weaknessGroupList =createArray(10,20);
 var currentScreen;
 var levelState;
+var limitTime=3;;
 function createArray(length) {
     var arr = new Array(length || 0),
         i = length;
@@ -412,11 +413,11 @@ var gameIndex;
 function inGame(index){
     if (index == 1){
         addweaknessGroupGame1(randonWeakness(1));
-    }else if (index == 1){
-        addweaknessGroupGame1(randonWeakness(2));
     }else if (index == 2){
-        addweaknessGroupGame1(randonWeakness(3));
+        addweaknessGroupGame1(randonWeakness(2));
     }else if (index == 3){
+        addweaknessGroupGame1(randonWeakness(3));
+    }else if (index == 4){
         addweaknessGroupGame2(randonWeakness(3));
     }
 }
@@ -448,7 +449,6 @@ function addweaknessGroupGame1(weakness){
     toolbox += '  <block type="input"></block>';
     toolbox += '</xml>';
     changeToolbox(toolbox,20);
-    limitTime=3;
 
     weaknessGroup.x = 120;
     weaknessGroup.y = 30;
@@ -471,7 +471,7 @@ function addweaknessGroupGame2(weakness){
     toolbox += '  <block type="null"></block>';
     toolbox += '</xml>';
     changeToolbox(toolbox,20);
-    limitTime=3;
+
     round=3;
 
     weaknessGroup.x = 120;

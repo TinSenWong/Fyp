@@ -641,7 +641,6 @@ Level12.prototype.create = function () {
 	this.fSpike = _spike;
 	this.fHearts = _hearts;
 	this.fMonster = _monster;
-	this.fMonster = _monster;
 	//this.camera.follow(this.fPlayer);
 	if (gamePass){
 		this.fPlayer.x = playerX;
@@ -674,7 +673,7 @@ Level12.prototype.update = function () {
 			playerX = this.fMonster.x;
 			playerY = this.fMonster.y-32;
 			game.state.add("level",this);
-			gameIndex = 1;
+			gameIndex = 3;
 			game.state.add("newGame", breakWallGame);
 			game.state.start("newGame");
 			
