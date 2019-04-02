@@ -44,7 +44,7 @@ breakWallGame.prototype.preload = function () {
 breakWallGame.prototype.create = function () {
 	this.playerInputMask = game.add.graphics();
 	this.playerInputMask.inputEnabled=true;
-	this.playerInputMask.beginFill(0x7FFF00);
+	this.playerInputMask.beginFill(0xF6F641);
 	this.playerInputMask.drawRect( 100,300,900, 300 );
 	this.playerInputMask.endFill();
 	this.WeaknessOutputMask = game.add.graphics();
@@ -53,11 +53,13 @@ breakWallGame.prototype.create = function () {
 	this.WeaknessOutputMask.drawRect(100,0,900, 300);
 	this.WeaknessOutputMask.endFill();
 	this.heartArea = game.add.graphics();
-	this.heartArea.inputEnabled=true;
-	this.heartArea.beginFill(0x7FFF00);
+	this.heartArea.beginFill(0xF6ADF3);
 	this.heartArea.drawRect( 0,0,100,600 );
 	addweaknessGroupGame1(randonWeakness(3));
 	
+	this.animeArea = game.add.graphics();
+	this.animeArea.beginFill(0x35AC27);
+	this.animeArea.drawRect( 0,600,1000,600 );
 	var _worngTime = this.add.text(1000.0, 50.0, 'Worng:'+worngTime, {"font":"bold 28px Arial"});
 	var _limitTime = this.add.text(1002.0, 113.0, "Attempts :" + limitTime, {"font":"bold 28px Arial"});
 	var _finishTime = this.add.text(997.0, 667.0, 'Enemy HP:'+enemyHP, {"font":"bold 28px Arial"});

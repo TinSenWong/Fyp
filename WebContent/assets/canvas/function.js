@@ -129,7 +129,6 @@ function getKey(){
 function IsOpenChest(){
 	if (key){
 		this.fTreasure_chest.play('open').onComplete.add(function(){
-
 			if (hp==1){
 				stars[level] = 1;
 		        if (stars[level + 1] != undefined && stars[level + 1] == -1) {
@@ -146,10 +145,9 @@ function IsOpenChest(){
 		            stars[level + 1] = 0;
 		        }
 			}
-			
 	        localStorage.setItem(localStorageName, stars.toString());
-            messageBox(true,300,200,function(){selectLevel()});
-
+			hideGrid(true);
+            messageBox(true,300,200,function(){selectLevel()}),this;
     }, this);
 	}
 }

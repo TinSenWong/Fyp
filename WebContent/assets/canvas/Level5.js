@@ -42,8 +42,9 @@ Level5.prototype.preload = function () {
     toolbox += '</block>';
     toolbox += '</xml>';
     changeToolbox(toolbox,20);
-	
-	this.load.pack('maze', 'assets/pack.json');
+
+    this.load.pack('maze', 'assets/pack.json');
+    this.load.pack('game', 'assets/pack.json');
 	
 };
 

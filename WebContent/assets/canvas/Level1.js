@@ -33,6 +33,7 @@ Level1.prototype.preload = function () {
 	changeToolbox(toolbox,4);
 	
 	this.load.pack('maze', 'assets/pack.json');
+	this.load.pack('game', 'assets/pack.json');
 	
 };
 

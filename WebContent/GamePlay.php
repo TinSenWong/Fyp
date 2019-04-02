@@ -439,13 +439,13 @@
                     <div class="tab-pane fade show active" id="blockly" role="tabpanel">
                         <h4>Blockly</h4>
                         <div class="col-md-8 banner-sec" style="text-align: center">
-                            <div id="comm" class="carousel slide" data-ride="carousel"
-                                 style="text-align: center">
+                            <div id="comm" class="carousel slide" data-ride="carousel" style="text-align: center">
                                 <ol class="carousel-indicators">
                                     <li data-target="#comm" data-slide-to="0" class="active"></li>
                                     <li data-target="#comm" data-slide-to="1"></li>
                                     <li data-target="#comm" data-slide-to="2"></li>
                                     <li data-target="#comm" data-slide-to="3"></li>
+                                    <li data-target="#comm" data-slide-to="4"></li>
                                 </ol>
                                 <div class="carousel-inner" role="listbox" style="text-align: center">
                                     <div class="carousel-item active" style="text-align: center">
@@ -462,6 +462,10 @@
                                     </div>
                                     <div class="carousel-item" style="text-align: center">
                                         <img class="d-block img-fluid" src="src/movement.png" width="500" height="500">
+                                        <div class="carousel-caption d-none d-md-block"></div>
+                                    </div>
+                                    <div class="carousel-item" style="text-align: center">
+                                        <img class="d-block img-fluid" src="src/repeat.png" width="500" height="500">
                                         <div class="carousel-caption d-none d-md-block"></div>
                                     </div>
                                 </div>
