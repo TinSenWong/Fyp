@@ -732,11 +732,11 @@ Level7.prototype.create = function () {
 	this.fBlock = _block;
 	this.fMonster = _monster;
 	this.fPlayer = _player;
-	//this.camera.follow(this.fPlayer);
-	if (game1Pass){
+	if (gamePass){
 		this.fPlayer.x = playerX;
 		this.fPlayer.y = playerY;
-		this.fMonster.visible = false;
+		this.fMonster.destroy();
+		gamePass=false;
 	}
 	this.cursors = this.input.keyboard.createCursorKeys();
 	this.fPlayer.body.collideWorldBounds=true;
@@ -750,16 +750,20 @@ Level7.prototype.initScene = function () {
 };
 Level7.prototype.update = function () {
 	this.fPlayer.body.velocity.set(0);
-	//if (checkOverlap(this.fPlayer,this.fBase_out_atlas2)&&!IsIn){
-		//state = this.game.state.getCurrentState();
-		//localStorage.setItem ('state',this.game.state.getCurrentState());
 	if (this.fKeyYellow.exists){	
 		this.physics.arcade.collide(this.fPlayer,this.fKeyYellow, getKey, null, this);
 	}
+	if (!gamePass){
+		this.physics.arcade.collide(this.fPlayer, this.fMonster,function (){
+			playerX = this.fMonster.x;
+			playerY = this.fMonster.y-32;
+			game.state.add("level",this);
+			game.state.add("newGame", breakWallGame);
+			game.state.start("newGame");
+		}, null, this);
+	}
 	
 	this.physics.arcade.collide(this.fPlayer,this.fTreasure_chest,IsOpenChest, null, this);
-	//this.fTreasure_chest.x = 640.0;
-	//this.fTreasure_chest.y = 256.0;	
 	if (testmode){
 		if (this.cursors.left.isDown)
 	    {
@@ -829,9 +833,6 @@ Level7.prototype.update = function () {
 				this.fPlayer.play('BackStay');
 			}else if (player.animations.currentAnim.name == "Front"){
 				this.fPlayer.play('FrontStay');
-			}
-			if (tween!=null){
-				tween.pause();
 			}
 			
 			this.fPlayer.x =  Math.round(this.fPlayer.x / 32)*32;

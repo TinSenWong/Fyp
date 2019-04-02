@@ -131,11 +131,11 @@ breakWallGame.prototype.update = function () {
 					tween.onComplete.add(function() {
 						fireball.destroy();
 						this.fMonster.play('destroy').onComplete.add(function(){
-							game1Pass = true;
+							gamePass = true;
 							this.fFinishTime.setText('Enemy HP:'+ enemyHP);
-							messageBox(true,300,200,function(){
-								finish = 0;
+                            KoMessage("貪食怪",function(){
 								hideGrid(false);
+								gamePass = true;
 								game.state.start("level");
 							}),this;
 						}, this);

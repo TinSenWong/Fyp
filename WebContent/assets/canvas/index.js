@@ -122,7 +122,7 @@ playGame.prototype = {
                         game.destroy();
                         
                         game = new Phaser.Game(1200, 800, Phaser.Auto, 'phaser');
-                       
+                       gamePass = false;
                         key = false;
                         hp = 3 ;
                         currentScreen = 'level';

@@ -421,6 +421,9 @@
                             <a class="nav-link active" data-toggle="tab" href="#blockly" role="tab">blockly</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#Command" role="tab">Command function</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" data-toggle="tab" href="#element" role="tab">Element</a>
                         </li>
                         <li class="nav-item">
@@ -444,8 +447,6 @@
                                     <li data-target="#comm" data-slide-to="0" class="active"></li>
                                     <li data-target="#comm" data-slide-to="1"></li>
                                     <li data-target="#comm" data-slide-to="2"></li>
-                                    <li data-target="#comm" data-slide-to="3"></li>
-                                    <li data-target="#comm" data-slide-to="4"></li>
                                 </ol>
                                 <div class="carousel-inner" role="listbox" style="text-align: center">
                                     <div class="carousel-item active" style="text-align: center">
@@ -460,14 +461,7 @@
                                         <img class="d-block img-fluid" src="src/run.png" width="500" height="500">
                                         <div class="carousel-caption d-none d-md-block"></div>
                                     </div>
-                                    <div class="carousel-item" style="text-align: center">
-                                        <img class="d-block img-fluid" src="src/movement.png" width="500" height="500">
-                                        <div class="carousel-caption d-none d-md-block"></div>
-                                    </div>
-                                    <div class="carousel-item" style="text-align: center">
-                                        <img class="d-block img-fluid" src="src/repeat.png" width="500" height="500">
-                                        <div class="carousel-caption d-none d-md-block"></div>
-                                    </div>
+
                                 </div>
                             </div>
                             <a class="carousel-control-prev" href="#comm" role="button" data-slide="prev">
@@ -478,6 +472,47 @@
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="sr-only">Next</span>
                             </a>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="Command" role="tabpanel">
+                        <h4>Command</h4>
+                        <div class="col-md-8 banner-sec" style="text-align: center">
+                            <div id="Command1" class="carousel slide" data-ride="carousel"
+                                 style="text-align: center">
+                                <ol class="carousel-indicators">
+                                    <li data-target="#Command1" data-slide-to="0" class="active"></li>
+                                    <li data-target="#Command1" data-slide-to="1"></li>
+                                    <li data-target="#Command1" data-slide-to="2"></li>
+                                    <li data-target="#Command1" data-slide-to="3"></li>
+                                </ol>
+                                <div class="carousel-inner" role="listbox" style="text-align: center">
+                                    <div class="carousel-item active" style="text-align: center">
+                                        <img class="d-block img-fluid" src="src/movement.png" width="500" height="500">
+                                        <div class="carousel-caption d-none d-md-block"></div>
+                                    </div>
+                                    <div class="carousel-item" style="text-align: center">
+                                        <img class="d-block img-fluid" src="src/repeat.png" width="500" height="500">
+                                        <div class="carousel-caption d-none d-md-block"></div>
+                                    </div>
+                                    <div class="carousel-item" style="text-align: center">
+                                        <img class="d-block img-fluid" src="src/element.png" width="500" height="500">
+                                        <div class="carousel-caption d-none d-md-block"></div>
+                                    </div>
+                                    <div class="carousel-item" style="text-align: center">
+                                        <img class="d-block img-fluid" src="src/changeElement.png" width="500" height="500">
+                                        <div class="carousel-caption d-none d-md-block"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a class="carousel-control-prev" href="#Command1" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#Command1" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+
                         </div>
                     </div>
                     <div class="tab-pane fade" id="element" role="tabpanel">

@@ -27,24 +27,10 @@ Level8.prototype.init = function () {
 };
 
 Level8.prototype.preload = function () {
-
-    toolbox = '<xml id="toolbox" style="display: none">';
-    toolbox += ' <block type="move_right"></block>';
-    toolbox += '<block type="move_left"></block>';
-    toolbox += '<block type="move_up"></block>';
-    toolbox += '<block type="move_down"></block>';
-    toolbox += '<block type="controls_repeat_ext">';
-    toolbox += '<value name="TIMES">';
-    toolbox += '    <shadow type="math_number">';
-    toolbox += '        <field name="NUM">10</field>';
-    toolbox += '   </shadow>';
-    toolbox += '</value>';
-    toolbox += '</block>';
-    toolbox += '</xml>';
-    changeToolbox(toolbox,20);
-
-    this.load.pack('maze', 'assets/pack.json');
-    this.load.pack('game', 'assets/pack.json');
+	
+	changeToolbox(toolbox,20);
+	
+	this.load.pack('maze', 'assets/pack.json');
 	
 };
 
@@ -559,6 +545,134 @@ Level8.prototype.create = function () {
 	this.game.physics.arcade.enable(_base_out_atlas);
 	_base_out_atlas.body.immovable = true;
 	
+	var _base_out_atlas = this.add.sprite(224.0, 192.0, 'base_out_atlas', 234, _block);
+	this.game.physics.arcade.enable(_base_out_atlas);
+	_base_out_atlas.body.immovable = true;
+	
+	var _base_out_atlas = this.add.sprite(256.0, 192.0, 'base_out_atlas', 234, _block);
+	this.game.physics.arcade.enable(_base_out_atlas);
+	_base_out_atlas.body.immovable = true;
+	
+	var _base_out_atlas = this.add.sprite(288.0, 192.0, 'base_out_atlas', 234, _block);
+	this.game.physics.arcade.enable(_base_out_atlas);
+	_base_out_atlas.body.immovable = true;
+	
+	var _base_out_atlas = this.add.sprite(320.0, 192.0, 'base_out_atlas', 234, _block);
+	this.game.physics.arcade.enable(_base_out_atlas);
+	_base_out_atlas.body.immovable = true;
+	
+	var _base_out_atlas = this.add.sprite(352.0, 192.0, 'base_out_atlas', 234, _block);
+	this.game.physics.arcade.enable(_base_out_atlas);
+	_base_out_atlas.body.immovable = true;
+	
+	var _base_out_atlas = this.add.sprite(384.0, 192.0, 'base_out_atlas', 234, _block);
+	this.game.physics.arcade.enable(_base_out_atlas);
+	_base_out_atlas.body.immovable = true;
+	
+	var _base_out_atlas = this.add.sprite(416.0, 192.0, 'base_out_atlas', 234, _block);
+	this.game.physics.arcade.enable(_base_out_atlas);
+	_base_out_atlas.body.immovable = true;
+	
+	var _base_out_atlas = this.add.sprite(448.0, 192.0, 'base_out_atlas', 234, _block);
+	this.game.physics.arcade.enable(_base_out_atlas);
+	_base_out_atlas.body.immovable = true;
+	
+	var _base_out_atlas = this.add.sprite(480.0, 192.0, 'base_out_atlas', 234, _block);
+	this.game.physics.arcade.enable(_base_out_atlas);
+	_base_out_atlas.body.immovable = true;
+	
+	var _base_out_atlas = this.add.sprite(224.0, 224.0, 'base_out_atlas', 234, _block);
+	this.game.physics.arcade.enable(_base_out_atlas);
+	_base_out_atlas.body.immovable = true;
+	
+	var _base_out_atlas = this.add.sprite(288.0, 224.0, 'base_out_atlas', 234, _block);
+	this.game.physics.arcade.enable(_base_out_atlas);
+	_base_out_atlas.body.immovable = true;
+	
+	var _base_out_atlas = this.add.sprite(224.0, 256.0, 'base_out_atlas', 234, _block);
+	this.game.physics.arcade.enable(_base_out_atlas);
+	_base_out_atlas.body.immovable = true;
+	
+	var _base_out_atlas = this.add.sprite(288.0, 256.0, 'base_out_atlas', 234, _block);
+	this.game.physics.arcade.enable(_base_out_atlas);
+	_base_out_atlas.body.immovable = true;
+	
+	var _base_out_atlas = this.add.sprite(224.0, 288.0, 'base_out_atlas', 234, _block);
+	this.game.physics.arcade.enable(_base_out_atlas);
+	_base_out_atlas.body.immovable = true;
+	
+	var _base_out_atlas = this.add.sprite(480.0, 224.0, 'base_out_atlas', 234, _block);
+	this.game.physics.arcade.enable(_base_out_atlas);
+	_base_out_atlas.body.immovable = true;
+	
+	var _base_out_atlas = this.add.sprite(480.0, 256.0, 'base_out_atlas', 234, _block);
+	this.game.physics.arcade.enable(_base_out_atlas);
+	_base_out_atlas.body.immovable = true;
+	
+	var _base_out_atlas = this.add.sprite(480.0, 288.0, 'base_out_atlas', 234, _block);
+	this.game.physics.arcade.enable(_base_out_atlas);
+	_base_out_atlas.body.immovable = true;
+	
+	var _base_out_atlas = this.add.sprite(448.0, 256.0, 'base_out_atlas', 234, _block);
+	this.game.physics.arcade.enable(_base_out_atlas);
+	_base_out_atlas.body.immovable = true;
+	
+	var _base_out_atlas = this.add.sprite(384.0, 256.0, 'base_out_atlas', 234, _block);
+	this.game.physics.arcade.enable(_base_out_atlas);
+	_base_out_atlas.body.immovable = true;
+	
+	var _base_out_atlas = this.add.sprite(416.0, 256.0, 'base_out_atlas', 234, _block);
+	this.game.physics.arcade.enable(_base_out_atlas);
+	_base_out_atlas.body.immovable = true;
+	
+	var _base_out_atlas = this.add.sprite(352.0, 256.0, 'base_out_atlas', 234, _block);
+	this.game.physics.arcade.enable(_base_out_atlas);
+	_base_out_atlas.body.immovable = true;
+	
+	var _base_out_atlas = this.add.sprite(480.0, 320.0, 'base_out_atlas', 234, _block);
+	this.game.physics.arcade.enable(_base_out_atlas);
+	_base_out_atlas.body.immovable = true;
+	
+	var _base_out_atlas = this.add.sprite(448.0, 352.0, 'base_out_atlas', 234, _block);
+	this.game.physics.arcade.enable(_base_out_atlas);
+	_base_out_atlas.body.immovable = true;
+	
+	var _base_out_atlas = this.add.sprite(480.0, 352.0, 'base_out_atlas', 234, _block);
+	this.game.physics.arcade.enable(_base_out_atlas);
+	_base_out_atlas.body.immovable = true;
+	
+	var _base_out_atlas = this.add.sprite(416.0, 320.0, 'base_out_atlas', 234, _block);
+	this.game.physics.arcade.enable(_base_out_atlas);
+	_base_out_atlas.body.immovable = true;
+	
+	var _base_out_atlas = this.add.sprite(416.0, 352.0, 'base_out_atlas', 234, _block);
+	this.game.physics.arcade.enable(_base_out_atlas);
+	_base_out_atlas.body.immovable = true;
+	
+	var _base_out_atlas = this.add.sprite(384.0, 320.0, 'base_out_atlas', 234, _block);
+	this.game.physics.arcade.enable(_base_out_atlas);
+	_base_out_atlas.body.immovable = true;
+	
+	var _base_out_atlas = this.add.sprite(352.0, 320.0, 'base_out_atlas', 234, _block);
+	this.game.physics.arcade.enable(_base_out_atlas);
+	_base_out_atlas.body.immovable = true;
+	
+	var _base_out_atlas = this.add.sprite(320.0, 320.0, 'base_out_atlas', 234, _block);
+	this.game.physics.arcade.enable(_base_out_atlas);
+	_base_out_atlas.body.immovable = true;
+	
+	var _base_out_atlas = this.add.sprite(288.0, 320.0, 'base_out_atlas', 234, _block);
+	this.game.physics.arcade.enable(_base_out_atlas);
+	_base_out_atlas.body.immovable = true;
+	
+	var _base_out_atlas = this.add.sprite(224.0, 320.0, 'base_out_atlas', 234, _block);
+	this.game.physics.arcade.enable(_base_out_atlas);
+	_base_out_atlas.body.immovable = true;
+	
+	var _base_out_atlas = this.add.sprite(256.0, 320.0, 'base_out_atlas', 234, _block);
+	this.game.physics.arcade.enable(_base_out_atlas);
+	_base_out_atlas.body.immovable = true;
+	
 	var _base_out_atlas = this.add.sprite(1184.0, 736.0, 'base_out_atlas', 234, _block);
 	this.game.physics.arcade.enable(_base_out_atlas);
 	_base_out_atlas.body.immovable = true;
@@ -581,134 +695,6 @@ Level8.prototype.create = function () {
 	_monster_Auto.play();
 	this.game.physics.arcade.enable(_monster);
 	
-	var _base_out_atlas = this.add.sprite(224.0, 192.0, 'base_out_atlas', 234);
-	this.game.physics.arcade.enable(_base_out_atlas);
-	_base_out_atlas.body.immovable = true;
-	
-	var _base_out_atlas = this.add.sprite(256.0, 192.0, 'base_out_atlas', 234);
-	this.game.physics.arcade.enable(_base_out_atlas);
-	_base_out_atlas.body.immovable = true;
-	
-	var _base_out_atlas = this.add.sprite(288.0, 192.0, 'base_out_atlas', 234);
-	this.game.physics.arcade.enable(_base_out_atlas);
-	_base_out_atlas.body.immovable = true;
-	
-	var _base_out_atlas = this.add.sprite(320.0, 192.0, 'base_out_atlas', 234);
-	this.game.physics.arcade.enable(_base_out_atlas);
-	_base_out_atlas.body.immovable = true;
-	
-	var _base_out_atlas = this.add.sprite(352.0, 192.0, 'base_out_atlas', 234);
-	this.game.physics.arcade.enable(_base_out_atlas);
-	_base_out_atlas.body.immovable = true;
-	
-	var _base_out_atlas = this.add.sprite(384.0, 192.0, 'base_out_atlas', 234);
-	this.game.physics.arcade.enable(_base_out_atlas);
-	_base_out_atlas.body.immovable = true;
-	
-	var _base_out_atlas = this.add.sprite(416.0, 192.0, 'base_out_atlas', 234);
-	this.game.physics.arcade.enable(_base_out_atlas);
-	_base_out_atlas.body.immovable = true;
-	
-	var _base_out_atlas = this.add.sprite(448.0, 192.0, 'base_out_atlas', 234);
-	this.game.physics.arcade.enable(_base_out_atlas);
-	_base_out_atlas.body.immovable = true;
-	
-	var _base_out_atlas = this.add.sprite(480.0, 192.0, 'base_out_atlas', 234);
-	this.game.physics.arcade.enable(_base_out_atlas);
-	_base_out_atlas.body.immovable = true;
-	
-	var _base_out_atlas = this.add.sprite(224.0, 224.0, 'base_out_atlas', 234);
-	this.game.physics.arcade.enable(_base_out_atlas);
-	_base_out_atlas.body.immovable = true;
-	
-	var _base_out_atlas = this.add.sprite(288.0, 224.0, 'base_out_atlas', 234);
-	this.game.physics.arcade.enable(_base_out_atlas);
-	_base_out_atlas.body.immovable = true;
-	
-	var _base_out_atlas = this.add.sprite(224.0, 256.0, 'base_out_atlas', 234);
-	this.game.physics.arcade.enable(_base_out_atlas);
-	_base_out_atlas.body.immovable = true;
-	
-	var _base_out_atlas = this.add.sprite(288.0, 256.0, 'base_out_atlas', 234);
-	this.game.physics.arcade.enable(_base_out_atlas);
-	_base_out_atlas.body.immovable = true;
-	
-	var _base_out_atlas = this.add.sprite(224.0, 288.0, 'base_out_atlas', 234);
-	this.game.physics.arcade.enable(_base_out_atlas);
-	_base_out_atlas.body.immovable = true;
-	
-	var _base_out_atlas = this.add.sprite(480.0, 224.0, 'base_out_atlas', 234);
-	this.game.physics.arcade.enable(_base_out_atlas);
-	_base_out_atlas.body.immovable = true;
-	
-	var _base_out_atlas = this.add.sprite(480.0, 256.0, 'base_out_atlas', 234);
-	this.game.physics.arcade.enable(_base_out_atlas);
-	_base_out_atlas.body.immovable = true;
-	
-	var _base_out_atlas = this.add.sprite(480.0, 288.0, 'base_out_atlas', 234);
-	this.game.physics.arcade.enable(_base_out_atlas);
-	_base_out_atlas.body.immovable = true;
-	
-	var _base_out_atlas = this.add.sprite(448.0, 256.0, 'base_out_atlas', 234);
-	this.game.physics.arcade.enable(_base_out_atlas);
-	_base_out_atlas.body.immovable = true;
-	
-	var _base_out_atlas = this.add.sprite(384.0, 256.0, 'base_out_atlas', 234);
-	this.game.physics.arcade.enable(_base_out_atlas);
-	_base_out_atlas.body.immovable = true;
-	
-	var _base_out_atlas = this.add.sprite(416.0, 256.0, 'base_out_atlas', 234);
-	this.game.physics.arcade.enable(_base_out_atlas);
-	_base_out_atlas.body.immovable = true;
-	
-	var _base_out_atlas = this.add.sprite(352.0, 256.0, 'base_out_atlas', 234);
-	this.game.physics.arcade.enable(_base_out_atlas);
-	_base_out_atlas.body.immovable = true;
-	
-	var _base_out_atlas = this.add.sprite(480.0, 320.0, 'base_out_atlas', 234);
-	this.game.physics.arcade.enable(_base_out_atlas);
-	_base_out_atlas.body.immovable = true;
-	
-	var _base_out_atlas = this.add.sprite(448.0, 352.0, 'base_out_atlas', 234);
-	this.game.physics.arcade.enable(_base_out_atlas);
-	_base_out_atlas.body.immovable = true;
-	
-	var _base_out_atlas = this.add.sprite(480.0, 352.0, 'base_out_atlas', 234);
-	this.game.physics.arcade.enable(_base_out_atlas);
-	_base_out_atlas.body.immovable = true;
-	
-	var _base_out_atlas = this.add.sprite(416.0, 320.0, 'base_out_atlas', 234);
-	this.game.physics.arcade.enable(_base_out_atlas);
-	_base_out_atlas.body.immovable = true;
-	
-	var _base_out_atlas = this.add.sprite(416.0, 352.0, 'base_out_atlas', 234);
-	this.game.physics.arcade.enable(_base_out_atlas);
-	_base_out_atlas.body.immovable = true;
-	
-	var _base_out_atlas = this.add.sprite(384.0, 320.0, 'base_out_atlas', 234);
-	this.game.physics.arcade.enable(_base_out_atlas);
-	_base_out_atlas.body.immovable = true;
-	
-	var _base_out_atlas = this.add.sprite(352.0, 320.0, 'base_out_atlas', 234);
-	this.game.physics.arcade.enable(_base_out_atlas);
-	_base_out_atlas.body.immovable = true;
-	
-	var _base_out_atlas = this.add.sprite(320.0, 320.0, 'base_out_atlas', 234);
-	this.game.physics.arcade.enable(_base_out_atlas);
-	_base_out_atlas.body.immovable = true;
-	
-	var _base_out_atlas = this.add.sprite(288.0, 320.0, 'base_out_atlas', 234);
-	this.game.physics.arcade.enable(_base_out_atlas);
-	_base_out_atlas.body.immovable = true;
-	
-	var _base_out_atlas = this.add.sprite(224.0, 320.0, 'base_out_atlas', 234);
-	this.game.physics.arcade.enable(_base_out_atlas);
-	_base_out_atlas.body.immovable = true;
-	
-	var _base_out_atlas = this.add.sprite(256.0, 320.0, 'base_out_atlas', 234);
-	this.game.physics.arcade.enable(_base_out_atlas);
-	_base_out_atlas.body.immovable = true;
-	
 	
 	
 	// fields
@@ -721,7 +707,7 @@ Level8.prototype.create = function () {
 	this.fPlayer = _player;
 	this.fMonster = _monster;
 	//this.camera.follow(this.fPlayer);
-	if (game1Pass){
+	if (gamePass){
 		this.fPlayer.x = playerX;
 		this.fPlayer.y = playerY;
 		this.fMonster.visible = false;

@@ -23,8 +23,7 @@ var localStorageName = "levelselect";
 var level;
 var testmode = false;
 var live = 1 ;
-var game1Pass = false;
-var game2Pass = false;
+var gamePass = false;
 var lastOrder;
 var isSelectLevel = true;
 var screenWidth = screen.width;
@@ -206,8 +205,55 @@ function viewAllBlockly() {
     workspace.addChangeListener(onWorkspaceChange);
     onWorkspaceChange();
 }
-function messageBox(IsWin,w,h,callback){
+function KoMessage(name,callback){
+    //if exists
+    var w=300;
+    var h=200;
 
+    if (this.msgBox) {
+        this.msgBox.destroy();
+    }
+    //make a group to hold all the elements
+    var msgBox = game.add.group();
+    //make the back of the message box
+    var back = game.add.sprite(0, 0, "boxBack");
+    //make the close button
+    //add the elements to the group
+    msgBox.add(back);
+
+    var text1 = game.add.text(0, 0, "你打羸了"+name);
+    var okButton = game.add.sprite(0,0,"OKButton");
+    //make a text field
+    //set the textfeild to wrap if the text is too long
+    text1.wordWrap = true;
+    //make the width of the wrap 90% of the width
+    //of the message box
+    text1.wordWrapWidth = w * .9;
+    msgBox.add(okButton);
+    msgBox.add(text1);
+    //set the ok button
+    //in the center horizontally
+    //and near the bottom of the box vertically
+    okButton.x = w / 2 - okButton.width / 2;
+    okButton.y = h - okButton.height+50;
+    //enable the button for input
+    okButton.inputEnabled = true;
+    //add a listener to destroy the box when the button is pressed
+    okButton.events.onInputDown.add(function(){
+        this.msgBox.destroy();
+        callback();
+    }, this);
+
+    //set the message box in the center of the screen
+    msgBox.x = game.width / 2 - msgBox.width / 2;
+    msgBox.y = game.height / 2 - msgBox.height / 2;
+    //set the text in the middle of the message box
+    text1.x = w / 2 - text1.width / 2;
+    text1.y = h / 2 - text1.height / 2;
+    //make a state reference to the messsage box
+    this.msgBox = msgBox;
+}
+function messageBox(IsWin,w,h,callback){
         //if exists
         if (this.msgBox) {
             this.msgBox.destroy();
@@ -217,9 +263,6 @@ function messageBox(IsWin,w,h,callback){
         //make the back of the message box
         var back = game.add.sprite(0, 0, "boxBack");
         //make the close button
-
-
-
         //add the elements to the group
         msgBox.add(back);
 
@@ -281,7 +324,6 @@ function messageBox(IsWin,w,h,callback){
                 callback();
             }, this);
         }
-
         //set the message box in the center of the screen
         msgBox.x = game.width / 2 - msgBox.width / 2;
         msgBox.y = game.height / 2 - msgBox.height / 2;
@@ -290,7 +332,6 @@ function messageBox(IsWin,w,h,callback){
         text1.y = h / 2 - text1.height / 2;
         //make a state reference to the messsage box
         this.msgBox = msgBox;
-
 }
 function weekSpace(){
     if (weekCurrentCol<20){
