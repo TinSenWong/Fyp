@@ -411,6 +411,7 @@ function nextline(){
 }*/
 var gameIndex;
 function inGame(index){
+    
     if (index == 1){
         addweaknessGroupGame1(randonWeakness(1));
     }else if (index == 2){
@@ -471,8 +472,6 @@ function addweaknessGroupGame2(weakness){
     toolbox += '  <block type="null"></block>';
     toolbox += '</xml>';
     changeToolbox(toolbox,20);
-
-    round=3;
 
     weaknessGroup.x = 120;
     weaknessGroup.y = 30;
