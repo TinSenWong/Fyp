@@ -734,6 +734,8 @@ Level8.prototype.update = function () {
 		this.physics.arcade.collide(this.fPlayer, this.fMonster,function (){
 			playerX = this.fMonster.x;
 			playerY = this.fMonster.y-32;
+			gameIndex = 3;
+			enemyHP=3;
 			game.state.add("level",this);
 			game.state.add("newGame", breakWallGame);
 			game.state.start("newGame");

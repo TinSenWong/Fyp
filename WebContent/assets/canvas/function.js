@@ -43,7 +43,7 @@ var weekCurrentCol = 0;
 var playerInputList =createArray(10,20);
 var weaknessGroupList =createArray(10,20);
 var currentScreen;
-var levelState;
+var currentMonster;
 var limitTime=3;;
 function createArray(length) {
     var arr = new Array(length || 0),

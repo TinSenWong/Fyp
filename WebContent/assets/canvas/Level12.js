@@ -618,17 +618,19 @@ Level12.prototype.create = function () {
 	var _MonsterGroup = this.add.group();
 	
 	var _monster = this.add.sprite(480.0, 352.0, 'monster', 'sprite1',_MonsterGroup);
+	_monster.name="monster"
 	_monster.scale.setTo(0.64, 0.64);
 	var _monster_Auto = _monster.animations.add('Auto', ['sprite1', 'sprite2', 'sprite6'], 2, true);
 	_monster_Auto.play();
 	this.game.physics.arcade.enable(_monster);
 	
-	var _monster = this.add.sprite(480.0, 288.0, 'monster', 'sprite1',_MonsterGroup);
-	_monster.scale.setTo(0.64, 0.64);
-	var _monster_Auto = _monster.animations.add('Auto', ['sprite1', 'sprite2', 'sprite6'], 2, true);
-	_monster_Auto.play();
+	var _monster1 = this.add.sprite(480.0, 288.0, 'monster', 'sprite1',_MonsterGroup);
+	_monster1.name="monster1"
+	_monster1.scale.setTo(0.64, 0.64);
+	var _monster1_Auto = _monster1.animations.add('Auto', ['sprite1', 'sprite2', 'sprite6'], 2, true);
+	_monster1_Auto.play();
 	
-	this.game.physics.arcade.enable(_monster);
+	this.game.physics.arcade.enable(_monster1);
 	
 	
 	
@@ -645,12 +647,17 @@ Level12.prototype.create = function () {
 	this.fHearts = _hearts;
 	this.fMonsterGroup = _MonsterGroup;
 	this.fMonster = _monster;
+	this.fMonster1 = _monster1;
 	//this.camera.follow(this.fPlayer);
-	if (gamePass){
-		this.fPlayer.x = playerX;
-		this.fPlayer.y = playerY;
-		for (i = 0; i<isDie.length;i++){
-			this.fMonsterGroup.children[isDie[i]].visible = false;;
+	
+		
+	for (i = 0; i<dieList.length;i++){
+		for (j = 0; j<this.fMonsterGroup.children.length;j++){
+			if (dieList[i] == this.fMonsterGroup.children[j].name){
+				this.fPlayer.x = playerX;
+				this.fPlayer.y = playerY;
+				this.fMonsterGroup.children[j].visible = false;
+			}
 		}
 	}
 	this.cursors = this.input.keyboard.createCursorKeys();
@@ -675,18 +682,23 @@ Level12.prototype.update = function () {
 		this.physics.arcade.collide(this.fPlayer,this.fKeyYellow, getKey, null, this);
 	}
 		for (i = 0;i < this.fMonsterGroup.children.length;i++){
-		this.physics.arcade.collide(this.fPlayer, this.fMonsterGroup.children[i],function (){
-			isDie.push(i);
-			playerX = this.fMonsterGroup.children[i].x;
-			playerY = this.fMonsterGroup.children[i].y-32;
-			
-			game.state.add("level",this);
-			gameIndex = 3;
-			enemyHP=3;
-			game.state.add("newGame", breakWallGame);
-			game.state.start("newGame");
-			
-		}, null, this);
+			if (this.fMonsterGroup.children[i].visible){
+				this.physics.arcade.collide(this.fPlayer, this.fMonsterGroup.children[i],function (){
+					
+						playerX = this.fMonsterGroup.children[i].x;
+						playerY = this.fMonsterGroup.children[i].y-32;
+						currentMonster = this.fMonsterGroup.children[i];
+						
+						game.state.add("level",this);
+						gameIndex = 3;
+						enemyHP=3;
+						dieList.push(this.fMonsterGroup.children[i].name);
+						that = this;
+						game.state.add("newGame", breakWallGame);
+						game.state.start("newGame");
+					
+				}, null, this);
+			}
 		}
 	
 	this.physics.arcade.collide(this.fPlayer,this.fTreasure_chest,IsOpenChest, null, this);
@@ -838,8 +850,7 @@ function checkOverlap(spriteA, spriteB) {
 }
  
 // -- user code here --
-
-var isDie=[];
+var dieList = [];
 var that;
 var tween;
 var touchWall= false;
