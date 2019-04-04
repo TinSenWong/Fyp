@@ -156,7 +156,7 @@ breakWallGame.prototype.update = function () {
 					
 				}
 			}else{
-				this.fWorngTime.setText("Worng    :" + ++worngTime );
+				this.fWrongTime.setText("Wrong    :" + ++wrongTime );
 				
 				this.fLimitTime.setText("Attempts :" + --limitTime );
 				if(limitTime==0){

@@ -52,7 +52,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="GamePlay.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="GamePlay.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/WebContent/GamePlay.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="19">
@@ -61,7 +61,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="function.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="function.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WebContent/assets/canvas/function.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="328">
@@ -257,12 +257,12 @@
       <workItem from="1554204621127" duration="2099000" />
       <workItem from="1554209454598" duration="4062000" />
       <workItem from="1554215790159" duration="1133000" />
-      <workItem from="1554217155452" duration="1550000" />
+      <workItem from="1554217155452" duration="3781000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39881000" />
+    <option name="totallyTimeSpent" value="42112000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="960" y="0" width="960" height="1040" extended-state="0" />
@@ -399,6 +399,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="274">
           <caret line="645" column="12" selection-start-line="645" selection-start-column="12" selection-end-line="645" selection-end-column="12" />
+          <folding>
+            <element signature="n#style#0;n#xml#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -462,13 +465,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/GamePlay.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="39" column="50" selection-start-line="39" selection-start-column="50" selection-end-line="39" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/lib/phaser.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="665">
@@ -484,6 +480,13 @@
             <element signature="n#style#0;n#xml#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#xml#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/GamePlay.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="39" column="50" selection-start-line="39" selection-start-column="50" selection-end-line="39" selection-end-column="50" />
         </state>
       </provider>
     </entry>
