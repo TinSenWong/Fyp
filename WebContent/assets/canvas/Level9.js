@@ -27,11 +27,23 @@ Level9.prototype.init = function () {
 };
 
 Level9.prototype.preload = function () {
-	
+	toolbox = '<xml id="toolbox" style="display: none">';
+    toolbox += ' <block type="move_right"></block>';
+    toolbox += '<block type="move_left"></block>';
+    toolbox += '<block type="move_up"></block>';
+    toolbox += '<block type="move_down"></block>';
+    toolbox += '<block type="controls_repeat_ext">';
+    toolbox += '<value name="TIMES">';
+    toolbox += '    <shadow type="math_number">';
+    toolbox += '        <field name="NUM">10</field>';
+    toolbox += '   </shadow>';
+    toolbox += '</value>';
+    toolbox += '</block>';
+    toolbox += '</xml>';
 	changeToolbox(toolbox,20);
 	
 	this.load.pack('maze', 'assets/pack.json');
-	
+	this.load.pack('game', 'assets/pack.json');
 };
 
 Level9.prototype.create = function () {
@@ -850,6 +862,8 @@ Level9.prototype.update = function () {
 			playerX = this.fMonster.x;
 			playerY = this.fMonster.y-32;
 			game.state.add("level",this);
+			gameIndex = 2;
+			enemyHP=3;
 			game.state.add("newGame", breakWallGame);
 			game.state.start("newGame");
 		}, null, this);
@@ -893,8 +907,7 @@ Level9.prototype.update = function () {
 
 	}
 	// set movement value
-		if (goToTheLeft){
-			
+		if (goToTheLeft){	
 			playerX = this.fPlayer.x;
 			goToTheLeft=false;
 			goLeft = true;
@@ -926,7 +939,9 @@ Level9.prototype.update = function () {
 			}else if (player.animations.currentAnim.name == "Front"){
 				this.fPlayer.play('FrontStay');
 			}
-			
+			if (tween!=null){
+				tween.pause();	
+			}
 			this.fPlayer.x =  Math.round(this.fPlayer.x / 32)*32;
 			this.fPlayer.y =  Math.round(this.fPlayer.y / 32)*32;
 		},null,this);
@@ -934,7 +949,7 @@ Level9.prototype.update = function () {
 	if (goLeft){// move to the left
 		goLeft=false;
 		tween = this.add.tween(this.fPlayer).to({ x: this.fPlayer.x-32 }, 200, Phaser.Easing.Quadratic.InOut, true);
-		tween.onStart.add(function(){this.fPlayer.play('Left');});
+		tween.onStart.add(function(){this.fPlayer.play('Left');},this);
 		tween.onComplete.add(function(){
             this.fPlayer.play('LeftStay');
             this.fPlayer.x =  Math.round(this.fPlayer.x / 32)*32;

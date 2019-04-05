@@ -27,7 +27,19 @@ Level8.prototype.init = function () {
 };
 
 Level8.prototype.preload = function () {
-	
+	toolbox = '<xml id="toolbox" style="display: none">';
+    toolbox += ' <block type="move_right"></block>';
+    toolbox += '<block type="move_left"></block>';
+    toolbox += '<block type="move_up"></block>';
+    toolbox += '<block type="move_down"></block>';
+    toolbox += '<block type="controls_repeat_ext">';
+    toolbox += '<value name="TIMES">';
+    toolbox += '    <shadow type="math_number">';
+    toolbox += '        <field name="NUM">10</field>';
+    toolbox += '   </shadow>';
+    toolbox += '</value>';
+    toolbox += '</block>';
+    toolbox += '</xml>';
 	changeToolbox(toolbox,20);
 	
 	this.load.pack('maze', 'assets/pack.json');
@@ -715,7 +727,7 @@ Level8.prototype.create = function () {
 	this.cursors = this.input.keyboard.createCursorKeys();
 	this.fPlayer.body.collideWorldBounds=true;
 	player = this.fPlayer;
-	
+	that = this;
 };
 
 /* --- end generated code --- */
@@ -816,7 +828,7 @@ Level8.prototype.update = function () {
 				this.fPlayer.play('FrontStay');
 			}
 			if (tween!=null){
-				tween.pause();
+				tween.pause();	
 			}
 			
 			this.fPlayer.x =  Math.round(this.fPlayer.x / 32)*32;
@@ -824,9 +836,10 @@ Level8.prototype.update = function () {
 		},null,this);
 		
 	if (goLeft){// move to the left
+
 		goLeft=false;
 		tween = this.add.tween(this.fPlayer).to({ x: this.fPlayer.x-32 }, 200, Phaser.Easing.Quadratic.InOut, true);
-		tween.onStart.add(function(){this.fPlayer.play('Left');});
+		tween.onStart.add(function(){this.fPlayer.play('Left');},this);
 		tween.onComplete.add(function(){
             this.fPlayer.play('LeftStay');
             this.fPlayer.x =  Math.round(this.fPlayer.x / 32)*32;
@@ -867,6 +880,7 @@ Level8.prototype.update = function () {
 	    	// move to the down
 	    	//this.fPlayer.body.y += 32;
     }
+
 
 };
 Level8.prototype.render = function () {

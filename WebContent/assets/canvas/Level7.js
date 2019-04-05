@@ -836,6 +836,9 @@ Level7.prototype.update = function () {
 			}else if (player.animations.currentAnim.name == "Front"){
 				this.fPlayer.play('FrontStay');
 			}
+			if (tween!=null){
+				tween.pause();
+			}
 			
 			this.fPlayer.x =  Math.round(this.fPlayer.x / 32)*32;
 			this.fPlayer.y =  Math.round(this.fPlayer.y / 32)*32;
@@ -844,7 +847,7 @@ Level7.prototype.update = function () {
 	if (goLeft){// move to the left
 		goLeft=false;
 		tween = this.add.tween(this.fPlayer).to({ x: this.fPlayer.x-32 }, 200, Phaser.Easing.Quadratic.InOut, true);
-		tween.onStart.add(function(){this.fPlayer.play('Left');});
+		tween.onStart.add(function(){this.fPlayer.play('Left');},this);
 		tween.onComplete.add(function(){
             this.fPlayer.play('LeftStay');
             this.fPlayer.x =  Math.round(this.fPlayer.x / 32)*32;
@@ -886,16 +889,12 @@ Level7.prototype.update = function () {
 	    	//this.fPlayer.body.y += 32;
     }
 
+
 };
 Level7.prototype.render = function () {
 	//this.game.debug.bodyInfo(this.fPlayer,32, 150);
 	//this.game.debug.body(this.fPlayer);
 };
-function resetPlayerXY(){
-	//var remainder = this.fPlayer.x - Math.floor(this.fPlayer.x);
-
-	
-}
 
  
 // -- user code here --

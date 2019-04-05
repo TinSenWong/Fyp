@@ -27,7 +27,19 @@ Level10.prototype.init = function () {
 };
 
 Level10.prototype.preload = function () {
-	
+	toolbox = '<xml id="toolbox" style="display: none">';
+    toolbox += ' <block type="move_right"></block>';
+    toolbox += '<block type="move_left"></block>';
+    toolbox += '<block type="move_up"></block>';
+    toolbox += '<block type="move_down"></block>';
+    toolbox += '<block type="controls_repeat_ext">';
+    toolbox += '<value name="TIMES">';
+    toolbox += '    <shadow type="math_number">';
+    toolbox += '        <field name="NUM">10</field>';
+    toolbox += '   </shadow>';
+    toolbox += '</value>';
+    toolbox += '</block>';
+    toolbox += '</xml>';
 	changeToolbox(toolbox,20);
 	
 	this.load.pack('maze', 'assets/pack.json');
@@ -825,6 +837,9 @@ Level10.prototype.update = function () {
 			}else if (player.animations.currentAnim.name == "Front"){
 				this.fPlayer.play('FrontStay');
 			}
+			if (tween!=null){
+				tween.pause();	
+			}
 			
 			this.fPlayer.x =  Math.round(this.fPlayer.x / 32)*32;
 			this.fPlayer.y =  Math.round(this.fPlayer.y / 32)*32;
@@ -833,7 +848,7 @@ Level10.prototype.update = function () {
 	if (goLeft){// move to the left
 		goLeft=false;
 		tween = this.add.tween(this.fPlayer).to({ x: this.fPlayer.x-32 }, 200, Phaser.Easing.Quadratic.InOut, true);
-		tween.onStart.add(function(){this.fPlayer.play('Left');});
+		tween.onStart.add(function(){this.fPlayer.play('Left');},this);
 		tween.onComplete.add(function(){
             this.fPlayer.play('LeftStay');
             this.fPlayer.x =  Math.round(this.fPlayer.x / 32)*32;

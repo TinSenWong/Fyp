@@ -677,9 +677,7 @@ Level1.prototype.initScene = function () {
 };
 Level1.prototype.update = function () {
 	this.fPlayer.body.velocity.set(0);
-	//if (checkOverlap(this.fPlayer,this.fBase_out_atlas2)&&!IsIn){
-		//state = this.game.state.getCurrentState();
-		//localStorage.setItem ('state',this.game.state.getCurrentState());
+
 	if (this.fKeyYellow.exists){	
 		this.physics.arcade.collide(this.fPlayer,this.fKeyYellow, getKey, null, this);
 	}
@@ -777,7 +775,7 @@ Level1.prototype.update = function () {
 		//}
 		goLeft=false;
 		tween = this.add.tween(this.fPlayer).to({ x: this.fPlayer.x-32 }, 200, Phaser.Easing.Quadratic.InOut, true);
-		tween.onStart.add(function(){this.fPlayer.play('Left');});
+		tween.onStart.add(function(){this.fPlayer.play('Left');},this);
 		tween.onComplete.add(function(){
             this.fPlayer.play('LeftStay');
             this.fPlayer.x =  Math.round(this.fPlayer.x / 32)*32;
@@ -824,11 +822,6 @@ Level1.prototype.render = function () {
 	//this.game.debug.bodyInfo(this.fPlayer,32, 150);
 	//this.game.debug.body(this.fPlayer);
 };
-function resetPlayerXY(){
-	//var remainder = this.fPlayer.x - Math.floor(this.fPlayer.x);
-
-	
-}
 
  
 // -- user code here --

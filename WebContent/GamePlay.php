@@ -709,7 +709,7 @@
                 blocklyDiv.style.height = window.innerHeight*0.8 + 'px';
                 game.width = window.innerWidth*0.625;
                 game.height = game.width*(2/3);
-
+                
                 $('#debug-grid').height(game.height);
                 $('#debug-grid').width(game.width);
                 document.documentElement.style.setProperty('--gird-size', game.width/37.5+'px');
@@ -730,7 +730,8 @@
         }else{
 
         }
-    }E
+    }
+
     window.addEventListener('resize', resizeCanvas, false);
 </script>
 

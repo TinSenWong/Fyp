@@ -117,15 +117,15 @@ playGame.prototype = {
                         alert("Welcome to Level " + (this.scrollingMap.children[i].levelNumber+1));
                         var selestLevel = this.scrollingMap.children[i].levelNumber;
                         level = selestLevel;
-//                        game.state.start("PlayLevel");
                         hideGame(false);
                         game.destroy();
                         
                         game = new Phaser.Game(1200, 800, Phaser.Auto, 'phaser');
-                       gamePass = false;
+                        gamePass = false;
                         key = false;
                         hp = 3 ;
                         currentScreen = 'level';
+                       
                         switch (selestLevel+1) {
                             case 1:
                                 

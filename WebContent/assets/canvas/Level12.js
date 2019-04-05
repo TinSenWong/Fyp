@@ -785,9 +785,8 @@ Level12.prototype.update = function () {
 	if (goLeft){// move to the left
 
 		goLeft=false;
-		that = this;
-		tween = that.add.tween(that.fPlayer).to({ x: that.fPlayer.x-32 }, 200, Phaser.Easing.Quadratic.InOut, true);
-		tween.onStart.add(function(){that.fPlayer.play('Left');});
+		tween = this.add.tween(this.fPlayer).to({ x: this.fPlayer.x-32 }, 200, Phaser.Easing.Quadratic.InOut, true);
+		tween.onStart.add(function(){this.fPlayer.play('Left');},this);
 		tween.onComplete.add(function(){
             this.fPlayer.play('LeftStay');
             this.fPlayer.x =  Math.round(this.fPlayer.x / 32)*32;
