@@ -27,11 +27,6 @@ playGame.prototype = {
         // setting game background color
         game.stage.backgroundColor = "#222222";
         // just a text placed on the top of the stage to show level page
-        this.pageText = game.add.text(game.width / 2, 50, "Swipe to select level page (1 / " + colors.length + ")", {
-            font: "18px Arial",
-            fill: "#ffffff"
-        })
-        this.pageText.anchor.set(0.5);
         // the tiled transparent sprite, covering the entire scrollable area which width is (number of pages) * (game width)
         this.scrollingMap = game.add.tileSprite(0, 0, colors.length * game.width, game.height, "transp");
         // this is how we tell Phaser the sprite can receive inputs
@@ -240,8 +235,7 @@ playGame.prototype = {
                 this.pageSelectors[k].height = 15;
             }
         }
-        this.pageText.text = "Swipe to select level page (" + (this.currentPage + 1).toString() + " / " + colors.length + ")";
-        var tween = game.add.tween(this.scrollingMap).to({
+ var tween = game.add.tween(this.scrollingMap).to({
             x: this.currentPage * -game.width
         }, 300, Phaser.Easing.Cubic.Out, true);
     }

@@ -32,7 +32,7 @@ function initInterpreterSpace(interpreter, scope) {
 
     var wrapper = interpreter.createAsyncFunction(
         function(callback) {
-            setTimeout(function(){space(); callback();},  300);
+            setTimeout(function(){addPlayerInputList('pause');; callback();},  300);
         });
     interpreter.setProperty(scope, 'space', wrapper);
 
@@ -119,7 +119,6 @@ function initInterpreterGetInput(interpreter, scope) {
     var wrapper = interpreter.createAsyncFunction(
         function(x, callback) {
             setTimeout(function () {
-                generateElement(x);
                 addPlayerInputList(x);
                 callback();
             },  300);

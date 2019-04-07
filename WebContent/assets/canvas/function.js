@@ -22,7 +22,7 @@ var localStorageName = "levelselect";
 // level we are currently playing
 var level;
 var testmode = false;
-var live = 1 ;
+var live = 1;
 var gamePass = false;
 var lastOrder;
 var isSelectLevel = true;
@@ -30,48 +30,53 @@ var screenWidth = screen.width;
 var screenHeight = screen.height * 0.8;
 var playerInput;
 var weaknessGroup;
-var currentRow=0;
+var currentRow = 0;
 var correct;
-var wrongTime=0;
-var checkInput=false;
-var finish=0;
-var enemyHP=3;
-var currentRow=0;
-var currentCol=0;
+var wrongTime = 0;
+var checkInput = false;
+var finish = 0;
+var enemyHP = 3;
+var currentRow = 0;
+var currentCol = 0;
 var weekCurrentRow = 0;
 var weekCurrentCol = 0;
-var playerInputList =createArray(10,20);
-var weaknessGroupList =createArray(10,20);
 var currentScreen;
 var currentMonster;
-var limitTime=3;;
+var limitTime = 3;
+;
+
 function createArray(length) {
     var arr = new Array(length || 0),
         i = length;
 
     if (arguments.length > 1) {
         var args = Array.prototype.slice.call(arguments, 1);
-        while(i--) arr[length-1 - i] = createArray.apply(this, args);
+        while (i--) arr[length - 1 - i] = createArray.apply(this, args);
     }
 
     return arr;
 }
-function selectLevel(){
-	if (game != null) {
+
+function selectLevel() {
+    if (game != null) {
         game.destroy();
     }
-	game = new Phaser.Game($(document).width()*0.99,$(document).height(), Phaser.Auto, 'phaser');
+    game = new Phaser.Game($(document).width() * 0.99, $(document).height(), Phaser.Auto, 'phaser');
 
-	game.state.add("PlayGame", playGame);
+    game.state.add("PlayGame", playGame);
     game.state.start("PlayGame");
-	Phaser.Device.whenReady(function () {
-		game.plugins.add(PhaserInput.Plugin);
-		game.plugins.add(PhaserNineSlice.Plugin);
-		game.plugins.add(Phaser.Plugin.KineticScrolling);
-	});
-    worngTime=0;
-    finish=0;
+    Phaser.Device.whenReady(function () {
+        game.plugins.add(PhaserInput.Plugin);
+        game.plugins.add(PhaserNineSlice.Plugin);
+        game.plugins.add(Phaser.Plugin.KineticScrolling);
+    });
+    worngTime = 0;
+    finish = 0;
 };
+function goSelectLevel() {
+    runCount = 0;
+    selectLevel()
+}
 
 //level
 var goToTheRight = false;
@@ -84,95 +89,106 @@ var playerX;
 var map;
 var key = false;
 var hp = 3;
-var engNeverGiveUp =['Don\'t give up the chance of success.','Stick to your dream, never give up.','Be generous, atmosphere, don\'t give up!','Real warrior never give up..','Until the last moment, never give up.','Not indulgence, do not give up. Just for a better tomorrow.','Winners never quit, quitters never succeed.','Action speak louder than words.','Never say die.','Zero in your target，and go for it.','Believe in yourself.','Keep on going never give up.','Hold on to the end, never give up, is the guarantee of success, as long as you don\'t give up, you will have the opportunity, as long as give up, he certainly would not have succeeded.','That’s will coming along nicely.','Don\'t give up! Don\'t give up! Don\'t give up! Important words three times.'];
-var engGoodJob=['Incredible!','Incomparable!','You\'re Awesome !','Keep it up! ','Lovely! ','Perfect!  ','WoW,Beautiful work','Bravo! ','Cool! ','Clever!','Excellent! ','Fabulous! ','Fantastic!','Good work.','Impressive! ']
+var engNeverGiveUp = ['Don\'t give up the chance of success.', 'Stick to your dream, never give up.', 'Be generous, atmosphere, don\'t give up!', 'Real warrior never give up..', 'Until the last moment, never give up.', 'Not indulgence, do not give up. Just for a better tomorrow.', 'Winners never quit, quitters never succeed.', 'Action speak louder than words.', 'Never say die.', 'Zero in your target，and go for it.', 'Believe in yourself.', 'Keep on going never give up.', 'Hold on to the end, never give up, is the guarantee of success, as long as you don\'t give up, you will have the opportunity, as long as give up, he certainly would not have succeeded.', 'That’s will coming along nicely.', 'Don\'t give up! Don\'t give up! Don\'t give up! Important words three times.'];
+var engGoodJob = ['Incredible!', 'Incomparable!', 'You\'re Awesome !', 'Keep it up! ', 'Lovely! ', 'Perfect!  ', 'WoW,Beautiful work', 'Bravo! ', 'Cool! ', 'Clever!', 'Excellent! ', 'Fabulous! ', 'Fantastic!', 'Good work.', 'Impressive! ']
+
 function lostMsg() {
     return engNeverGiveUp[Math.round(Math.random() * 14)];
 }
-function winMsg(){
-    return engGoodJob[Math.round(Math.random()*14)];
+
+function winMsg() {
+    return engGoodJob[Math.round(Math.random() * 14)];
 }
+
 function checkOverlap(spriteA, spriteB) {
- 
+
     var boundsA = spriteA.getBounds();
-    var boundsB = spriteB.getBounds();              
- 
+    var boundsB = spriteB.getBounds();
+
     return Phaser.Rectangle.intersects(boundsA, boundsB);
- 
+
 }
+
 //01
-function collisionHandler(){
-	hp -= 1;
-	this.fHPGroup.children[hp].play('play');
-	this.fSpike.children[i].destroy();
-	if (hp == 0){
-		if(confirm('你死了  重新遊玩')){
-			this.state.add("game1", Level01);
-			this.state.start("game1");
-		}else{
-			this.state.add("playGame", playGame);
-			this.state.start("playGame");
-		}
-		
-	}
+function collisionHandler() {
+    hp -= 1;
+    this.fHPGroup.children[hp].play('play');
+    this.fSpike.children[i].destroy();
+    if (hp == 0) {
+        if (confirm('你死了  重新遊玩')) {
+            this.state.add("game1", Level01);
+            this.state.start("game1");
+        } else {
+            this.state.add("playGame", playGame);
+            this.state.start("playGame");
+        }
+
+    }
 }
-function collisionHeal(){
-    if (hp<3) {
+
+function collisionHeal() {
+    if (hp < 3) {
         hp += 1;
-        this.fHPGroup.children[hp-1].play('heal');
+        this.fHPGroup.children[hp - 1].play('heal');
         this.fHearts.children[i].destroy();
     }
 
 }
-function getKey(){
-	key = true;
-	this.fKeyYellow.destroy();
+
+function getKey() {
+    key = true;
+    this.fKeyYellow.destroy();
 }
-function IsOpenChest(){
-	if (key){
-		this.fTreasure_chest.play('open').onComplete.add(function(){
-			if (hp==1){
-				stars[level] = 1;
-		        if (stars[level + 1] != undefined && stars[level + 1] == -1) {
-		            stars[level + 1] = 0;
-		        }
-			}else if (hp==2){
-				stars[level] = 2;
-		        if (stars[level + 1] != undefined && stars[level + 1] == -1) {
-		            stars[level + 1] = 0;
-		        }
-			}else if (hp==3){
-				stars[level] = 3;
-		        if (stars[level + 1] != undefined && stars[level + 1] == -1) {
-		            stars[level + 1] = 0;
-		        }
-			}
-	        localStorage.setItem(localStorageName, stars.toString());
-			hideGrid(true);
-            messageBox(true,300,200,function(){selectLevel()}),this;
-    }, this);
-	}
+
+function IsOpenChest() {
+    if (key) {
+        this.fTreasure_chest.play('open').onComplete.add(function () {
+            if (hp == 1) {
+                stars[level] = 1;
+                if (stars[level + 1] != undefined && stars[level + 1] == -1) {
+                    stars[level + 1] = 0;
+                }
+            } else if (hp == 2) {
+                stars[level] = 2;
+                if (stars[level + 1] != undefined && stars[level + 1] == -1) {
+                    stars[level + 1] = 0;
+                }
+            } else if (hp == 3) {
+                stars[level] = 3;
+                if (stars[level + 1] != undefined && stars[level + 1] == -1) {
+                    stars[level + 1] = 0;
+                }
+            }
+            localStorage.setItem(localStorageName, stars.toString());
+            hideGrid(true);
+            messageBox(true, 300, 200, function () {
+                selectLevel()
+            }), this;
+        }, this);
+    }
 }
+
 function sleep(milliseconds) {
     var start = new Date().getTime();
     for (var i = 0; i < 1e7; i++) {
-        if ((new Date().getTime() - start) > milliseconds){
+        if ((new Date().getTime() - start) > milliseconds) {
             break;
         }
     }
 }
-function wait(millisecondsToWait) {
-    setTimeout( function() {
 
-    },millisecondsToWait)
+function wait(millisecondsToWait) {
+    setTimeout(function () {
+
+    }, millisecondsToWait)
     sleep(millisecondsToWait);
 }
 
-function changeToolbox(toolbox,maxBlockNum){
+function changeToolbox(toolbox, maxBlockNum) {
     workspace.dispose();
     workspace = Blockly.inject('blocklyDiv',
         {
-            maxBlocks:maxBlockNum,
+            maxBlocks: maxBlockNum,
             media: 'google-blockly/media/',
             toolbox: toolbox
         });
@@ -208,10 +224,11 @@ function viewAllBlockly() {
     workspace.addChangeListener(onWorkspaceChange);
     onWorkspaceChange();
 }
-function KoMessage(name,callback){
+
+function KoMessage(name, callback) {
     //if exists
-    var w=300;
-    var h=200;
+    var w = 300;
+    var h = 200;
 
     if (this.msgBox) {
         this.msgBox.destroy();
@@ -224,8 +241,8 @@ function KoMessage(name,callback){
     //add the elements to the group
     msgBox.add(back);
 
-    var text1 = game.add.text(0, 0, "你打羸了"+name);
-    var okButton = game.add.sprite(0,0,"OKButton");
+    var text1 = game.add.text(0, 0, "你打羸了" + name);
+    var okButton = game.add.sprite(0, 0, "OKButton");
     //make a text field
     //set the textfeild to wrap if the text is too long
     text1.wordWrap = true;
@@ -238,11 +255,11 @@ function KoMessage(name,callback){
     //in the center horizontally
     //and near the bottom of the box vertically
     okButton.x = w / 2 - okButton.width / 2;
-    okButton.y = h - okButton.height+50;
+    okButton.y = h - okButton.height + 50;
     //enable the button for input
     okButton.inputEnabled = true;
     //add a listener to destroy the box when the button is pressed
-    okButton.events.onInputDown.add(function(){
+    okButton.events.onInputDown.add(function () {
         this.msgBox.destroy();
         callback();
     }, this);
@@ -256,213 +273,229 @@ function KoMessage(name,callback){
     //make a state reference to the messsage box
     this.msgBox = msgBox;
 }
-function messageBox(IsWin,w,h,callback){
-        //if exists
-        if (this.msgBox) {
-            this.msgBox.destroy();
-        }
-        //make a group to hold all the elements
-        var msgBox = game.add.group();
-        //make the back of the message box
-        var back = game.add.sprite(0, 0, "boxBack");
-        //make the close button
-        //add the elements to the group
-        msgBox.add(back);
 
-        if (!IsWin){
-            var text1 = game.add.text(0, 0, lostMsg());
-            var closeButton = game.add.sprite(0, 0, "closeButton");
-            var Backselect = game.add.sprite(0, 0, "Backselect");
-            Backselect.scale.setTo(0.60, 0.60);
-            closeButton.scale.setTo(0.65, 0.58);
-            //make a text field
-            //set the textfeild to wrap if the text is too long
-            text1.wordWrap = true;
-            //make the width of the wrap 90% of the width
-            //of the message box
-            text1.wordWrapWidth = w * .9;
-            msgBox.add(text1);
-            msgBox.add(closeButton);
-            msgBox.add(Backselect);
-        //set the close button
-        //in the center horizontally
-        //and near the bottom of the box vertically
-            Backselect.x = w / 8 - Backselect.width / 8 -10;
-            Backselect.y = h - Backselect.height+60;
-            closeButton.x = w / 8 - closeButton.width / 8+150;
-            closeButton.y = h - closeButton.height+55;
-        //enable the button for input
-            Backselect.inputEnabled = true;
-            closeButton.inputEnabled = true;
-        //add a listener to destroy the box when the button is pressed
-            Backselect.events.onInputDown.add(function() {
-                this.msgBox.destroy();
-                selectLevel();
-            }, this);
-            closeButton.events.onInputDown.add(function(){
-            this.msgBox.destroy();
-            callback();
-        }, this);
-        }else if(IsWin){
-            var text1 = game.add.text(0, 0, winMsg());
-            var okButton = game.add.sprite(0,0,"OKButton");
-            //make a text field
-            //set the textfeild to wrap if the text is too long
-            text1.wordWrap = true;
-            //make the width of the wrap 90% of the width
-            //of the message box
-            text1.wordWrapWidth = w * .9;
-            msgBox.add(okButton);
-            msgBox.add(text1);
-            //set the ok button
-            //in the center horizontally
-            //and near the bottom of the box vertically
-            okButton.x = w / 2 - okButton.width / 2;
-            okButton.y = h - okButton.height+50;
-            //enable the button for input
-            okButton.inputEnabled = true;
-            //add a listener to destroy the box when the button is pressed
-            okButton.events.onInputDown.add(function(){
-                this.msgBox.destroy();
-                callback();
-            }, this);
-        }
-        //set the message box in the center of the screen
-        msgBox.x = game.width / 2 - msgBox.width / 2;
-        msgBox.y = game.height / 2 - msgBox.height / 2;
-        //set the text in the middle of the message box
-        text1.x = w / 2 - text1.width / 2;
-        text1.y = h / 2 - text1.height / 2;
-        //make a state reference to the messsage box
-        this.msgBox = msgBox;
-}
-function weekSpace(){
-    if (weekCurrentCol<20){
-        weekCurrentCol+=1;
+function messageBox(IsWin, w, h, callback) {
+    //if exists
+    if (this.msgBox) {
+        this.msgBox.destroy();
     }
-}
-function weekNextline(){
-    weekCurrentRow+=1;
-    weekCurrentCol=0;
-}
-function space(){
-    if (currentCol<20){
-        currentCol+=1;
-    }
-}
-function nextline(){
-    currentRow+=1;
-    currentCol=0;
-}
-/*function messageBox(text,w,h){
-    var buttonTest=game.add.sprite(w,h,"testButton");
-    buttonTest.anchor.set(0.5,0.5);
-    buttonTest.inputEnabled=true;
-    buttonTest.events.onInputDown.add(function () {
-        //if exists
-        if (this.msgBox) {
-            this.msgBox.destroy();
-        }
-        //make a group to hold all the elements
-        var msgBox = game.add.group();
-        //make the back of the message box
-        var back = game.add.sprite(0, 0, "boxBack");
-        //make the close button
+    //make a group to hold all the elements
+    var msgBox = game.add.group();
+    //make the back of the message box
+    var back = game.add.sprite(0, 0, "boxBack");
+    //make the close button
+    //add the elements to the group
+    msgBox.add(back);
+
+    if (!IsWin) {
+        var text1 = game.add.text(0, 0, lostMsg());
         var closeButton = game.add.sprite(0, 0, "closeButton");
+        var Backselect = game.add.sprite(0, 0, "Backselect");
+        Backselect.scale.setTo(0.60, 0.60);
+        closeButton.scale.setTo(0.65, 0.58);
         //make a text field
-        var text1 = game.add.text(0, 0, text);
         //set the textfeild to wrap if the text is too long
         text1.wordWrap = true;
         //make the width of the wrap 90% of the width
         //of the message box
         text1.wordWrapWidth = w * .9;
-        //
-        //
-        //
-        //add the elements to the group
-        msgBox.add(back);
-        msgBox.add(closeButton);
         msgBox.add(text1);
-        //
+        msgBox.add(closeButton);
+        msgBox.add(Backselect);
         //set the close button
         //in the center horizontally
         //and near the bottom of the box vertically
-        closeButton.x = w / 2 - closeButton.width / 2;
-        closeButton.y = h - closeButton.height;
+        Backselect.x = w / 8 - Backselect.width / 8 - 10;
+        Backselect.y = h - Backselect.height + 60;
+        closeButton.x = w / 8 - closeButton.width / 8 + 150;
+        closeButton.y = h - closeButton.height + 55;
         //enable the button for input
+        Backselect.inputEnabled = true;
         closeButton.inputEnabled = true;
         //add a listener to destroy the box when the button is pressed
-        closeButton.events.onInputDown.add(function(){
+        Backselect.events.onInputDown.add(function () {
             this.msgBox.destroy();
+            selectLevel();
         }, this);
-        //
-        //
-        //set the message box in the center of the screen
-        msgBox.x = game.width / 2 - msgBox.width / 2;
-        msgBox.y = game.height / 2 - msgBox.height / 2;
-        //
-        //set the text in the middle of the message box
-        text1.x = w / 2 - text1.width / 2;
-        text1.y = h / 2 - text1.height / 2;
-        //make a state reference to the messsage box
-        this.msgBox = msgBox;
+        closeButton.events.onInputDown.add(function () {
+            this.msgBox.destroy();
+            callback();
+        }, this);
+    } else if (IsWin) {
+        var text1 = game.add.text(0, 0, winMsg());
+        var okButton = game.add.sprite(0, 0, "OKButton");
+        //make a text field
+        //set the textfeild to wrap if the text is too long
+        text1.wordWrap = true;
+        //make the width of the wrap 90% of the width
+        //of the message box
+        text1.wordWrapWidth = w * .9;
+        msgBox.add(okButton);
+        msgBox.add(text1);
+        //set the ok button
+        //in the center horizontally
+        //and near the bottom of the box vertically
+        okButton.x = w / 2 - okButton.width / 2;
+        okButton.y = h - okButton.height + 50;
+        //enable the button for input
+        okButton.inputEnabled = true;
+        //add a listener to destroy the box when the button is pressed
+        okButton.events.onInputDown.add(function () {
+            this.msgBox.destroy();
+            callback();
+        }, this);
+    }
+    //set the message box in the center of the screen
+    msgBox.x = game.width / 2 - msgBox.width / 2;
+    msgBox.y = game.height / 2 - msgBox.height / 2;
+    //set the text in the middle of the message box
+    text1.x = w / 2 - text1.width / 2;
+    text1.y = h / 2 - text1.height / 2;
+    //make a state reference to the messsage box
+    this.msgBox = msgBox;
+}
 
-    },this);
-}*/
-var gameIndex;
-function inGame(index){
-    
-    if (index == 1){
-        addweaknessGroupGame1(randonWeakness(1));
-    }else if (index == 2){
-        addweaknessGroupGame1(randonWeakness(2));
-    }else if (index == 3){
-        addweaknessGroupGame1(randonWeakness(3));
-    }else if (index == 4){
-        addweaknessGroupGame2(randonWeakness(3));
+
+
+
+function scrollByArrow(y) {
+
+    if(playerInput.alpha>0.3){
+        playerInput.forEach(function(i) {
+            i.y+=y/(playerInput.children.length/10);
+        }, this);
     }
 }
+function scrollWeaknessByArrow(y) {
+    weakness.forEach(function(item,idx,array){
+        if(item.alpha>0.3){
+            item.forEach(function(i) {
+                i.y+=y/(array.length/10);
+            }, this);
+        }
+    });
+}
+function scroll() {
+    if(playerInput.alpha>0.3){
+        playerInput.forEach(function(i,idx,array) {
+            if (array.length >=10){
+                i.y+=game.input.mouse.wheelDelta*9/(Math.floor(playerInput.children.length)/10);
+            }else{
+                i.y+=game.input.mouse.wheelDelta*9;
+            }
+        }, this);
+    }
+
+}
+
+function weekSpace() {
+    if (weekCurrentCol < 20) {
+        weekCurrentCol += 1;
+    }
+}
+
+function weekNextline() {
+    weekCurrentRow += 1;
+    weekCurrentCol = 0;
+}
+
+function space() {
+    if (currentCol < 20) {
+
+    }
+}
+
+function nextline() {
+    currentRow += 1;
+    currentCol = 0;
+}
+
+var gameIndex;
+
+function inGame(index) {
+
+    if (index == 1) {
+        addweaknessGroupGame1(randonWeakness(1));
+    } else if (index == 2) {
+        addweaknessGroupGame1(randonWeakness(2));
+    } else if (index == 3) {
+        addweaknessGroupGame1(randonWeakness(3));
+    } else if (index == 4) {
+        addweaknessGroupGame2(randonWeakness(4));
+    }
+}
+
+function randonWeakness(number){
+    var weakness =[];
+    for (i=0;i<number;i++){
+        weakness[i] = Math.floor(Math.random()*5)+1;
+    }
+    return weakness;
+}
+
 // Game
-function addPlayerInputList(element){
-    if (playerInput.children.length==0){
-        firstElement = playerInput.createMultiple(1,'Attributes',element,true);
+function resetElement(){
+
+    if (playerInput!=null){
+        playerInput.destroy();
+        playerInput = game.add.group();
+        playerInput.x = 120;
+        playerInput.y = 330;
+    }
+    currentRow=0;
+    currentCol=0;
+}
+
+function addPlayerInputList(element) {
+    var playerInputList = createArray(5, 20);
+    if (element == 'pause') {
+        sprite = game.add.sprite(0, 0, 'pause',null,playerInput);
+        sprite.scale.set(32/225);
     }else{
-        playerInput.createMultiple(1,'Attributes',element,true);
-    }
-    if ((playerInput.children.length) % 20 == 0 && (playerInput.children.length) != 0){
-        //currentRow = Math.enemyHP(playerInput.length/20);
 
+        if (playerInput.children.length == 0) {
+            //firstElement = playerInput.createMultiple(1, 'Attributes', element, true);
+            sprite = game.add.sprite(0, 0, 'Attributes', element,playerInput);
+            sprite.scale.set(0.5);
+        } else {
+            sprite = game.add.sprite(0, 0, 'Attributes', element,playerInput);
+            sprite.scale.set(0.5);
+        }
     }
 
-    //playerInput.align(90, 50, 90, 90);
-    playerInputList[currentRow][currentCol]=playerInput.children[playerInput.children.length-1];
-    playerInput.children[playerInput.children.length-1].y += currentRow*90;
-    playerInput.children[playerInput.children.length-1].x += currentCol*90;
-    currentCol+=1;
-    playerInput.scale.set(0.5);
+    playerInputList[currentRow][currentCol] = playerInput.children[playerInput.children.length - 1];
+    playerInput.children[playerInput.children.length - 1].y += currentRow * 45;
+    playerInput.children[playerInput.children.length - 1].x += currentCol * 45;
+    currentCol += 1;
     return playerInput;
 }
-function addweaknessGroupGame1(weakness){
+
+function addweaknessGroupGame1(weakness) {
     playerInput = game.add.group();
     weaknessGroup = game.add.group();
     hideGrid(true);
     toolbox = '<xml id="toolbox" style="display: none">';
     toolbox += '  <block type="input"></block>';
     toolbox += '</xml>';
-    changeToolbox(toolbox,20);
+    changeToolbox(toolbox, 20);
 
     weaknessGroup.x = 120;
     weaknessGroup.y = 30;
-    for(i=0;i<weakness.length;i++){
-        weaknessGroup.createMultiple(1,'Attributes',weakness[i],true);
+    for (i = 0; i < weakness.length; i++) {
+        weaknessGroup.createMultiple(1, 'Attributes', weakness[i], true);
         weaknessGroup.align(90, 50, 90, 0);
         weaknessGroup.scale.set(0.5);
     }
     game.world.bringToTop(weaknessGroup);
     return weaknessGroup;
 }
+
 //with space
-function addweaknessGroupGame2(weakness){
+function addweaknessGroupGame2(weakness) {
+    var weaknessGroupList = createArray(5, 20);
+    if (weaknessGroup != null){
+        weaknessGroup.destroy();
+    }
     playerInput = game.add.group();
     weaknessGroup = game.add.group();
     hideGrid(true);
@@ -471,26 +504,131 @@ function addweaknessGroupGame2(weakness){
     toolbox += '  <block type="input"></block>';
     toolbox += '  <block type="null"></block>';
     toolbox += '</xml>';
-    changeToolbox(toolbox,20);
+    changeToolbox(toolbox, 20);
 
     weaknessGroup.x = 120;
     weaknessGroup.y = 30;
-    weekCurrentCol=0;
-    var randomSpace = Math.floor((Math.random()*weakness.length)-1);
-    for(i=0;i<weakness.length;i++){
-        weaknessGroup.createMultiple(1,'Attributes',weakness[i],true);
-
-        if(i==randomSpace){
-
-            weekSpace();
+    weekCurrentCol = 0;
+    weekCurrentRow = 0;
+    var randomSpace = Math.floor((Math.random() * weakness.length) - 1)+1;
+    for (i = 0; i < weakness.length; i++) {
+        if (i == randomSpace) {
+            sprite = game.add.sprite(0, 0, 'pause',null,weaknessGroup);
+            sprite.scale.set(32/225);
+        }else{
+            sprite = game.add.sprite(0, 0, 'Attributes', weakness[i],weaknessGroup);
+            sprite.scale.set(0.5);
         }
-        weaknessGroupList[weekCurrentRow][weekCurrentCol]=weaknessGroup.children[weaknessGroup.children.length-1];
-        weaknessGroup.children[weaknessGroup.children.length-1].y += weekCurrentRow*90;
-        weaknessGroup.children[weaknessGroup.children.length-1].x += weekCurrentCol*90;
-        weekCurrentCol+=1;
-        weaknessGroup.scale.set(0.5);
+        weaknessGroupList[weekCurrentRow][weekCurrentCol] = weaknessGroup.children[weaknessGroup.children.length - 1];
+        weaknessGroup.children[weaknessGroup.children.length - 1].y += weekCurrentRow * 45;
+        weaknessGroup.children[weaknessGroup.children.length - 1].x += weekCurrentCol * 45;
+        weekCurrentCol += 1;
     }
 
     game.world.bringToTop(weaknessGroup);
     return weaknessGroup;
 }
+var weaknessGroupList = createArray(5, 20);
+function addweaknessGroupGame3(weakness,newLine) {
+
+
+    if (weaknessGroup != null){
+        weaknessGroup.destroy();
+    }
+    playerInput = game.add.group();
+    weaknessGroup = game.add.group();
+    hideGrid(true);
+
+    toolbox = '<xml id="toolbox" style="display: none">';
+    toolbox += '  <block type="input"></block>';
+    toolbox += '  <block type="null"></block>';
+    toolbox += '  <block type="newRow"></block>';
+    toolbox += '</xml>';
+    changeToolbox(toolbox, 20);
+
+    weaknessGroup.x = 120;
+    weaknessGroup.y = 30;
+    weekCurrentCol = 0;
+    weekCurrentRow = 0;
+    var randomSpace = Math.floor((Math.random() * weakness.length) - 1);
+    var randomNewLine = [newLine] ;
+    for (i = 0; i < newLine; i++) {
+        randomNewLine[randomNewLine.length] = Math.floor((Math.random() * weakness.length) - 1);
+    }
+        do{
+            bool = false;
+
+            for (i = 0; i < randomNewLine.length; i++) {
+                for (j = 0; j < randomNewLine.length; j++) {
+                    if (randomNewLine[i] == randomNewLine[j]&& (i!=j)) {
+                        bool = true;
+                        randomNewLine[i] = Math.floor((Math.random() * weakness.length) - 1)+1;
+                        //console.log(i+":"+j+randomNewLine[i]);
+                    }
+                }
+            }
+        }while(bool);
+
+
+    for (i = 0; i < weakness.length; i++) {
+        for (j = 0;j < randomNewLine.length; j++) {
+            if (i == randomNewLine[j]) {
+                weekNextline();
+                console.log("line"+randomNewLine[j]);
+            }
+        }
+        if (i == randomSpace) {
+            sprite = game.add.sprite(0, 0, 'pause',null,weaknessGroup);
+            sprite.scale.set(32/225);
+            console.log("space"+i);
+        }else{
+            sprite = game.add.sprite(0, 0, 'Attributes', weakness[i],weaknessGroup);
+            sprite.scale.set(0.5);
+            console.log(weakness[i] + ":" +i);
+        }
+        console.log("SSSS"+weekCurrentRow+":"+weekCurrentCol);
+        weaknessGroupList[weekCurrentRow][weekCurrentCol] = weaknessGroup.children[weaknessGroup.children.length - 1];
+        weaknessGroup.children[weaknessGroup.children.length - 1].y += weekCurrentRow * 45;
+        weaknessGroup.children[weaknessGroup.children.length - 1].x += weekCurrentCol * 45;
+        weekCurrentCol += 1;
+    }
+
+    game.world.bringToTop(weaknessGroup);
+    return weaknessGroup;
+}
+
+var expDate = new Date();
+expDate.setTime(expDate.getTime() + 365 * 24 * 60 * 60 * 1000); // one year
+
+function setCookie(isName, isValue, dExpires) {
+
+    document.cookie = isName + "=" + isValue + ";expires=" + dExpires.toGMTString();
+}
+
+function getCookie(isName) {
+
+    cookieStr = document.cookie;
+    startSlice = cookieStr.indexOf(isName + "=");
+    if (startSlice == -1) {
+        return false
+    }
+    endSlice = cookieStr.indexOf(";", startSlice + 1)
+    if (endSlice == -1) {
+        endSlice = cookieStr.length
+    }
+    isData = cookieStr.substring(startSlice, endSlice)
+    isValue = isData.substring(isData.indexOf("=") + 1, isData.length);
+    return isValue;
+}
+
+function initPopups() {
+
+    if (!getCookie('autoMsg')) {
+        window.location.href="GamePlay.php#msg";
+        setCookie('autoMsg',0,expDate);
+    }
+    if (!getCookie('pop2')) {
+       }
+}
+
+

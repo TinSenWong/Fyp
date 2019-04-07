@@ -34,7 +34,7 @@ Level2.prototype.preload = function () {
     toolbox += '<block type="move_up"></block>';
     toolbox += '<block type="move_down"></block>';
     toolbox += '</xml>';
-    changeToolbox(toolbox,6);
+    changeToolbox(toolbox,20);
     this.load.pack('maze', 'assets/pack.json');
     this.load.pack('game', 'assets/pack.json');
 };
@@ -685,17 +685,11 @@ Level2.prototype.initScene = function () {
 };
 Level2.prototype.update = function () {
 	this.fPlayer.body.velocity.set(0);
-	//if (checkOverlap(this.fPlayer,this.fBase_out_atlas2)&&!IsIn){
-		//state = this.game.state.getCurrentState();
-		//localStorage.setItem ('state',this.game.state.getCurrentState());
+
 	if (this.fKeyYellow.exists){	
 		this.physics.arcade.collide(this.fPlayer,this.fKeyYellow, getKey, null, this);
 	}
 	this.physics.arcade.collide(this.fPlayer,this.fTreasure_chest,IsOpenChest, null, this);
-	//this.fTreasure_chest.x = 640.0;
-	//this.fTreasure_chest.y = 256.0;
-	
-	
 	
 	if (testmode){
 		if (this.cursors.left.isDown)
@@ -703,7 +697,6 @@ Level2.prototype.update = function () {
 	    	// move to the left
 	    	this.fPlayer.play('Left');
 	    	this.fPlayer.body.velocity.x -= 150;
-	    	//this.fPlayer.body.x -= 32;
             this.fPlayer.play('LeftStay');
 	        
 	    }else if (this.cursors.right.isDown)
@@ -711,7 +704,6 @@ Level2.prototype.update = function () {
 	    	// move to the right
 	    	this.fPlayer.play('Right');
 	    	this.fPlayer.body.velocity.x += 150;
-	    	//this.fPlayer.body.x += 32;
             this.fPlayer.play('RightStay');
 	    }
 	    else  if (this.cursors.up.isDown)
@@ -719,14 +711,12 @@ Level2.prototype.update = function () {
 	    	// move to the up
 	    	this.fPlayer.play('Back');
 	    	this.fPlayer.body.velocity.y -= 150;
-	    	//this.fPlayer.body.y -= 32;
             this.fPlayer.play('BackStay');
 	    }else if (this.cursors.down.isDown)
 	    {
 	    	// move to the down
 	    	this.fPlayer.play('Front');
 	    	this.fPlayer.body.velocity.y += 150;
-	    	//this.fPlayer.body.y += 32;
             this.fPlayer.play('FrontStay');
 	    }else{
 	    	this.fPlayer.play(play);
@@ -776,15 +766,6 @@ Level2.prototype.update = function () {
 		},null,this);
 		
 	if (goLeft){// move to the left
-		//if (this.fPlayer.x > expX){
-		//	this.fPlayer.play('Left');
-		//	this.fPlayer.body.velocity.x -= 150;
-		//}else if(this.fPlayer.x < expX){
-		//	goLeft=false;
-		//	this.fPlayer.x =  Math.round(this.fPlayer.x / 32)*32;
-			
-		//	this.fPlayer.play('LeftStay');
-		//}
 		goLeft=false;
 		tween = this.add.tween(this.fPlayer).to({ x: this.fPlayer.x-32 }, 200, Phaser.Easing.Quadratic.InOut, true);
 		tween.onStart.add(function(){this.fPlayer.play('Left');},this);
@@ -824,9 +805,6 @@ Level2.prototype.update = function () {
             this.fPlayer.x =  Math.round(this.fPlayer.x / 32)*32;
             this.fPlayer.y =  Math.round(this.fPlayer.y / 32)*32;
     	},this);
-
-	    	// move to the down
-	    	//this.fPlayer.body.y += 32;
     }
 
 };

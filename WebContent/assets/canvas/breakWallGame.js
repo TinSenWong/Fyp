@@ -102,12 +102,16 @@ breakWallGame.prototype.update = function () {
 		var count=0;
 		if (playerInput != null){
 			if (playerInput.length==weaknessGroup.length){
-				for (i = 0;i<playerInput.children.length;i++){
-					//alert(playerInput.length+":"+weaknessGroup.length);
-					if (playerInput.children[i].frameName==weaknessGroup.children[i].frameName){
-						count+=1;
-					}else{
-						continue;
+				//every row
+				for (i = 0;i<weaknessGroupList.length;i++){
+					//every column
+					for (j = 0;j<weaknessGroupList[0].length;j++){
+						
+						if (weaknessGroupList[i][j].frameName == playerInput[i][j].frameName){
+							count+=1;
+						}else{
+							continue;
+						}
 					}
 				}
 			}
@@ -176,62 +180,6 @@ breakWallGame.prototype.update = function () {
 breakWallGame.prototype.render = function () {
 	this.game.debug.inputInfo(32, 32);
 };
-
-function generateElement(element){
-	elements[elements.length] = element;
-}
-function resetElement(){
-
-	if (playerInput!=null){
-	playerInput.destroy();
-	playerInput = game.add.group();
-	playerInput.x = 120;
-	playerInput.y = 330;
-	}
-	elements = new Array();
-	currentRow=0;
-	currentCol=0;
-}
-
-
-
-function scrollByArrow(y) {
-	
-    if(playerInput.alpha>0.3){
-    	playerInput.forEach(function(i) {
-            i.y+=y/(playerInput.children.length/10);
-        }, this);
-    }
-}
-function scrollWeaknessByArrow(y) {
-	weakness.forEach(function(item,idx,array){
-        if(item.alpha>0.3){
-        	item.forEach(function(i) {
-                i.y+=y/(array.length/10);
-            }, this);
-        }
-   });
-}
-function scroll() { 
-        if(playerInput.alpha>0.3){
-        	playerInput.forEach(function(i,idx,array) {
-            	if (array.length >=10){
-            		i.y+=game.input.mouse.wheelDelta*9/(Math.floor(playerInput.children.length)/10);
-            	}else{
-            		i.y+=game.input.mouse.wheelDelta*9;
-            	}
-            }, this);
-        }
-
-}
-
-function randonWeakness(number){
-	var weakness =[];
-	for (i=0;i<number;i++){
-		weakness[i] = Math.floor(Math.random()*5)+1;
-	}
-	return weakness;
-}
 
 
 // -- user code here --

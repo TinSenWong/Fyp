@@ -690,10 +690,9 @@ Level12.prototype.update = function () {
 						currentMonster = this.fMonsterGroup.children[i];
 						
 						game.state.add("level",this);
-						gameIndex = 3;
+						gameIndex = 4;
 						enemyHP=3;
 						dieList.push(this.fMonsterGroup.children[i].name);
-						that = this;
 						game.state.add("newGame", breakWallGame);
 						game.state.start("newGame");
 					

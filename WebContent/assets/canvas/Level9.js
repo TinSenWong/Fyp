@@ -27,23 +27,12 @@ Level9.prototype.init = function () {
 };
 
 Level9.prototype.preload = function () {
-	toolbox = '<xml id="toolbox" style="display: none">';
-    toolbox += ' <block type="move_right"></block>';
-    toolbox += '<block type="move_left"></block>';
-    toolbox += '<block type="move_up"></block>';
-    toolbox += '<block type="move_down"></block>';
-    toolbox += '<block type="controls_repeat_ext">';
-    toolbox += '<value name="TIMES">';
-    toolbox += '    <shadow type="math_number">';
-    toolbox += '        <field name="NUM">10</field>';
-    toolbox += '   </shadow>';
-    toolbox += '</value>';
-    toolbox += '</block>';
-    toolbox += '</xml>';
+	
 	changeToolbox(toolbox,20);
 	
 	this.load.pack('maze', 'assets/pack.json');
 	this.load.pack('game', 'assets/pack.json');
+	
 };
 
 Level9.prototype.create = function () {
@@ -54,7 +43,6 @@ Level9.prototype.create = function () {
 	var _bottomLayer = this.add.tilemap('bottomLayer', 32, 32);
 	_bottomLayer.addTilesetImage('base_out_atlas1');
 	var _bottomLayer_layer = _bottomLayer.createLayer(0);
-	_bottomLayer_layer.position.setTo(-128.0, -32.0);
 	_bottomLayer_layer.resizeWorld();
 	
 	var _MidLayer = this.add.tilemap('MidLayer', 32, 32);

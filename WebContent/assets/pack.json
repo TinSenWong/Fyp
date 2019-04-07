@@ -258,10 +258,16 @@
       "key": "Backselect",
       "url": "assets/image/Backselect.png",
       "overwrite": false
+    },
+    {
+      "type": "image",
+      "key": "pause",
+      "url": "assets/image/pause.png",
+      "overwrite": false
     }
   ],
   "meta": {
-    "generated": "1554213327259",
+    "generated": "1554561631607",
     "app": "Phaser Editor",
     "url": "http://phasereditor.boniatillo.com",
     "version": "1.0",
