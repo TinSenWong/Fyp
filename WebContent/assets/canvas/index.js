@@ -228,21 +228,57 @@ playGame.prototype = {
                                 break;
 
                             case 7:
+                                if (!getCookie('level6Msg')) {
+                                    tabNameArray=['Game','Blockly'];
+                                    img2Darray=createArray(2,100);
+                                    img2Darray[0][0]='src/Level6~10/blockly/changeElement.png';
+                                    img2Darray[0][1]='src/Level6~10/blockly/repeat.png';
+                                    img2Darray[1][0]='src/Level6~10/game/readytobattle.jpg';
+                                    img2Darray[1][1]='src/Level6~10/game/rule.png';
+                                    createMsg('level6Msg',tabNameArray,img2Darray);
+                                }
                             	currentLevel = Level7;
                             	game.state.add("level", Level7);
                                 game.state.start("level");
                                 break;
                             case 8:
+                                if (!getCookie('level6Msg')) {
+                                    tabNameArray=['Game','Blockly'];
+                                    img2Darray=createArray(2,100);
+                                    img2Darray[0][0]='src/Level6~10/blockly/changeElement.png';
+                                    img2Darray[0][1]='src/Level6~10/blockly/repeat.png';
+                                    img2Darray[1][0]='src/Level6~10/game/readytobattle.jpg';
+                                    img2Darray[1][1]='src/Level6~10/game/rule.png';
+                                    createMsg('level6Msg',tabNameArray,img2Darray);
+                                }
                             	currentLevel = Level8;
                             	game.state.add("level", Level8);
                                 game.state.start("level");
                                 break;
                             case 9:
+                                if (!getCookie('level6Msg')) {
+                                    tabNameArray=['Game','Blockly'];
+                                    img2Darray=createArray(2,100);
+                                    img2Darray[0][0]='src/Level6~10/blockly/changeElement.png';
+                                    img2Darray[0][1]='src/Level6~10/blockly/repeat.png';
+                                    img2Darray[1][0]='src/Level6~10/game/readytobattle.jpg';
+                                    img2Darray[1][1]='src/Level6~10/game/rule.png';
+                                    createMsg('level6Msg',tabNameArray,img2Darray);
+                                }
                             	currentLevel = Level9;
                             	game.state.add("level", Level9);
                                 game.state.start("level");
                                 break;
                             case 10:
+                                if (!getCookie('level6Msg')) {
+                                    tabNameArray=['Game','Blockly'];
+                                    img2Darray=createArray(2,100);
+                                    img2Darray[0][0]='src/Level6~10/blockly/changeElement.png';
+                                    img2Darray[0][1]='src/Level6~10/blockly/repeat.png';
+                                    img2Darray[1][0]='src/Level6~10/game/readytobattle.jpg';
+                                    img2Darray[1][1]='src/Level6~10/game/rule.png';
+                                    createMsg('level6Msg',tabNameArray,img2Darray);
+                                }
                             	currentLevel = Level10;
                             	game.state.add("level", Level10);
                                 game.state.start("level");
