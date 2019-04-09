@@ -643,12 +643,18 @@ Level11.prototype.initScene = function () {
 };
 Level11.prototype.update = function () {
 	this.fPlayer.body.velocity.set(0);
+
 	for (i = 0;i < this.fSpike.children.length;i++){
-		this.physics.arcade.collide(this.fPlayer,this.fSpike.children[i], collisionHandler, null, this);
-	}
+        this.physics.arcade.collide(this.fPlayer,this.fSpike.children[i], function(){
+            lostheartHandler(this);
+            this.fSpike.children[i].destroy();
+        }, null, this);
+    }
+
 	for (i = 0;i < this.fHearts.children.length;i++){
 		this.physics.arcade.collide(this.fPlayer,this.fHearts.children[i], collisionHeal, null, this);
 	}
+
 	if (this.fKeyYellow.exists){	
 		this.physics.arcade.collide(this.fPlayer,this.fKeyYellow, getKey, null, this);
 	}

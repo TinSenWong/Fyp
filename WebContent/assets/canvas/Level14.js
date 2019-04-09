@@ -752,14 +752,20 @@ Level14.prototype.initScene = function () {
 Level14.prototype.update = function () {
 	this.fPlayer.body.velocity.set(0);
 	for (i = 0;i < this.fSpike.children.length;i++){
-		this.physics.arcade.collide(this.fPlayer,this.fSpike.children[i], collisionHandler, null, this);
-	}
+        this.physics.arcade.collide(this.fPlayer,this.fSpike.children[i], function(){
+            lostheartHandler(this);
+            this.fSpike.children[i].destroy();
+        }, null, this);
+    }
+
 	for (i = 0;i < this.fHearts.children.length;i++){
 		this.physics.arcade.collide(this.fPlayer,this.fHearts.children[i], collisionHeal, null, this);
 	}
+
 	if (this.fKeyYellow.exists){	
 		this.physics.arcade.collide(this.fPlayer,this.fKeyYellow, getKey, null, this);
 	}
+
 	if (!gamePass){
 		this.physics.arcade.collide(this.fPlayer, this.fMonster,function (){
 			playerX = this.fMonster.x;
@@ -773,8 +779,7 @@ Level14.prototype.update = function () {
 		}, null, this);
 	}
 	this.physics.arcade.collide(this.fPlayer,this.fTreasure_chest,IsOpenChest, null, this);
-	//this.fTreasure_chest.x = 640.0;
-	//this.fTreasure_chest.y = 256.0;	
+
 	if (testmode){
 		if (this.cursors.left.isDown)
 	    {

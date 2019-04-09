@@ -34,7 +34,7 @@ Level2.prototype.preload = function () {
     toolbox += '<block type="move_up"></block>';
     toolbox += '<block type="move_down"></block>';
     toolbox += '</xml>';
-    changeToolbox(toolbox,20);
+    changeToolbox(toolbox,10);
     this.load.pack('maze', 'assets/pack.json');
     this.load.pack('game', 'assets/pack.json');
 };

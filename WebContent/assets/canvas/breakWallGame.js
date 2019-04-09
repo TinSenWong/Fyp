@@ -84,33 +84,31 @@ breakWallGame.prototype.create = function () {
 	_monster_destroy.killOnComplete = true;
 	_monster_player.play();
 	
-	
-	
 	// fields
 	
 	this.fHPGroup = _HPGroup;
 	this.fMonster = _monster;
 	inGame(gameIndex);
-	
 };
-
 /* --- end generated code --- */
 breakWallGame.prototype.update = function () {
 	
 	if (checkInput){
 		checkInput = false;
+		
 		var count=0;
 		if (playerInput != null){
+			
 			if (playerInput.length==weaknessGroup.length){
 				//every row
 				for (i = 0;i<weaknessGroupList.length;i++){
+					
 					//every column
 					for (j = 0;j<weaknessGroupList[0].length;j++){
-						
-						if (weaknessGroupList[i][j].frameName == playerInput[i][j].frameName){
+						if (weaknessGroupList[i][j]==null && playerInputList[i][j]==null){
+							
+						}else if (weaknessGroupList[i][j].frameName == playerInputList[i][j].frameName){
 							count+=1;
-						}else{
-							continue;
 						}
 					}
 				}
@@ -152,21 +150,30 @@ breakWallGame.prototype.update = function () {
 							
 					    	this.fFinishTime.setText('Enemy HP:'+ enemyHP);
 							weaknessGroup.destroy();
-							this.state.add("breakWallGame", breakWallGame);
-							game.state.start("breakWallGame");
+							inGame(gameIndex);
+							text.destroy();
 					    },that);
 						}, 1300);
 					
 					
 				}
 			}else{
+				var fireball = this.add.sprite(800.0,680.0, 'fireball', 24);
+				fireball.scale.setTo(1.9674997027108243, 1.5625000174710881);
+				var fireball_play = fireball.animations.add('play', [0,1, 2, 3], 10, true);
+				fireball_play.play();
+				tween = this.add.tween(fireball).to({ x: 150, y: 680}, 1000, "Linear", true, 500);   
+				tween.onComplete.add(function() {
+					fireball.destroy();
+					lostheartHandler(this);
+				},this);
+				
 				this.fWrongTime.setText("Wrong    :" + ++wrongTime );
 				
 				this.fLimitTime.setText("Attempts :" + --limitTime );
 				if(limitTime==0){
 					messageBox(false,300,200,function(){
-						game.state.add("breakWallGame", breakWallGame);
-						game.state.start("breakWallGame");
+						inGame(gameIndex);
 				        worngTime=0;
 					}),this;
 				}
@@ -174,11 +181,9 @@ breakWallGame.prototype.update = function () {
 		}
 		
 	}
-	
-
 };
 breakWallGame.prototype.render = function () {
-	this.game.debug.inputInfo(32, 32);
+	//this.game.debug.inputInfo(32, 32);
 };
 
 

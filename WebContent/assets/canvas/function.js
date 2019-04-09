@@ -43,7 +43,10 @@ var weekCurrentCol = 0;
 var currentScreen;
 var currentMonster;
 var limitTime = 3;
-;
+var weaknessGroupList = createArray(2, 20);
+var playerInputList;
+var dieList = [];
+var currentLevel;
 
 function createArray(length) {
     var arr = new Array(length || 0),
@@ -73,6 +76,7 @@ function selectLevel() {
     worngTime = 0;
     finish = 0;
 };
+
 function goSelectLevel() {
     runCount = 0;
     selectLevel()
@@ -110,17 +114,24 @@ function checkOverlap(spriteA, spriteB) {
 }
 
 //01
-function collisionHandler() {
+function lostheartHandler(that) {
     hp -= 1;
-    this.fHPGroup.children[hp].play('play');
-    this.fSpike.children[i].destroy();
+    that.fHPGroup.children[hp].play('play');
     if (hp == 0) {
+        dieList = [];
         if (confirm('你死了  重新遊玩')) {
-            this.state.add("game1", Level01);
-            this.state.start("game1");
+            hideGame(false);
+            game.destroy();
+            game = new Phaser.Game(1200, 800, Phaser.Auto, 'phaser');
+            gamePass = false;
+            key = false;
+            hp = 3;
+            game.state.add("level", currentLevel);
+            game.state.start("level");
         } else {
-            this.state.add("playGame", playGame);
-            this.state.start("playGame");
+
+            that.state.add("playGame", playGame);
+            that.state.start("playGame");
         }
 
     }
@@ -356,32 +367,32 @@ function messageBox(IsWin, w, h, callback) {
 }
 
 
-
-
 function scrollByArrow(y) {
 
-    if(playerInput.alpha>0.3){
-        playerInput.forEach(function(i) {
-            i.y+=y/(playerInput.children.length/10);
+    if (playerInput.alpha > 0.3) {
+        playerInput.forEach(function (i) {
+            i.y += y / (playerInput.children.length / 10);
         }, this);
     }
 }
+
 function scrollWeaknessByArrow(y) {
-    weakness.forEach(function(item,idx,array){
-        if(item.alpha>0.3){
-            item.forEach(function(i) {
-                i.y+=y/(array.length/10);
+    weakness.forEach(function (item, idx, array) {
+        if (item.alpha > 0.3) {
+            item.forEach(function (i) {
+                i.y += y / (array.length / 10);
             }, this);
         }
     });
 }
+
 function scroll() {
-    if(playerInput.alpha>0.3){
-        playerInput.forEach(function(i,idx,array) {
-            if (array.length >=10){
-                i.y+=game.input.mouse.wheelDelta*9/(Math.floor(playerInput.children.length)/10);
-            }else{
-                i.y+=game.input.mouse.wheelDelta*9;
+    if (playerInput.alpha > 0.3) {
+        playerInput.forEach(function (i, idx, array) {
+            if (array.length >= 10) {
+                i.y += game.input.mouse.wheelDelta * 9 / (Math.floor(playerInput.children.length) / 10);
+            } else {
+                i.y += game.input.mouse.wheelDelta * 9;
             }
         }, this);
     }
@@ -413,7 +424,12 @@ function nextline() {
 var gameIndex;
 
 function inGame(index) {
-
+    weaknessGroupList = createArray(2, 20);
+    if (weaknessGroup != null) {
+        weaknessGroup.destroy();
+        console.log("Destroy");
+    }
+    weaknessGroup = game.add.group();
     if (index == 1) {
         addweaknessGroupGame1(randonWeakness(1));
     } else if (index == 2) {
@@ -425,45 +441,49 @@ function inGame(index) {
     }
 }
 
-function randonWeakness(number){
-    var weakness =[];
-    for (i=0;i<number;i++){
-        weakness[i] = Math.floor(Math.random()*5)+1;
+function randonWeakness(number) {
+    var weakness = [];
+    for (i = 0; i < number; i++) {
+        weakness[i] = Math.floor(Math.random() * 5) + 1;
     }
     return weakness;
 }
 
 // Game
-function resetElement(){
+function resetElement() {
 
-    if (playerInput!=null){
+    if (playerInput != null) {
         playerInput.destroy();
         playerInput = game.add.group();
         playerInput.x = 120;
         playerInput.y = 330;
     }
-    currentRow=0;
-    currentCol=0;
+    currentRow = 0;
+    currentCol = 0;
+    playerInputList = createArray(2, 20);
 }
 
 function addPlayerInputList(element) {
-    var playerInputList = createArray(5, 20);
+    playerInput.x = 120;
+    playerInput.y = 330;
     if (element == 'pause') {
-        sprite = game.add.sprite(0, 0, 'pause',null,playerInput);
-        sprite.scale.set(32/225);
-    }else{
+        sprite = game.add.sprite(0, 0, 'pause', null, playerInput);
+        sprite.scale.set(32 / 225);
+    } else {
 
         if (playerInput.children.length == 0) {
             //firstElement = playerInput.createMultiple(1, 'Attributes', element, true);
-            sprite = game.add.sprite(0, 0, 'Attributes', element,playerInput);
+            sprite = game.add.sprite(0, 0, 'Attributes', element, playerInput);
             sprite.scale.set(0.5);
         } else {
-            sprite = game.add.sprite(0, 0, 'Attributes', element,playerInput);
+            sprite = game.add.sprite(0, 0, 'Attributes', element, playerInput);
             sprite.scale.set(0.5);
         }
     }
 
+
     playerInputList[currentRow][currentCol] = playerInput.children[playerInput.children.length - 1];
+    console.log("playerInputList" + currentRow + ":" + currentCol);
     playerInput.children[playerInput.children.length - 1].y += currentRow * 45;
     playerInput.children[playerInput.children.length - 1].x += currentCol * 45;
     currentCol += 1;
@@ -472,7 +492,6 @@ function addPlayerInputList(element) {
 
 function addweaknessGroupGame1(weakness) {
     playerInput = game.add.group();
-    weaknessGroup = game.add.group();
     hideGrid(true);
     toolbox = '<xml id="toolbox" style="display: none">';
     toolbox += '  <block type="input"></block>';
@@ -481,10 +500,17 @@ function addweaknessGroupGame1(weakness) {
 
     weaknessGroup.x = 120;
     weaknessGroup.y = 30;
+    weekCurrentCol = 0;
+    weekCurrentRow = 0;
     for (i = 0; i < weakness.length; i++) {
-        weaknessGroup.createMultiple(1, 'Attributes', weakness[i], true);
-        weaknessGroup.align(90, 50, 90, 0);
-        weaknessGroup.scale.set(0.5);
+        sprite = game.add.sprite(0, 0, 'Attributes', weakness[i], weaknessGroup);
+        sprite.scale.set(0.5);
+        console.log("weaknessGroupList" + weekCurrentRow + ":" + weekCurrentCol);
+
+        weaknessGroupList[weekCurrentRow][weekCurrentCol] = weaknessGroup.children[weaknessGroup.children.length - 1];
+        weaknessGroup.children[weaknessGroup.children.length - 1].y += weekCurrentRow * 45;
+        weaknessGroup.children[weaknessGroup.children.length - 1].x += weekCurrentCol * 45;
+        weekCurrentCol += 1;
     }
     game.world.bringToTop(weaknessGroup);
     return weaknessGroup;
@@ -492,12 +518,7 @@ function addweaknessGroupGame1(weakness) {
 
 //with space
 function addweaknessGroupGame2(weakness) {
-    var weaknessGroupList = createArray(5, 20);
-    if (weaknessGroup != null){
-        weaknessGroup.destroy();
-    }
     playerInput = game.add.group();
-    weaknessGroup = game.add.group();
     hideGrid(true);
 
     toolbox = '<xml id="toolbox" style="display: none">';
@@ -510,15 +531,16 @@ function addweaknessGroupGame2(weakness) {
     weaknessGroup.y = 30;
     weekCurrentCol = 0;
     weekCurrentRow = 0;
-    var randomSpace = Math.floor((Math.random() * weakness.length) - 1)+1;
+    var randomSpace = Math.floor((Math.random() * weakness.length) - 1) + 1;
     for (i = 0; i < weakness.length; i++) {
         if (i == randomSpace) {
-            sprite = game.add.sprite(0, 0, 'pause',null,weaknessGroup);
-            sprite.scale.set(32/225);
-        }else{
-            sprite = game.add.sprite(0, 0, 'Attributes', weakness[i],weaknessGroup);
+            sprite = game.add.sprite(0, 0, 'pause', null, weaknessGroup);
+            sprite.scale.set(32 / 225);
+        } else {
+            sprite = game.add.sprite(0, 0, 'Attributes', weakness[i], weaknessGroup);
             sprite.scale.set(0.5);
         }
+
         weaknessGroupList[weekCurrentRow][weekCurrentCol] = weaknessGroup.children[weaknessGroup.children.length - 1];
         weaknessGroup.children[weaknessGroup.children.length - 1].y += weekCurrentRow * 45;
         weaknessGroup.children[weaknessGroup.children.length - 1].x += weekCurrentCol * 45;
@@ -528,15 +550,9 @@ function addweaknessGroupGame2(weakness) {
     game.world.bringToTop(weaknessGroup);
     return weaknessGroup;
 }
-var weaknessGroupList = createArray(5, 20);
-function addweaknessGroupGame3(weakness,newLine) {
 
-
-    if (weaknessGroup != null){
-        weaknessGroup.destroy();
-    }
+function addweaknessGroupGame3(weakness, newLine) {
     playerInput = game.add.group();
-    weaknessGroup = game.add.group();
     hideGrid(true);
 
     toolbox = '<xml id="toolbox" style="display: none">';
@@ -551,42 +567,44 @@ function addweaknessGroupGame3(weakness,newLine) {
     weekCurrentCol = 0;
     weekCurrentRow = 0;
     var randomSpace = Math.floor((Math.random() * weakness.length) - 1);
-    var randomNewLine = [newLine] ;
+    var randomNewLine = [newLine];
     for (i = 0; i < newLine; i++) {
-        randomNewLine[randomNewLine.length] = Math.floor((Math.random() * weakness.length) - 1);
+        randomNewLine[i] = Math.floor((Math.random() * weakness.length));
+        if (randomNewLine[i] == 0) {
+            randomNewLine[i] += 1;
+        }
     }
-        do{
-            bool = false;
+    do {
+        bool = false;
 
-            for (i = 0; i < randomNewLine.length; i++) {
-                for (j = 0; j < randomNewLine.length; j++) {
-                    if (randomNewLine[i] == randomNewLine[j]&& (i!=j)) {
-                        bool = true;
-                        randomNewLine[i] = Math.floor((Math.random() * weakness.length) - 1)+1;
-                        //console.log(i+":"+j+randomNewLine[i]);
-                    }
+        for (i = 0; i < randomNewLine.length; i++) {
+            for (j = 0; j < randomNewLine.length; j++) {
+                if (randomNewLine[i] == randomNewLine[j] && (i != j) || randomNewLine[i] == 0) {
+                    bool = true;
+                    randomNewLine[i] = Math.floor((Math.random() * weakness.length));
+                    //console.log(i+":"+j+randomNewLine[i]);
                 }
             }
-        }while(bool);
 
+        }
+    } while (bool);
+    for (i = 0; i < randomNewLine.length; i++) {
+        console.log(randomNewLine[i]);
+    }
 
     for (i = 0; i < weakness.length; i++) {
-        for (j = 0;j < randomNewLine.length; j++) {
+        for (j = 0; j < randomNewLine.length; j++) {
             if (i == randomNewLine[j]) {
                 weekNextline();
-                console.log("line"+randomNewLine[j]);
             }
         }
         if (i == randomSpace) {
-            sprite = game.add.sprite(0, 0, 'pause',null,weaknessGroup);
-            sprite.scale.set(32/225);
-            console.log("space"+i);
-        }else{
-            sprite = game.add.sprite(0, 0, 'Attributes', weakness[i],weaknessGroup);
+            sprite = game.add.sprite(0, 0, 'pause', null, weaknessGroup);
+            sprite.scale.set(32 / 225);
+        } else {
+            sprite = game.add.sprite(0, 0, 'Attributes', weakness[i], weaknessGroup);
             sprite.scale.set(0.5);
-            console.log(weakness[i] + ":" +i);
         }
-        console.log("SSSS"+weekCurrentRow+":"+weekCurrentCol);
         weaknessGroupList[weekCurrentRow][weekCurrentCol] = weaknessGroup.children[weaknessGroup.children.length - 1];
         weaknessGroup.children[weaknessGroup.children.length - 1].y += weekCurrentRow * 45;
         weaknessGroup.children[weaknessGroup.children.length - 1].x += weekCurrentCol * 45;
@@ -622,13 +640,146 @@ function getCookie(isName) {
 }
 
 function initPopups() {
-
+    /*
     if (!getCookie('autoMsg')) {
-        window.location.href="GamePlay.php#msg";
-        setCookie('autoMsg',0,expDate);
+        window.location.href = "GamePlay.php#msg";
+        setCookie('autoMsg', 0, expDate);
+        hideBlockly(true);
     }
-    if (!getCookie('pop2')) {
-       }
+    */
+
 }
+
+function hideBlockly(hidden) {
+    if (hidden) {
+        document.getElementById('blocklyDiv').style.visibility = 'hidden';
+    } else {
+        document.getElementById('blocklyDiv').style.visibility = 'visible';
+    }
+}
+
+function confirmMsg(msgName) {
+    if (document.getElementById('checkshow').checked) {
+        setCookie(msgName, 0, expDate);
+    }
+    hideBlockly(false);
+}
+
+function showMsg(msg) {
+    document.getElementById('additem').innerHTML = '<button id="msgBTN" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#' + msg + '"></button>">';
+    document.getElementById('msgBTN').click();
+    hideBlockly(true);
+}
+
+function createMsg(levelName, tabNameArray, img2Darray) {
+    html = '';
+    html += '<div class="container">';
+    html += ' <div id="'+levelName+'" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">';
+    html += '    <div class="modal-dialog modal-lg">';
+    html += '   <div class="modal-content">';
+    html += '   <div class="modal-header">';
+    html += '    <h5 class="modal-title" id="wizard-title">Instructions</h5>';
+    html += ' <button type="button" class="close" data-dismiss="modal" aria-label="Close">';
+    html += '    <span aria-hidden="true">&times;</span>';
+    html += ' </button>';
+    html += ' </div>';
+    html += '<div class="modal-body">';
+    html += '   <ul class="nav nav-tabs" id="myTab" role="tablist">';
+    for (i = 0; i < tabNameArray.length; i++) {
+        if (i==0){
+            html += '    <li class="nav-item">';
+            html += '   <a class="nav-link active" data-toggle="tab" href="#' + tabNameArray[i] + '" role="tab">' + tabNameArray[i] + '</a>';
+            html += '   </li>';
+        }else{
+            html += '   <li class="nav-item">';
+            html += '   <a class="nav-link" data-toggle="tab" href="#' + tabNameArray[i] + '" role="tab">' + tabNameArray[i] + '</a>';
+            html += '  </li>';
+
+        }
+
+    }
+    html += '  </ul>';
+    html += '   </div>';
+    for (i = 0; i < tabNameArray.length; i++) {
+        if (i==0) {
+            html += '    <div class="tab-content mt-2">';
+            html += '<div class="tab-pane fade show active" id="' + tabNameArray[i] + '" role="tabpanel">';
+        }else {
+            html += '<div class="tab-pane fade" id="' + tabNameArray[i] + '" role="tabpanel">';
+        }
+        html += '<h4>' + tabNameArray[i] + '</h4>';
+        html += '   <div class="col-md-8 banner-sec" style="text-align: center">';
+        html += '  <div id="'+tabNameArray[i]+'1" class="carousel slide" data-ride="carousel" style="text-align: center">';
+        html += '  <ol class="carousel-indicators">';
+        console.log(img2Darray[i].length+'i'+i);
+        for (j = 0; j < img2Darray[i].length; j++) {
+            if (img2Darray[i][j]==undefined){
+                break;
+            }else if (j==0){
+                html += '  <li data-target="#' + tabNameArray[i] + '1" data-slide-to="' + j + '" class="active"></li>';
+            }else{
+                html += '  <li data-target="#' + tabNameArray[i] + '1" data-slide-to="' + j + '" ></li>';
+            }
+        }
+        html += '  </ol>';
+
+        html += ' <div class="carousel-inner" role="listbox" style="text-align: center">';
+
+        for (j = 0; j < img2Darray[i].length; j++) {
+            if (img2Darray[i][j]!=undefined){
+                if (j==0) {
+                    html += ' <div class="carousel-item active" style="text-align: center">';
+                    html += '   <img class="d-block img-fluid" src="'+img2Darray[i][j]+'" width="500" height="500">';
+                    html += '   <div class="carousel-caption d-none d-md-block"></div>';
+                    html += '   </div>';
+                }else{
+                    html += '   <div class="carousel-item" style="text-align: center">';
+                    html += '   <img class="d-block img-fluid" src="'+img2Darray[i][j]+'" width="500" height="500">';
+                    html += '   <div class="carousel-caption d-none d-md-block"></div>';
+                    html += '   </div>';
+                }
+            }else{
+                break;
+            }
+        }
+        html += '  </div>';
+        html += '  </div>';
+        html += '  <a class="carousel-control-prev" href="#' + tabNameArray[i] + '1" role="button" data-slide="prev">';
+        html += '  <span class="carousel-control-prev-icon" aria-hidden="true"></span>';
+        html += '   <span class="sr-only">Previous</span>';
+        html += '   </a>';
+        html += '   <a class="carousel-control-next" href="#' + tabNameArray[i] + '1" role="button" data-slide="next">';
+        html += '  <span class="carousel-control-next-icon" aria-hidden="true"></span>';
+        html += '  <span class="sr-only">Next</span>';
+        html += ' </a>';
+        html += ' </div>';
+        html += ' </div>';
+    }
+
+
+    html += '  <div class="modal-footer">';
+    html += '   <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick=\'hideBlockly(false);confirmMsg("'+levelName+'");\'>confirm</button>';
+    html += '   </div>';
+    html += '  <div>Don\'t show again <inputtype="checkbox" id="checkshow"></div>';
+    html += ' </div>';
+    html += ' </div>';
+    html += ' </div>';
+    html += '  </div>';
+
+    console.log(html);
+    document.getElementById('msgContainer').innerHTML = html;
+    showMsg(levelName);
+}
+
+
+
+
+
+
+
+
+
+
+
 
 

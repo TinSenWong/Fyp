@@ -33,6 +33,7 @@ Level4.prototype.preload = function () {
     toolbox += '<block type="move_left"></block>';
     toolbox += '<block type="move_up"></block>';
     toolbox += '<block type="move_down"></block>';
+
     toolbox += '</xml>';
     changeToolbox(toolbox,20);
 

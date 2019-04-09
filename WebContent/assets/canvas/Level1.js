@@ -755,10 +755,9 @@ Level1.prototype.update = function () {
 			}else if (player.animations.currentAnim.name == "Front"){
 				this.fPlayer.play('FrontStay');
 			}
-			if (tween!=null){
-				tween.pause();
-			}
-			
+            if (tween!=null){
+                tween.pause();
+            }
 			this.fPlayer.x =  Math.round(this.fPlayer.x / 32)*32;
 			this.fPlayer.y =  Math.round(this.fPlayer.y / 32)*32;
 		},null,this);

@@ -658,9 +658,12 @@ Level13.prototype.create = function () {
 	var _heart = this.add.sprite(416.0, 160.0, 'heart', null, _hearts);
 	_heart.scale.setTo(0.4047615829565869, 0.4047615829565869);
 	this.game.physics.arcade.enable(_heart);
-	
-	var _monster = this.add.sprite(256.0, 352.0, 'monster', 'sprite1');
-	_monster.scale.setTo(0.64, 0.64);
+
+    var _MonsterGroup = this.add.group();
+
+    var _monster = this.add.sprite(256.0, 352.0, 'monster', 'sprite1',_MonsterGroup);
+    _monster.name="monster"
+    _monster.scale.setTo(0.64, 0.64);
 	var _monster_Auto = _monster.animations.add('Auto', ['sprite1', 'sprite2', 'sprite6'], 2, true);
 	_monster_Auto.play();
 	this.game.physics.arcade.enable(_monster);
@@ -668,7 +671,6 @@ Level13.prototype.create = function () {
 	
 	
 	// fields
-	
 	this.fMidLayer = _MidLayer;
 	this.fMidLayer_layer = _MidLayer_layer;
 	this.fKeyYellow = _keyYellow;
@@ -679,12 +681,17 @@ Level13.prototype.create = function () {
 	this.fSpike = _spike;
 	this.fHearts = _hearts;
 	this.fMonster = _monster;
+    this.fMonsterGroup = _MonsterGroup;
 	//this.camera.follow(this.fPlayer);
-	if (gamePass){
-		this.fPlayer.x = playerX;
-		this.fPlayer.y = playerY;
-		this.fMonster.visible = false;
-	}
+    for (i = 0; i<dieList.length;i++){
+        for (j = 0; j<this.fMonsterGroup.children.length;j++){
+            if (dieList[i] == this.fMonsterGroup.children[j].name){
+                this.fPlayer.x = playerX;
+                this.fPlayer.y = playerY;
+                this.fMonsterGroup.children[j].visible = false;
+            }
+        }
+    }
 	this.cursors = this.input.keyboard.createCursorKeys();
 	this.fPlayer.body.collideWorldBounds=true;
 	player = this.fPlayer;
@@ -697,16 +704,40 @@ Level13.prototype.initScene = function () {
 };
 Level13.prototype.update = function () {
 	this.fPlayer.body.velocity.set(0);
+
 	for (i = 0;i < this.fSpike.children.length;i++){
-		this.physics.arcade.collide(this.fPlayer,this.fSpike.children[i], collisionHandler, null, this);
+		this.physics.arcade.collide(this.fPlayer,this.fSpike.children[i], function(){
+            lostheartHandler(this);
+            this.fSpike.children[i].destroy();
+        }, null, this);
 	}
+
 	for (i = 0;i < this.fHearts.children.length;i++){
 		this.physics.arcade.collide(this.fPlayer,this.fHearts.children[i], collisionHeal, null, this);
 	}
+
 	if (this.fKeyYellow.exists){	
 		this.physics.arcade.collide(this.fPlayer,this.fKeyYellow, getKey, null, this);
 	}
-	
+
+    for (i = 0;i < this.fMonsterGroup.children.length;i++){
+        if (this.fMonsterGroup.children[i].visible){
+            this.physics.arcade.collide(this.fPlayer, this.fMonsterGroup.children[i],function (){
+
+                playerX = this.fMonsterGroup.children[i].x;
+                playerY = this.fMonsterGroup.children[i].y-32;
+                currentMonster = this.fMonsterGroup.children[i];
+
+                game.state.add("level",this);
+                gameIndex = 4;
+                enemyHP=3;
+                dieList.push(this.fMonsterGroup.children[i].name);
+                game.state.add("newGame", breakWallGame);
+                game.state.start("newGame");
+
+            }, null, this);
+        }
+    }
 	this.physics.arcade.collide(this.fPlayer,this.fTreasure_chest,IsOpenChest, null, this);
 	//this.fTreasure_chest.x = 640.0;
 	//this.fTreasure_chest.y = 256.0;	

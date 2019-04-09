@@ -12,7 +12,6 @@ playGame.prototype = {
         game.load.image("transp", "assets/image/transp.png");
     },
     create: function () {
-    	runCount = 0;
     	hideGame(true);
         // the first level has zero stars, to it's playable although not finished
         stars[0] = 0;
@@ -114,95 +113,164 @@ playGame.prototype = {
                         level = selestLevel;
                         hideGame(false);
                         game.destroy();
-                        
                         game = new Phaser.Game(1200, 800, Phaser.Auto, 'phaser');
                         gamePass = false;
                         key = false;
                         hp = 3 ;
                         currentScreen = 'level';
-                       
+                        runCount = 0;
+                        document.getElementById('runTime').innerHTML = '';
+                        
                         switch (selestLevel+1) {
                             case 1:
-                                
-                                game.state.add("Level1", Level1);
-                                game.state.start("Level1");
+                            	currentLevel = Level1;
+
+                                game.state.add("level", Level1);
+                                game.state.start("level");
+                                if (!getCookie('level1Msg')) {
+                                    tabNameArray=['Game','Blockly'];
+                                    img2Darray=createArray(2,100);
+                                    img2Darray[0][0]='src/Level1~5/game/getkey1.jpg';
+                                    img2Darray[0][1]='src/Level1~5/game/getkey2.jpg';
+                                    img2Darray[0][2]='src/Level1~5/game/stone1.jpg';
+                                    img2Darray[1][0]='src/Level1~5/blockly/commandarea.png';
+                                    img2Darray[1][1]='src/Level1~5/gif/dropcomm.gif';
+                                    img2Darray[1][2]='src/Level1~5/blockly/run.png';
+                                    img2Darray[1][3]='src/Level1~5/blockly/movement.png';
+                                    createMsg('level1Msg',tabNameArray,img2Darray);
+                                }
                                 break;
 
                             case 2:
-                                
-                            	game.state.add("Level2", Level2);
-                                game.state.start("Level2");
-                            	
+                            	currentLevel = Level2;
+                            	game.state.add("level", Level2);
+                                game.state.start("level");
+                                if (!getCookie('level1Msg')) {
+                                    tabNameArray=['Game','Blockly'];
+                                    img2Darray=createArray(2,100);
+                                    img2Darray[0][0]='src/Level1~5/game/getkey1.jpg';
+                                    img2Darray[0][1]='src/Level1~5/game/getkey2.jpg';
+                                    img2Darray[0][2]='src/Level1~5/game/stone1.jpg';
+                                    img2Darray[1][0]='src/Level1~5/blockly/commandarea.png';
+                                    img2Darray[1][1]='src/Level1~5/gif/dropcomm.gif';
+                                    img2Darray[1][2]='src/Level1~5/blockly/run.png';
+                                    img2Darray[1][3]='src/Level1~5/blockly/movement.png';
+                                    createMsg('level1Msg',tabNameArray,img2Darray);
+                                }
                                 break;
                                 
                             case 3:
-                                
-                            	game.state.add("Level3", Level3);
-                                game.state.start("Level3");
+                            	currentLevel = Level3;
+                            	game.state.add("level", Level3);
+                                game.state.start("level");
+                                if (!getCookie('level1Msg')) {
+                                    tabNameArray=['Game','Blockly'];
+                                    img2Darray=createArray(2,100);
+                                    img2Darray[0][0]='src/Level1~5/game/getkey1.jpg';
+                                    img2Darray[0][1]='src/Level1~5/game/getkey2.jpg';
+                                    img2Darray[0][2]='src/Level1~5/game/stone1.jpg';
+                                    img2Darray[1][0]='src/Level1~5/blockly/commandarea.png';
+                                    img2Darray[1][1]='src/Level1~5/gif/dropcomm.gif';
+                                    img2Darray[1][2]='src/Level1~5/blockly/run.png';
+                                    img2Darray[1][3]='src/Level1~5/blockly/movement.png';
+                                    createMsg('level1Msg',tabNameArray,img2Darray);
+                                }
                                 break;
                                 
                             case 4:
-                                
-                                game.state.add("Level4", Level4);
-                                game.state.start("Level4");
-                                
+                            	currentLevel = Level4;
+                                game.state.add("level", Level4);
+                                game.state.start("level");
+                                if (!getCookie('level1Msg')) {
+                                    tabNameArray=['Game','Blockly'];
+                                    img2Darray=createArray(2,100);
+                                    img2Darray[0][0]='src/Level1~5/game/getkey1.jpg';
+                                    img2Darray[0][1]='src/Level1~5/game/getkey2.jpg';
+                                    img2Darray[0][2]='src/Level1~5/game/stone1.jpg';
+                                    img2Darray[1][0]='src/Level1~5/blockly/commandarea.png';
+                                    img2Darray[1][1]='src/Level1~5/gif/dropcomm.gif';
+                                    img2Darray[1][2]='src/Level1~5/blockly/run.png';
+                                    img2Darray[1][3]='src/Level1~5/blockly/movement.png';
+                                    createMsg('level1Msg',tabNameArray,img2Darray);
+                                }
                                 break;
                             case 5:
-                                
-                                game.state.add("Level5", Level5);
-                                game.state.start("Level5");
+                            	currentLevel = Level5;
+                                game.state.add("level", Level5);
+                                game.state.start("level");
+                                if (!getCookie('level1Msg')) {
+                                    tabNameArray=['Game','Blockly'];
+                                    img2Darray=createArray(2,100);
+                                    img2Darray[0][0]='src/Level1~5/game/getkey1.jpg';
+                                    img2Darray[0][1]='src/Level1~5/game/getkey2.jpg';
+                                    img2Darray[0][2]='src/Level1~5/game/stone1.jpg';
+                                    img2Darray[1][0]='src/Level1~5/blockly/commandarea.png';
+                                    img2Darray[1][1]='src/Level1~5/gif/dropcomm.gif';
+                                    img2Darray[1][2]='src/Level1~5/blockly/run.png';
+                                    img2Darray[1][3]='src/Level1~5/blockly/movement.png';
+                                    createMsg('level1Msg',tabNameArray,img2Darray);
+                                }
                                 break;
 
                             case 6:
-                                
-                            	game.state.add("Level6", Level6);
-                                game.state.start("Level6");
+                                if (!getCookie('level6Msg')) {
+                                    tabNameArray=['Game','Blockly'];
+                                    img2Darray=createArray(2,100);
+                                    img2Darray[0][0]='src/Level6~10/blockly/changeElement.png';
+                                    img2Darray[0][1]='src/Level6~10/blockly/repeat.png';
+                                    img2Darray[1][0]='src/Level6~10/game/readytobattle.jpg';
+                                    img2Darray[1][1]='src/Level6~10/game/rule.png';
+                                    createMsg('level6Msg',tabNameArray,img2Darray);
+                                }
+                            	currentLevel = Level6;
+                            	game.state.add("level", Level6);
+                                game.state.start("level");
                                 break;
 
                             case 7:
-                                
-                            	game.state.add("Level7", Level7);
-                                game.state.start("Level7");
+                            	currentLevel = Level7;
+                            	game.state.add("level", Level7);
+                                game.state.start("level");
                                 break;
                             case 8:
-                                
-                            	game.state.add("Level8", Level8);
-                                game.state.start("Level8");
+                            	currentLevel = Level8;
+                            	game.state.add("level", Level8);
+                                game.state.start("level");
                                 break;
                             case 9:
-                                
-                            	game.state.add("Level9", Level9);
-                                game.state.start("Level9");
+                            	currentLevel = Level9;
+                            	game.state.add("level", Level9);
+                                game.state.start("level");
                                 break;
                             case 10:
-                                
-                            	game.state.add("Level10", Level10);
-                                game.state.start("Level10");
+                            	currentLevel = Level10;
+                            	game.state.add("level", Level10);
+                                game.state.start("level");
                                 break;
                             case 11:
-                                
-                            	game.state.add("Level11", Level11);
-                                game.state.start("Level11");
+                            	currentLevel = Level11;
+                            	game.state.add("level", Level11);
+                                game.state.start("level");
                                 break;
                             case 12:
-                                
-                            	game.state.add("Level12", Level12);
-                                game.state.start("Level12");
+                            	currentLevel = Level12;
+                            	game.state.add("level", Level12);
+                                game.state.start("level");
                                 break;
                             case 13:
-                                
-                            	game.state.add("Level13", Level13);
-                                game.state.start("Level13");
+                            	currentLevel = Level13;
+                            	game.state.add("level", Level13);
+                                game.state.start("level");
                                 break;
                             case 14:
-                                
-                            	game.state.add("Level14", Level14);
-                                game.state.start("Level14");
+                            	currentLevel = Level14;
+                            	game.state.add("level", Level14);
+                                game.state.start("level");
                                 break;
                             case 15:
-                                
-                            	game.state.add("Level15", Level15);
-                                game.state.start("Level15");
+                            	currentLevel = Level15;
+                            	game.state.add("level", Level15);
+                                game.state.start("level");
                                 break;
 
                         }

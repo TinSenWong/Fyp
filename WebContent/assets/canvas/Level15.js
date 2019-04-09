@@ -650,13 +650,13 @@ Level15.prototype.initScene = function () {
 Level15.prototype.update = function () {
 	this.fPlayer.body.velocity.set(0);
 	for (i = 0;i < this.fSpike.children.length;i++){
-		this.physics.arcade.collide(this.fPlayer,this.fSpike.children[i], collisionHandler, null, this);
-	}
-	
-	if(checkOverlap(this.fPlayer,this.fSpike2)){
-		collisionHandler2();
-	}
-		
+        this.physics.arcade.collide(this.fPlayer,this.fSpike.children[i], function(){
+            lostheartHandler(this);
+            this.fSpike.children[i].destroy();
+        }, null, this);
+
+    }
+
 	for (i = 0;i < this.fHearts.children.length;i++){
 		this.physics.arcade.collide(this.fPlayer,this.fHearts.children[i], collisionHeal, null, this);
 	}

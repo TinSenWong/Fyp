@@ -673,32 +673,39 @@ Level12.prototype.initScene = function () {
 Level12.prototype.update = function () {
 	this.fPlayer.body.velocity.set(0);
 	for (i = 0;i < this.fSpike.children.length;i++){
-		this.physics.arcade.collide(this.fPlayer,this.fSpike.children[i], collisionHandler, null, this);
-	}
+        this.physics.arcade.collide(this.fPlayer,this.fSpike.children[i], function(){
+            lostheartHandler(this);
+            this.fSpike.children[i].destroy();
+        }, null, this);
+
+    }
+
 	for (i = 0;i < this.fHearts.children.length;i++){
 		this.physics.arcade.collide(this.fPlayer,this.fHearts, collisionHeal, null, this);
 	}
+
 	if (this.fKeyYellow.exists){	
 		this.physics.arcade.collide(this.fPlayer,this.fKeyYellow, getKey, null, this);
 	}
-		for (i = 0;i < this.fMonsterGroup.children.length;i++){
-			if (this.fMonsterGroup.children[i].visible){
-				this.physics.arcade.collide(this.fPlayer, this.fMonsterGroup.children[i],function (){
-					
-						playerX = this.fMonsterGroup.children[i].x;
-						playerY = this.fMonsterGroup.children[i].y-32;
-						currentMonster = this.fMonsterGroup.children[i];
-						
-						game.state.add("level",this);
-						gameIndex = 4;
-						enemyHP=3;
-						dieList.push(this.fMonsterGroup.children[i].name);
-						game.state.add("newGame", breakWallGame);
-						game.state.start("newGame");
-					
-				}, null, this);
-			}
+
+	for (i = 0;i < this.fMonsterGroup.children.length;i++){
+		if (this.fMonsterGroup.children[i].visible){
+			this.physics.arcade.collide(this.fPlayer, this.fMonsterGroup.children[i],function (){
+
+					playerX = this.fMonsterGroup.children[i].x;
+					playerY = this.fMonsterGroup.children[i].y-32;
+					currentMonster = this.fMonsterGroup.children[i];
+
+					game.state.add("level",this);
+					gameIndex = 3;
+					enemyHP=3;
+					dieList.push(this.fMonsterGroup.children[i].name);
+					game.state.add("newGame", breakWallGame);
+					game.state.start("newGame");
+
+			}, null, this);
 		}
+	}
 	
 	this.physics.arcade.collide(this.fPlayer,this.fTreasure_chest,IsOpenChest, null, this);
 	//this.fTreasure_chest.x = 640.0;

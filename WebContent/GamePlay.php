@@ -161,7 +161,8 @@
 
     window.addEventListener('resize', resizeCanvas, false);
 </script>
-
+<div id='additem' hidden></div>
+<div id='msgContainer'></div>
 <script src="js/run.js"></script>
 </body>
 
