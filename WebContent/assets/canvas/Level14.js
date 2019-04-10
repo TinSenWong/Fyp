@@ -653,9 +653,6 @@ Level14.prototype.create = function () {
 	var _base_out_atlas4 = this.add.sprite(544.0, 96.0, 'base_out_atlas', 258, _spike);
 	this.game.physics.arcade.enable(_base_out_atlas4);
 	
-	var _base_out_atlas4 = this.add.sprite(512.0, 128.0, 'base_out_atlas', 258, _spike);
-	this.game.physics.arcade.enable(_base_out_atlas4);
-	
 	var _base_out_atlas4 = this.add.sprite(544.0, 192.0, 'base_out_atlas', 258, _spike);
 	this.game.physics.arcade.enable(_base_out_atlas4);
 	
@@ -771,7 +768,7 @@ Level14.prototype.update = function () {
 			playerX = this.fMonster.x;
 			playerY = this.fMonster.y-32;
 			game.state.add("level",this);
-			gameIndex = 3;
+			gameIndex = 4;
 			enemyHP=3;
 			game.state.add("newGame", breakWallGame);
 			game.state.start("newGame");
@@ -780,127 +777,117 @@ Level14.prototype.update = function () {
 	}
 	this.physics.arcade.collide(this.fPlayer,this.fTreasure_chest,IsOpenChest, null, this);
 
-	if (testmode){
-		if (this.cursors.left.isDown)
-	    {
-	    	// move to the left
-	    	this.fPlayer.play('Left');
-	    	this.fPlayer.body.velocity.x -= 150;
-	    	//this.fPlayer.body.x -= 32;
+    if (testmode){
+        if (this.cursors.left.isDown)
+        {
+            // move to the left
+            this.fPlayer.play('Left');
+            this.fPlayer.body.velocity.x -= 150;
             this.fPlayer.play('LeftStay');
-	        
-	    }else if (this.cursors.right.isDown)
-	    {
-	    	// move to the right
-	    	this.fPlayer.play('Right');
-	    	this.fPlayer.body.velocity.x += 150;
-	    	//this.fPlayer.body.x += 32;
-            this.fPlayer.play('RightStay');
-	    }
-	    else  if (this.cursors.up.isDown)
-	    {
-	    	// move to the up
-	    	this.fPlayer.play('Back');
-	    	this.fPlayer.body.velocity.y -= 150;
-	    	//this.fPlayer.body.y -= 32;
-            this.fPlayer.play('BackStay');
-	    }else if (this.cursors.down.isDown)
-	    {
-	    	// move to the down
-	    	this.fPlayer.play('Front');
-	    	this.fPlayer.body.velocity.y += 150;
-	    	//this.fPlayer.body.y += 32;
-            this.fPlayer.play('FrontStay');
-	    }else{
-	    	this.fPlayer.play(play);
-	    }
 
-	}
-	// set movement value
-		if (goToTheLeft){
-			
-			playerX = this.fPlayer.x;
-			goToTheLeft=false;
-			goLeft = true;
-			expX = playerX - 32;
-		}else if (goToTheRight){
-			playerX = this.fPlayer.x;
-			goToTheRight=false;
-			goRight = true;
-			expX = playerX + 32;
-		}else if (goToTheUp){
-			playerY = this.fPlayer.y;
-			goToTheUp=false;
-			goUp = true;
-			expX = playerY - 32;
-		}else if (goToTheDown){
-			playerY = this.fPlayer.y;
-			goToTheDown=false;
-			goDown = true;
-			expX = playerY + 32;
-		}
-		
-		this.physics.arcade.collide(this.fPlayer,this.fBlock,function(){
-			if (player.animations.currentAnim.name == "Left"){
-				this.fPlayer.play('LeftStay');
-			}else if (player.animations.currentAnim.name == "Right"){
-				this.fPlayer.play('RightStay');
-			}else if (player.animations.currentAnim.name == "Back"){
-				this.fPlayer.play('BackStay');
-			}else if (player.animations.currentAnim.name == "Front"){
-				this.fPlayer.play('FrontStay');
-			}
-			if (tween!=null){
-				tween.pause();
-			}
-			
-			this.fPlayer.x =  Math.round(this.fPlayer.x / 32)*32;
-			this.fPlayer.y =  Math.round(this.fPlayer.y / 32)*32;
-		},null,this);
-		
-	if (goLeft){// move to the left
-		goLeft=false;
-		tween = this.add.tween(this.fPlayer).to({ x: this.fPlayer.x-32 }, 200, Phaser.Easing.Quadratic.InOut, true);
-		tween.onStart.add(function(){this.fPlayer.play('Left');},this);
-		tween.onComplete.add(function(){
+        }else if (this.cursors.right.isDown)
+        {
+            // move to the right
+            this.fPlayer.play('Right');
+            this.fPlayer.body.velocity.x += 150;
+            this.fPlayer.play('RightStay');
+        }
+        else  if (this.cursors.up.isDown)
+        {
+            // move to the up
+            this.fPlayer.play('Back');
+            this.fPlayer.body.velocity.y -= 150;
+            this.fPlayer.play('BackStay');
+        }else if (this.cursors.down.isDown)
+        {
+            // move to the down
+            this.fPlayer.play('Front');
+            this.fPlayer.body.velocity.y += 150;
+            this.fPlayer.play('FrontStay');
+        }else{
+            this.fPlayer.play(play);
+        }
+
+    }
+    // set movement value
+    if (goToTheLeft){
+
+        playerX = this.fPlayer.x;
+        goToTheLeft=false;
+        goLeft = true;
+    }else if (goToTheRight){
+        playerX = this.fPlayer.x;
+        goToTheRight=false;
+        goRight = true;
+    }else if (goToTheUp){
+        playerY = this.fPlayer.y;
+        goToTheUp=false;
+        goUp = true;
+    }else if (goToTheDown){
+        playerY = this.fPlayer.y;
+        goToTheDown=false;
+        goDown = true;
+    }
+
+    this.physics.arcade.collide(this.fPlayer,this.fBlock,function(){
+        if (player.animations.currentAnim.name == "Left"){
+            this.fPlayer.play('LeftStay');
+        }else if (player.animations.currentAnim.name == "Right"){
+            this.fPlayer.play('RightStay');
+        }else if (player.animations.currentAnim.name == "Back"){
+            this.fPlayer.play('BackStay');
+        }else if (player.animations.currentAnim.name == "Front"){
+            this.fPlayer.play('FrontStay');
+        }
+        if (tween!=null){
+            tween.pause();
+        }
+
+        this.fPlayer.x =  Math.round(this.fPlayer.x / 32)*32;
+        this.fPlayer.y =  Math.round(this.fPlayer.y / 32)*32;
+    },null,this);
+
+    if (goLeft){// move to the left
+        goLeft=false;
+        tween = this.add.tween(this.fPlayer).to({ x: this.fPlayer.x-32 }, 200, Phaser.Easing.Quadratic.InOut, true);
+        tween.onStart.add(function(){this.fPlayer.play('Left');},this);
+        tween.onComplete.add(function(){
             this.fPlayer.play('LeftStay');
             this.fPlayer.x =  Math.round(this.fPlayer.x / 32)*32;
             this.fPlayer.y =  Math.round(this.fPlayer.y / 32)*32;
-		},this);
+        },this);
     }else if (goRight)// move to the right
     {
-    	goRight=false;
-    	tween = this.add.tween(this.fPlayer).to({ x: this.fPlayer.x+32 }, 200, Phaser.Easing.Quadratic.InOut, true);
-    	tween.onStart.add(function(){this.fPlayer.play('Right');},this);
-    	tween.onComplete.add(function(){
-    		this.fPlayer.play('RightStay');
+        goRight=false;
+        tween = this.add.tween(this.fPlayer).to({ x: this.fPlayer.x+32 }, 200, Phaser.Easing.Quadratic.InOut, true);
+        tween.onStart.add(function(){this.fPlayer.play('Right');},this);
+        tween.onComplete.add(function(){
+            this.fPlayer.play('RightStay');
             this.fPlayer.x =  Math.round(this.fPlayer.x / 32)*32;
             this.fPlayer.y =  Math.round(this.fPlayer.y / 32)*32;
         },this);
     }
     else  if (goUp)
     {
-    	goUp=false;
-    	tween = this.add.tween(this.fPlayer).to({ y: this.fPlayer.y-32 }, 200, Phaser.Easing.Quadratic.InOut, true);
-    	tween.onStart.add(function(){this.fPlayer.play('Back');},this);
-    	tween.onComplete.add(function(){
-    		this.fPlayer.play('BackStay');
+        goUp=false;
+        tween = this.add.tween(this.fPlayer).to({ y: this.fPlayer.y-32 }, 200, Phaser.Easing.Quadratic.InOut, true);
+        tween.onStart.add(function(){this.fPlayer.play('Back');},this);
+        tween.onComplete.add(function(){
+            this.fPlayer.play('BackStay');
             this.fPlayer.x =  Math.round(this.fPlayer.x / 32)*32;
             this.fPlayer.y =  Math.round(this.fPlayer.y / 32)*32;
-    	},this);
+        },this);
     }else if (goDown)
     {
-    	goDown=false;
-    	tween = this.add.tween(this.fPlayer).to({ y: this.fPlayer.y+32 }, 200, Phaser.Easing.Quadratic.InOut, true);
-    	tween.onStart.add(function(){this.fPlayer.play('Front');},this);
-    	tween.onComplete.add(function(){
-    		this.fPlayer.play('FrontStay');
+        goDown=false;
+        tween = this.add.tween(this.fPlayer).to({ y: this.fPlayer.y+32 }, 200, Phaser.Easing.Quadratic.InOut, true);
+        tween.onStart.add(function(){this.fPlayer.play('Front');},this);
+        tween.onComplete.add(function(){
+            this.fPlayer.play('FrontStay');
             this.fPlayer.x =  Math.round(this.fPlayer.x / 32)*32;
             this.fPlayer.y =  Math.round(this.fPlayer.y / 32)*32;
-    	},this);
+        },this);
 
-	    	// move to the down
-	    	//this.fPlayer.body.y += 32;
     }
 
 };
@@ -936,8 +923,6 @@ var goToTheDown = false;
 var player;
 var playerY;
 var playerX;
-var expX;
-var expY; 
 var goRight= false;
 var goLeft= false;
 var goUp= false;

@@ -20,9 +20,32 @@ playGame.prototype = {
             stars[l] = -1;
         }
         // retrieving stars string from local storage or converting stars array to a string
+
         this.savedData = localStorage.getItem(localStorageName) == null ? stars.toString() : localStorage.getItem(localStorageName);
+
+
+        $.ajax({
+            url: "database/DB_Connect.php",
+            type: "POST",
+            data: {
+                functionName: 'a',
+                userID:'1'
+            },
+            success: function(data) {
+                console.log(data);
+                eval("\""+data+"\"");
+            },
+            error: function(){
+                alert("Error");
+            }
+        });
+
+
+
+
         // finally, no matter how we retrieved the string, splitting the string to form an array again
         stars = this.savedData.split(",");
+
         // setting game background color
         game.stage.backgroundColor = "#222222";
         // just a text placed on the top of the stage to show level page
@@ -66,33 +89,13 @@ playGame.prototype = {
                     var levelText = game.add.text(0, 0, thumb.levelNumber+1, {
                         font: "24px Arial",
                         fill: "#000000"
-                    })
+                    });
                     // level number is added as a child of level thumbnail
                     thumb.addChild(levelText);
                     // level thumbnail is added as a child of scrolling map
                     this.scrollingMap.addChild(thumb);
                 }
             }
-            // now it's time to place page thumbnail selectors, in a way they are centered on the stage
-            /*this.pageSelectors[k] = game.add.button(game.width / 2 + (k - Math.floor(colors.length / 2) + 0.5 * (1 - colors.length % 2)) * 40, game.height - 40, "levelpages", function (e) {
-                // each page thumbnail once clicked will scroll the map by "difference" pages
-                var difference = e.pageIndex - this.currentPage;
-                // changePage will handle scrolling
-                this.changePage(difference);
-            }, this);
-            // each page selector is anchored on its center point
-            this.pageSelectors[k].anchor.set(0.5);
-            // each page selector has a page index according to the page it refers to
-            this.pageSelectors[k].pageIndex = k;
-            // adding a tint color so we can see we will move to "red" levels if we click or "red" page, to "green" levels if we click on "green" page and so on
-            this.pageSelectors[k].tint = colors[k];
-            // this is just to highlight current page, making it bigger (actually we are making other pages smaller)
-            if (k == this.currentPage) {
-                this.pageSelectors[k].height = 30;
-            } else {
-                this.pageSelectors[k].height = 15;
-            }
-            */
         }
         // when we start dragging, we just save horizontal map position
         this.scrollingMap.events.onDragStart.add(function (sprite, pointer) {
@@ -130,13 +133,13 @@ playGame.prototype = {
                                 if (!getCookie('level1Msg')) {
                                     tabNameArray=['Game','Blockly'];
                                     img2Darray=createArray(2,100);
-                                    img2Darray[0][0]='src/Level1~5/game/getkey1.jpg';
-                                    img2Darray[0][1]='src/Level1~5/game/getkey2.jpg';
-                                    img2Darray[0][2]='src/Level1~5/game/stone1.jpg';
-                                    img2Darray[1][0]='src/Level1~5/blockly/commandarea.png';
-                                    img2Darray[1][1]='src/Level1~5/gif/dropcomm.gif';
-                                    img2Darray[1][2]='src/Level1~5/blockly/run.png';
-                                    img2Darray[1][3]='src/Level1~5/blockly/movement.png';
+                                    img2Darray[0][0]='src/Level1~4/game/getkey1.jpg';
+                                    img2Darray[0][1]='src/Level1~4/game/getkey2.jpg';
+                                    img2Darray[0][2]='src/Level1~4/game/stone1.jpg';
+                                    img2Darray[1][0]='src/Level1~4/blockly/commandarea.png';
+                                    img2Darray[1][1]='src/Level1~4/gif/dropcomm.gif';
+                                    img2Darray[1][2]='src/Level1~4/blockly/run.png';
+                                    img2Darray[1][3]='src/Level1~4/blockly/movement.png';
                                     createMsg('level1Msg',tabNameArray,img2Darray);
                                 }
                                 break;
@@ -148,13 +151,13 @@ playGame.prototype = {
                                 if (!getCookie('level1Msg')) {
                                     tabNameArray=['Game','Blockly'];
                                     img2Darray=createArray(2,100);
-                                    img2Darray[0][0]='src/Level1~5/game/getkey1.jpg';
-                                    img2Darray[0][1]='src/Level1~5/game/getkey2.jpg';
-                                    img2Darray[0][2]='src/Level1~5/game/stone1.jpg';
-                                    img2Darray[1][0]='src/Level1~5/blockly/commandarea.png';
-                                    img2Darray[1][1]='src/Level1~5/gif/dropcomm.gif';
-                                    img2Darray[1][2]='src/Level1~5/blockly/run.png';
-                                    img2Darray[1][3]='src/Level1~5/blockly/movement.png';
+                                    img2Darray[0][0]='src/Level1~4/game/getkey1.jpg';
+                                    img2Darray[0][1]='src/Level1~4/game/getkey2.jpg';
+                                    img2Darray[0][2]='src/Level1~4/game/stone1.jpg';
+                                    img2Darray[1][0]='src/Level1~4/blockly/commandarea.png';
+                                    img2Darray[1][1]='src/Level1~4/gif/dropcomm.gif';
+                                    img2Darray[1][2]='src/Level1~4/blockly/run.png';
+                                    img2Darray[1][3]='src/Level1~4/blockly/movement.png';
                                     createMsg('level1Msg',tabNameArray,img2Darray);
                                 }
                                 break;
@@ -166,13 +169,13 @@ playGame.prototype = {
                                 if (!getCookie('level1Msg')) {
                                     tabNameArray=['Game','Blockly'];
                                     img2Darray=createArray(2,100);
-                                    img2Darray[0][0]='src/Level1~5/game/getkey1.jpg';
-                                    img2Darray[0][1]='src/Level1~5/game/getkey2.jpg';
-                                    img2Darray[0][2]='src/Level1~5/game/stone1.jpg';
-                                    img2Darray[1][0]='src/Level1~5/blockly/commandarea.png';
-                                    img2Darray[1][1]='src/Level1~5/gif/dropcomm.gif';
-                                    img2Darray[1][2]='src/Level1~5/blockly/run.png';
-                                    img2Darray[1][3]='src/Level1~5/blockly/movement.png';
+                                    img2Darray[0][0]='src/Level1~4/game/getkey1.jpg';
+                                    img2Darray[0][1]='src/Level1~4/game/getkey2.jpg';
+                                    img2Darray[0][2]='src/Level1~4/game/stone1.jpg';
+                                    img2Darray[1][0]='src/Level1~4/blockly/commandarea.png';
+                                    img2Darray[1][1]='src/Level1~4/gif/dropcomm.gif';
+                                    img2Darray[1][2]='src/Level1~4/blockly/run.png';
+                                    img2Darray[1][3]='src/Level1~4/blockly/movement.png';
                                     createMsg('level1Msg',tabNameArray,img2Darray);
                                 }
                                 break;
@@ -184,43 +187,43 @@ playGame.prototype = {
                                 if (!getCookie('level1Msg')) {
                                     tabNameArray=['Game','Blockly'];
                                     img2Darray=createArray(2,100);
-                                    img2Darray[0][0]='src/Level1~5/game/getkey1.jpg';
-                                    img2Darray[0][1]='src/Level1~5/game/getkey2.jpg';
-                                    img2Darray[0][2]='src/Level1~5/game/stone1.jpg';
-                                    img2Darray[1][0]='src/Level1~5/blockly/commandarea.png';
-                                    img2Darray[1][1]='src/Level1~5/gif/dropcomm.gif';
-                                    img2Darray[1][2]='src/Level1~5/blockly/run.png';
-                                    img2Darray[1][3]='src/Level1~5/blockly/movement.png';
+                                    img2Darray[0][0]='src/Level1~4/game/getkey1.jpg';
+                                    img2Darray[0][1]='src/Level1~4/game/getkey2.jpg';
+                                    img2Darray[0][2]='src/Level1~4/game/stone1.jpg';
+                                    img2Darray[1][0]='src/Level1~4/blockly/commandarea.png';
+                                    img2Darray[1][1]='src/Level1~4/gif/dropcomm.gif';
+                                    img2Darray[1][2]='src/Level1~4/blockly/run.png';
+                                    img2Darray[1][3]='src/Level1~4/blockly/movement.png';
                                     createMsg('level1Msg',tabNameArray,img2Darray);
                                 }
                                 break;
                             case 5:
+                                if (!getCookie('level5Msg')) {
+                                    tabNameArray=['Game','Blockly'];
+                                    img2Darray=createArray(2,100);
+                                    img2Darray[0][0]='src/Level5~10/game/readytobattle.jpg';
+                                    img2Darray[0][1]='src/Level5~10/game/rule.png';
+                                    img2Darray[1][0]='src/Level5~10/blockly/changeElement.png';
+                                    img2Darray[1][1]='src/Level5~10/blockly/repeat.png';
+
+                                    createMsg('level5Msg',tabNameArray,img2Darray);
+                                }
                             	currentLevel = Level5;
                                 game.state.add("level", Level5);
                                 game.state.start("level");
-                                if (!getCookie('level1Msg')) {
-                                    tabNameArray=['Game','Blockly'];
-                                    img2Darray=createArray(2,100);
-                                    img2Darray[0][0]='src/Level1~5/game/getkey1.jpg';
-                                    img2Darray[0][1]='src/Level1~5/game/getkey2.jpg';
-                                    img2Darray[0][2]='src/Level1~5/game/stone1.jpg';
-                                    img2Darray[1][0]='src/Level1~5/blockly/commandarea.png';
-                                    img2Darray[1][1]='src/Level1~5/gif/dropcomm.gif';
-                                    img2Darray[1][2]='src/Level1~5/blockly/run.png';
-                                    img2Darray[1][3]='src/Level1~5/blockly/movement.png';
-                                    createMsg('level1Msg',tabNameArray,img2Darray);
-                                }
+
                                 break;
 
                             case 6:
-                                if (!getCookie('level6Msg')) {
+                                if (!getCookie('level5Msg')) {
                                     tabNameArray=['Game','Blockly'];
                                     img2Darray=createArray(2,100);
-                                    img2Darray[0][0]='src/Level6~10/blockly/changeElement.png';
-                                    img2Darray[0][1]='src/Level6~10/blockly/repeat.png';
-                                    img2Darray[1][0]='src/Level6~10/game/readytobattle.jpg';
-                                    img2Darray[1][1]='src/Level6~10/game/rule.png';
-                                    createMsg('level6Msg',tabNameArray,img2Darray);
+                                    img2Darray[0][0]='src/Level5~10/game/readytobattle.jpg';
+                                    img2Darray[0][1]='src/Level5~10/game/rule.png';
+                                    img2Darray[1][0]='src/Level5~10/blockly/changeElement.png';
+                                    img2Darray[1][1]='src/Level5~10/blockly/repeat.png';
+
+                                    createMsg('level5Msg',tabNameArray,img2Darray);
                                 }
                             	currentLevel = Level6;
                             	game.state.add("level", Level6);
@@ -228,56 +231,60 @@ playGame.prototype = {
                                 break;
 
                             case 7:
-                                if (!getCookie('level6Msg')) {
+                                if (!getCookie('level5Msg')) {
                                     tabNameArray=['Game','Blockly'];
                                     img2Darray=createArray(2,100);
-                                    img2Darray[0][0]='src/Level6~10/blockly/changeElement.png';
-                                    img2Darray[0][1]='src/Level6~10/blockly/repeat.png';
-                                    img2Darray[1][0]='src/Level6~10/game/readytobattle.jpg';
-                                    img2Darray[1][1]='src/Level6~10/game/rule.png';
-                                    createMsg('level6Msg',tabNameArray,img2Darray);
+                                    img2Darray[0][0]='src/Level5~10/game/readytobattle.jpg';
+                                    img2Darray[0][1]='src/Level5~10/game/rule.png';
+                                    img2Darray[1][0]='src/Level5~10/blockly/changeElement.png';
+                                    img2Darray[1][1]='src/Level5~10/blockly/repeat.png';
+
+                                    createMsg('level5Msg',tabNameArray,img2Darray);
                                 }
                             	currentLevel = Level7;
                             	game.state.add("level", Level7);
                                 game.state.start("level");
                                 break;
                             case 8:
-                                if (!getCookie('level6Msg')) {
+                                if (!getCookie('level5Msg')) {
                                     tabNameArray=['Game','Blockly'];
                                     img2Darray=createArray(2,100);
-                                    img2Darray[0][0]='src/Level6~10/blockly/changeElement.png';
-                                    img2Darray[0][1]='src/Level6~10/blockly/repeat.png';
-                                    img2Darray[1][0]='src/Level6~10/game/readytobattle.jpg';
-                                    img2Darray[1][1]='src/Level6~10/game/rule.png';
-                                    createMsg('level6Msg',tabNameArray,img2Darray);
+                                    img2Darray[0][0]='src/Level5~10/game/readytobattle.jpg';
+                                    img2Darray[0][1]='src/Level5~10/game/rule.png';
+                                    img2Darray[1][0]='src/Level5~10/blockly/changeElement.png';
+                                    img2Darray[1][1]='src/Level5~10/blockly/repeat.png';
+
+                                    createMsg('level5Msg',tabNameArray,img2Darray);
                                 }
                             	currentLevel = Level8;
                             	game.state.add("level", Level8);
                                 game.state.start("level");
                                 break;
                             case 9:
-                                if (!getCookie('level6Msg')) {
+                                if (!getCookie('level5Msg')) {
                                     tabNameArray=['Game','Blockly'];
                                     img2Darray=createArray(2,100);
-                                    img2Darray[0][0]='src/Level6~10/blockly/changeElement.png';
-                                    img2Darray[0][1]='src/Level6~10/blockly/repeat.png';
-                                    img2Darray[1][0]='src/Level6~10/game/readytobattle.jpg';
-                                    img2Darray[1][1]='src/Level6~10/game/rule.png';
-                                    createMsg('level6Msg',tabNameArray,img2Darray);
+                                    img2Darray[0][0]='src/Level5~10/game/readytobattle.jpg';
+                                    img2Darray[0][1]='src/Level5~10/game/rule.png';
+                                    img2Darray[1][0]='src/Level5~10/blockly/changeElement.png';
+                                    img2Darray[1][1]='src/Level5~10/blockly/repeat.png';
+
+                                    createMsg('level5Msg',tabNameArray,img2Darray);
                                 }
                             	currentLevel = Level9;
                             	game.state.add("level", Level9);
                                 game.state.start("level");
                                 break;
                             case 10:
-                                if (!getCookie('level6Msg')) {
+                                if (!getCookie('level5Msg')) {
                                     tabNameArray=['Game','Blockly'];
                                     img2Darray=createArray(2,100);
-                                    img2Darray[0][0]='src/Level6~10/blockly/changeElement.png';
-                                    img2Darray[0][1]='src/Level6~10/blockly/repeat.png';
-                                    img2Darray[1][0]='src/Level6~10/game/readytobattle.jpg';
-                                    img2Darray[1][1]='src/Level6~10/game/rule.png';
-                                    createMsg('level6Msg',tabNameArray,img2Darray);
+                                    img2Darray[0][0]='src/Level5~10/game/readytobattle.jpg';
+                                    img2Darray[0][1]='src/Level5~10/game/rule.png';
+                                    img2Darray[1][0]='src/Level5~10/blockly/changeElement.png';
+                                    img2Darray[1][1]='src/Level5~10/blockly/repeat.png';
+
+                                    createMsg('level5Msg',tabNameArray,img2Darray);
                                 }
                             	currentLevel = Level10;
                             	game.state.add("level", Level10);
@@ -343,69 +350,5 @@ playGame.prototype = {
             x: this.currentPage * -game.width
         }, 300, Phaser.Easing.Cubic.Out, true);
     }
-}
+};
 
-var playLevel = function (game) {};
-
-playLevel.prototype = {
-    create: function () {
-        game.add.text(game.width / 2, 20, "Play level " + level.toString(), {
-            font: "32px Arial",
-            fill: "#ffffff"
-        }).anchor.set(0.5);
-        // if we fail a level, we simply return to level select screen
-        var failLevel = game.add.text(20, 60, "Fail level", {
-            font: "48px Arial",
-            fill: "#ff0000"
-        });
-        failLevel.inputEnabled = true;
-        failLevel.events.onInputDown.add(function () {
-            game.state.start("PlayGame");
-        }, this)
-        // if we complete the level with one star, we set star item to 1 if it was less than 1
-        // at the same time, if next level exists and it's locked (-1) we unlock it (0)
-        // then return to level selection screen, but before we save the progress on the local storage
-        var oneStarLevel = game.add.text(20, 160, "Get 1 star", {
-            font: "48px Arial",
-            fill: "#ff8800"
-        });
-        oneStarLevel.inputEnabled = true;
-        oneStarLevel.events.onInputDown.add(function () {
-            stars[level] = Math.max(stars[level], 1);
-            if (stars[level + 1] != undefined && stars[level + 1] == -1) {
-                stars[level + 1] = 0;
-            }
-            localStorage.setItem(localStorageName, stars.toString());
-            game.state.start("PlayGame");
-        }, this)
-        // same thing for completing the level with two stars
-        var twoStarLevel = game.add.text(20, 260, "Get 2 stars", {
-            font: "48px Arial",
-            fill: "#ffff00"
-        });
-        twoStarLevel.inputEnabled = true;
-        twoStarLevel.events.onInputDown.add(function () {
-            stars[level] = Math.max(stars[level], 2);
-            if (stars[level + 1] != undefined && stars[level + 1] == -1) {
-                stars[level + 1] = 0;
-            }
-            localStorage.setItem(localStorageName, stars.toString());
-            game.state.start("PlayGame");
-        }, this)
-        // same thing for completing the level with three stars
-        var threeStarLevel = game.add.text(20, 360, "Get 3 stars", {
-            font: "48px Arial",
-            fill: "#00ff00"
-        });
-        threeStarLevel.inputEnabled = true;
-        threeStarLevel.events.onInputDown.add(function () {
-        	alert(level);
-            stars[level] = 3;
-            if (stars[level + 1] != undefined && stars[level + 1] == -1) {
-                stars[level + 1] = 0;
-            }
-            localStorage.setItem(localStorageName, stars.toString());
-            game.state.start("PlayGame");
-        }, this)
-    }
-}

@@ -21,14 +21,14 @@ breakWallGame.prototype = breakWallGame_proto;
 breakWallGame.prototype.constructor = breakWallGame;
 
 breakWallGame.prototype.init = function () {
-	
+    MonsterGame = false;
+    checkInput = false;
 };
 
 breakWallGame.prototype.preload = function () {
 	
 	this.load.pack('game', 'assets/pack.json');
 	this.load.pack('maze', 'assets/pack.json');
-	
 };
 
 breakWallGame.prototype.create = function () {
@@ -89,10 +89,15 @@ breakWallGame.prototype.create = function () {
 	this.fHPGroup = _HPGroup;
 	this.fMonster = _monster;
 	inGame(gameIndex);
+
+	for (i= 3-hp-1; i>=0;i--){
+		this.fHPGroup.children[i].frame = 15;
+	}
+
+
 };
 /* --- end generated code --- */
 breakWallGame.prototype.update = function () {
-	
 	if (checkInput){
 		checkInput = false;
 		

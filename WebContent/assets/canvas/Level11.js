@@ -660,23 +660,18 @@ Level11.prototype.update = function () {
 	}
 	
 	this.physics.arcade.collide(this.fPlayer,this.fTreasure_chest,IsOpenChest, null, this);
-	//this.fTreasure_chest.x = 640.0;
-	//this.fTreasure_chest.y = 256.0;	
 	if (testmode){
 		if (this.cursors.left.isDown)
 	    {
 	    	// move to the left
 	    	this.fPlayer.play('Left');
 	    	this.fPlayer.body.velocity.x -= 150;
-	    	//this.fPlayer.body.x -= 32;
             this.fPlayer.play('LeftStay');
-	        
 	    }else if (this.cursors.right.isDown)
 	    {
 	    	// move to the right
 	    	this.fPlayer.play('Right');
 	    	this.fPlayer.body.velocity.x += 150;
-	    	//this.fPlayer.body.x += 32;
             this.fPlayer.play('RightStay');
 	    }
 	    else  if (this.cursors.up.isDown)
@@ -684,14 +679,12 @@ Level11.prototype.update = function () {
 	    	// move to the up
 	    	this.fPlayer.play('Back');
 	    	this.fPlayer.body.velocity.y -= 150;
-	    	//this.fPlayer.body.y -= 32;
             this.fPlayer.play('BackStay');
 	    }else if (this.cursors.down.isDown)
 	    {
 	    	// move to the down
 	    	this.fPlayer.play('Front');
 	    	this.fPlayer.body.velocity.y += 150;
-	    	//this.fPlayer.body.y += 32;
             this.fPlayer.play('FrontStay');
 	    }else{
 	    	this.fPlayer.play(play);
@@ -700,26 +693,21 @@ Level11.prototype.update = function () {
 	}
 	// set movement value
 		if (goToTheLeft){
-			
 			playerX = this.fPlayer.x;
 			goToTheLeft=false;
 			goLeft = true;
-			expX = playerX - 32;
 		}else if (goToTheRight){
 			playerX = this.fPlayer.x;
 			goToTheRight=false;
 			goRight = true;
-			expX = playerX + 32;
 		}else if (goToTheUp){
 			playerY = this.fPlayer.y;
 			goToTheUp=false;
 			goUp = true;
-			expX = playerY - 32;
 		}else if (goToTheDown){
 			playerY = this.fPlayer.y;
 			goToTheDown=false;
 			goDown = true;
-			expX = playerY + 32;
 		}
 		
 		this.physics.arcade.collide(this.fPlayer,this.fBlock,function(){

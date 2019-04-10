@@ -47,7 +47,8 @@ var weaknessGroupList = createArray(2, 20);
 var playerInputList;
 var dieList = [];
 var currentLevel;
-
+var MonsterGame;
+var hit = true;
 function createArray(length) {
     var arr = new Array(length || 0),
         i = length;
@@ -116,7 +117,7 @@ function checkOverlap(spriteA, spriteB) {
 //01
 function lostheartHandler(that) {
     hp -= 1;
-    that.fHPGroup.children[hp].play('play');
+    that.fHPGroup.children[3-hp-1].play('play');
     if (hp == 0) {
         dieList = [];
         if (confirm('你死了  重新遊玩')) {
@@ -140,7 +141,7 @@ function lostheartHandler(that) {
 function collisionHeal() {
     if (hp < 3) {
         hp += 1;
-        this.fHPGroup.children[hp - 1].play('heal');
+        this.fHPGroup.children[3-hp].play('heal');
         this.fHearts.children[i].destroy();
     }
 
@@ -433,11 +434,11 @@ function inGame(index) {
     if (index == 1) {
         addweaknessGroupGame1(randonWeakness(1));
     } else if (index == 2) {
-        addweaknessGroupGame1(randonWeakness(2));
-    } else if (index == 3) {
         addweaknessGroupGame1(randonWeakness(3));
-    } else if (index == 4) {
+    } else if (index == 3) {
         addweaknessGroupGame2(randonWeakness(4));
+    } else if (index == 4) {
+        addweaknessGroupGame3(randonWeakness(5),2);
     }
 }
 
@@ -450,6 +451,10 @@ function randonWeakness(number) {
 }
 
 // Game
+function setHeart(that){
+
+}
+
 function resetElement() {
 
     if (playerInput != null) {
@@ -615,60 +620,16 @@ function addweaknessGroupGame3(weakness, newLine) {
     return weaknessGroup;
 }
 
-var expDate = new Date();
-expDate.setTime(expDate.getTime() + 365 * 24 * 60 * 60 * 1000); // one year
-
-function setCookie(isName, isValue, dExpires) {
-
-    document.cookie = isName + "=" + isValue + ";expires=" + dExpires.toGMTString();
-}
-
-function getCookie(isName) {
-
-    cookieStr = document.cookie;
-    startSlice = cookieStr.indexOf(isName + "=");
-    if (startSlice == -1) {
-        return false
-    }
-    endSlice = cookieStr.indexOf(";", startSlice + 1)
-    if (endSlice == -1) {
-        endSlice = cookieStr.length
-    }
-    isData = cookieStr.substring(startSlice, endSlice)
-    isValue = isData.substring(isData.indexOf("=") + 1, isData.length);
-    return isValue;
-}
-
-function initPopups() {
-    /*
-    if (!getCookie('autoMsg')) {
-        window.location.href = "GamePlay.php#msg";
-        setCookie('autoMsg', 0, expDate);
-        hideBlockly(true);
-    }
-    */
-
-}
-
-function hideBlockly(hidden) {
-    if (hidden) {
-        document.getElementById('blocklyDiv').style.visibility = 'hidden';
-    } else {
-        document.getElementById('blocklyDiv').style.visibility = 'visible';
-    }
-}
 
 function confirmMsg(msgName) {
     if (document.getElementById('checkshow').checked) {
         setCookie(msgName, 0, expDate);
     }
-    hideBlockly(false);
 }
 
 function showMsg(msg) {
     document.getElementById('additem').innerHTML = '<button id="msgBTN" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#' + msg + '"></button>">';
     document.getElementById('msgBTN').click();
-    hideBlockly(true);
 }
 
 function createMsg(levelName, tabNameArray, img2Darray) {
@@ -756,17 +717,15 @@ function createMsg(levelName, tabNameArray, img2Darray) {
         html += ' </div>';
     }
 
-
     html += '  <div class="modal-footer">';
-    html += '   <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick=\'hideBlockly(false);confirmMsg("'+levelName+'");\'>confirm</button>';
+    html += '   <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick=\'confirmMsg("'+levelName+'");\'>confirm</button>';
     html += '   </div>';
-    html += '  <div>Don\'t show again <inputtype="checkbox" id="checkshow"></div>';
+    html += '  <div style="font-size: 20px">Don\'t show again <input type="checkbox" id="checkshow"></div>';
     html += ' </div>';
     html += ' </div>';
     html += ' </div>';
     html += '  </div>';
 
-    console.log(html);
     document.getElementById('msgContainer').innerHTML = html;
     showMsg(levelName);
 }
@@ -774,10 +733,42 @@ function createMsg(levelName, tabNameArray, img2Darray) {
 
 
 
+//cookie
 
 
+var expDate = new Date();
+expDate.setTime(expDate.getTime() + 365 * 24 * 60 * 60 * 1000); // one year
 
+function setCookie(isName, isValue, dExpires) {
 
+    document.cookie = isName + "=" + isValue + ";expires=" + dExpires.toGMTString();
+}
+
+function getCookie(isName) {
+
+    cookieStr = document.cookie;
+    startSlice = cookieStr.indexOf(isName + "=");
+    if (startSlice == -1) {
+        return false
+    }
+    endSlice = cookieStr.indexOf(";", startSlice + 1)
+    if (endSlice == -1) {
+        endSlice = cookieStr.length
+    }
+    isData = cookieStr.substring(startSlice, endSlice)
+    isValue = isData.substring(isData.indexOf("=") + 1, isData.length);
+    return isValue;
+}
+
+function initPopups() {
+    /*
+    if (!getCookie('autoMsg')) {
+        window.location.href = "GamePlay.php#msg";
+        setCookie('autoMsg', 0, expDate);
+    }
+    */
+
+}
 
 
 

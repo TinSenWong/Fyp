@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Mar 26, 2019 at 06:01 PM
--- Server version: 10.1.37-MariaDB
--- PHP Version: 7.3.0
+-- 主機: 127.0.0.1
+-- 產生時間： 2019-04-10 17:19:22
+-- 伺服器版本: 10.1.35-MariaDB
+-- PHP 版本： 7.2.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,67 +19,49 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `fyp`
+-- 資料庫： `fyp`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `answercorrectrate`
+-- 資料表結構 `archivementdata`
 --
 
-CREATE TABLE `answercorrectrate` (
-  `UserDataUserInfoUserID` int(10) NOT NULL,
-  `UserID` int(10) NOT NULL,
-  `type` varchar(10) NOT NULL,
-  `numberOfCorrect` int(10) DEFAULT NULL,
-  `numberOfInorrect` int(10) DEFAULT NULL
+CREATE TABLE `archivementdata` (
+  `UserID` int(11) NOT NULL,
+  `ArchivmentID` int(11) NOT NULL,
+  `PercentComplete` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `level`
+-- 資料表結構 `archivment`
 --
 
-CREATE TABLE `level` (
-  `levelNo` int(10) NOT NULL,
-  `type` varchar(50) NOT NULL,
-  `numberOfQuestion` int(10) NOT NULL
+CREATE TABLE `archivment` (
+  `ArchivmentID` int(11) NOT NULL,
+  `ArchivmentName` varchar(100) NOT NULL,
+  `imgSrc` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `question`
+-- 資料表結構 `leaderboard`
 --
 
-CREATE TABLE `question` (
-  `questionID` int(10) NOT NULL,
-  `LevellevelNo` int(10) NOT NULL,
-  `type` varchar(50) NOT NULL,
-  `question` varchar(255) NOT NULL,
-  `diffcult` varchar(50) NOT NULL
+CREATE TABLE `leaderboard` (
+  `UserID` int(11) NOT NULL,
+  `LevelNum` int(11) NOT NULL,
+  `runTime` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `userdata`
---
-
-CREATE TABLE `userdata` (
-  `UserInfoUserID` int(10) NOT NULL,
-  `progress` int(10) NOT NULL,
-  `achievement` varchar(50) NOT NULL,
-  `total` int(10) NOT NULL,
-  `leaderboard` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `userinfo`
+-- 資料表結構 `userinfo`
 --
 
 CREATE TABLE `userinfo` (
@@ -90,70 +72,65 @@ CREATE TABLE `userinfo` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `userinfo`
+-- 資料表的匯出資料 `userinfo`
 --
 
 INSERT INTO `userinfo` (`UserID`, `userName`, `password`, `email`) VALUES
-(1, '111', '1', '1'),
-(11, '', '', ''),
-(12, 'wewwew', 'eee', 'wqe@dd.COM'),
-(13, 'debug01', '123', 'debug01@gmail.com'),
-(14, '', '', '');
+(1, 'A', 'A', 'A');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `userleveldata`
+-- 資料表結構 `user_star`
 --
 
-CREATE TABLE `userleveldata` (
-  `UserDataUserInfoUserID2` int(10) NOT NULL,
-  `LevellevelNo` int(10) NOT NULL
+CREATE TABLE `user_star` (
+  `ID` int(100) NOT NULL,
+  `UserID` int(11) NOT NULL,
+  `LevelNum` int(5) NOT NULL,
+  `Star` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Indexes for dumped tables
+-- 資料表的匯出資料 `user_star`
+--
+
+INSERT INTO `user_star` (`ID`, `UserID`, `LevelNum`, `Star`) VALUES
+(1, 1, 1, 1),
+(2, 1, 2, 2),
+(3, 1, 3, 3);
+
+--
+-- 已匯出資料表的索引
 --
 
 --
--- Indexes for table `answercorrectrate`
---
-ALTER TABLE `answercorrectrate`
-  ADD PRIMARY KEY (`UserDataUserInfoUserID`);
-
---
--- Indexes for table `level`
---
-ALTER TABLE `level`
-  ADD PRIMARY KEY (`levelNo`);
-
---
--- Indexes for table `question`
---
-ALTER TABLE `question`
-  ADD PRIMARY KEY (`questionID`);
-
---
--- Indexes for table `userdata`
---
-ALTER TABLE `userdata`
-  ADD PRIMARY KEY (`UserInfoUserID`);
-
---
--- Indexes for table `userinfo`
+-- 資料表索引 `userinfo`
 --
 ALTER TABLE `userinfo`
   ADD PRIMARY KEY (`UserID`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- 資料表索引 `user_star`
+--
+ALTER TABLE `user_star`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- 在匯出的資料表使用 AUTO_INCREMENT
 --
 
 --
--- AUTO_INCREMENT for table `userinfo`
+-- 使用資料表 AUTO_INCREMENT `userinfo`
 --
 ALTER TABLE `userinfo`
   MODIFY `UserID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
+-- 使用資料表 AUTO_INCREMENT `user_star`
+--
+ALTER TABLE `user_star`
+  MODIFY `ID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

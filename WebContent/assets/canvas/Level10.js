@@ -773,7 +773,6 @@ Level10.prototype.update = function () {
 	    	// move to the left
 	    	this.fPlayer.play('Left');
 	    	this.fPlayer.body.velocity.x -= 150;
-	    	//this.fPlayer.body.x -= 32;
             this.fPlayer.play('LeftStay');
 	        
 	    }else if (this.cursors.right.isDown)
@@ -781,7 +780,6 @@ Level10.prototype.update = function () {
 	    	// move to the right
 	    	this.fPlayer.play('Right');
 	    	this.fPlayer.body.velocity.x += 150;
-	    	//this.fPlayer.body.x += 32;
             this.fPlayer.play('RightStay');
 	    }
 	    else  if (this.cursors.up.isDown)
@@ -789,14 +787,12 @@ Level10.prototype.update = function () {
 	    	// move to the up
 	    	this.fPlayer.play('Back');
 	    	this.fPlayer.body.velocity.y -= 150;
-	    	//this.fPlayer.body.y -= 32;
             this.fPlayer.play('BackStay');
 	    }else if (this.cursors.down.isDown)
 	    {
 	    	// move to the down
 	    	this.fPlayer.play('Front');
 	    	this.fPlayer.body.velocity.y += 150;
-	    	//this.fPlayer.body.y += 32;
             this.fPlayer.play('FrontStay');
 	    }else{
 	    	this.fPlayer.play(play);
@@ -805,26 +801,21 @@ Level10.prototype.update = function () {
 	}
 	// set movement value
 		if (goToTheLeft){
-			
 			playerX = this.fPlayer.x;
 			goToTheLeft=false;
 			goLeft = true;
-			expX = playerX - 32;
 		}else if (goToTheRight){
 			playerX = this.fPlayer.x;
 			goToTheRight=false;
 			goRight = true;
-			expX = playerX + 32;
 		}else if (goToTheUp){
 			playerY = this.fPlayer.y;
 			goToTheUp=false;
 			goUp = true;
-			expX = playerY - 32;
 		}else if (goToTheDown){
 			playerY = this.fPlayer.y;
 			goToTheDown=false;
 			goDown = true;
-			expX = playerY + 32;
 		}
 		
 		this.physics.arcade.collide(this.fPlayer,this.fBlock,function(){

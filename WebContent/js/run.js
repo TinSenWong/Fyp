@@ -103,17 +103,23 @@ function runCode() {
             myInterpreter = new Interpreter(latestCode, initApi);
             runner = function () {
                 if (myInterpreter) {
-                    var hasMore = myInterpreter.run();
-                    if (hasMore) {
-                        // Execution is currently blocked by some async call.
-                        // Try again later.
-                        setTimeout(runner, 10);
-                    } else {
-                        // Program is complete.
-                        checkInput = true;
-                        console.log('\n\n<< complete >>');
-                        resetInterpreter();
-                        resetStepUi(false);
+                    if (MonsterGame){
+                        MonsterGame = false;
+                    }else{
+                        var hasMore = myInterpreter.run();
+                        if (hasMore) {
+                            // Execution is currently blocked by some async call.
+                            // Try again later.
+                            setTimeout(runner, 10);
+                        } else {
+                            // Program is complete.
+
+                            checkInput = true;
+
+                            console.log('\n\n<< complete >>');
+                            resetInterpreter();
+                            resetStepUi(false);
+                        }
                     }
                 }
             };
@@ -123,13 +129,15 @@ function runCode() {
             alert('You have no command to run!')
         }else{
             runCount += 1;
+            resetElement();
         }
-        resetElement();
+
 
         document.getElementById('runTime').innerHTML = '<h2>RunTime :' + runCount + '</h2>';
         return;
     }
 }
+
 
 // Load the interpreter now, and upon future changes.
 generateCodeAndLoadIntoInterpreter();
