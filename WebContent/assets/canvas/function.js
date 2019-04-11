@@ -43,7 +43,7 @@ var weekCurrentCol = 0;
 var currentScreen;
 var currentMonster;
 var limitTime = 3;
-var weaknessGroupList = createArray(2, 20);
+var weaknessGroupList = createArray(6, 20);
 var playerInputList;
 var dieList = [];
 var currentLevel;
@@ -408,6 +408,7 @@ function weekSpace() {
 
 function weekNextline() {
     weekCurrentRow += 1;
+    console.log("fun"+weekCurrentRow);
     weekCurrentCol = 0;
 }
 
@@ -425,7 +426,7 @@ function nextline() {
 var gameIndex;
 
 function inGame(index) {
-    weaknessGroupList = createArray(2, 20);
+    weaknessGroupList = createArray(6, 20);
     if (weaknessGroup != null) {
         weaknessGroup.destroy();
         console.log("Destroy");
@@ -465,7 +466,7 @@ function resetElement() {
     }
     currentRow = 0;
     currentCol = 0;
-    playerInputList = createArray(2, 20);
+    playerInputList = createArray(6, 20);
 }
 
 function addPlayerInputList(element) {
@@ -546,10 +547,12 @@ function addweaknessGroupGame2(weakness) {
             sprite.scale.set(0.5);
         }
 
-        weaknessGroupList[weekCurrentRow][weekCurrentCol] = weaknessGroup.children[weaknessGroup.children.length - 1];
-        weaknessGroup.children[weaknessGroup.children.length - 1].y += weekCurrentRow * 45;
-        weaknessGroup.children[weaknessGroup.children.length - 1].x += weekCurrentCol * 45;
-        weekCurrentCol += 1;
+            weaknessGroupList[weekCurrentRow][weekCurrentCol] = weaknessGroup.children[weaknessGroup.children.length - 1];
+
+            weaknessGroup.children[weaknessGroup.children.length - 1].y += weekCurrentRow * 45;
+            weaknessGroup.children[weaknessGroup.children.length - 1].x += weekCurrentCol * 45;
+            weekCurrentCol += 1;
+
     }
 
     game.world.bringToTop(weaknessGroup);
@@ -587,7 +590,7 @@ function addweaknessGroupGame3(weakness, newLine) {
                 if (randomNewLine[i] == randomNewLine[j] && (i != j) || randomNewLine[i] == 0) {
                     bool = true;
                     randomNewLine[i] = Math.floor((Math.random() * weakness.length));
-                    //console.log(i+":"+j+randomNewLine[i]);
+                    console.log(i+":"+j+randomNewLine[i]);
                 }
             }
 
@@ -598,22 +601,27 @@ function addweaknessGroupGame3(weakness, newLine) {
     }
 
     for (i = 0; i < weakness.length; i++) {
+        console.log("i:---------"+i);
         for (j = 0; j < randomNewLine.length; j++) {
             if (i == randomNewLine[j]) {
                 weekNextline();
             }
         }
-        if (i == randomSpace) {
-            sprite = game.add.sprite(0, 0, 'pause', null, weaknessGroup);
-            sprite.scale.set(32 / 225);
-        } else {
-            sprite = game.add.sprite(0, 0, 'Attributes', weakness[i], weaknessGroup);
-            sprite.scale.set(0.5);
+        if (weekCurrentRow < 6|| weekCurrentCol  < 20) {
+            if (i == randomSpace) {
+                sprite = game.add.sprite(0, 0, 'pause', null, weaknessGroup);
+                sprite.scale.set(32 / 225);
+            } else {
+                sprite = game.add.sprite(0, 0, 'Attributes', weakness[i], weaknessGroup);
+                sprite.scale.set(0.5);
+            }
+            console.log("weekCurrentRow" + weekCurrentRow);
+            console.log("weekCurrentCol" + weekCurrentCol);
+            weaknessGroupList[weekCurrentRow][weekCurrentCol] = weaknessGroup.children[weaknessGroup.children.length - 1];
+            weaknessGroup.children[weaknessGroup.children.length - 1].y += weekCurrentRow * 45;
+            weaknessGroup.children[weaknessGroup.children.length - 1].x += weekCurrentCol * 45;
+            weekCurrentCol += 1;
         }
-        weaknessGroupList[weekCurrentRow][weekCurrentCol] = weaknessGroup.children[weaknessGroup.children.length - 1];
-        weaknessGroup.children[weaknessGroup.children.length - 1].y += weekCurrentRow * 45;
-        weaknessGroup.children[weaknessGroup.children.length - 1].x += weekCurrentCol * 45;
-        weekCurrentCol += 1;
     }
 
     game.world.bringToTop(weaknessGroup);

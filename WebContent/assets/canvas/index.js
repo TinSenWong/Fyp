@@ -23,7 +23,7 @@ playGame.prototype = {
 
         this.savedData = localStorage.getItem(localStorageName) == null ? stars.toString() : localStorage.getItem(localStorageName);
 
-
+        /*
         $.ajax({
             url: "database/DB_Connect.php",
             type: "POST",
@@ -40,7 +40,7 @@ playGame.prototype = {
             }
         });
 
-
+*/
 
 
         // finally, no matter how we retrieved the string, splitting the string to form an array again
@@ -120,6 +120,7 @@ playGame.prototype = {
                         gamePass = false;
                         key = false;
                         hp = 3 ;
+                        dieList = [];
                         currentScreen = 'level';
                         runCount = 0;
                         document.getElementById('runTime').innerHTML = '';
