@@ -666,7 +666,6 @@ Level1.prototype.create = function () {
 	this.cursors = this.input.keyboard.createCursorKeys();
 	this.fPlayer.body.collideWorldBounds=true;
 	player = this.fPlayer;
-	
 };
 
 /* --- end generated code --- */
@@ -677,12 +676,8 @@ Level1.prototype.initScene = function () {
 };
 Level1.prototype.update = function () {
 	this.fPlayer.body.velocity.set(0);
-
-	if (this.fKeyYellow.exists){	
-		this.physics.arcade.collide(this.fPlayer,this.fKeyYellow, getKey, null, this);
-	}
-	this.physics.arcade.collide(this.fPlayer,this.fTreasure_chest,IsOpenChest, null, this);
-
+    this.physics.arcade.collide(this.fPlayer,this.fKeyYellow, getKey, null, this);
+    this.physics.arcade.collide(this.fPlayer,this.fTreasure_chest,IsOpenChest, null, this);
 	if (testmode){
         if (this.cursors.left.isDown)
         {

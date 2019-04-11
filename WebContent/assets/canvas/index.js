@@ -3,7 +3,7 @@
 var playGame = function (game) {};
 playGame.prototype = {
     preload: function () {
-        // level thumbnail 
+        // level thumbnail
     	currentScreen = 'selectlevel';
         game.load.spritesheet("levelthumb", "assets/image/levelthumb.png", 60, 60);
         // level pages at the bottom
@@ -14,37 +14,34 @@ playGame.prototype = {
     create: function () {
     	hideGame(true);
         // the first level has zero stars, to it's playable although not finished
-        stars[0] = 0;
-        // the remaining levels have -1 stars, this means they are still locked
-        for (var l = 1; l < columns * rows * colors.length; l++) {
-            stars[l] = -1;
-        }
+        //stars[0] = 0;
         // retrieving stars string from local storage or converting stars array to a string
+        //use localStorage
+        //this.savedData = localStorage.getItem(localStorageName) == null ? stars.toString() : localStorage.getItem(localStorageName);
+        //stars = this.savedData.split(",");
 
-        this.savedData = localStorage.getItem(localStorageName) == null ? stars.toString() : localStorage.getItem(localStorageName);
 
-        /*
         $.ajax({
             url: "database/DB_Connect.php",
             type: "POST",
             data: {
-                functionName: 'a',
+                Action: 'getStar',
                 userID:'1'
             },
             success: function(data) {
-                console.log(data);
-                eval("\""+data+"\"");
+                stars = data.split(",");
+
+                for (var l = stars.length; l < columns * rows * colors.length; l++) {
+                    stars[l] = "-1";
+                }
             },
             error: function(){
                 alert("Error");
             }
         });
 
-*/
 
 
-        // finally, no matter how we retrieved the string, splitting the string to form an array again
-        stars = this.savedData.split(",");
 
         // setting game background color
         game.stage.backgroundColor = "#222222";
