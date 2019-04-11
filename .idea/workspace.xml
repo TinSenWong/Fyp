@@ -80,21 +80,18 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WebContent/assets/canvas/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="569">
-              <caret line="42" column="2" selection-start-line="42" selection-start-column="2" selection-end-line="42" selection-end-column="2" />
+            <state relative-caret-position="259">
+              <caret line="26" column="16" lean-forward="true" selection-start-line="26" selection-start-column="16" selection-end-line="26" selection-end-column="16" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="function.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="function.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WebContent/assets/canvas/function.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="229">
-              <caret line="45" column="35" selection-start-line="45" selection-start-column="24" selection-end-line="45" selection-end-column="35" />
+            <state relative-caret-position="241">
+              <caret line="659" column="11" selection-start-line="659" selection-start-column="11" selection-end-line="659" selection-end-column="11" />
               <folding>
-                <element signature="n#style#0;n#xml#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#xml#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#xml#0;n#!!top" expanded="true" />
                 <element signature="e#29#36#1" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
@@ -103,6 +100,51 @@
                 <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Level7.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WebContent/assets/canvas/Level7.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-551">
+              <caret line="43" column="30" lean-forward="true" selection-start-line="43" selection-start-column="30" selection-end-line="43" selection-end-column="30" />
+              <folding>
+                <element signature="n#style#0;n#xml#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Level5.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WebContent/assets/canvas/Level5.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="349">
+              <caret line="774" column="9" lean-forward="true" selection-start-line="774" selection-start-column="9" selection-end-line="774" selection-end-column="9" />
+              <folding>
+                <element signature="n#style#0;n#xml#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Level15.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WebContent/assets/canvas/Level15.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="310">
+              <caret line="653" column="13" selection-start-line="653" selection-start-column="13" selection-end-line="653" selection-end-column="36" />
+              <folding>
+                <element signature="n#style#0;n#xml#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GamePlay.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/WebContent/GamePlay.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="27">
+              <caret line="94" column="79" lean-forward="true" selection-start-line="94" selection-start-column="79" selection-end-line="94" selection-end-column="79" />
             </state>
           </provider>
         </entry>
@@ -207,8 +249,9 @@
       <path value="C:/xampp/php/PEAR" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="1358" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-12" />
+    <option name="y" value="-12" />
     <option name="width" value="1390" />
     <option name="height" value="1756" />
   </component>
@@ -241,24 +284,6 @@
               <item name="WebContent" type="462c0819:PsiDirectoryNode" />
               <item name="assets" type="462c0819:PsiDirectoryNode" />
               <item name="canvas" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Fyp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Fyp" type="462c0819:PsiDirectoryNode" />
-              <item name="WebContent" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Fyp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Fyp" type="462c0819:PsiDirectoryNode" />
-              <item name="WebContent" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Fyp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Fyp" type="462c0819:PsiDirectoryNode" />
-              <item name="WebContent" type="462c0819:PsiDirectoryNode" />
-              <item name="JS-Interpreter" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -325,15 +350,15 @@
       <workItem from="1554725913609" duration="2700000" />
       <workItem from="1554785545635" duration="27421000" />
       <workItem from="1554883869847" duration="19078000" />
-      <workItem from="1554955842746" duration="2213000" />
+      <workItem from="1554955842746" duration="4256000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="140665000" />
+    <option name="totallyTimeSpent" value="142708000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="679" y="0" width="695" height="878" extended-state="0" />
+    <frame x="-6" y="-6" width="1381" height="885" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -343,7 +368,7 @@
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Terminal" order="10" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.39207047" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19531822" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -429,7 +454,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/js/movement_block.js">
-      <provider selected="true" editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/js/movement_stub.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -522,24 +553,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/assets/canvas/Level7.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15466">
-          <caret line="814" selection-start-line="814" selection-end-line="814" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/assets/canvas/Level6.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="14326">
           <caret line="754" selection-start-line="754" selection-end-line="754" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/assets/canvas/Level5.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15637">
-          <caret line="823" selection-start-line="823" selection-end-line="823" />
         </state>
       </provider>
     </entry>
@@ -571,13 +588,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/assets/canvas/Level15.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="647" selection-start-line="647" selection-end-line="647" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/assets/canvas/breakWallGame.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -595,28 +605,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/GamePlay.php">
+    <entry file="file://$PROJECT_DIR$/WebContent/assets/canvas/Level5.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="875">
-          <caret line="130" column="5" lean-forward="true" selection-start-line="130" selection-start-column="5" selection-end-line="130" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/assets/canvas/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="569">
-          <caret line="42" column="2" selection-start-line="42" selection-start-column="2" selection-end-line="42" selection-end-column="2" />
+        <state relative-caret-position="349">
+          <caret line="774" column="9" lean-forward="true" selection-start-line="774" selection-start-column="9" selection-end-line="774" selection-end-column="9" />
+          <folding>
+            <element signature="n#style#0;n#xml#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/assets/canvas/function.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="45" column="35" selection-start-line="45" selection-start-column="24" selection-end-line="45" selection-end-column="35" />
+        <state relative-caret-position="241">
+          <caret line="659" column="11" selection-start-line="659" selection-start-column="11" selection-end-line="659" selection-end-column="11" />
           <folding>
-            <element signature="n#style#0;n#xml#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#xml#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#xml#0;n#!!top" expanded="true" />
             <element signature="e#29#36#1" expanded="true" />
             <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
@@ -625,6 +628,40 @@
             <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/assets/canvas/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="259">
+          <caret line="26" column="16" lean-forward="true" selection-start-line="26" selection-start-column="16" selection-end-line="26" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/assets/canvas/Level7.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-551">
+          <caret line="43" column="30" lean-forward="true" selection-start-line="43" selection-start-column="30" selection-end-line="43" selection-end-column="30" />
+          <folding>
+            <element signature="n#style#0;n#xml#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/assets/canvas/Level15.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="310">
+          <caret line="653" column="13" selection-start-line="653" selection-start-column="13" selection-end-line="653" selection-end-column="36" />
+          <folding>
+            <element signature="n#style#0;n#xml#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/GamePlay.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="27">
+          <caret line="94" column="79" lean-forward="true" selection-start-line="94" selection-start-column="79" selection-end-line="94" selection-end-column="79" />
         </state>
       </provider>
     </entry>

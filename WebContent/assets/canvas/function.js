@@ -433,22 +433,35 @@ function inGame(index) {
     }
     weaknessGroup = game.add.group();
     if (index == 1) {
+    	//game
         addweaknessGroupGame1(randonWeakness(1));
     } else if (index == 2) {
         addweaknessGroupGame1(randonWeakness(3));
     } else if (index == 3) {
+    	//space game
         addweaknessGroupGame2(randonWeakness(4));
     } else if (index == 4) {
+    	//create game with multiple line(elementArray, NoOfEnter(start from 1))
         addweaknessGroupGame3(randonWeakness(5),2);
     }
 }
 
+//create random element
 function randonWeakness(number) {
     var weakness = [];
     for (i = 0; i < number; i++) {
         weakness[i] = Math.floor(Math.random() * 5) + 1;
     }
     return weakness;
+}
+
+//create random element
+function setWeakness(weakness,number) {
+    var weaknessArray = [];
+    for (i = 0; i < number; i++) {
+    	weaknessArray[i] = weakness;
+    }
+    return weaknessArray;
 }
 
 // Game
@@ -601,7 +614,6 @@ function addweaknessGroupGame3(weakness, newLine) {
     }
 
     for (i = 0; i < weakness.length; i++) {
-        console.log("i:---------"+i);
         for (j = 0; j < randomNewLine.length; j++) {
             if (i == randomNewLine[j]) {
                 weekNextline();
