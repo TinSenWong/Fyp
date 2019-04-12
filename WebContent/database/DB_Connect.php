@@ -32,7 +32,7 @@ if ($conn) {
         if (mysqli_num_rows($result) > 0) {
             while ($values = mysqli_fetch_assoc($result)) {
                 if ($values['star'] < $star) {
-                    $sql = "UPDATE user_star SET Star= $star WHERE ID = $userID";
+                    $sql = "UPDATE user_star SET Star= $star WHERE ID = {$values['ID']}";
                 }
             }
         }else{

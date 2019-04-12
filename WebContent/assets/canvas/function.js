@@ -61,9 +61,8 @@ function createArray(length) {
 
     return arr;
 }
-
+var data1;
 function selectLevel() {
-    stars[0] = 0;
     $.ajax({
         url: "database/DB_Connect.php",
         type: "POST",
@@ -72,31 +71,41 @@ function selectLevel() {
             userID: '1'
         },
         success: function (data) {
-            stars = data.split(",");
+
+            if (data.length == 0){
+                stars[0] = 0;
+                console.log(data.length);
+            }else{
+                stars = data.split(",");
+                stars[stars.length] = 0;
+                console.log(stars);
+            }
 
             for (var l = stars.length; l < columns * rows * colors.length; l++) {
                 stars[l] = "-1";
             }
-            if (game != null) {
-                game.destroy();
-            }
-            game = new Phaser.Game($(document).width() * 0.99, $(document).height(), Phaser.Auto, 'phaser');
-
-            game.state.add("PlayGame", playGame);
-            game.state.start("PlayGame");
-            Phaser.Device.whenReady(function () {
-                game.plugins.add(PhaserInput.Plugin);
-                game.plugins.add(PhaserNineSlice.Plugin);
-                game.plugins.add(Phaser.Plugin.KineticScrolling);
-            });
-            worngTime = 0;
-            finish = 0;
 
         },
         error: function () {
             alert("Error");
         }
     });
+
+
+    if (game != null) {
+        game.destroy();
+    }
+    game = new Phaser.Game($(document).width() * 0.99, $(document).height(), Phaser.Auto, 'phaser');
+
+    game.state.add("PlayGame", playGame);
+    game.state.start("PlayGame");
+    Phaser.Device.whenReady(function () {
+        game.plugins.add(PhaserInput.Plugin);
+        game.plugins.add(PhaserNineSlice.Plugin);
+        game.plugins.add(Phaser.Plugin.KineticScrolling);
+    });
+    worngTime = 0;
+    finish = 0;
 };
 
 function goSelectLevel() {

@@ -20,29 +20,6 @@ playGame.prototype = {
         //this.savedData = localStorage.getItem(localStorageName) == null ? stars.toString() : localStorage.getItem(localStorageName);
         //stars = this.savedData.split(",");
 
-
-        $.ajax({
-            url: "database/DB_Connect.php",
-            type: "POST",
-            data: {
-                Action: 'getStar',
-                userID:'1'
-            },
-            success: function(data) {
-                stars = data.split(",");
-
-                for (var l = stars.length; l < columns * rows * colors.length; l++) {
-                    stars[l] = "-1";
-                }
-            },
-            error: function(){
-                alert("Error");
-            }
-        });
-
-
-
-
         // setting game background color
         game.stage.backgroundColor = "#222222";
         // just a text placed on the top of the stage to show level page
