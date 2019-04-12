@@ -49,6 +49,7 @@ var dieList = [];
 var currentLevel;
 var MonsterGame;
 var hit = true;
+var tweenPlaying = false;
 
 function createArray(length) {
     var arr = new Array(length || 0),
@@ -74,16 +75,28 @@ function selectLevel() {
 
             if (data.length == 0){
                 stars[0] = 0;
-                console.log(data.length);
             }else{
                 stars = data.split(",");
-                stars[stars.length] = 0;
-                console.log(stars);
+                stars[stars.length] = "0";
             }
 
             for (var l = stars.length; l < columns * rows * colors.length; l++) {
                 stars[l] = "-1";
             }
+            if (game != null) {
+                game.destroy();
+            }
+            game = new Phaser.Game($(document).width() * 0.99, $(document).height(), Phaser.Auto, 'phaser');
+
+            game.state.add("PlayGame", playGame);
+            game.state.start("PlayGame");
+            Phaser.Device.whenReady(function () {
+                game.plugins.add(PhaserInput.Plugin);
+                game.plugins.add(PhaserNineSlice.Plugin);
+                game.plugins.add(Phaser.Plugin.KineticScrolling);
+            });
+            worngTime = 0;
+            finish = 0;
 
         },
         error: function () {
@@ -92,20 +105,7 @@ function selectLevel() {
     });
 
 
-    if (game != null) {
-        game.destroy();
-    }
-    game = new Phaser.Game($(document).width() * 0.99, $(document).height(), Phaser.Auto, 'phaser');
 
-    game.state.add("PlayGame", playGame);
-    game.state.start("PlayGame");
-    Phaser.Device.whenReady(function () {
-        game.plugins.add(PhaserInput.Plugin);
-        game.plugins.add(PhaserNineSlice.Plugin);
-        game.plugins.add(Phaser.Plugin.KineticScrolling);
-    });
-    worngTime = 0;
-    finish = 0;
 };
 
 function goSelectLevel() {

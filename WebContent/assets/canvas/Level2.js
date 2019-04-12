@@ -733,6 +733,7 @@ Level2.prototype.update = function () {
         goToTheRight=false;
         goRight = true;
     }else if (goToTheUp){
+
         playerY = this.fPlayer.y;
         goToTheUp=false;
         goUp = true;
@@ -742,25 +743,6 @@ Level2.prototype.update = function () {
         goDown = true;
     }
 
-
-    this.physics.arcade.collide(this.fPlayer,this.fBlock,function(){
-			if (player.animations.currentAnim.name == "Left"){
-				this.fPlayer.play('LeftStay');
-			}else if (player.animations.currentAnim.name == "Right"){
-				this.fPlayer.play('RightStay');
-			}else if (player.animations.currentAnim.name == "Back"){
-				this.fPlayer.play('BackStay');
-			}else if (player.animations.currentAnim.name == "Front"){
-				this.fPlayer.play('FrontStay');
-			}
-			if (tween!=null){
-				tween.pause();
-			}
-			
-			this.fPlayer.x =  Math.round(this.fPlayer.x / 32)*32;
-			this.fPlayer.y =  Math.round(this.fPlayer.y / 32)*32;
-		},null,this);
-		
 	if (goLeft){// move to the left
 		goLeft=false;
 		tween = this.add.tween(this.fPlayer).to({ x: this.fPlayer.x-32 }, 200, Phaser.Easing.Quadratic.InOut, true);
@@ -784,6 +766,7 @@ Level2.prototype.update = function () {
     else  if (goUp)
     {
     	goUp=false;
+        console.log('up');
     	tween = this.add.tween(this.fPlayer).to({ y: this.fPlayer.y-32 }, 200, Phaser.Easing.Quadratic.InOut, true);
     	tween.onStart.add(function(){this.fPlayer.play('Back');},this);
     	tween.onComplete.add(function(){
@@ -802,7 +785,27 @@ Level2.prototype.update = function () {
             this.fPlayer.y =  Math.round(this.fPlayer.y / 32)*32;
     	},this);
     }
+    this.physics.arcade.collide(this.fPlayer,this.fBlock,function(){
+        if (player.animations.currentAnim.name == "Left"){
+            this.fPlayer.play('LeftStay');
+        }else if (player.animations.currentAnim.name == "Right"){
+            this.fPlayer.play('RightStay');
+        }else if (player.animations.currentAnim.name == "Back"){
+            this.fPlayer.play('BackStay');
+        }else if (player.animations.currentAnim.name == "Front"){
+            this.fPlayer.play('FrontStay');
+        }
+		if (tween != undefined ){
+			if (tween.isRunning) {
+				try{
+                	tween.pause();
+                }catch(err){}
+            }
+        }
 
+        this.fPlayer.x =  Math.round(this.fPlayer.x / 32)*32;
+        this.fPlayer.y =  Math.round(this.fPlayer.y / 32)*32;
+    },null,this);
 };
 Level2.prototype.render = function () {
 	//this.game.debug.bodyInfo(this.fPlayer,32, 150);

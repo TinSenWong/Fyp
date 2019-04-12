@@ -770,7 +770,10 @@ Level12.prototype.update = function () {
 				this.fPlayer.play('FrontStay');
 			}
 			if (tween!=null){
-				tween.pause();
+                try {
+                    tween.pause();
+                } catch (err) {
+                }
 			}
 			
 			this.fPlayer.x =  Math.round(this.fPlayer.x / 32)*32;

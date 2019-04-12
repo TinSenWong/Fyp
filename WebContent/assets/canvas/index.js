@@ -19,7 +19,6 @@ playGame.prototype = {
         //use localStorage
         //this.savedData = localStorage.getItem(localStorageName) == null ? stars.toString() : localStorage.getItem(localStorageName);
         //stars = this.savedData.split(",");
-
         // setting game background color
         game.stage.backgroundColor = "#222222";
         // just a text placed on the top of the stage to show level page
