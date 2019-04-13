@@ -28,7 +28,8 @@ include "Heading.php"; ?>
         <div class="achievement-box-namebar-area">
             <span>achievement0</span>
             <div class="achievement-box-bar">
-                <div class="achievement-box-status-0"> <!-- CONTROL VALUE-->
+                <div class="achievement-box-status-0">
+
                 </div>
             </div>
         </div>
@@ -41,7 +42,8 @@ include "Heading.php"; ?>
         <div class="achievement-box-namebar-area">
             <span>achievement1</span>
             <div class="achievement-box-bar">
-                <div class="achievement-box-status-25"> <!-- CONTROL VALUE-->
+                <div class="achievement-box-status-25">
+
                 </div>
             </div>
         </div>

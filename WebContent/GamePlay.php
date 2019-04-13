@@ -1,3 +1,14 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['username'])) {
+    //$_SESSION['msg'] = "You must log in first";
+    //header('location: RegisterPage.php');
+}
+
+
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -51,6 +62,7 @@
 </head>
 
 <body onresize="resizeCanvas()">
+
 <?php include 'Heading.php'; ?>
 <?php include 'popupmenu.html'; ?>
 <?php include 'blocklyXml.html'; ?>
@@ -60,8 +72,11 @@
         <div id="debug-grid" class="grid"></div>
     </div>
     <div id="gameButtonDIV" style="">
-        <button onclick="selectLevel()" id="selectLevel"><img src="webImage/back.png" height="42" width="42">Select Level</button>
-        <button onclick="runCode()" id="runButton"><img src="webImage/move.jpg" height="42" width="25"> Run JavaScript</button>
+        <button onclick="selectLevel()" id="selectLevel"><img src="webImage/back.png" height="42" width="42">Select
+            Level
+        </button>
+        <button onclick="runCode()" id="runButton"><img src="webImage/move.jpg" height="42" width="25"> Run JavaScript
+        </button>
         <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modal">How to play</button>
     </div>
     <div id='displayText'>
@@ -76,7 +91,16 @@
 
 
 <script>
-    window.onload=initPopups;
+    //*******************
+    <?php
+
+    if (isset($_GET['logout'])) {
+        session_destroy();
+        unset($_SESSION['username']);
+        header("location: LoginPage.php");
+    }
+    ?>
+    window.onload = initPopups;
     goSelectLevel();
     $('#modalToggle').click(function () {
         $('#modal').modal({
@@ -120,42 +144,42 @@
         media: 'google-blockly/media/',
         toolbox: document.getElementById('toolbox')
     });
+
     function onWorkspaceChange(event) {
         document.getElementById('blocklyNum').textContent =
             "You have  " + workspace.remainingCapacity() + " block(s) can use.";
     }
+
     workspace.addChangeListener(onWorkspaceChange);
     onWorkspaceChange();
 
-    function resizeCanvas()
-    {
+    function resizeCanvas() {
         var blocklyDiv = document.getElementById('blocklyDiv');
         if (currentScreen == 'level') {
-            if (window.innerWidth>640&&window.innerWidth<2000){
-                blocklyDiv.style.width = window.innerWidth*0.3 + 'px';
-                blocklyDiv.style.height = window.innerHeight*0.8 + 'px';
-                game.width = window.innerWidth*0.625;
-                game.height = game.width*(2/3);
+            if (window.innerWidth > 640 && window.innerWidth < 2000) {
+                blocklyDiv.style.width = window.innerWidth * 0.3 + 'px';
+                blocklyDiv.style.height = window.innerHeight * 0.8 + 'px';
+                game.width = window.innerWidth * 0.625;
+                game.height = game.width * (2 / 3);
 
                 $('#debug-grid').height(game.height);
                 $('#debug-grid').width(game.width);
-                document.documentElement.style.setProperty('--gird-size', game.width/37.5+'px');
-                document.documentElement.style.setProperty('--start-line', game.width/37.5-1+'px');
+                document.documentElement.style.setProperty('--gird-size', game.width / 37.5 + 'px');
+                document.documentElement.style.setProperty('--start-line', game.width / 37.5 - 1 + 'px');
 
 
-
-            }else if (window.innerWidth>2000){
+            } else if (window.innerWidth > 2000) {
                 game.width = 1200;
                 game.height = 800;
                 $('#debug-grid').height(game.height);
                 $('#debug-grid').width(game.width);
-                blocklyDiv.style.width = window.innerWidth*0.35 + 'px';
+                blocklyDiv.style.width = window.innerWidth * 0.35 + 'px';
                 document.documentElement.style.setProperty('--gird-size', '32px');
                 document.documentElement.style.setProperty('--start-line', '31px');
             }
 
-        }else{
-
+        } else {
+            selectLevel();
         }
     }
 
