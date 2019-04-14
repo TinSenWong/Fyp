@@ -1,11 +1,11 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['username'])) {
-    //$_SESSION['msg'] = "You must log in first";
-    //header('location: RegisterPage.php');
-}
+if (!isset($_SESSION["userID"])) {
+    $_SESSION['msg'] = "You must log in first";
+    header('location: LoginPage.php');
 
+}
 
 ?>
 
@@ -67,6 +67,7 @@ if (!isset($_SESSION['username'])) {
 <?php include 'popupmenu.html'; ?>
 <?php include 'blocklyXml.html'; ?>
 <?php include 'howtoplay.html'; ?>
+
 <div id="gameDiv">
     <div id="phaser">
         <div id="debug-grid" class="grid"></div>
@@ -93,13 +94,13 @@ if (!isset($_SESSION['username'])) {
 <script>
     //*******************
     <?php
-
     if (isset($_GET['logout'])) {
         session_destroy();
         unset($_SESSION['username']);
         header("location: LoginPage.php");
     }
     ?>
+    userID = "<?php echo $_SESSION["userID"] ?>";
     window.onload = initPopups;
     goSelectLevel();
     $('#modalToggle').click(function () {

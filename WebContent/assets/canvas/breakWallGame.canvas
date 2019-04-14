@@ -20,7 +20,8 @@
     ],
     "showGrid": true,
     "create_before": "this.playerInputMask = game.add.graphics();\r\nthis.playerInputMask.inputEnabled=true;\r\nthis.playerInputMask.beginFill(0xF6F641);\r\nthis.playerInputMask.drawRect( 100,300,900, 300 );\r\nthis.playerInputMask.endFill();\r\nthis.WeaknessOutputMask = game.add.graphics();\r\nthis.WeaknessOutputMask.inputEnabled=true;\r\nthis.WeaknessOutputMask.beginFill(0x98F5FF);\r\nthis.WeaknessOutputMask.drawRect(100,0,900, 300);\r\nthis.WeaknessOutputMask.endFill();\r\nthis.heartArea = game.add.graphics();\r\nthis.heartArea.beginFill(0xF6ADF3);\r\nthis.heartArea.drawRect( 0,0,100,600 );\r\nthis.animeArea = game.add.graphics();\r\nthis.animeArea.beginFill(0x35AC27);\r\nthis.animeArea.drawRect( 0,600,1000,600 );\r\nvar _wrongTime = this.add.text(1000.0, 50.0, 'Wrong:'+wrongTime, {\"font\":\"bold 28px Arial\"});\r\nvar _limitTime = this.add.text(1002.0, 113.0, \"Attempts :\" + limitTime, {\"font\":\"bold 28px Arial\"});\r\nvar _finishTime = this.add.text(997.0, 667.0, 'Enemy HP:'+enemyHP, {\"font\":\"bold 28px Arial\"});\r\n\r\nthis.fWrongTime = _wrongTime;\r\nthis.fLimitTime = _limitTime;\r\nthis.fFinishTime = _finishTime;\t",
-    "create_after": "inGame(gameIndex);"
+    "create_after": "inGame(gameIndex);\r\nfor (i= 3-hp-1; i>=0;i--){\r\n\t\tthis.fHPGroup.children[i].frame = 15;\r\n\t}\r\n",
+    "state_preload_before": "MonsterGame = false;\r\ncheckInput = false;"
   },
   "stateSettings": {
     "stageBackgroundColor": [
@@ -155,9 +156,131 @@
           }
         },
         {
+          "type": "spritesheet",
+          "id": "6f1dd91d-ba6f-4ef4-b1cf-73503ec9e36f",
+          "asset": "1",
+          "info": {
+            "editorName": "curtains",
+            "editorField": true,
+            "x": 21,
+            "y": -12,
+            "scale.x": 6.192168460166832,
+            "scale.y": 3.7934940235158177,
+            "animations": [
+              {
+                "name": "open",
+                "frameRate": 20,
+                "field": true,
+                "autoPlay": true,
+                "frames": [
+                  "0",
+                  "1",
+                  "2",
+                  "3",
+                  "4",
+                  "5",
+                  "6",
+                  "7",
+                  "8",
+                  "9",
+                  "10",
+                  "11",
+                  "12",
+                  "13",
+                  "14",
+                  "15",
+                  "16",
+                  "17",
+                  "18",
+                  "19",
+                  "39"
+                ]
+              },
+              {
+                "name": "close",
+                "frameRate": 20,
+                "field": true,
+                "frames": [
+                  "18",
+                  "19",
+                  "20",
+                  "21",
+                  "22",
+                  "23",
+                  "24",
+                  "25",
+                  "26",
+                  "27",
+                  "28",
+                  "29",
+                  "30",
+                  "31",
+                  "32",
+                  "33",
+                  "34",
+                  "35",
+                  "36",
+                  "37",
+                  "38"
+                ]
+              },
+              {
+                "name": "both",
+                "frameRate": 20,
+                "field": true,
+                "frames": [
+                  "18",
+                  "19",
+                  "20",
+                  "21",
+                  "22",
+                  "23",
+                  "24",
+                  "25",
+                  "26",
+                  "27",
+                  "28",
+                  "29",
+                  "30",
+                  "31",
+                  "32",
+                  "33",
+                  "34",
+                  "35",
+                  "36",
+                  "37",
+                  "38",
+                  "0",
+                  "1",
+                  "2",
+                  "3",
+                  "4",
+                  "5",
+                  "6",
+                  "7",
+                  "8",
+                  "9",
+                  "10",
+                  "11",
+                  "12",
+                  "13",
+                  "14",
+                  "15",
+                  "16",
+                  "17",
+                  "18",
+                  "19",
+                  "20",
+                  "39"
+                ]
+              }
+            ]
+          }
+        },
+        {
           "type": "atlas-sprite",
           "id": "4c864ef6-2eb0-469f-9be5-868a4a75d55f",
-          "asset": "1",
+          "asset": "2",
           "info": {
             "editorName": "misa_right",
             "x": 33,
@@ -169,7 +292,7 @@
         {
           "type": "image",
           "id": "d68eb1bb-4cd4-48ed-b902-66a3b0840a3c",
-          "asset": "2",
+          "asset": "3",
           "info": {
             "editorName": "magic",
             "x": 153,
@@ -179,7 +302,7 @@
         {
           "type": "atlas-sprite",
           "id": "303f8ff1-e6b1-418e-b7b6-5a2a38506302",
-          "asset": "3",
+          "asset": "4",
           "info": {
             "editorName": "monster",
             "editorField": true,
@@ -213,6 +336,40 @@
               }
             ]
           }
+        },
+        {
+          "type": "spritesheet",
+          "id": "b61c4e44-22ad-4552-9009-70e6cb95a504",
+          "asset": "5",
+          "info": {
+            "editorName": "hp_bar",
+            "editorField": true,
+            "x": 878,
+            "y": 769,
+            "scale.x": 2.65344019870935,
+            "scale.y": 2.567321806126191,
+            "animations": [
+              {
+                "name": "full",
+                "frameRate": 6,
+                "frames": [
+                  "0",
+                  "1",
+                  "2",
+                  "3",
+                  "4",
+                  "5",
+                  "6"
+                ]
+              },
+              {
+                "name": "destroy",
+                "frameRate": 6,
+                "killOnComplete": true,
+                "frames": ["6"]
+              }
+            ]
+          }
         }
       ]
     }
@@ -227,20 +384,32 @@
     },
     "1": {
       "file": "WebContent/assets/pack.json",
+      "section": "game",
+      "asset": "curtains",
+      "sprite": "0"
+    },
+    "2": {
+      "file": "WebContent/assets/pack.json",
       "section": "maze",
       "asset": "atlas",
       "sprite": "misa-right"
     },
-    "2": {
+    "3": {
       "file": "WebContent/assets/pack.json",
       "section": "game",
       "asset": "magic"
     },
-    "3": {
+    "4": {
       "file": "WebContent/assets/pack.json",
       "section": "maze",
       "asset": "monster",
       "sprite": "sprite2"
+    },
+    "5": {
+      "file": "WebContent/assets/pack.json",
+      "section": "game",
+      "asset": "hp_bar",
+      "sprite": "0"
     }
   },
   "prefab-table": {}

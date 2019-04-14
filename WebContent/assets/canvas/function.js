@@ -50,6 +50,10 @@ var currentLevel;
 var MonsterGame;
 var hit = true;
 var tweenPlaying = false;
+var userID='';
+
+
+
 
 function createArray(length) {
     var arr = new Array(length || 0),
@@ -62,17 +66,15 @@ function createArray(length) {
 
     return arr;
 }
-var data1;
 function selectLevel() {
     $.ajax({
         url: "database/DB_Connect.php",
         type: "POST",
         data: {
             Action: 'getStar',
-            userID: '1'
+            userID: userID
         },
         success: function (data) {
-
             if (data.length == 0){
                 stars[0] = 0;
             }else{
@@ -208,20 +210,17 @@ function IsOpenChest() {
 
             //use localStorageName
             //localStorage.setItem(localStorageName, stars.toString());
-            console.log(level + 1);
-            console.log(stars[level]);
 
             $.ajax({
                 url: "database/DB_Connect.php",
                 type: "POST",
                 data: {
                     Action: 'insertLVStar',
-                    userID:'1',
+                    userID: userID,
                     lv: level + 1,
                     star: stars[level]
                 },
                 success: function (data) {
-                    console.log(data);
                 },
                 error: function () {
                     alert("Error");
@@ -465,7 +464,6 @@ function weekSpace() {
 
 function weekNextline() {
     weekCurrentRow += 1;
-    console.log("fun" + weekCurrentRow);
     weekCurrentCol = 0;
 }
 
@@ -486,7 +484,6 @@ function inGame(index) {
     weaknessGroupList = createArray(6, 20);
     if (weaknessGroup != null) {
         weaknessGroup.destroy();
-        console.log("Destroy");
     }
     weaknessGroup = game.add.group();
     if (index == 1) {
@@ -559,7 +556,6 @@ function addPlayerInputList(element) {
 
 
     playerInputList[currentRow][currentCol] = playerInput.children[playerInput.children.length - 1];
-    console.log("playerInputList" + currentRow + ":" + currentCol);
     playerInput.children[playerInput.children.length - 1].y += currentRow * 45;
     playerInput.children[playerInput.children.length - 1].x += currentCol * 45;
     currentCol += 1;
@@ -581,8 +577,6 @@ function addweaknessGroupGame1(weakness) {
     for (i = 0; i < weakness.length; i++) {
         sprite = game.add.sprite(0, 0, 'Attributes', weakness[i], weaknessGroup);
         sprite.scale.set(0.5);
-        console.log("weaknessGroupList" + weekCurrentRow + ":" + weekCurrentCol);
-
         weaknessGroupList[weekCurrentRow][weekCurrentCol] = weaknessGroup.children[weaknessGroup.children.length - 1];
         weaknessGroup.children[weaknessGroup.children.length - 1].y += weekCurrentRow * 45;
         weaknessGroup.children[weaknessGroup.children.length - 1].x += weekCurrentCol * 45;
@@ -660,14 +654,12 @@ function addweaknessGroupGame3(weakness, newLine) {
                 if (randomNewLine[i] == randomNewLine[j] && (i != j) || randomNewLine[i] == 0) {
                     bool = true;
                     randomNewLine[i] = Math.floor((Math.random() * weakness.length));
-                    console.log(i + ":" + j + randomNewLine[i]);
                 }
             }
 
         }
     } while (bool);
     for (i = 0; i < randomNewLine.length; i++) {
-        console.log(randomNewLine[i]);
     }
 
     for (i = 0; i < weakness.length; i++) {
@@ -684,8 +676,7 @@ function addweaknessGroupGame3(weakness, newLine) {
                 sprite = game.add.sprite(0, 0, 'Attributes', weakness[i], weaknessGroup);
                 sprite.scale.set(0.5);
             }
-            console.log("weekCurrentRow" + weekCurrentRow);
-            console.log("weekCurrentCol" + weekCurrentCol);
+
             weaknessGroupList[weekCurrentRow][weekCurrentCol] = weaknessGroup.children[weaknessGroup.children.length - 1];
             weaknessGroup.children[weaknessGroup.children.length - 1].y += weekCurrentRow * 45;
             weaknessGroup.children[weaknessGroup.children.length - 1].x += weekCurrentCol * 45;
@@ -749,7 +740,6 @@ function createMsg(levelName, tabNameArray, img2Darray) {
         html += '   <div class="col-md-8 banner-sec" style="text-align: center">';
         html += '  <div id="' + tabNameArray[i] + '1" class="carousel slide" data-ride="carousel" style="text-align: center">';
         html += '  <ol class="carousel-indicators">';
-        console.log(img2Darray[i].length + 'i' + i);
         for (j = 0; j < img2Darray[i].length; j++) {
             if (img2Darray[i][j] == undefined) {
                 break;

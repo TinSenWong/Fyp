@@ -264,10 +264,30 @@
       "key": "pause",
       "url": "assets/image/pause.png",
       "overwrite": false
+    },
+    {
+      "type": "spritesheet",
+      "key": "hp_bar",
+      "url": "assets/image/hp_bar.png",
+      "frameWidth": 28,
+      "frameHeight": 8,
+      "frameMax": -1,
+      "margin": 0,
+      "spacing": 0
+    },
+    {
+      "type": "spritesheet",
+      "key": "curtains",
+      "url": "assets/image/curtains.png",
+      "frameWidth": 171,
+      "frameHeight": 90,
+      "frameMax": -1,
+      "margin": 0,
+      "spacing": 0
     }
   ],
   "meta": {
-    "generated": "1554561631607",
+    "generated": "1555226973601",
     "app": "Phaser Editor",
     "url": "http://phasereditor.boniatillo.com",
     "version": "1.0",

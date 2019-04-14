@@ -28,25 +28,24 @@ if (isset($_POST['submit'])){
     $SQL_database = "fyp";
 
     $conn = @mysqli_connect($SQL_servername, $SQL_username, $SQL_password,$SQL_database)
-    or die ("<p align='center'>Server Connection Failed</p");
+    or die ("<p align='center'>Server Connection Failed</p>");
 
     $email = $conn->real_escape_string($_POST['email']);
     $password = $conn->real_escape_string($_POST['password']);
 
     $password = md5($password);
-    echo "<script>$password</script>";
-    $result = mysqli_query($conn,"select email,password from userinfo where email = '$email' and password = '$password'")or die ();
+    $result = mysqli_query($conn,"select * from userinfo where email = '$email' and password = '$password'")or die ();
     $row=mysqli_fetch_array($result);
-    if ($row[0]==$email && $row[1]==$password) {
-        /*session_start();
-        echo $_SESSION["username"] = $email;
+    if ($row['email']==$email && $row['password']==$password) {
+        session_start();
+        $_SESSION["userID"] = $row['UserID'];
         $cookie_name = "username";
-        $cookie_value = $username;
-        setcookie($cookie_name, $cookie_value, time() + 30*60); // 30min
+        $cookie_value = $row['userName'];
+        setcookie($cookie_name, $cookie_value, time() + 60*60); // 1hour
         $cookie_name = "timeout";
         $cookie_value = 1;
-        setcookie($cookie_name, $cookie_value, time() + 2*60); // 2min
-        */
+        setcookie($cookie_name, $cookie_value, time() + 30*60); // 30min
+
         header("Location:GamePlay.php");
     }else {
         echo $row[1];

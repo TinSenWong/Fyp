@@ -8,7 +8,7 @@ if ($conn) {
     if ($_POST['Action'] == 'getStar') {
         $userID = $_POST['userID'];
         //$sql = "INSERT INTO user_star ($LevelNum, $UserID, $star) VALUES ('John', 'Doe', 'john@example.com')";
-        $sql = "SELECT star FROM user_star WHERE $userID = 1 order by LevelNum";
+        $sql = "SELECT star FROM user_star WHERE userID = $userID  order by LevelNum";
 
         $counter = 0;
 
@@ -26,7 +26,7 @@ if ($conn) {
         $lvNum = $_POST['lv'];
         $star = $_POST['star'];
         //$sql = "INSERT INTO user_star ($LevelNum, $UserID, $star) VALUES ('John', 'Doe', 'john@example.com')";
-        $sql = "SELECT * FROM user_star WHERE $userID = 1 and LevelNum = $lvNum";
+        $sql = "SELECT * FROM user_star WHERE userID = $userID and LevelNum = $lvNum";
         $result = mysqli_query($conn, $sql);
         $resultRow = mysqli_num_rows($result);
         if (mysqli_num_rows($result) > 0) {
