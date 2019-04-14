@@ -151,7 +151,7 @@ function lostheartHandler(that) {
     that.fHPGroup.children[3 - hp - 1].play('play');
     if (hp == 0) {
         dieList = [];
-        if (confirm('你死了  重新遊玩')) {
+        /*if (confirm('你死了  重新遊玩')) {
             hideGame(false);
             game.destroy();
             game = new Phaser.Game(1200, 800, Phaser.Auto, 'phaser');
@@ -165,7 +165,7 @@ function lostheartHandler(that) {
             that.state.add("playGame", playGame);
             that.state.start("playGame");
         }
-
+*/
     }
 }
 
