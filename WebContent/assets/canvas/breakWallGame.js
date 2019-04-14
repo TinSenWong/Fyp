@@ -147,17 +147,20 @@ breakWallGame.prototype.update = function () {
                 tween = this.add.tween(fireball).to({x: 800, y: 680}, 1000, "Linear", true, 500);
                 tween.onComplete.add(function () {
                     fireball.destroy();
-                }, this);
-
-                that = this;
-                setTimeout(function () {
-                	if (--this.showEnemyHP == 0) {
+                    this.showEnemyHP--;
+                    that.fFinishTime.setText(this.showEnemyHP+'/'+enemyHP);
+                    if (that.showEnemyHP == 0) {
                 		that.fHp_bar.animations.play('destroy');
                 	} else {
                 		var _hp_bar_drophp = that.fHp_bar.animations.add('-hp', [that.fHp_bar.frame++, that.fHp_bar.frame++, that.fHp_bar.frame++], 6, false);
                     	_hp_bar_drophp.play();
                 	}
-                    
+                }, this);
+
+                that = this;
+                
+                setTimeout(function () {
+                	
                     var style = {font: "65px Arial", fill: "#00000", align: "center"};
                     var text = that.add.text(910, 650, "-1", style);
                     text.anchor.set(0.5);
@@ -166,16 +169,16 @@ breakWallGame.prototype.update = function () {
                     hitTween = that.add.tween(text).to({alpha: 1, y: 600}, 1500, "Linear", true);
                     
                     hitTween.onComplete.add(function () {
-                        if (this.showEnemyHP == 0) {
+                        if (that.showEnemyHP == 0) {
                         	console.log('0');
                             that.fMonster.play('destroy').onComplete.add(function () {
                                 gamePass = true;
-                                this.fFinishTime.setText(this.showEnemyHP+'/'+enemyHP);
+                                
                                 KoMessage("貪食怪", function () {
                                     hideGrid(false);
                                     gamePass = true;
                                     game.state.start("level");
-                                }), this;
+                                }), that;
                             }, that);
 
 

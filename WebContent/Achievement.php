@@ -8,21 +8,24 @@ $conn = mysqli_connect($serverName, $userName, $password, $DBName) or die('Error
 session_start();
 $userID = $_SESSION["userID"];
 //$sql = "INSERT INTO user_star ($LevelNum, $UserID, $star) VALUES ('John', 'Doe', 'john@example.com')";
-$sql = "SELECT * FROM Achievementdata WHERE UserID = $userID";
+$sql = "SELECT * FROM Achievementdata WHERE UserID = $userID order by AchievementID";
 
 $result = mysqli_query($conn, $sql);
 $OwmAchievements = array();
 $percent = array();
-$NoAchievements = array();
-$
+$description = array();
+$imgsrc = array();
 if (mysqli_num_rows($result)>0){
     while ($values = mysqli_fetch_assoc($result)) {
         $sql = "SELECT * FROM achievement WHERE AchievementID = {$values['AchievementID']}";
         $achievementResults = mysqli_query($conn, $sql);
         while ($achievement = mysqli_fetch_assoc($achievementResults)) {
             array_push($OwmAchievements, $achievement['AchievementName']);
+            array_push($description, $achievement['Description']);
+            array_push($imgsrc, $achievement['imgSrc']);
         }
-        array_push($percent, $values['PercentComplete']);
+        array_push($percent, round($values['PercentComplete']));
+
     }
 }
 $not = '';
@@ -30,17 +33,23 @@ $lastElement = end($OwmAchievements);
 
 foreach ($OwmAchievements as $OwmAchievement){
     if ($lastElement == $OwmAchievement){
-        $not .= "NOT AchievementName ='" . $OwmAchievement . "'";
+        $not .= " NOT AchievementName ='" . $OwmAchievement . "'";
     }else{
-        $not .= "NOT AchievementName ='" . $OwmAchievement . "' AND";
+        $not .= " NOT AchievementName ='" . $OwmAchievement . "' AND";
     }
 }
 $sql = "SELECT * FROM Achievement where $not";
 echo $sql;
 $achievementResults = mysqli_query($conn, $sql);
-
+$NoAchievements = array();
+$descriptionNoA = array();
+$percentNoA = array();
+$imgsrcNoA = array();
 while ($achievement = mysqli_fetch_assoc($achievementResults)) {
     array_push($NoAchievements, $achievement['AchievementName']);
+    array_push($descriptionNoA, $achievement['Description']);
+    array_push($imgsrcNoA, $achievement['imgSrc']);
+
 }
 
 
@@ -65,13 +74,32 @@ while ($achievement = mysqli_fetch_assoc($achievementResults)) {
     <?php
     $count = 0;
     foreach ($OwmAchievements as $OwmAchievement){
-        echo " <div class=\"achievement-box\">a
-                        <div class=\"achievement-box-icon\">
+        echo " <div class=\"achievement-box\" title='$description[$count]'>
+                        <div class=\"achievement-box-icon\"> <img src='src/Achievement/$imgsrc[$count]' width='100' height='100' alt=''>
                         </div>
                         <div class=\"achievement-box-namebar-area\">
                             <span>$OwmAchievement</span>
                             <div class=\"achievement-box-bar\">
                                 <div class=\"achievement-box-status-{$percent[$count++]}\">
+                                </div>
+                            </div>
+                        </div>
+                    </div>";
+    }
+    $count = 0;
+    ?>
+
+    <br >
+    <br >
+    <?php
+    foreach ($NoAchievements as $noAchievement){
+        echo " <div class=\"achievement-box\" title='$descriptionNoA[$count]'>
+                        <div class=\"achievement-box-icon\"><img src='src/Achievement/$imgsrcNoA[$count]' width='100' height='100' alt=''>
+                        </div>
+                        <div class=\"achievement-box-namebar-area\">
+                            <span>{$NoAchievements[$count++]}</span>
+                            <div class=\"achievement-box-bar\">
+                                <div class=\"achievement-box-status-0\">
                                 </div>
                             </div>
                         </div>
