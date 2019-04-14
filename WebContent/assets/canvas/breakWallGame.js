@@ -170,7 +170,7 @@ breakWallGame.prototype.update = function () {
                         	console.log('0');
                             that.fMonster.play('destroy').onComplete.add(function () {
                                 gamePass = true;
-                                this.fFinishTime.setText(this.showEnemyHP+'/'+EnemyHP);
+                                this.fFinishTime.setText(this.showEnemyHP+'/'+enemyHP);
                                 KoMessage("貪食怪", function () {
                                     hideGrid(false);
                                     gamePass = true;
@@ -180,7 +180,7 @@ breakWallGame.prototype.update = function () {
 
 
                         } else {
-                            this.fFinishTime.setText(this.showEnemyHP+'/'+EnemyHP);
+                            this.fFinishTime.setText(this.showEnemyHP+'/'+enemyHP);
                             text.destroy();
                             this.fCurtains.play('close').onComplete.add(function(){
 	                            weaknessGroup.destroy();
