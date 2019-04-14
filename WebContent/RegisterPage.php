@@ -10,7 +10,8 @@ if (isset($_POST['submit'])) {
     } elseif ($signup_password1 != $signup_password2) {
         array_push($errors, '<p>Your passwords do not match.</p>');
 
-    } else {
+    }
+    if (count($errors) == 0) {
         $SQL_servername = "localhost";
         $SQL_username = "root";
         $SQL_password = "";
@@ -30,15 +31,15 @@ if (isset($_POST['submit'])) {
         $sql = "INSERT INTO userInfo(userName, password, email, vkey)
         VALUES ('$signup_username','$password','$signup_email','$vkey');";
         $result = mysqli_query($conn, $sql);
-        if (count($errors) == 0) {
 
-            //$_SESSION['username'] = $signup_username;
-            //$_SESSION['success'] = "You are now registered.";
 
-            $from = 'IVESE2AFYP@gmail.com';
-            $to = $signup_email;
-            $subject = 'Email Verification';
-            $message = <<< EOF
+        //$_SESSION['username'] = $signup_username;
+        //$_SESSION['success'] = "You are now registered.";
+
+        $from = 'IVESE2AFYP@gmail.com';
+        $to = $signup_email;
+        $subject = 'Email Verification';
+        $message = <<< EOF
         
         <a href='http://localhost/fyp/WebContent/verify.php?vkey=$vkey'>Click here to register account</a>\n\n
         <p>
@@ -54,12 +55,12 @@ if (isset($_POST['submit'])) {
          </p>
 </p>
 EOF;
-            $header ="From: {$from}" . "\r\n";
-            $header .= "MIME-Version:1.0" . "\r\n";
-            $header .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+        $header = "From: {$from}" . "\r\n";
+        $header .= "MIME-Version:1.0" . "\r\n";
+        $header .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 
-            if (mb_send_mail($to, $subject, $message, $header)) {
-                $message = <<< EOF
+        if (mb_send_mail($to, $subject, $message, $header)) {
+            $message = <<< EOF
                     <H3>Confirm your email address</H3>
     
               In order to complete the sign-up process, 
@@ -67,24 +68,24 @@ EOF;
               If you do not receive a confirmation email, 
               please check your spam folder. 
               Also, please verify that you entered a valid email address in our sign-up form.
+              Page will redirect to login page in 5sec.
 EOF;
 
 
-                //$sec = "0.5";
-                //header("Refresh:$sec;url=LoginPage.php");
+            $sec = "5";
+            header("Refresh:$sec;url=LoginPage.php");
 
-            } else {
-                echo 'Something Wrong';
-            }
         } else {
-            echo '<script>console.log("bb");</script>';
-            $errorDIV = "<div class='error'>";
-            foreach ($errors as $error) {
-                $errorDIV .= "<p> $error </p>";
-            }
-            $errorDIV .= "</div>";
+            echo 'Something Wrong';
         }
+    } else {
+        $errorDIV = "<div class='error'>";
+        foreach ($errors as $error) {
+            $errorDIV .= "<H2 style='color:red;'> $error </H2>";
+        }
+        $errorDIV .= "</div>";
     }
+
 }
 ?>
 <!DOCTYPE html>

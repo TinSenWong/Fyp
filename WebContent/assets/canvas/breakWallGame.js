@@ -27,7 +27,7 @@ breakWallGame.prototype.preload = function () {
 	
 	MonsterGame = false;
 	checkInput = false;
-	
+	this.showEnemyHP = enemyHP;
 	this.load.pack('game', 'assets/pack.json');
 	this.load.pack('maze', 'assets/pack.json');
 	
@@ -55,7 +55,7 @@ breakWallGame.prototype.create = function () {
 	//var _limitTime = this.add.text(1002.0, 113.0, "Attempts :" + limitTime, {"font":"bold 28px Arial"});
 	//this.fWrongTime = _wrongTime;
 	//this.fLimitTime = _limitTime;
-	var _finishTime = this.add.text(978.0, 769.0, enemyHP, {"font":"bold 28px Arial"});
+	var _finishTime = this.add.text(960.0, 769.0, this.showEnemyHP+'/'+enemyHP, {"font":"bold 28px Arial"});
 	
 	
 	this.fFinishTime = _finishTime;	
@@ -151,7 +151,7 @@ breakWallGame.prototype.update = function () {
 
                 that = this;
                 setTimeout(function () {
-                	if (--enemyHP == 0) {
+                	if (--this.showEnemyHP == 0) {
                 		that.fHp_bar.animations.play('destroy');
                 	} else {
                 		var _hp_bar_drophp = that.fHp_bar.animations.add('-hp', [that.fHp_bar.frame++, that.fHp_bar.frame++, that.fHp_bar.frame++], 6, false);
@@ -166,11 +166,11 @@ breakWallGame.prototype.update = function () {
                     hitTween = that.add.tween(text).to({alpha: 1, y: 600}, 1500, "Linear", true);
                     
                     hitTween.onComplete.add(function () {
-                        if (enemyHP == 0) {
+                        if (this.showEnemyHP == 0) {
                         	console.log('0');
                             that.fMonster.play('destroy').onComplete.add(function () {
                                 gamePass = true;
-                                this.fFinishTime.setText('Enemy HP:' + enemyHP);
+                                this.fFinishTime.setText(this.showEnemyHP+'/'+EnemyHP);
                                 KoMessage("貪食怪", function () {
                                     hideGrid(false);
                                     gamePass = true;
@@ -180,7 +180,7 @@ breakWallGame.prototype.update = function () {
 
 
                         } else {
-                            this.fFinishTime.setText('Enemy HP:' + enemyHP);
+                            this.fFinishTime.setText(this.showEnemyHP+'/'+EnemyHP);
                             text.destroy();
                             this.fCurtains.play('close').onComplete.add(function(){
 	                            weaknessGroup.destroy();

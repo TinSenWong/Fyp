@@ -25,7 +25,6 @@ var testmode = false;
 var live = 1;
 var gamePass = false;
 var lastOrder;
-var isSelectLevel = true;
 var screenWidth = screen.width;
 var screenHeight = screen.height * 0.8;
 var playerInput;

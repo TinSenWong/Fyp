@@ -1,19 +1,3 @@
-
-<!DOCTYPE html>
-<html lang="en">
-
-<title>Sign up facundo farm & resort</title>
-
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-<head>
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script src="jquery/jquery.min.js"></script>
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-</head>
-<body>
 <?php
 /**
  * Created by PhpStorm.
@@ -53,6 +37,22 @@ if (isset($_POST['submit'])){
 }
 
 ?>
+<!DOCTYPE html>
+<html lang="en">
+
+<title>Sign up facundo farm & resort</title>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<head>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="jquery/jquery.min.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+
 <div class="container-fluid">
     <div class="container">
         <br/>

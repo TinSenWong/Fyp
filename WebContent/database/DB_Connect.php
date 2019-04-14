@@ -4,6 +4,7 @@ $DBName = "fyp";
 $userName = "root";
 $password = "";
 $conn = mysqli_connect($serverName, $userName, $password, $DBName) or die('Error connection');
+
 if ($conn) {
     if ($_POST['Action'] == 'getStar') {
         $userID = $_POST['userID'];
@@ -28,7 +29,7 @@ if ($conn) {
         //$sql = "INSERT INTO user_star ($LevelNum, $UserID, $star) VALUES ('John', 'Doe', 'john@example.com')";
         $sql = "SELECT * FROM user_star WHERE userID = $userID and LevelNum = $lvNum";
         $result = mysqli_query($conn, $sql);
-        $resultRow = mysqli_num_rows($result);
+
         if (mysqli_num_rows($result) > 0) {
             while ($values = mysqli_fetch_assoc($result)) {
                 if ($values['star'] < $star) {
@@ -37,7 +38,7 @@ if ($conn) {
             }
         }else{
             $sql = "INSERT INTO user_star(UserID, LevelNum, Star) VALUES ($userID,$lvNum,$star)";
-        }
+           }
 
 
         mysqli_query($conn, $sql);

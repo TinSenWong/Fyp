@@ -1,14 +1,32 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: edwardchau
- * Date: 2019-02-27
- * Time: 03:27
- */
+$serverName = "127.0.0.1";
+$DBName = "fyp";
+$userName = "root";
+$password = "";
+$conn = mysqli_connect($serverName, $userName, $password, $DBName) or die('Error connection');
 
-include "Heading.php"; ?>
-<br/>
-<br/>
+session_start();
+$userID = $_SESSION["userID"];
+//$sql = "INSERT INTO user_star ($LevelNum, $UserID, $star) VALUES ('John', 'Doe', 'john@example.com')";
+$sql = "SELECT userid,SUM(star) as TotalStar from user_star group by userid order by TotalStar desc";
+
+$result = mysqli_query($conn, $sql);
+$userNames = array();
+$stars = array();
+if (mysqli_num_rows($result)>0){
+    while ($values = mysqli_fetch_assoc($result)) {
+        $sql = "SELECT userName FROM userinfo WHERE UserID = {$values['userid']}";
+        $users = mysqli_query($conn, $sql);
+        while ($user = mysqli_fetch_assoc($users)) {
+            array_push($userNames, $user['userName']);
+        }
+        array_push($stars, $values['TotalStar']);
+    }
+}
+
+
+
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -19,6 +37,7 @@ include "Heading.php"; ?>
     <link rel="stylesheet" type="text/css" href="css/archivement.css">
     <title>Document</title>
 </head>
+<?php include "Heading.php"; ?>
 <body>
 <div class="container">
     <h1 style="color: white">Achievement List</h1>
