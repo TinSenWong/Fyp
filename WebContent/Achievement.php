@@ -8,20 +8,39 @@ $conn = mysqli_connect($serverName, $userName, $password, $DBName) or die('Error
 session_start();
 $userID = $_SESSION["userID"];
 //$sql = "INSERT INTO user_star ($LevelNum, $UserID, $star) VALUES ('John', 'Doe', 'john@example.com')";
-$sql = "SELECT userid,SUM(star) as TotalStar from user_star group by userid order by TotalStar desc";
+$sql = "SELECT * FROM Achievementdata WHERE UserID = $userID";
 
 $result = mysqli_query($conn, $sql);
-$userNames = array();
-$stars = array();
+$OwmAchievements = array();
+$percent = array();
+$NoAchievements = array();
+$
 if (mysqli_num_rows($result)>0){
     while ($values = mysqli_fetch_assoc($result)) {
-        $sql = "SELECT userName FROM userinfo WHERE UserID = {$values['userid']}";
-        $users = mysqli_query($conn, $sql);
-        while ($user = mysqli_fetch_assoc($users)) {
-            array_push($userNames, $user['userName']);
+        $sql = "SELECT * FROM achievement WHERE AchievementID = {$values['AchievementID']}";
+        $achievementResults = mysqli_query($conn, $sql);
+        while ($achievement = mysqli_fetch_assoc($achievementResults)) {
+            array_push($OwmAchievements, $achievement['AchievementName']);
         }
-        array_push($stars, $values['TotalStar']);
+        array_push($percent, $values['PercentComplete']);
     }
+}
+$not = '';
+$lastElement = end($OwmAchievements);
+
+foreach ($OwmAchievements as $OwmAchievement){
+    if ($lastElement == $OwmAchievement){
+        $not .= "NOT AchievementName ='" . $OwmAchievement . "'";
+    }else{
+        $not .= "NOT AchievementName ='" . $OwmAchievement . "' AND";
+    }
+}
+$sql = "SELECT * FROM Achievement where $not";
+echo $sql;
+$achievementResults = mysqli_query($conn, $sql);
+
+while ($achievement = mysqli_fetch_assoc($achievementResults)) {
+    array_push($NoAchievements, $achievement['AchievementName']);
 }
 
 
@@ -38,68 +57,27 @@ if (mysqli_num_rows($result)>0){
     <title>Document</title>
 </head>
 <?php include "Heading.php"; ?>
-<body>
+<body style=" background-color: rgb(25, 34, 50);">
+<br />
 <div class="container">
     <h1 style="color: white">Achievement List</h1>
-    <div class="achievement-box">
-        <div class="achievement-box-icon">
-        </div>
-        <div class="achievement-box-namebar-area">
-            <span>achievement0</span>
-            <div class="achievement-box-bar">
-                <div class="achievement-box-status-0">
 
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <div class="achievement-box">
-        <div class="achievement-box-icon">
-        </div>
-        <div class="achievement-box-namebar-area">
-            <span>achievement1</span>
-            <div class="achievement-box-bar">
-                <div class="achievement-box-status-25">
-
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="achievement-box">
-        <div class="achievement-box-icon">
-        </div>
-        <div class="achievement-box-namebar-area">
-            <span>achievement2</span>
-            <div class="achievement-box-bar">
-                <div class="achievement-box-status-50">
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="achievement-box">
-        <div class="achievement-box-icon">
-        </div>
-        <div class="achievement-box-namebar-area">
-            <span>achievement3</span>
-            <div class="achievement-box-bar">
-                <div class="achievement-box-status-75">
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="achievement-box">
-        <div class="achievement-box-icon">
-        </div>
-        <div class="achievement-box-namebar-area">
-            <span>achievement4</span>
-            <div class="achievement-box-bar">
-                <div class="achievement-box-status-100">
-                </div>
-            </div>
-        </div>
-    </div>
+    <?php
+    $count = 0;
+    foreach ($OwmAchievements as $OwmAchievement){
+        echo " <div class=\"achievement-box\">a
+                        <div class=\"achievement-box-icon\">
+                        </div>
+                        <div class=\"achievement-box-namebar-area\">
+                            <span>$OwmAchievement</span>
+                            <div class=\"achievement-box-bar\">
+                                <div class=\"achievement-box-status-{$percent[$count++]}\">
+                                </div>
+                            </div>
+                        </div>
+                    </div>";
+    }
+    ?>
 </div>
 
 </body>
