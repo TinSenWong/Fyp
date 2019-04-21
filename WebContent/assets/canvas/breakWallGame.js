@@ -214,11 +214,7 @@ breakWallGame.prototype.update = function () {
                      }), this;
                  }
                 }
-                
-                /*this.fWrongTime.setText("Wrong    :" + ++wrongTime);
 
-                this.fLimitTime.setText("Attempts :" + --limitTime);
-                   */
             
         }
 

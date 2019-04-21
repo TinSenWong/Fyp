@@ -67,7 +67,7 @@ function createArray(length) {
 }
 function selectLevel() {
     $.ajax({
-        url: "database/DB_Connect.php",
+        url: "database/DBAction/getStar.php",
         type: "POST",
         data: {
             Action: 'getStar',
@@ -190,28 +190,138 @@ function IsOpenChest() {
     if (key) {
         key = false;
             this.fTreasure_chest.play('open').onComplete.add(function () {
-            if (hp == 1) {
-                stars[level] = 1;
-                if (stars[level + 1] != undefined && stars[level + 1] == -1) {
-                    stars[level + 1] = 0;
-                }
-            } else if (hp == 2) {
-                stars[level] = 2;
-                if (stars[level + 1] != undefined && stars[level + 1] == -1) {
-                    stars[level + 1] = 0;
-                }
-            } else if (hp == 3) {
-                stars[level] = 3;
-                if (stars[level + 1] != undefined && stars[level + 1] == -1) {
-                    stars[level + 1] = 0;
-                }
-            }
+                if (hp == 1) {
+                    stars[level] = 1;
+                    if (stars[level + 1] != undefined && stars[level + 1] == -1) {
+                        stars[level + 1] = 0;
+                    }
+                } else if (hp == 2) {
+                    stars[level] = 2;
+                    if (stars[level + 1] != undefined && stars[level + 1] == -1) {
+                        stars[level + 1] = 0;
+                    }
+                } else if (hp == 3) {
+                    stars[level] = 3;
+                    if (stars[level + 1] != undefined && stars[level + 1] == -1) {
+                        stars[level + 1] = 0;
+                    }
 
-            //use localStorageName
-            //localStorage.setItem(localStorageName, stars.toString());
+                    $.ajax({
+                        url: "database/DBAction/insertACM.php",
+                        type: "POST",
+                        data: {
+                            Action: 'insertACM',
+                            AchievementID: 5,
+                            p: 33.33,
+                            userID: userID
+                        },
+                        success: function (data) {
+                        },
+                        error: function () {
+                            alert("Error");
+                        }
+                    });
+                }
 
+                //use localStorageName
+                //localStorage.setItem(localStorageName, stars.toString());
+                for(var k in workspace.blockDB_) {
+
+                    if (workspace.blockDB_[k].type == 'controls_repeat_ext'){
+                        alert('true');
+                        $.ajax({
+                            url: "database/DBAction/insertACM.php",
+                            type: "POST",
+                            data: {
+                                Action: 'insertACM',
+                                AchievementID: 4,
+                                p: 100,
+                                userID: userID
+                            },
+                            success: function (data) {
+                                showSnackbar(data);
+                            },
+                            error: function () {
+                                alert("Error");
+                                window.location.href = 'LoginPage.php'
+                            }
+                        });
+
+                    }
+                }
+                if (level == 0) {
+                    $.ajax({
+                        url: "database/DBAction/insertACM.php",
+                        type: "POST",
+                        data: {
+                            AchievementID: 1,
+                            p: 100,
+                            userID: userID
+                        },
+                        success: function (data) {
+                            showSnackbar(data);
+                        },
+                        error: function () {
+                            alert("Error");
+                            window.location.href = 'LoginPage.php'
+                        }
+                    });
+                } else if (level == 1) {
+                    $.ajax({
+                        url: "database/DBAction/insertACM.php",
+                        type: "POST",
+                        data: {
+                            Action: 'insertACM',
+                            AchievementID: 2,
+                            p: 100,
+                            userID: userID
+                        },
+                        success: function (data) {
+                            showSnackbar(data);
+                        },
+                        error: function () {
+                            alert("Error");
+                            window.location.href = 'LoginPage.php'
+                        }
+                    });
+                }
+                $.ajax({
+                    url: "database/DBAction/insertACM.php",
+                    type: "POST",
+                    data: {
+                        Action: 'insertACM',
+                        AchievementID: 6,
+                        p: 20,
+                        userID: userID
+                    },
+                    success: function (data) {
+                        if (data!=null)
+                        showSnackbar(data);
+                    },
+                    error: function () {
+                        alert("Error");
+                        window.location.href = 'LoginPage.php'
+                    }
+                });
+                $.ajax({
+                    url: "database/DBAction/insertACM.php",
+                    type: "POST",
+                    data: {
+                        Action: 'insertACM',
+                        AchievementID: 8,
+                        p: 100,
+                        userID: userID
+                    },
+                    success: function (data) {
+                        showSnackbar(data);
+                    },
+                    error: function () {
+                        alert("Error");
+                        window.location.href = 'LoginPage.php'
+                    }
+                });
             $.ajax({
-                url: "database/DB_Connect.php",
+                url: "database/DBAction/insertLVStar.php",
                 type: "POST",
                 data: {
                     Action: 'insertLVStar',
@@ -220,6 +330,7 @@ function IsOpenChest() {
                     star: stars[level]
                 },
                 success: function (data) {
+                    console.log(data+'Star');
                 },
                 error: function () {
                     alert("Error");
@@ -293,6 +404,45 @@ function viewAllBlockly() {
 }
 
 function KoMessage(name, callback) {
+    alert(level);
+    if (level == 5) {
+        $.ajax({
+            url: "database/DBAction/insertACM.php",
+            type: "POST",
+            data: {
+                Action: 'insertACM',
+                AchievementID: 3,
+                p: 100,
+                userID: userID
+            },
+            success: function (data) {
+                if (data!=null)
+                    showSnackbar(data);
+            },
+            error: function () {
+                alert("Error");
+                window.location.href = 'LoginPage.php'
+            }
+        });
+    }
+    $.ajax({
+        url: "database/DBAction/insertACM.php",
+        type: "POST",
+        data: {
+            Action: 'insertACM',
+            AchievementID: 7,
+            p:20,
+            userID: userID
+        },
+        success: function (data) {
+            if (data!=null)
+                showSnackbar(data);
+        },
+        error: function () {
+            alert("Error");
+            window.location.href = 'LoginPage.php'
+        }
+    });
     //if exists
     var w = 300;
     var h = 200;

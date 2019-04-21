@@ -76,7 +76,6 @@ function generateCodeAndLoadIntoInterpreter() {
     Blockly.JavaScript.STATEMENT_PREFIX = 'highlightBlock(%1);\n';
     Blockly.JavaScript.addReservedWords('highlightBlock');
     latestCode = Blockly.JavaScript.workspaceToCode(workspace);
-
     resetStepUi(true);
 }
 
@@ -92,6 +91,8 @@ function runCode() {
     if (workspace.getAllBlocks().length == 0) {
         alert('You have no command to run!');
     } else {
+
+
         resetElement();
         if (!myInterpreter) {
             // First statement of this code.
@@ -117,9 +118,7 @@ function runCode() {
                                 setTimeout(runner, 10);
                             } else {
                                 // Program is complete.
-
                                 checkInput = true;
-
                                 console.log('\n\n<< complete >>');
                                 //resetInterpreter();
                                 resetStepUi(false);
@@ -136,7 +135,6 @@ function runCode() {
 
 
             document.getElementById('runTime').innerHTML = '<h2>RunTime :' + runCount + '</h2>';
-            return;
         }
     }
 }

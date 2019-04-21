@@ -25,20 +25,24 @@ if (mysqli_num_rows($result)>0){
             array_push($imgsrc, $achievement['imgSrc']);
         }
         array_push($percent, round($values['PercentComplete']));
-
     }
 }
 $not = '';
 $lastElement = end($OwmAchievements);
 
 foreach ($OwmAchievements as $OwmAchievement){
+
     if ($lastElement == $OwmAchievement){
         $not .= " NOT AchievementName ='" . $OwmAchievement . "'";
     }else{
         $not .= " NOT AchievementName ='" . $OwmAchievement . "' AND";
     }
 }
-$sql = "SELECT * FROM Achievement where $not";
+if ($not == ''){
+    $sql = "SELECT * FROM Achievement";
+}else {
+    $sql = "SELECT * FROM Achievement where $not";
+}
 echo $sql;
 $achievementResults = mysqli_query($conn, $sql);
 $NoAchievements = array();
@@ -55,7 +59,6 @@ while ($achievement = mysqli_fetch_assoc($achievementResults)) {
 
 
 ?>
-<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -73,18 +76,34 @@ while ($achievement = mysqli_fetch_assoc($achievementResults)) {
 
     <?php
     $count = 0;
-    foreach ($OwmAchievements as $OwmAchievement){
-        echo " <div class=\"achievement-box\" title='$description[$count]'>
+    foreach ($OwmAchievements as $OwmAchievement) {
+        if ($percent[$count] == 100) {
+            echo " <div class=\"achievement-box\" title='$description[$count]'>
                         <div class=\"achievement-box-icon\"> <img src='src/Achievement/$imgsrc[$count]' width='100' height='100' alt=''>
                         </div>
                         <div class=\"achievement-box-namebar-area\">
                             <span>$OwmAchievement</span>
-                            <div class=\"achievement-box-bar\">
-                                <div class=\"achievement-box-status-{$percent[$count++]}\">
+                            <div class=\"progress\">
+                                     <div class=\"progress-bar\" role=\"progressbar\" aria-valuenow=\"30\" aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width:{$percent[$count]}%\">
                                 </div>
                             </div>
                         </div>
                     </div>";
+        } else {
+            echo " <div class=\"achievement-box\" title='$description[$count]'>
+                        <div class=\"achievement-box-icon\"> <img src='src/Achievement/$imgsrc[$count]' width='100' height='100' alt=''>
+                        </div>
+                        <div class=\"achievement-box-namebar-area\">
+                            <span>$OwmAchievement</span>
+                            <div class=\"progress\">
+                                     <div class=\"progress-bar\" role=\"progressbar\" aria-valuenow=\"30\" aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width:{$percent[$count]}%\">
+                                </div>
+                            </div>
+                        </div>
+                    </div>";
+        }
+        $count++;
+
     }
     $count = 0;
     ?>

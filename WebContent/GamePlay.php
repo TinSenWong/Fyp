@@ -185,7 +185,19 @@ if (!isset($_SESSION["userID"])) {
     }
 
     window.addEventListener('resize', resizeCanvas, false);
+    function showSnackbar(Msg) {
+        // Get the snackbar DIV
+        var x = document.getElementById("snackbar");
+
+        // Add the "show" class to DIV
+        x.innerHTML = Msg;
+        x.className = "show";
+
+        // After 3 seconds, remove the show class from DIV
+        setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+    }
 </script>
+<div id="snackbar"></div>
 <div id='additem' hidden></div>
 <div id='msgContainer'></div>
 <script src="js/run.js"></script>

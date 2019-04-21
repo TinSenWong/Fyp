@@ -60,19 +60,9 @@ EOF;
         $header .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 
         if (mb_send_mail($to, $subject, $message, $header)) {
-            $message = <<< EOF
-                    <H3>Confirm your email address</H3>
-    
-              In order to complete the sign-up process, 
-              please click the confirmation link. 
-              If you do not receive a confirmation email, 
-              please check your spam folder. 
-              Also, please verify that you entered a valid email address in our sign-up form.
-              Page will redirect to login page in 5sec.
-EOF;
+            $correct = true;
 
-
-            $sec = "5";
+            $sec = "10";
             header("Refresh:$sec;url=LoginPage.php");
 
         } else {
@@ -109,6 +99,18 @@ EOF;
         <br/>
         <br/>
         <h2 class="text-center" id="title">Welcome</h2>
+        <?php
+            if (isset($correct)){
+               echo " <H1 align='center'>Confirm your email address</H1>
+    
+              <p align='center'><H4>In order to complete the sign-up process, 
+              please click the confirmation link. <br />
+              If you do not receive a confirmation email, 
+              please check your spam folder. <br />
+              Also, please verify that you entered a valid email address in our sign-up form.<br /></H4>
+              <H2 align='center'>Page will redirect to login page in 10 sec.</H2></p>";
+            }else{
+        ?>
         <hr>
         <div class="row">
             <div class="col-md-5">
@@ -145,6 +147,7 @@ EOF;
                         <div>
                             <input type="submit" class="btn btn-lg btn-primary" name='submit' id="submit"
                                    value="Register">
+                            <a href="LoginPage.php" class="btn btn-lg btn-primary">Sign in</a>
                         </div>
                     </fieldset>
                 </form>
@@ -152,6 +155,7 @@ EOF;
 
         </div>
         <?php
+        }
         echo $errorDIV;
         ?>
     </div>
