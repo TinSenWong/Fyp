@@ -32,6 +32,7 @@ Level10.prototype.preload = function () {
     toolbox += '<block type="move_left"></block>';
     toolbox += '<block type="move_up"></block>';
     toolbox += '<block type="move_down"></block>';
+    toolbox += '<category name="Variables" colour="#A65C81" custom="VARIABLE"></category>';
     toolbox += '<block type="controls_repeat_ext">';
     toolbox += '<value name="TIMES">';
     toolbox += '    <shadow type="math_number">';
@@ -41,8 +42,9 @@ Level10.prototype.preload = function () {
     toolbox += '</block>';
     toolbox += '</xml>';
 	changeToolbox(toolbox,20);
-	
-	this.load.pack('maze', 'assets/pack.json');
+
+    this.load.pack('maze', 'assets/pack.json');
+    this.load.pack('game', 'assets/pack.json');
 	
 };
 

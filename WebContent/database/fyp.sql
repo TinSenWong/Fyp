@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機: 127.0.0.1
--- 產生時間： 2019-04-14 18:05:59
+-- 產生時間： 2019-04-21 16:28:56
 -- 伺服器版本: 10.1.35-MariaDB
 -- PHP 版本： 7.2.9
 
@@ -32,19 +32,22 @@ CREATE TABLE `achievement` (
   `AchievementID` int(11) NOT NULL,
   `AchievementName` text NOT NULL,
   `imgSrc` varchar(100) NOT NULL,
-  `Introduction` text
+  `Description` text
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- 資料表的匯出資料 `achievement`
 --
 
-INSERT INTO `achievement` (`AchievementID`, `AchievementName`, `imgSrc`, `Introduction`) VALUES
-(1, 'Game Start\r\n', '', 'Finish Level 1'),
-(2, 'You know how to move now', '', 'Finish Level 2'),
-(3, 'Junior treasure hunter', '', 'Kill 1 monster'),
-(4, 'Wow, you learned how to save energy.', '', 'Use for block'),
-(5, 'EZ :3', '', 'Full HP pass 3 level');
+INSERT INTO `achievement` (`AchievementID`, `AchievementName`, `imgSrc`, `Description`) VALUES
+(1, 'Game Start', 'start.jpg', 'Finish Level 1'),
+(2, 'You know how to move now', 'move.png', 'Finish Level 2'),
+(3, 'EZ :3', 'ez.jpg', 'Full HP pass 3 level'),
+(4, 'Effective is good, Right?', 'saveTime.png', 'Use for loop block to open treasure chest'),
+(5, 'Junior monster hunter', 'hunter.png', 'Kill 1 monster'),
+(6, 'Intermediate treasure hunter', 'hunter2.png', 'Open 5 Treasure Chest'),
+(7, 'Intermediate monster hunter', 'treasurehunter2.jpg', 'Kill 5 monster'),
+(8, 'Junior treasure hunter', 'treasurehunter.jpg', 'Open 5 Treasure Chest');
 
 -- --------------------------------------------------------
 
@@ -58,13 +61,6 @@ CREATE TABLE `achievementdata` (
   `AchievementID` int(11) NOT NULL,
   `PercentComplete` decimal(5,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- 資料表的匯出資料 `achievementdata`
---
-
-INSERT INTO `achievementdata` (`ID`, `UserID`, `AchievementID`, `PercentComplete`) VALUES
-(1, 45, 1, '100.00');
 
 -- --------------------------------------------------------
 
@@ -108,17 +104,9 @@ CREATE TABLE `user_star` (
 --
 
 INSERT INTO `user_star` (`ID`, `UserID`, `LevelNum`, `Star`) VALUES
-(5, 1, 1, 3),
-(6, 1, 2, 3),
-(7, 1, 3, 3),
-(8, 4, 1, 3),
-(9, 4, 2, 3),
-(10, 4, 3, 3),
-(11, 4, 4, 3),
-(12, 4, 5, 3),
-(13, 4, 6, 3),
-(14, 4, 7, 3),
-(15, 45, 1, 3);
+(24, 45, 1, 3),
+(25, 45, 2, 3),
+(26, 45, 3, 3);
 
 --
 -- 已匯出資料表的索引
@@ -156,19 +144,19 @@ ALTER TABLE `user_star`
 -- 使用資料表 AUTO_INCREMENT `achievementdata`
 --
 ALTER TABLE `achievementdata`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
 -- 使用資料表 AUTO_INCREMENT `userinfo`
 --
 ALTER TABLE `userinfo`
-  MODIFY `UserID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `UserID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- 使用資料表 AUTO_INCREMENT `user_star`
 --
 ALTER TABLE `user_star`
-  MODIFY `ID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `ID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

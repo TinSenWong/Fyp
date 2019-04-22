@@ -210,7 +210,6 @@ function IsOpenChest() {
                         url: "database/DBAction/insertACM.php",
                         type: "POST",
                         data: {
-                            Action: 'insertACM',
                             AchievementID: 5,
                             p: 33.33,
                             userID: userID
@@ -233,7 +232,6 @@ function IsOpenChest() {
                             url: "database/DBAction/insertACM.php",
                             type: "POST",
                             data: {
-                                Action: 'insertACM',
                                 AchievementID: 4,
                                 p: 100,
                                 userID: userID
@@ -271,7 +269,6 @@ function IsOpenChest() {
                         url: "database/DBAction/insertACM.php",
                         type: "POST",
                         data: {
-                            Action: 'insertACM',
                             AchievementID: 2,
                             p: 100,
                             userID: userID
@@ -289,7 +286,6 @@ function IsOpenChest() {
                     url: "database/DBAction/insertACM.php",
                     type: "POST",
                     data: {
-                        Action: 'insertACM',
                         AchievementID: 6,
                         p: 20,
                         userID: userID
@@ -307,7 +303,6 @@ function IsOpenChest() {
                     url: "database/DBAction/insertACM.php",
                     type: "POST",
                     data: {
-                        Action: 'insertACM',
                         AchievementID: 8,
                         p: 100,
                         userID: userID
@@ -410,7 +405,6 @@ function KoMessage(name, callback) {
             url: "database/DBAction/insertACM.php",
             type: "POST",
             data: {
-                Action: 'insertACM',
                 AchievementID: 3,
                 p: 100,
                 userID: userID
@@ -429,7 +423,6 @@ function KoMessage(name, callback) {
         url: "database/DBAction/insertACM.php",
         type: "POST",
         data: {
-            Action: 'insertACM',
             AchievementID: 7,
             p:20,
             userID: userID
@@ -637,12 +630,12 @@ function inGame(index) {
     weaknessGroup = game.add.group();
     if (index == 1) {
         //game
-        addweaknessGroupGame1(randonWeakness(1));
-    } else if (index == 2) {
         addweaknessGroupGame1(randonWeakness(3));
+    } else if (index == 2) {
+        addweaknessGroupGame1(randonWeakness(5));
     } else if (index == 3) {
         //space game
-        addweaknessGroupGame2(randonWeakness(4));
+        addweaknessGroupGame2(randonWeakness(5));
     } else if (index == 4) {
         //create game with multiple line(elementArray, NoOfEnter(start from 1))
         addweaknessGroupGame3(randonWeakness(5), 2);
