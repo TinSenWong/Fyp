@@ -301,6 +301,21 @@ playGame.prototype = {
                                 game.state.add("level", Level17);
                                 game.state.start("level");
                                 break;
+                            case 18:
+                                currentLevel = Level18;
+                                game.state.add("level", Level18);
+                                game.state.start("level");
+                                break;
+                            case 19:
+                                currentLevel = Level19;
+                                game.state.add("level", Level19);
+                                game.state.start("level");
+                                break;
+                            case 20:
+                                currentLevel = Level20;
+                                game.state.add("level", Level20);
+                                game.state.start("level");
+                                break;
                         }
                         break;
 
