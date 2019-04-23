@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
+<<<<<<< HEAD
+=======
+    <bookmark url="file://$PROJECT_DIR$/WebContent/assets/canvas/function.js" line="164" />
+>>>>>>> 32cf7d167b4f3051bf40e6a55c2535c145513902
     <bookmark url="file://$PROJECT_DIR$/WebContent/ForgetPW.php" line="86" />
   </component>
   <component name="ChangeListManager">
@@ -126,6 +130,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+<<<<<<< HEAD
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WebContent/assets/canvas/Level7.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -143,10 +148,18 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="555">
               <caret line="64" lean-forward="true" selection-start-line="64" selection-end-line="64" />
+=======
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WebContent/ResetPW.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-247">
+              <caret line="59" column="44" lean-forward="true" selection-start-line="59" selection-start-column="44" selection-end-line="59" selection-end-column="44" />
+>>>>>>> 32cf7d167b4f3051bf40e6a55c2535c145513902
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WebContent/assets/canvas/Level9.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -161,14 +174,22 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="299">
               <caret line="706" column="25" lean-forward="true" selection-start-line="706" selection-start-column="25" selection-end-line="706" selection-end-column="25" />
+=======
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/WebContent/ForgetPW.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="190">
+              <caret line="43" column="28" selection-start-line="43" selection-start-column="28" selection-end-line="43" selection-end-column="28" />
+>>>>>>> 32cf7d167b4f3051bf40e6a55c2535c145513902
               <folding>
-                <element signature="n#style#0;n#xml#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#H2#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/WebContent/assets/canvas/Level10.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="383">
@@ -182,38 +203,69 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="345">
               <caret line="634" column="9" selection-start-line="634" selection-start-column="9" selection-end-line="634" selection-end-column="9" />
+=======
+        <entry file="file://$PROJECT_DIR$/WebContent/LoginPage.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="304">
+              <caret line="65" column="12" lean-forward="true" selection-start-line="65" selection-start-column="12" selection-end-line="65" selection-end-column="12" />
+              <folding>
+                <element signature="n#style#0;n#H2#0;n#!!top" expanded="true" />
+              </folding>
+>>>>>>> 32cf7d167b4f3051bf40e6a55c2535c145513902
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/WebContent/assets/canvas/Level12.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="539">
               <caret line="659" column="9" selection-start-line="659" selection-start-column="9" selection-end-line="659" selection-end-column="9" />
+=======
+        <entry file="file://$PROJECT_DIR$/WebContent/GamePlay.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2128">
+              <caret line="172" column="34" lean-forward="true" selection-start-line="172" selection-start-column="34" selection-end-line="172" selection-end-column="34" />
+>>>>>>> 32cf7d167b4f3051bf40e6a55c2535c145513902
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/WebContent/assets/canvas/Level13.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="536">
               <caret line="693" column="9" selection-start-line="693" selection-start-column="9" selection-end-line="693" selection-end-column="9" />
+=======
+        <entry file="file://$PROJECT_DIR$/WebContent/Heading.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="893">
+              <caret line="47" column="21" lean-forward="true" selection-start-line="47" selection-start-column="21" selection-end-line="47" selection-end-column="21" />
+>>>>>>> 32cf7d167b4f3051bf40e6a55c2535c145513902
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/WebContent/assets/canvas/Level14.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="445">
               <caret line="742" column="9" selection-start-line="742" selection-start-column="9" selection-end-line="742" selection-end-column="9" />
+=======
+        <entry file="file://$PROJECT_DIR$/WebContent/verify.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="399">
+              <caret line="21" column="5" lean-forward="true" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
+>>>>>>> 32cf7d167b4f3051bf40e6a55c2535c145513902
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/WebContent/assets/canvas/Level15.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="521">
@@ -221,6 +273,12 @@
               <folding>
                 <element signature="n#style#0;n#xml#0;n#!!top" expanded="true" />
               </folding>
+=======
+        <entry file="file://$PROJECT_DIR$/WebContent/RegisterPage.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="44">
+              <caret line="19" column="71" lean-forward="true" selection-start-line="19" selection-start-column="71" selection-end-line="19" selection-end-column="71" />
+>>>>>>> 32cf7d167b4f3051bf40e6a55c2535c145513902
             </state>
           </provider>
         </entry>
@@ -237,6 +295,14 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
+<<<<<<< HEAD
+=======
+      <find>enemyHP</find>
+      <find>You have no co!</find>
+      <find>resetStepUi</find>
+      <find>setcookie</find>
+      <find>For</find>
+>>>>>>> 32cf7d167b4f3051bf40e6a55c2535c145513902
       <find>id</find>
       <find>for</find>
       <find>Do some</find>
@@ -267,6 +333,8 @@
       <find>md5</find>
       <find>fieldset</find>
       <find>key</find>
+      <find>Setting</find>
+      <find>$errorDIV</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -310,6 +378,7 @@
         <option value="$PROJECT_DIR$/WebContent/js/run.js" />
         <option value="$PROJECT_DIR$/WebContent/assets/canvas/breakWallGame.js" />
         <option value="$PROJECT_DIR$/WebContent/database/DBAction/insertACM.php" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/WebContent/assets/canvas/function.js" />
         <option value="$PROJECT_DIR$/WebContent/RegisterPage.php" />
         <option value="$PROJECT_DIR$/WebContent/Heading.php" />
@@ -318,6 +387,8 @@
         <option value="$PROJECT_DIR$/WebContent/ResetPW.php" />
         <option value="$PROJECT_DIR$/WebContent/assets/canvas/Level6.js" />
         <option value="$PROJECT_DIR$/WebContent/assets/canvas/Level9.js" />
+=======
+>>>>>>> 32cf7d167b4f3051bf40e6a55c2535c145513902
         <option value="$PROJECT_DIR$/WebContent/assets/canvas/Level10.js" />
         <option value="$PROJECT_DIR$/WebContent/assets/canvas/Level11.js" />
         <option value="$PROJECT_DIR$/WebContent/assets/canvas/Level12.js" />
@@ -326,6 +397,16 @@
         <option value="$PROJECT_DIR$/WebContent/assets/canvas/Level15.js" />
         <option value="$PROJECT_DIR$/WebContent/assets/canvas/Level7.js" />
         <option value="$PROJECT_DIR$/WebContent/assets/canvas/Level8.js" />
+<<<<<<< HEAD
+=======
+        <option value="$PROJECT_DIR$/WebContent/assets/canvas/Level9.js" />
+        <option value="$PROJECT_DIR$/WebContent/assets/canvas/function.js" />
+        <option value="$PROJECT_DIR$/WebContent/RegisterPage.php" />
+        <option value="$PROJECT_DIR$/WebContent/Heading.php" />
+        <option value="$PROJECT_DIR$/WebContent/ResetPW.php" />
+        <option value="$PROJECT_DIR$/WebContent/LoginPage.php" />
+        <option value="$PROJECT_DIR$/WebContent/ForgetPW.php" />
+>>>>>>> 32cf7d167b4f3051bf40e6a55c2535c145513902
       </list>
     </option>
   </component>
@@ -336,7 +417,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.2" />
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
     <option name="width" value="960" />
     <option name="height" value="1040" />
   </component>
@@ -486,18 +567,29 @@
       <workItem from="1555917190154" duration="6615000" />
       <workItem from="1555954865386" duration="1548000" />
       <workItem from="1555988943655" duration="17170000" />
+<<<<<<< HEAD
       <workItem from="1556007944547" duration="4334000" />
+=======
+>>>>>>> 32cf7d167b4f3051bf40e6a55c2535c145513902
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="288445000" />
+=======
+    <option name="totallyTimeSpent" value="284111000" />
+>>>>>>> 32cf7d167b4f3051bf40e6a55c2535c145513902
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="0" y="0" width="960" height="1040" extended-state="0" />
     <editor active="true" />
     <layout>
+<<<<<<< HEAD
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1609808" />
+=======
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.32777777" />
+>>>>>>> 32cf7d167b4f3051bf40e6a55c2535c145513902
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -694,6 +786,7 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/assets/canvas/breakWallGame.js">
+<<<<<<< HEAD
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-39">
           <caret line="153" column="48" lean-forward="true" selection-start-line="153" selection-start-column="48" selection-end-line="153" selection-end-column="48" />
@@ -701,6 +794,8 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/database/DBAction/getStar.php">
+=======
+>>>>>>> 32cf7d167b4f3051bf40e6a55c2535c145513902
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="5" lean-forward="true" selection-start-column="5" selection-end-column="5" />
@@ -714,6 +809,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/WebContent/database/DBAction/insertACM.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="399">
@@ -722,12 +818,16 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/Heading.php">
+=======
+    <entry file="file://$PROJECT_DIR$/WebContent/database/DBAction/getStar.php">
+>>>>>>> 32cf7d167b4f3051bf40e6a55c2535c145513902
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="893">
           <caret line="47" column="21" selection-start-line="47" selection-start-column="21" selection-end-line="47" selection-end-column="21" />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/WebContent/verify.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="399">
@@ -746,6 +846,9 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/ResetPW.php">
+=======
+    <entry file="file://$PROJECT_DIR$/WebContent/assets/canvas/Level11.js">
+>>>>>>> 32cf7d167b4f3051bf40e6a55c2535c145513902
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="348">
           <caret line="143" lean-forward="true" selection-start-line="143" selection-end-line="143" />
@@ -847,14 +950,64 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/assets/canvas/Level7.js">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="280">
           <caret line="742" column="9" selection-start-line="742" selection-start-column="9" selection-end-line="742" selection-end-column="9" />
           <folding>
             <element signature="n#style#0;n#xml#0;n#!!top" expanded="true" />
+=======
+        <state relative-caret-position="495">
+          <caret line="154" column="28" lean-forward="true" selection-start-line="154" selection-start-column="28" selection-end-line="154" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/GamePlay.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2128">
+          <caret line="172" column="34" lean-forward="true" selection-start-line="172" selection-start-column="34" selection-end-line="172" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/verify.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="21" column="5" lean-forward="true" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/Heading.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="893">
+          <caret line="47" column="21" lean-forward="true" selection-start-line="47" selection-start-column="21" selection-end-line="47" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/database/DBAction/insertACM.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="26" column="11" lean-forward="true" selection-start-line="26" selection-start-column="11" selection-end-line="26" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/RegisterPage.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="19" column="71" lean-forward="true" selection-start-line="19" selection-start-column="71" selection-end-line="19" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/LoginPage.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="65" column="12" lean-forward="true" selection-start-line="65" selection-start-column="12" selection-end-line="65" selection-end-column="12" />
+          <folding>
+            <element signature="n#style#0;n#H2#0;n#!!top" expanded="true" />
+>>>>>>> 32cf7d167b4f3051bf40e6a55c2535c145513902
           </folding>
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/WebContent/assets/canvas/Level9.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="630">
@@ -868,6 +1021,21 @@
           <caret line="706" column="25" lean-forward="true" selection-start-line="706" selection-start-column="25" selection-end-line="706" selection-end-column="25" />
           <folding>
             <element signature="n#style#0;n#xml#0;n#!!top" expanded="true" />
+=======
+    <entry file="file://$PROJECT_DIR$/WebContent/ResetPW.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-247">
+          <caret line="59" column="44" lean-forward="true" selection-start-line="59" selection-start-column="44" selection-end-line="59" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/ForgetPW.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="43" column="28" selection-start-line="43" selection-start-column="28" selection-end-line="43" selection-end-column="28" />
+          <folding>
+            <element signature="n#style#0;n#H2#0;n#!!top" expanded="true" />
+>>>>>>> 32cf7d167b4f3051bf40e6a55c2535c145513902
           </folding>
         </state>
       </provider>
