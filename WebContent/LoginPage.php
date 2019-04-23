@@ -3556,9 +3556,11 @@ iframe {
 							Username / Password?
 						</a>
                         <?php
+
                             if ($error) {
                                 echo $errorDIV;
                             }
+
                         ?>
 					</div>
 

@@ -92,6 +92,7 @@ playGame.prototype = {
                         game = new Phaser.Game(1200, 800, Phaser.Auto, 'phaser');
                         gamePass = false;
                         key = false;
+                        destroyList = [];
                         hp = 3 ;
                         dieList = [];
                         currentScreen = 'level';

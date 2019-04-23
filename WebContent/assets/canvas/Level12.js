@@ -656,7 +656,8 @@ Level12.prototype.create = function () {
             this.fHPGroup.children[i].frame = 15;
         }
         if (key){
-            getKey();
+            getKey.call(this);
+
         }
 	}
 	for (i = 0; i<dieList.length;i++){
@@ -672,7 +673,17 @@ Level12.prototype.create = function () {
 	this.cursors = this.input.keyboard.createCursorKeys();
 	this.fPlayer.body.collideWorldBounds=true;
 	player = this.fPlayer;
-	
+	if (destroySpikeList!= null){
+        for (i = 0;i < destroySpikeList.length;i++){
+            this.fSpike.children[destroySpikeList[i]].destroy();
+        }
+    }
+    if (destroyHPList!= null){
+        for (i = 0;i < destroyHPList.length;i++){
+            this.fHearts.children[destroyHPList[i]].destroy();
+        }
+    }
+
 };
 
 /* --- end generated code --- */
@@ -685,12 +696,14 @@ Level12.prototype.update = function () {
         this.physics.arcade.collide(this.fPlayer,this.fSpike.children[i], function(){
             lostheartHandler(this);
             this.fSpike.children[i].destroy();
+            destroySpikeList.push(i);
         }, null, this);
 
     }
 
 	for (i = 0;i < this.fHearts.children.length;i++){
 		this.physics.arcade.collide(this.fPlayer,this.fHearts, collisionHeal, null, this);
+        destroyHPList.push(i);
 	}
 
 	if (this.fKeyYellow.exists){	
@@ -700,7 +713,6 @@ Level12.prototype.update = function () {
 	for (i = 0;i < this.fMonsterGroup.children.length;i++){
 		if (this.fMonsterGroup.children[i].visible){
 			this.physics.arcade.collide(this.fPlayer, this.fMonsterGroup.children[i],function (){
-
 				playerX = this.fMonsterGroup.children[i].x;
 				playerY = this.fMonsterGroup.children[i].y-32;
 				currentMonster = this.fMonsterGroup.children[i];

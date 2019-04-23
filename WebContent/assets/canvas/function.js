@@ -49,11 +49,10 @@ var currentLevel;
 var MonsterGame;
 var hit = true;
 var tweenPlaying = false;
-var userID='';
-var finnishGameHP ;
-
-
-
+var userID = '';
+var finnishGameHP;
+var destroySpikeList = [];
+var destroyHPList = [];
 
 function createArray(length) {
     var arr = new Array(length || 0),
@@ -66,6 +65,7 @@ function createArray(length) {
 
     return arr;
 }
+
 function selectLevel() {
     $.ajax({
         url: "database/DBAction/getStar.php",
@@ -75,9 +75,9 @@ function selectLevel() {
             userID: userID
         },
         success: function (data) {
-            if (data.length == 0){
+            if (data.length == 0) {
                 stars[0] = 0;
-            }else{
+            } else {
                 stars = data.split(",");
                 stars[stars.length] = "0";
             }
@@ -104,7 +104,6 @@ function selectLevel() {
         error: function () {
         }
     });
-
 
 
 };
@@ -178,7 +177,7 @@ function collisionHeal() {
 }
 
 function getKey() {
-    if (this.fKeyYellow.exists){
+    if (this.fKeyYellow.exists) {
         key = true;
         this.fKeyYellow.destroy();
     }
@@ -188,126 +187,126 @@ function IsOpenChest() {
 
     if (key) {
         key = false;
-            this.fTreasure_chest.play('open').onComplete.add(function () {
-                if (hp == 1) {
-                    stars[level] = 1;
-                    if (stars[level + 1] != undefined && stars[level + 1] == -1) {
-                        stars[level + 1] = 0;
-                    }
-                } else if (hp == 2) {
-                    stars[level] = 2;
-                    if (stars[level + 1] != undefined && stars[level + 1] == -1) {
-                        stars[level + 1] = 0;
-                    }
-                } else if (hp == 3) {
-                    stars[level] = 3;
-                    if (stars[level + 1] != undefined && stars[level + 1] == -1) {
-                        stars[level + 1] = 0;
-                    }
-
-                    $.ajax({
-                        url: "database/DBAction/insertACM.php",
-                        type: "POST",
-                        data: {
-                            AchievementID: 3,
-                            p: 33.33,
-                            userID: userID
-                        },
-                        success: function (data) {
-                            if (data!='')
-                                showSnackbar(data);
-                        },
-                        error: function () {
-                        }
-                    });
+        this.fTreasure_chest.play('open').onComplete.add(function () {
+            if (hp == 1) {
+                stars[level] = 1;
+                if (stars[level + 1] != undefined && stars[level + 1] == -1) {
+                    stars[level + 1] = 0;
+                }
+            } else if (hp == 2) {
+                stars[level] = 2;
+                if (stars[level + 1] != undefined && stars[level + 1] == -1) {
+                    stars[level + 1] = 0;
+                }
+            } else if (hp == 3) {
+                stars[level] = 3;
+                if (stars[level + 1] != undefined && stars[level + 1] == -1) {
+                    stars[level + 1] = 0;
                 }
 
-                //use localStorageName
-                //localStorage.setItem(localStorageName, stars.toString());
-                for(var k in workspace.blockDB_) {
-
-                    if (workspace.blockDB_[k].type == 'controls_repeat_ext'){
-                        $.ajax({
-                            url: "database/DBAction/insertACM.php",
-                            type: "POST",
-                            data: {
-                                AchievementID: 4,
-                                p: 100,
-                                userID: userID
-                            },
-                            success: function (data) {
-                                if (data!='')
-                                showSnackbar(data);
-                            },
-                            error: function () {
-                            }
-                        });
-
-                    }
-                }
-                if (level == 0) {
-                    $.ajax({
-                        url: "database/DBAction/insertACM.php",
-                        type: "POST",
-                        data: {
-                            AchievementID: 1,
-                            p: 100,
-                            userID: userID
-                        },
-                        success: function (data) {
-                            if (data!='')
-                                showSnackbar(data);
-                        },
-                        error: function () {
-                        }
-                    });
-                } else if (level == 1) {
-                    $.ajax({
-                        url: "database/DBAction/insertACM.php",
-                        type: "POST",
-                        data: {
-                            AchievementID: 2,
-                            p: 100,
-                            userID: userID
-                        },
-                        success: function (data) {
-                            if (data!='')
-                                showSnackbar(data);
-                        },
-                        error: function () {
-                        }
-                    });
-                }
                 $.ajax({
                     url: "database/DBAction/insertACM.php",
                     type: "POST",
                     data: {
-                        AchievementID: 6,
-                        p: 10,
+                        AchievementID: 3,
+                        p: 33.33,
                         userID: userID
                     },
                     success: function (data) {
-                        if (data!='')
-                        showSnackbar(data);
-                    },
-                    error: function () {
-                    }
-                });
-                $.ajax({
-                    url: "database/DBAction/insertACM.php",
-                    type: "POST",
-                    data: {
-                        AchievementID: 8,
-                        p: 20,
-                        userID: userID
-                    },
-                    success: function (data) {
-                        if (data!='')
+                        if (data != '')
                             showSnackbar(data);
                     },
                     error: function () {
                     }
                 });
+            }
+
+            //use localStorageName
+            //localStorage.setItem(localStorageName, stars.toString());
+            for (var k in workspace.blockDB_) {
+
+                if (workspace.blockDB_[k].type == 'controls_repeat_ext') {
+                    $.ajax({
+                        url: "database/DBAction/insertACM.php",
+                        type: "POST",
+                        data: {
+                            AchievementID: 4,
+                            p: 100,
+                            userID: userID
+                        },
+                        success: function (data) {
+                            if (data != '')
+                                showSnackbar(data);
+                        },
+                        error: function () {
+                        }
+                    });
+
+                }
+            }
+            if (level == 0) {
+                $.ajax({
+                    url: "database/DBAction/insertACM.php",
+                    type: "POST",
+                    data: {
+                        AchievementID: 1,
+                        p: 100,
+                        userID: userID
+                    },
+                    success: function (data) {
+                        if (data != '')
+                            showSnackbar(data);
+                    },
+                    error: function () {
+                    }
+                });
+            } else if (level == 1) {
+                $.ajax({
+                    url: "database/DBAction/insertACM.php",
+                    type: "POST",
+                    data: {
+                        AchievementID: 2,
+                        p: 100,
+                        userID: userID
+                    },
+                    success: function (data) {
+                        if (data != '')
+                            showSnackbar(data);
+                    },
+                    error: function () {
+                    }
+                });
+            }
+            $.ajax({
+                url: "database/DBAction/insertACM.php",
+                type: "POST",
+                data: {
+                    AchievementID: 6,
+                    p: 10,
+                    userID: userID
+                },
+                success: function (data) {
+                    if (data != '')
+                        showSnackbar(data);
+                },
+                error: function () {
+                }
+            });
+            $.ajax({
+                url: "database/DBAction/insertACM.php",
+                type: "POST",
+                data: {
+                    AchievementID: 8,
+                    p: 20,
+                    userID: userID
+                },
+                success: function (data) {
+                    if (data != '')
+                        showSnackbar(data);
+                },
+                error: function () {
+                }
+            });
             $.ajax({
                 url: "database/DBAction/insertLVStar.php",
                 type: "POST",
@@ -400,7 +399,7 @@ function KoMessage(name, callback) {
                 userID: userID
             },
             success: function (data) {
-                if (data!=null)
+                if (data != null)
                     showSnackbar(data);
             },
             error: function () {
@@ -412,11 +411,11 @@ function KoMessage(name, callback) {
         type: "POST",
         data: {
             AchievementID: 7,
-            p:16.67,
+            p: 16.67,
             userID: userID
         },
         success: function (data) {
-            if (data!='')
+            if (data != '')
                 showSnackbar(data);
         },
         error: function () {
@@ -625,6 +624,9 @@ function inGame(index) {
     } else if (index == 4) {
         //create game with multiple line(elementArray, NoOfEnter(start from 1))
         addweaknessGroupGame3(randonWeakness(5), 2);
+    } else if (index == 5) {
+        //create game with multiple line(elementArray, NoOfEnter(start from 1))
+        addweaknessGroupGame4(setWeakness(1, 10));
     }
 }
 
@@ -760,36 +762,6 @@ function addweaknessGroupGame3(weakness, newLine) {
     toolbox += '  <block type="input"></block>';
     toolbox += '  <block type="null"></block>';
     toolbox += '  <block type="newRow"></block>';
-    toolbox += '<block type="math_on_list">';
-    toolbox += ' <mutation op="SUM"></mutation>';
-    toolbox += '<field name="OP">SUM</field>';
-    toolbox += '<block type="math_arithmetic">';
-    toolbox += ' <field name="OP">ADD</field>';
-    toolbox += ' <value name="A">';
-    toolbox += '  <shadow type="math_number">';
-    toolbox += '  <field name="NUM">1</field>';
-    toolbox += '  </shadow>';
-    toolbox += '   </value>';
-    toolbox += '   <value name="B">';
-    toolbox += '    <shadow type="math_number">';
-    toolbox += '  <field name="NUM">1</field>';
-    toolbox += '  </shadow>';
-    toolbox += '   </value>';
-    toolbox += '   </block>';
-    toolbox += '</block>';
-    toolbox += '</category>';
-    toolbox += '<sep gap="8"></sep>';
-    toolbox += '<category name="Loop">';
-    toolbox += '<block type="controls_repeat_ext">';
-    toolbox += '<value name="TIMES">';
-    toolbox += '    <shadow type="math_number">';
-    toolbox += '        <field name="NUM">10</field>';
-    toolbox += '   </shadow>';
-    toolbox += '</value>';
-    toolbox += '</block>';
-    toolbox += '</category>';
-    toolbox += '<sep gap="8"></sep>';
-    toolbox += '<category name="Variables" colour="330" custom="VARIABLE"></category>';
     toolbox += '</xml>';
 
     changeToolbox(toolbox, 20);
@@ -842,6 +814,74 @@ function addweaknessGroupGame3(weakness, newLine) {
             weaknessGroup.children[weaknessGroup.children.length - 1].x += weekCurrentCol * 45;
             weekCurrentCol += 1;
         }
+    }
+
+    game.world.bringToTop(weaknessGroup);
+    return weaknessGroup;
+}
+
+function addweaknessGroupGame4(weakness) {
+    playerInput = game.add.group();
+    hideGrid(true);
+
+    toolbox = '<xml id="toolbox" style="display: none">';
+    toolbox += '<category name="Element">';
+    toolbox += '  <block type="input"></block>';
+    toolbox += '  <block type="null"></block>';
+    toolbox += '  <block type="newRow"></block>';
+    toolbox += ' </category>';
+    toolbox += '<category name="Loops" colour="#5CA65C">';
+    toolbox += '<block type="controls_repeat_ext">';
+    toolbox += '<value name="TIMES">';
+    toolbox += '    <shadow type="math_number">';
+    toolbox += '        <field name="NUM">10</field>';
+    toolbox += '   </shadow>';
+    toolbox += '</value>';
+    toolbox += '</block>';
+    toolbox += ' </category>';
+    toolbox += '   <category name="Math" colour="#5C68A6">';
+
+    toolbox += ' <block type="math_number">';
+    toolbox += '           <field name="NUM">0</field>';
+    toolbox += '        </block>';
+    toolbox += '        <block type="math_arithmetic">';
+    toolbox += '            <field name="OP">ADD</field>';
+    toolbox += '            <value name="A">';
+    toolbox += '                <shadow type="math_number">';
+    toolbox += '                    <field name="NUM">1</field>';
+    toolbox += '                </shadow>';
+    toolbox += '            </value>';
+    toolbox += '            <value name="B">';
+    toolbox += '                <shadow type="math_number">';
+    toolbox += '                    <field name="NUM">1</field>';
+    toolbox += '                </shadow>';
+    toolbox += '            </value>';
+    toolbox += '        </block>';
+    toolbox += '    </category>';
+    toolbox += '<sep gap="8"></sep>';
+    toolbox += '<category name="Variables" colour="330" custom="VARIABLE"></category>';
+    toolbox += '</xml>';
+
+    changeToolbox(toolbox, 20);
+
+    weaknessGroup.x = 120;
+    weaknessGroup.y = 30;
+    weekCurrentCol = 0;
+    weekCurrentRow = 0;
+    var randomSpace = Math.floor((Math.random() * weakness.length) - 1);
+    var randomNewLine = [newLine];
+    for (i = 0; i < newLine; i++) {
+        randomNewLine[i] = Math.floor((Math.random() * weakness.length));
+        if (randomNewLine[i] == 0) {
+            randomNewLine[i] += 1;
+        }
+
+
+        weaknessGroupList[weekCurrentRow][weekCurrentCol] = weaknessGroup.children[weaknessGroup.children.length - 1];
+        weaknessGroup.children[weaknessGroup.children.length - 1].y += weekCurrentRow * 45;
+        weaknessGroup.children[weaknessGroup.children.length - 1].x += weekCurrentCol * 45;
+        weekCurrentCol += 1;
+
     }
 
     game.world.bringToTop(weaknessGroup);

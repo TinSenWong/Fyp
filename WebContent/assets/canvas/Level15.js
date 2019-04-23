@@ -642,6 +642,18 @@ Level15.prototype.create = function () {
         if (key){
             getKey();
         }
+
+    }
+    if (destroySpikeList!= null){
+        for (i = 0;i < destroySpikeList.length;i++){
+            this.fSpike.children[destroySpikeList[i]].destroy();
+        }
+    }
+    if (destroyHPList!= null){
+        for (i = 0;i < destroyHPList.length;i++){
+            this.fHearts.children[destroyHPList[i]].destroy();
+        }
+
     }
 };
 
@@ -651,22 +663,26 @@ Level15.prototype.initScene = function () {
 };
 Level15.prototype.update = function () {
 	this.fPlayer.body.velocity.set(0);
-	for (i = 0;i < this.fSpike.children.length;i++){
+    for (i = 0;i < this.fSpike.children.length;i++){
         this.physics.arcade.collide(this.fPlayer,this.fSpike.children[i], function(){
             lostheartHandler(this);
             this.fSpike.children[i].destroy();
+            destroySpikeList.push(i);
         }, null, this);
 
     }
-	for (i = 0;i < this.fSpike2.children.length;i++){
+
+    for (i = 0;i < this.fHearts.children.length;i++){
+        this.physics.arcade.collide(this.fPlayer,this.fHearts, collisionHeal, null, this);
+        destroyHPList.push(i);
+    }
+
+    for (i = 0;i < this.fSpike2.children.length;i++){
 	 this.physics.arcade.collide(this.fPlayer,this.fSpike2.children[i], function(){
         	 lostheartHandler(this);
 
      }, null, this);
 
-	}
-	for (i = 0;i < this.fHearts.children.length;i++){
-		this.physics.arcade.collide(this.fPlayer,this.fHearts.children[i], collisionHeal, null, this);
 	}
 	if (this.fKeyYellow.exists){	
 		this.physics.arcade.collide(this.fPlayer,this.fKeyYellow, getKey, null, this);
