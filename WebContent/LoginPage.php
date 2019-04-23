@@ -3556,13 +3556,16 @@ iframe {
 							Password?
 						</a>
                         <?php
-                            echo $errorDIV;
-                        ?>
+
+                            if ($error) {
+                                echo $errorDIV;
+                            }
+
                         ?>
 					</div>
 
 					<div class="text-center p-t-136">
-						<a class="txt2" href="RegisterPage.php">
+						<a class="txt2" href="RegisterPage2.php">
 							Create your Account
 							<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
 						</a>
