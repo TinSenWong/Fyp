@@ -735,6 +735,8 @@ Level14.prototype.create = function () {
 		this.fPlayer.x = playerX;
 		this.fPlayer.y = playerY;
 		this.fMonster.visible = false;
+	}else{
+		hp = 3;
 	}
 	this.cursors = this.input.keyboard.createCursorKeys();
 	this.fPlayer.body.collideWorldBounds=true;

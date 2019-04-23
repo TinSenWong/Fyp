@@ -91,6 +91,7 @@ function runCode() {
     if (workspace.getAllBlocks().length == 0 && !MonsterGame) {
         alert('You have no command to run!');
     }
+    alert(playerInput.length);
         resetElement();
         if (!myInterpreter) {
             // First statement of this code.

@@ -118,6 +118,7 @@ breakWallGame.prototype.create = function () {
 /* --- end generated code --- */
 breakWallGame.prototype.update = function () {
 	this.fCurtains.bringToTop();
+    MonsterGame = false;
     if (checkInput) {
         checkInput = false;
         var count = 0;
@@ -129,11 +130,13 @@ breakWallGame.prototype.update = function () {
 
                     //every column
                     for (j = 0; j < weaknessGroupList[0].length; j++) {
-                        if (weaknessGroupList[i][j] == null && playerInputList[i][j] == null) {
+                    	try {
+                            if (weaknessGroupList[i][j] == null && playerInputList[i][j] == null) {
 
-                        } else if (weaknessGroupList[i][j].frameName == playerInputList[i][j].frameName) {
-                            count += 1;
-                        }
+                            } else if (weaknessGroupList[i][j].frameName == playerInputList[i][j].frameName) {
+                                count += 1;
+                            }
+                        }catch{}
                     }
                 }
             }
@@ -189,6 +192,7 @@ breakWallGame.prototype.update = function () {
 	                            this.fCurtains.play('open');
                             },this);
                         }
+                        resetElement();
                     }, that);
                 }, 1300);
 

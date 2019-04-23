@@ -653,7 +653,6 @@ function setHeart(that) {
 function resetElement() {
 
     if (playerInput != null) {
-        alert();
         playerInput.destroy();
         playerInput = game.add.group();
         playerInput.x = 120;
@@ -994,8 +993,6 @@ function initPopups() {
     */
 
 }
-
-
 
 
 
