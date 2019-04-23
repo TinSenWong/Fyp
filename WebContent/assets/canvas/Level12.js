@@ -657,6 +657,7 @@ Level12.prototype.create = function () {
         }
         if (key){
             getKey.call(this);
+
         }
 	}
 	for (i = 0; i<dieList.length;i++){

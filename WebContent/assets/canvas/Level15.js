@@ -642,6 +642,7 @@ Level15.prototype.create = function () {
         if (key){
             getKey();
         }
+
     }
     if (destroySpikeList!= null){
         for (i = 0;i < destroySpikeList.length;i++){
@@ -652,6 +653,7 @@ Level15.prototype.create = function () {
         for (i = 0;i < destroyHPList.length;i++){
             this.fHearts.children[destroyHPList[i]].destroy();
         }
+
     }
 };
 
