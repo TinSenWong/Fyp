@@ -3525,7 +3525,7 @@ iframe {
 
 				<form class="login100-form validate-form" role="form" method="post" action="" >
 					<span class="login100-form-title">
-						Member Login
+						Login
 					</span>
 
 					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
@@ -3555,10 +3555,15 @@ iframe {
 						<a class="txt2" href="ForgetPW.php">
 							Username / Password?
 						</a>
+                        <?php
+                            if ($error) {
+                                echo $errorDIV;
+                            }
+                        ?>
 					</div>
 
 					<div class="text-center p-t-136">
-						<a class="txt2" href="RegisterPage.php">
+						<a class="txt2" href="RegisterPage2.php">
 							Create your Account
 							<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
 						</a>
