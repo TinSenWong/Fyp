@@ -296,6 +296,11 @@ playGame.prototype = {
                                 game.state.add("level", Level16);
                                 game.state.start("level");
                                 break;
+                            case 17:
+                                currentLevel = Level17;
+                                game.state.add("level", Level17);
+                                game.state.start("level");
+                                break;
                         }
                         break;
 
