@@ -91,46 +91,45 @@ function runCode() {
     if (workspace.getAllBlocks().length == 0 && !MonsterGame) {
         alert('You have no command to run!');
     }
-    alert(playerInput.length);
-        resetElement();
-        if (!myInterpreter) {
-            // First statement of this code.
-            // Clear the program output.
-            resetStepUi(true);
-            runButton.disabled = 'disabled';
+    resetElement();
+    if (!myInterpreter) {
+        // First statement of this code.
+        // Clear the program output.
+        resetStepUi(true);
+        runButton.disabled = 'disabled';
 
-            // And then show generated code in an alert.
-            // In a timeout to allow the outputArea.value to reset first.
-            setTimeout(function () {
-                // Begin execution
-                highlightPause = false;
-                myInterpreter = new Interpreter(latestCode, initApi);
-                runner = function () {
-                    if (myInterpreter) {
-                        if (MonsterGame) {
-                            MonsterGame = false;
+        // And then show generated code in an alert.
+        // In a timeout to allow the outputArea.value to reset first.
+        setTimeout(function () {
+            // Begin execution
+            highlightPause = false;
+            myInterpreter = new Interpreter(latestCode, initApi);
+            runner = function () {
+                if (myInterpreter) {
+                    if (MonsterGame) {
+                        MonsterGame = false;
+                    } else {
+                        var hasMore = myInterpreter.run();
+                        if (hasMore) {
+                            // Execution is currently blocked by some async call.
+                            // Try again later.
+                            setTimeout(runner, 10);
                         } else {
-                            var hasMore = myInterpreter.run();
-                            if (hasMore) {
-                                // Execution is currently blocked by some async call.
-                                // Try again later.
-                                setTimeout(runner, 10);
-                            } else {
-                                // Program is complete.
-                                checkInput = true;
-                                console.log('\n\n<< complete >>');
-                                resetInterpreter();
-                                resetStepUi(false);
-                            }
+                            // Program is complete.
+                            checkInput = true;
+                            console.log('\n\n<< complete >>');
+                            resetInterpreter();
+                            resetStepUi(false);
                         }
                     }
-                };
-                runner();
-            }, 1);
-            runCount += 1;
+                }
+            };
+            runner();
+        }, 1);
+        runCount += 1;
 
-            document.getElementById('runTime').innerHTML = '<h2>RunTime :' + runCount + '</h2>';
-        }
+        document.getElementById('runTime').innerHTML = '<h2>RunTime :' + runCount + '</h2>';
+    }
 
 }
 

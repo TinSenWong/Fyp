@@ -634,6 +634,12 @@ Level15.prototype.create = function () {
 	this.cursors = this.input.keyboard.createCursorKeys();
 	this.fPlayer.body.collideWorldBounds=true;
 	player = this.fPlayer;
+    if (gamePass){
+        hp = finnishGameHP;
+        for (i= 3-finnishGameHP-1; i>=0;i--){
+            this.fHPGroup.children[i].frame = 15;
+        }
+    }
 };
 
 /* --- end generated code --- */

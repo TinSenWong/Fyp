@@ -650,13 +650,19 @@ Level12.prototype.create = function () {
 	this.fMonster1 = _monster1;
 	//this.camera.follow(this.fPlayer);
 	
-		
+	if (gamePass){
+        hp = finnishGameHP;
+        for (i= 3-finnishGameHP-1; i>=0;i--){
+            this.fHPGroup.children[i].frame = 15;
+        }
+	}
 	for (i = 0; i<dieList.length;i++){
 		for (j = 0; j<this.fMonsterGroup.children.length;j++){
 			if (dieList[i] == this.fMonsterGroup.children[j].name){
 				this.fPlayer.x = playerX;
 				this.fPlayer.y = playerY;
 				this.fMonsterGroup.children[j].visible = false;
+
 			}
 		}
 	}
@@ -692,16 +698,16 @@ Level12.prototype.update = function () {
 		if (this.fMonsterGroup.children[i].visible){
 			this.physics.arcade.collide(this.fPlayer, this.fMonsterGroup.children[i],function (){
 
-					playerX = this.fMonsterGroup.children[i].x;
-					playerY = this.fMonsterGroup.children[i].y-32;
-					currentMonster = this.fMonsterGroup.children[i];
+				playerX = this.fMonsterGroup.children[i].x;
+				playerY = this.fMonsterGroup.children[i].y-32;
+				currentMonster = this.fMonsterGroup.children[i];
 
-					game.state.add("level",this);
-					gameIndex = 3;
-					enemyHP=3;
-					dieList.push(this.fMonsterGroup.children[i].name);
-					game.state.add("newGame", breakWallGame);
-					game.state.start("newGame");
+				game.state.add("level",this);
+				gameIndex = 3;
+				enemyHP=3;
+				dieList.push(this.fMonsterGroup.children[i].name);
+				game.state.add("newGame", breakWallGame);
+				game.state.start("newGame");
 
 			}, null, this);
 		}

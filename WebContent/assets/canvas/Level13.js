@@ -683,6 +683,12 @@ Level13.prototype.create = function () {
 	this.fMonster = _monster;
     this.fMonsterGroup = _MonsterGroup;
 	//this.camera.follow(this.fPlayer);
+    if (gamePass){
+        hp = finnishGameHP;
+        for (i= 3-finnishGameHP-1; i>=0;i--){
+            this.fHPGroup.children[i].frame = 15;
+        }
+    }
     for (i = 0; i<dieList.length;i++){
         for (j = 0; j<this.fMonsterGroup.children.length;j++){
             if (dieList[i] == this.fMonsterGroup.children[j].name){

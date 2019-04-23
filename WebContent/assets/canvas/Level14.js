@@ -735,6 +735,9 @@ Level14.prototype.create = function () {
 		this.fPlayer.x = playerX;
 		this.fPlayer.y = playerY;
 		this.fMonster.visible = false;
+        for (i= 3-finnishGameHP-1; i>=0;i--){
+            this.fHPGroup.children[i].frame = 15;
+        }
 	}else{
 		hp = 3;
 	}

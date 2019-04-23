@@ -50,6 +50,7 @@ var MonsterGame;
 var hit = true;
 var tweenPlaying = false;
 var userID='';
+var finnishGameHP ;
 
 
 

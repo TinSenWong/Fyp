@@ -18,7 +18,7 @@ if (isset($_POST['submit'])){
     $password = $conn->real_escape_string($_POST['password']);
 
     $password = md5($password);
-    $result = mysqli_query($conn,"select * from userinfo where email = '$email' and password = '$password' and verified = 1")or die ();
+    $result = mysqli_query($conn,"select * from userinfo where email = '$email' and password = '$password'")or die ();
     $row=mysqli_fetch_array($result);
     if ($row['email']==$email && $row['password']==$password) {
         session_start();

@@ -176,6 +176,7 @@ breakWallGame.prototype.update = function () {
                                 gamePass = true;
 
                                 KoMessage("貪食怪", function () {
+                                    finnishGameHP = hp;
                                     hideGrid(false);
                                     gamePass = true;
                                     game.state.start("level");
