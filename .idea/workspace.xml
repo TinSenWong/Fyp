@@ -133,22 +133,8 @@
       <file leaf-file-name="function.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WebContent/assets/canvas/function.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="103">
+            <state relative-caret-position="11609">
               <caret line="611" column="14" selection-start-line="611" selection-start-column="14" selection-end-line="611" selection-end-column="14" />
-              <folding>
-                <element signature="n#style#0;n#xml#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#xml#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#xml#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#xml#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#xml#0;n#!!top" expanded="true" />
-                <element signature="e#29#36#1" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -156,8 +142,11 @@
       <file leaf-file-name="Level15.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WebContent/assets/canvas/Level15.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="760">
-              <caret line="832" column="9" selection-start-line="832" selection-start-column="9" selection-end-line="832" selection-end-column="9" />
+            <state relative-caret-position="156">
+              <caret line="11" column="9" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
+              <folding>
+                <element signature="n#style#0;n#xml#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -165,7 +154,7 @@
       <file leaf-file-name="GamePlay.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/WebContent/GamePlay.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="654">
+            <state relative-caret-position="-73">
               <caret line="170" selection-start-line="170" selection-end-line="170" />
             </state>
           </provider>
@@ -174,8 +163,20 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WebContent/assets/canvas/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3231">
-              <caret line="95" column="24" selection-start-line="95" selection-start-column="24" selection-end-line="95" selection-end-column="24" />
+            <state relative-caret-position="165">
+              <caret line="295" column="63" selection-start-line="295" selection-start-column="63" selection-end-line="295" selection-end-column="63" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Level16.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WebContent/assets/canvas/Level16.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="20" column="14" lean-forward="true" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="14" />
+              <folding>
+                <element signature="n#style#0;n#xml#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -192,9 +193,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Action: 'insertACM',</find>
-      <find>Variables</find>
-      <find>monster</find>
       <find>error</find>
       <find>ko</find>
       <find>fireball</find>
@@ -222,6 +220,9 @@
       <find>login100-form validate-form</find>
       <find>destroyHPList.push(i);</find>
       <find>game</find>
+      <find>Level</find>
+      <find>selestLevel</find>
+      <find>currentLevel</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -273,7 +274,6 @@
         <option value="$PROJECT_DIR$/WebContent/js/movement_block.js" />
         <option value="$PROJECT_DIR$/WebContent/js/movement_stub.js" />
         <option value="$PROJECT_DIR$/WebContent/assets/canvas/Level16.js" />
-        <option value="$PROJECT_DIR$/WebContent/assets/canvas/index.js" />
         <option value="$PROJECT_DIR$/WebContent/assets/canvas/function.js" />
         <option value="$PROJECT_DIR$/WebContent/RegisterPage.php" />
         <option value="$PROJECT_DIR$/WebContent/assets/canvas/Level11.js" />
@@ -281,6 +281,7 @@
         <option value="$PROJECT_DIR$/WebContent/assets/canvas/Level13.js" />
         <option value="$PROJECT_DIR$/WebContent/assets/canvas/Level14.js" />
         <option value="$PROJECT_DIR$/WebContent/assets/canvas/Level15.js" />
+        <option value="$PROJECT_DIR$/WebContent/assets/canvas/index.js" />
       </list>
     </option>
   </component>
@@ -450,12 +451,13 @@
       <workItem from="1556007944547" duration="8924000" />
       <workItem from="1556018686552" duration="3851000" />
       <workItem from="1556024150478" duration="3386000" />
-      <workItem from="1556030280497" duration="6199000" />
+      <workItem from="1556030280497" duration="7220000" />
+      <workItem from="1556041697348" duration="1783000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="306471000" />
+    <option name="totallyTimeSpent" value="309275000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1381" height="885" extended-state="6" />
@@ -468,9 +470,10 @@
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.32978722" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15142648" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15142648" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
+      <window_info active="true" anchor="bottom" id="Find" order="1" visible="true" weight="0.3277635" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
@@ -480,29 +483,28 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.3289183" />
     </layout>
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1609808" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="PHP-CGI Server" order="12" weight="0.32928178" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.3289183" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.32978722" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" weight="0.3289183" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.3289183" />
+      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -695,7 +697,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/assets/canvas/Level16.js" />
     <entry file="file://$PROJECT_DIR$/WebContent/js/movement_stub.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="437">
@@ -797,22 +798,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/assets/canvas/function.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="103">
+        <state relative-caret-position="11609">
           <caret line="611" column="14" selection-start-line="611" selection-start-column="14" selection-end-line="611" selection-end-column="14" />
-          <folding>
-            <element signature="n#style#0;n#xml#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#xml#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#xml#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#xml#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#xml#0;n#!!top" expanded="true" />
-            <element signature="e#29#36#1" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -825,21 +812,34 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/assets/canvas/Level15.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="760">
-          <caret line="832" column="9" selection-start-line="832" selection-start-column="9" selection-end-line="832" selection-end-column="9" />
+        <state relative-caret-position="156">
+          <caret line="11" column="9" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
+          <folding>
+            <element signature="n#style#0;n#xml#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/assets/canvas/Level16.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="20" column="14" lean-forward="true" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="14" />
+          <folding>
+            <element signature="n#style#0;n#xml#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/assets/canvas/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3231">
-          <caret line="95" column="24" selection-start-line="95" selection-start-column="24" selection-end-line="95" selection-end-column="24" />
+        <state relative-caret-position="165">
+          <caret line="295" column="63" selection-start-line="295" selection-start-column="63" selection-end-line="295" selection-end-column="63" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/GamePlay.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="654">
+        <state relative-caret-position="-73">
           <caret line="170" selection-start-line="170" selection-end-line="170" />
         </state>
       </provider>
