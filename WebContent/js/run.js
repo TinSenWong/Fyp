@@ -88,11 +88,9 @@ function resetInterpreter() {
 }
 
 function runCode() {
-    if (workspace.getAllBlocks().length == 0) {
+    if (workspace.getAllBlocks().length == 0 && !MonsterGame) {
         alert('You have no command to run!');
-    } else {
-
-
+    }
         resetElement();
         if (!myInterpreter) {
             // First statement of this code.
@@ -120,7 +118,7 @@ function runCode() {
                                 // Program is complete.
                                 checkInput = true;
                                 console.log('\n\n<< complete >>');
-                                //resetInterpreter();
+                                resetInterpreter();
                                 resetStepUi(false);
                             }
                         }
@@ -128,15 +126,11 @@ function runCode() {
                 };
                 runner();
             }, 1);
-
-
             runCount += 1;
-
-
 
             document.getElementById('runTime').innerHTML = '<h2>RunTime :' + runCount + '</h2>';
         }
-    }
+
 }
 
 

@@ -101,7 +101,6 @@ function selectLevel() {
 
         },
         error: function () {
-            alert("Error");
         }
     });
 
@@ -162,8 +161,7 @@ function lostheartHandler(that) {
             game.state.start("level");
         } else {
 
-            that.state.add("playGame", playGame);
-            that.state.start("playGame");
+            selectLevel();
         }
 
     }
@@ -210,14 +208,15 @@ function IsOpenChest() {
                         url: "database/DBAction/insertACM.php",
                         type: "POST",
                         data: {
-                            AchievementID: 5,
+                            AchievementID: 3,
                             p: 33.33,
                             userID: userID
                         },
                         success: function (data) {
+                            if (data!='')
+                                showSnackbar(data);
                         },
                         error: function () {
-                            alert("Error");
                         }
                     });
                 }
@@ -227,7 +226,6 @@ function IsOpenChest() {
                 for(var k in workspace.blockDB_) {
 
                     if (workspace.blockDB_[k].type == 'controls_repeat_ext'){
-                        alert('true');
                         $.ajax({
                             url: "database/DBAction/insertACM.php",
                             type: "POST",
@@ -237,11 +235,10 @@ function IsOpenChest() {
                                 userID: userID
                             },
                             success: function (data) {
+                                if (data!='')
                                 showSnackbar(data);
                             },
                             error: function () {
-                                alert("Error");
-                                window.location.href = 'LoginPage.php'
                             }
                         });
 
@@ -257,11 +254,10 @@ function IsOpenChest() {
                             userID: userID
                         },
                         success: function (data) {
-                            showSnackbar(data);
+                            if (data!='')
+                                showSnackbar(data);
                         },
                         error: function () {
-                            alert("Error");
-                            window.location.href = 'LoginPage.php'
                         }
                     });
                 } else if (level == 1) {
@@ -274,11 +270,10 @@ function IsOpenChest() {
                             userID: userID
                         },
                         success: function (data) {
-                            showSnackbar(data);
+                            if (data!='')
+                                showSnackbar(data);
                         },
                         error: function () {
-                            alert("Error");
-                            window.location.href = 'LoginPage.php'
                         }
                     });
                 }
@@ -287,16 +282,14 @@ function IsOpenChest() {
                     type: "POST",
                     data: {
                         AchievementID: 6,
-                        p: 20,
+                        p: 10,
                         userID: userID
                     },
                     success: function (data) {
-                        if (data!=null)
+                        if (data!='')
                         showSnackbar(data);
                     },
                     error: function () {
-                        alert("Error");
-                        window.location.href = 'LoginPage.php'
                     }
                 });
                 $.ajax({
@@ -304,15 +297,14 @@ function IsOpenChest() {
                     type: "POST",
                     data: {
                         AchievementID: 8,
-                        p: 100,
+                        p: 20,
                         userID: userID
                     },
                     success: function (data) {
-                        showSnackbar(data);
+                        if (data!='')
+                            showSnackbar(data);
                     },
                     error: function () {
-                        alert("Error");
-                        window.location.href = 'LoginPage.php'
                     }
                 });
             $.ajax({
@@ -325,10 +317,8 @@ function IsOpenChest() {
                     star: stars[level]
                 },
                 success: function (data) {
-                    console.log(data+'Star');
                 },
                 error: function () {
-                    alert("Error");
                 }
             });
 
@@ -399,14 +389,13 @@ function viewAllBlockly() {
 }
 
 function KoMessage(name, callback) {
-    alert(level);
     if (level == 5) {
         $.ajax({
             url: "database/DBAction/insertACM.php",
             type: "POST",
             data: {
-                AchievementID: 3,
-                p: 100,
+                AchievementID: 5,
+                p: 33.33,
                 userID: userID
             },
             success: function (data) {
@@ -414,8 +403,6 @@ function KoMessage(name, callback) {
                     showSnackbar(data);
             },
             error: function () {
-                alert("Error");
-                window.location.href = 'LoginPage.php'
             }
         });
     }
@@ -424,16 +411,14 @@ function KoMessage(name, callback) {
         type: "POST",
         data: {
             AchievementID: 7,
-            p:20,
+            p:16.67,
             userID: userID
         },
         success: function (data) {
-            if (data!=null)
+            if (data!='')
                 showSnackbar(data);
         },
         error: function () {
-            alert("Error");
-            window.location.href = 'LoginPage.php'
         }
     });
     //if exists
@@ -668,6 +653,7 @@ function setHeart(that) {
 function resetElement() {
 
     if (playerInput != null) {
+        alert();
         playerInput.destroy();
         playerInput = game.add.group();
         playerInput.x = 120;
@@ -770,10 +756,42 @@ function addweaknessGroupGame3(weakness, newLine) {
     hideGrid(true);
 
     toolbox = '<xml id="toolbox" style="display: none">';
+    toolbox += '<category name="Element">';
     toolbox += '  <block type="input"></block>';
     toolbox += '  <block type="null"></block>';
     toolbox += '  <block type="newRow"></block>';
+    toolbox += '<block type="math_on_list">';
+    toolbox += ' <mutation op="SUM"></mutation>';
+    toolbox += '<field name="OP">SUM</field>';
+    toolbox += '<block type="math_arithmetic">';
+    toolbox += ' <field name="OP">ADD</field>';
+    toolbox += ' <value name="A">';
+    toolbox += '  <shadow type="math_number">';
+    toolbox += '  <field name="NUM">1</field>';
+    toolbox += '  </shadow>';
+    toolbox += '   </value>';
+    toolbox += '   <value name="B">';
+    toolbox += '    <shadow type="math_number">';
+    toolbox += '  <field name="NUM">1</field>';
+    toolbox += '  </shadow>';
+    toolbox += '   </value>';
+    toolbox += '   </block>';
+    toolbox += '</block>';
+    toolbox += '</category>';
+    toolbox += '<sep gap="8"></sep>';
+    toolbox += '<category name="Loop">';
+    toolbox += '<block type="controls_repeat_ext">';
+    toolbox += '<value name="TIMES">';
+    toolbox += '    <shadow type="math_number">';
+    toolbox += '        <field name="NUM">10</field>';
+    toolbox += '   </shadow>';
+    toolbox += '</value>';
+    toolbox += '</block>';
+    toolbox += '</category>';
+    toolbox += '<sep gap="8"></sep>';
+    toolbox += '<category name="Variables" colour="330" custom="VARIABLE"></category>';
     toolbox += '</xml>';
+
     changeToolbox(toolbox, 20);
 
     weaknessGroup.x = 120;

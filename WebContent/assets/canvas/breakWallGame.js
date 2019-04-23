@@ -25,7 +25,7 @@ breakWallGame.prototype.init = function () {
 
 breakWallGame.prototype.preload = function () {
 	
-	MonsterGame = false;
+	MonsterGame = true;
 	checkInput = false;
 	this.showEnemyHP = enemyHP;
 	this.load.pack('game', 'assets/pack.json');
@@ -120,9 +120,8 @@ breakWallGame.prototype.update = function () {
 	this.fCurtains.bringToTop();
     if (checkInput) {
         checkInput = false;
-
         var count = 0;
-        if (playerInput != null) {
+        if (playerInput != null || playerInput.length != 0) {
 
             if (playerInput.length == weaknessGroup.length) {
                 //every row
@@ -170,10 +169,9 @@ breakWallGame.prototype.update = function () {
                     
                     hitTween.onComplete.add(function () {
                         if (that.showEnemyHP == 0) {
-                        	console.log('0');
                             that.fMonster.play('destroy').onComplete.add(function () {
                                 gamePass = true;
-                                
+
                                 KoMessage("貪食怪", function () {
                                     hideGrid(false);
                                     gamePass = true;

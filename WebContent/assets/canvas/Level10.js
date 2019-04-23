@@ -27,12 +27,11 @@ Level10.prototype.init = function () {
 };
 
 Level10.prototype.preload = function () {
-	toolbox = '<xml id="toolbox" style="display: none">';
+    toolbox = '<xml id="toolbox" style="display: none">';
     toolbox += ' <block type="move_right"></block>';
     toolbox += '<block type="move_left"></block>';
     toolbox += '<block type="move_up"></block>';
     toolbox += '<block type="move_down"></block>';
-    toolbox += '<category name="Variables" colour="#A65C81" custom="VARIABLE"></category>';
     toolbox += '<block type="controls_repeat_ext">';
     toolbox += '<value name="TIMES">';
     toolbox += '    <shadow type="math_number">';
@@ -762,7 +761,9 @@ Level10.prototype.update = function () {
 		this.physics.arcade.collide(this.fPlayer, this.fMonster,function (){
 			playerX = this.fMonster.x;
 			playerY = this.fMonster.y-32;
-			game.state.add("level",this);
+            game.state.add("level",this);
+            gameIndex = 2;
+            enemyHP=3;
 			game.state.add("newGame", breakWallGame);
 			game.state.start("newGame");
 		}, null, this);
@@ -882,20 +883,12 @@ Level10.prototype.update = function () {
             this.fPlayer.y =  Math.round(this.fPlayer.y / 32)*32;
     	},this);
 
-	    	// move to the down
-	    	//this.fPlayer.body.y += 32;
     }
 
 };
 Level10.prototype.render = function () {
-	//this.game.debug.bodyInfo(this.fPlayer,32, 150);
-	//this.game.debug.body(this.fPlayer);
-};
-function resetPlayerXY(){
-	//var remainder = this.fPlayer.x - Math.floor(this.fPlayer.x);
 
-	
-}
+};
 
  
 // -- user code here --
