@@ -29,7 +29,6 @@ if ($conn) {
                     $p = $p + $values['PercentComplete'];
                     if ($p > 100 || $p == 99.99) {
                         $p = 100;
-
                     }
                     $sql = "UPDATE achievementdata SET PercentComplete = $p WHERE ID = {$values['ID']}";
                     mysqli_query($conn, $sql);

@@ -10,29 +10,19 @@ if (isset($_POST['submit'])){
     $SQL_username = "root";
     $SQL_password = "";
     $SQL_database = "fyp";
-
+    session_start();
     $conn = @mysqli_connect($SQL_servername, $SQL_username, $SQL_password,$SQL_database)
     or die ("<p align='center'>Server Connection Failed</p>");
 
     $email = $conn->real_escape_string($_POST['email']);
-    $password = $conn->real_escape_string($_POST['password']);
-
-    $password = md5($password);
-    $result = mysqli_query($conn,"select * from userinfo where email = '$email' and password = '$password'")or die ();
+    $op = $conn->real_escape_string($_POST['OldPassword']);
+    $np = $conn->real_escape_string($_POST['NewPassword1']);
+    $op = md5($op);
+    $result = mysqli_query($conn,"select * from userinfo where $userID = '{$_SESSION["userID"]}' and password = '$op'")or die ();
     $row=mysqli_fetch_array($result);
-    if ($row['email']==$email && $row['password']==$password) {
-        session_start();
-        $_SESSION["userID"] = $row['UserID'];
-        $cookie_name = "username";
-        $cookie_value = $row['userName'];
-        setcookie($cookie_name, $cookie_value, time() + 60*60); // 1hour
-        $cookie_name = "timeout";
-        $cookie_value = 1;
-        setcookie($cookie_name, $cookie_value, time() + 30*60); // 30min
-
-        header("Location:GamePlay.php");
-    }else {
-        echo $row[1];
+    if (mysqli_num_rows($result)>0){
+        $np = md5($np);
+        $result = mysqli_query($conn,"UPDATE userinfo SET password='$np'WHERE $userID = '{$_SESSION["userID"]}'")or die ();
     }
 }
 
@@ -65,14 +55,17 @@ if (isset($_POST['submit'])){
                     <fieldset>
                         <p class="text-uppercase pull-center"> Login.</p>
                         <div class="form-group">
-                            <input type="email" name="email" id="email" class="form-control input-lg" placeholder="Email Address" required>
+                            <input type="password" name="OldPassword" id="OldPassword" class="form-control input-lg" placeholder="OldPassword" required>
                         </div>
                         <div class="form-group">
-                            <input type="password" name="password" id="password1" class="form-control input-lg" placeholder="Password" required>
+                            <input type="password" name="NewPassword1" id="NewPassword1" class="form-control input-lg" placeholder="NewPassword1" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" name="NewPassword2" id="NewPassword2" class="form-control input-lg" placeholder="NewPassword2" required>
                         </div>
                         <div>
+                            <a href="ResetPW.php" class="btn btn-lg btn-primary">Reset</a>&nbsp
                             <input type="submit" class="btn btn-lg btn-primary" name="submit" id="submit" value="Sign in">
-                            &nbsp<a href="RegisterPage.php" class="btn btn-lg btn-primary">Sign up</a>
                         </div>
                     </fieldset>
                 </form>

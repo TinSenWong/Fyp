@@ -61,10 +61,12 @@ Level15.prototype.create = function () {
 	_MidLayer.addTilesetImage('terrain_atlas1');
 	var _MidLayer_layer = _MidLayer.createLayer(0);
 	_MidLayer_layer.resizeWorld();
-	
-	var _keyYellow = this.add.sprite(256.0, 352.0, 'keyYellow');
-	_keyYellow.scale.setTo(0.45714285714285713, 0.45714285714285713);
-	this.game.physics.arcade.enable(_keyYellow);
+
+    if (!key) {
+        var _keyYellow = this.add.sprite(256.0, 256.0, 'keyYellow');
+        _keyYellow.scale.setTo(0.45714285714285713, 0.45714285714285713);
+        this.game.physics.arcade.enable(_keyYellow);
+    }
 	
 	var _treasure_chest = this.add.sprite(384.0, 352.0, 'treasure chest1', 0);
 	_treasure_chest.scale.setTo(0.9142857142857143, 0.9142857142857143);
