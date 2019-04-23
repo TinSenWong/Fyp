@@ -21,11 +21,7 @@ if (isset($_POST['submit'])) {
 
     if (mysqli_num_rows($result) > 0) {
 
-<<<<<<< HEAD
         $vkey = md5(time());
-=======
-        $vkey = md5(time() . $email);
->>>>>>> 32cf7d167b4f3051bf40e6a55c2535c145513902
         $result = mysqli_query($conn, "UPDATE userinfo SET vkey = '$vkey' WHERE email= '$email'") or die ();
         $from = 'IVESE2AFYP@gmail.com';
         $to = $email;
@@ -83,11 +79,7 @@ EOF;
     <div class="container">
         <br/>
         <br/>
-<<<<<<< HEAD
 
-=======
-        <h2 class="text-center" id="title">Welcome</h2>
->>>>>>> 32cf7d167b4f3051bf40e6a55c2535c145513902
         <?php
         if (isset($correct)){
             echo "<H1 align='center'>Check your email address</H1>
@@ -100,10 +92,7 @@ EOF;
                   <H2 align='center'>Page will redirect to login page in 10 sec.</H2></p>";
         }else {
             ?>
-<<<<<<< HEAD
             <h2 class="text-center" id="title">Welcome</h2>
-=======
->>>>>>> 32cf7d167b4f3051bf40e6a55c2535c145513902
             <hr>
             <div class="row">
                 <div class="col-md-5">
