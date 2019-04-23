@@ -789,7 +789,7 @@ Level14.prototype.update = function () {
 			playerY = this.fMonster.y-32;
 			game.state.add("level",this);
 			gameIndex = 5;
-			enemyHP=3;
+			enemyHP=1;
 			game.state.add("newGame", breakWallGame);
 			game.state.start("newGame");
 			

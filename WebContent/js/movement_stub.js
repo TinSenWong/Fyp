@@ -21,20 +21,20 @@ function initInterpreterNewLine(interpreter, scope) {
 
 }
 Blockly.JavaScript['null'] = function(block) {
-    var code = 'space();\n'; // make sure to keep the \n or it will not work correctly
+    var code = 'Break();\n'; // make sure to keep the \n or it will not work correctly
     return code;
 };
 
 
 function initInterpreterSpace(interpreter, scope) {
     // uses to time outs, terminates the upward motion before termination moving right
-    Blockly.JavaScript.addReservedWords('space');
+    Blockly.JavaScript.addReservedWords('Break');
 
     var wrapper = interpreter.createAsyncFunction(
         function(callback) {
-            setTimeout(function(){addPlayerInputList('pause');; callback();},  300);
+            setTimeout(function(){addPlayerInputList('pause'); callback();},  300);
         });
-    interpreter.setProperty(scope, 'space', wrapper);
+    interpreter.setProperty(scope, 'Break', wrapper);
 
 }
 

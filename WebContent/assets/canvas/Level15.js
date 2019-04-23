@@ -27,6 +27,7 @@ Level15.prototype.init = function () {
 };
 
 Level15.prototype.preload = function () {
+	
 	toolbox = '<xml id="toolbox" style="display: none">';
     toolbox += ' <block type="move_right"></block>';
     toolbox += '<block type="move_left"></block>';
@@ -61,11 +62,11 @@ Level15.prototype.create = function () {
 	_MidLayer.addTilesetImage('terrain_atlas1');
 	var _MidLayer_layer = _MidLayer.createLayer(0);
 	_MidLayer_layer.resizeWorld();
-
-    var _keyYellow = this.add.sprite(256.0, 352.0, 'keyYellow');
-    _keyYellow.scale.setTo(0.45714285714285713, 0.45714285714285713);
-    this.game.physics.arcade.enable(_keyYellow);
-
+	
+	var _keyYellow = this.add.sprite(256.0, 352.0, 'keyYellow');
+	_keyYellow.scale.setTo(0.45714285714285713, 0.45714285714285713);
+	this.game.physics.arcade.enable(_keyYellow);
+	
 	var _treasure_chest = this.add.sprite(384.0, 352.0, 'treasure chest1', 0);
 	_treasure_chest.scale.setTo(0.9142857142857143, 0.9142857142857143);
 	var _treasure_chest_open = _treasure_chest.animations.add('open', [1, 2, 3, 4, 5, 6], 8, false);
@@ -86,19 +87,19 @@ Level15.prototype.create = function () {
 	var _base_out_atlas = this.add.sprite(224.0, 384.0, 'base_out_atlas', 234, _block);
 	this.game.physics.arcade.enable(_base_out_atlas);
 	
-	var _base_out_atlas = this.add.sprite(256.0, 384.0, 'base_out_atlas', 234, _block);
+	var _base_out_atlas = this.add.sprite(224.0, 416.0, 'base_out_atlas', 234, _block);
 	this.game.physics.arcade.enable(_base_out_atlas);
 	
-	var _base_out_atlas = this.add.sprite(288.0, 384.0, 'base_out_atlas', 234, _block);
+	var _base_out_atlas = this.add.sprite(224.0, 448.0, 'base_out_atlas', 234, _block);
 	this.game.physics.arcade.enable(_base_out_atlas);
 	
-	var _base_out_atlas = this.add.sprite(320.0, 384.0, 'base_out_atlas', 234, _block);
+	var _base_out_atlas = this.add.sprite(544.0, 448.0, 'base_out_atlas', 234, _block);
 	this.game.physics.arcade.enable(_base_out_atlas);
 	
-	var _base_out_atlas = this.add.sprite(448.0, 384.0, 'base_out_atlas', 234, _block);
+	var _base_out_atlas = this.add.sprite(352.0, 288.0, 'base_out_atlas', 234, _block);
 	this.game.physics.arcade.enable(_base_out_atlas);
 	
-	var _base_out_atlas = this.add.sprite(416.0, 384.0, 'base_out_atlas', 234, _block);
+	var _base_out_atlas = this.add.sprite(352.0, 352.0, 'base_out_atlas', 234, _block);
 	this.game.physics.arcade.enable(_base_out_atlas);
 	
 	var _base_out_atlas = this.add.sprite(0.0, 0.0, 'base_out_atlas', 234, _block);
@@ -533,7 +534,7 @@ Level15.prototype.create = function () {
 	var _base_out_atlas = this.add.sprite(544.0, 320.0, 'base_out_atlas', 234, _block);
 	this.game.physics.arcade.enable(_base_out_atlas);
 	
-	var _base_out_atlas = this.add.sprite(384.0, 384.0, 'base_out_atlas', 234, _block);
+	var _base_out_atlas = this.add.sprite(352.0, 320.0, 'base_out_atlas', 234, _block);
 	this.game.physics.arcade.enable(_base_out_atlas);
 	
 	var _base_out_atlas = this.add.sprite(544.0, 320.0, 'base_out_atlas', 234, _block);
@@ -548,16 +549,43 @@ Level15.prototype.create = function () {
 	var _base_out_atlas = this.add.sprite(224.0, 352.0, 'base_out_atlas', 234, _block);
 	this.game.physics.arcade.enable(_base_out_atlas);
 	
-	var _base_out_atlas = this.add.sprite(480.0, 384.0, 'base_out_atlas', 234, _block);
+	var _base_out_atlas = this.add.sprite(352.0, 416.0, 'base_out_atlas', 234, _block);
 	this.game.physics.arcade.enable(_base_out_atlas);
 	
-	var _base_out_atlas = this.add.sprite(512.0, 384.0, 'base_out_atlas', 234, _block);
+	var _base_out_atlas = this.add.sprite(352.0, 448.0, 'base_out_atlas', 234, _block);
 	this.game.physics.arcade.enable(_base_out_atlas);
 	
 	var _base_out_atlas = this.add.sprite(544.0, 384.0, 'base_out_atlas', 234, _block);
 	this.game.physics.arcade.enable(_base_out_atlas);
 	
 	var _base_out_atlas = this.add.sprite(544.0, 352.0, 'base_out_atlas', 234, _block);
+	this.game.physics.arcade.enable(_base_out_atlas);
+	
+	var _base_out_atlas = this.add.sprite(352.0, 480.0, 'base_out_atlas', 234, _block);
+	this.game.physics.arcade.enable(_base_out_atlas);
+	
+	var _base_out_atlas = this.add.sprite(416.0, 448.0, 'base_out_atlas', 234, _block);
+	this.game.physics.arcade.enable(_base_out_atlas);
+	
+	var _base_out_atlas = this.add.sprite(448.0, 448.0, 'base_out_atlas', 234, _block);
+	this.game.physics.arcade.enable(_base_out_atlas);
+	
+	var _base_out_atlas = this.add.sprite(480.0, 448.0, 'base_out_atlas', 234, _block);
+	this.game.physics.arcade.enable(_base_out_atlas);
+	
+	var _base_out_atlas = this.add.sprite(512.0, 448.0, 'base_out_atlas', 234, _block);
+	this.game.physics.arcade.enable(_base_out_atlas);
+	
+	var _base_out_atlas = this.add.sprite(544.0, 416.0, 'base_out_atlas', 234, _block);
+	this.game.physics.arcade.enable(_base_out_atlas);
+	
+	var _base_out_atlas = this.add.sprite(320.0, 448.0, 'base_out_atlas', 234, _block);
+	this.game.physics.arcade.enable(_base_out_atlas);
+	
+	var _base_out_atlas = this.add.sprite(288.0, 448.0, 'base_out_atlas', 234, _block);
+	this.game.physics.arcade.enable(_base_out_atlas);
+	
+	var _base_out_atlas = this.add.sprite(256.0, 448.0, 'base_out_atlas', 234, _block);
 	this.game.physics.arcade.enable(_base_out_atlas);
 	
 	var _HPGroup = this.add.group();
@@ -604,7 +632,7 @@ Level15.prototype.create = function () {
 	var _base_out_atlas1 = this.add.sprite(288.0, 288.0, 'base_out_atlas', 257, _spike2);
 	this.game.physics.arcade.enable(_base_out_atlas1);
 	
-	var _player = this.add.sprite(256.0, 224.0, 'atlas', 'misa-front-walk.000');
+	var _player = this.add.sprite(576.0, 224.0, 'atlas', 'misa-front-walk.000');
 	_player.animations.add('Back', ['misa-back-walk.000', 'misa-back-walk.001', 'misa-back-walk.002', 'misa-back-walk.003'], 6, true);
 	_player.animations.add('Left', ['misa-left-walk.000', 'misa-left-walk.001', 'misa-left-walk.002', 'misa-left-walk.003'], 6, true);
 	_player.animations.add('Front', ['misa-front-walk.000', 'misa-front-walk.001', 'misa-front-walk.002', 'misa-front-walk.003'], 6, true);
@@ -615,6 +643,12 @@ Level15.prototype.create = function () {
 	_player.animations.add('RightStay', ['misa-right'], 6, false);
 	this.game.physics.arcade.enable(_player);
 	_player.body.setSize(31.9999999999, 31.9999999999, 0.0, 32.0);
+	
+	var _monster = this.add.sprite(384.0, 448.0, 'monster', 'sprite1');
+	_monster.scale.setTo(0.64, 0.64);
+	var _monster_Auto = _monster.animations.add('Auto', ['sprite1', 'sprite2', 'sprite6'], 2, true);
+	_monster_Auto.play();
+	this.game.physics.arcade.enable(_monster);
 	
 	
 	
@@ -631,18 +665,24 @@ Level15.prototype.create = function () {
 	this.fSpike2 = _spike2;
 	this.fBase_out_atlas1 = _base_out_atlas1;
 	this.fPlayer = _player;
+	this.fMonster = _monster;
+	//this.camera.follow(this.fPlayer);
+
 	this.cursors = this.input.keyboard.createCursorKeys();
 	this.fPlayer.body.collideWorldBounds=true;
 	player = this.fPlayer;
     if (gamePass){
-        hp = finnishGameHP;
+        this.fPlayer.x = playerX;
+        this.fPlayer.y = playerY;
+        this.fMonster.visible = false;
         for (i= 3-finnishGameHP-1; i>=0;i--){
             this.fHPGroup.children[i].frame = 15;
         }
         if (key){
             getKey();
         }
-
+    }else{
+        hp = 3;
     }
     if (destroySpikeList!= null){
         for (i = 0;i < destroySpikeList.length;i++){
@@ -677,6 +717,18 @@ Level15.prototype.update = function () {
         destroyHPList.push(i);
     }
 
+    if (!gamePass){
+		this.physics.arcade.collide(this.fPlayer, this.fMonster,function (){
+			playerX = this.fMonster.x;
+			playerY = this.fMonster.y-32;
+			game.state.add("level",this);
+			gameIndex = 6;
+			enemyHP=1;
+			game.state.add("newGame", breakWallGame);
+			game.state.start("newGame");
+			
+		}, null, this);
+	}
     for (i = 0;i < this.fSpike2.children.length;i++){
 	 this.physics.arcade.collide(this.fPlayer,this.fSpike2.children[i], function(){
         	 lostheartHandler(this);
