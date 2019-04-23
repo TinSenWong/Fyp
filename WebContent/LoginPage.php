@@ -3553,12 +3553,12 @@ iframe {
 							Forgot
 						</span>
 						<a class="txt2" href="ForgetPW.php">
-							Username / Password?
+							Password?
 						</a>
                         <?php
                             echo $errorDIV;
                         ?>
-                        ?>
+                        
 					</div>
 
 					<div class="text-center p-t-136">

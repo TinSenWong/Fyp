@@ -17,7 +17,7 @@ Blockly.Blocks['newRow'] = {
 Blockly.Blocks['null'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField("Space");
+            .appendField("Break");
         this.setInputsInline(false);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);

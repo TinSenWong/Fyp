@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機: 127.0.0.1
--- 產生時間： 2019-04-21 16:28:56
+-- 產生時間： 2019-04-23 15:32:29
 -- 伺服器版本: 10.1.35-MariaDB
 -- PHP 版本： 7.2.9
 
@@ -44,9 +44,9 @@ INSERT INTO `achievement` (`AchievementID`, `AchievementName`, `imgSrc`, `Descri
 (2, 'You know how to move now', 'move.png', 'Finish Level 2'),
 (3, 'EZ :3', 'ez.jpg', 'Full HP pass 3 level'),
 (4, 'Effective is good, Right?', 'saveTime.png', 'Use for loop block to open treasure chest'),
-(5, 'Junior monster hunter', 'hunter.png', 'Kill 1 monster'),
+(5, 'Junior monster hunter', 'hunter.png', 'Kill 3 monster'),
 (6, 'Intermediate treasure hunter', 'hunter2.png', 'Open 5 Treasure Chest'),
-(7, 'Intermediate monster hunter', 'treasurehunter2.jpg', 'Kill 5 monster'),
+(7, 'Intermediate monster hunter', 'treasurehunter2.jpg', 'Kill 6 monster'),
 (8, 'Junior treasure hunter', 'treasurehunter.jpg', 'Open 5 Treasure Chest');
 
 -- --------------------------------------------------------
@@ -61,6 +61,19 @@ CREATE TABLE `achievementdata` (
   `AchievementID` int(11) NOT NULL,
   `PercentComplete` decimal(5,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- 資料表的匯出資料 `achievementdata`
+--
+
+INSERT INTO `achievementdata` (`ID`, `UserID`, `AchievementID`, `PercentComplete`) VALUES
+(22, 45, 3, '100.00'),
+(23, 45, 1, '100.00'),
+(24, 45, 6, '50.00'),
+(25, 45, 8, '100.00'),
+(26, 45, 2, '100.00'),
+(27, 45, 5, '33.33'),
+(28, 45, 7, '100.00');
 
 -- --------------------------------------------------------
 
@@ -83,8 +96,8 @@ CREATE TABLE `userinfo` (
 --
 
 INSERT INTO `userinfo` (`UserID`, `userName`, `password`, `email`, `vkey`, `verified`, `createdate`) VALUES
-(4, 'Andy2682', '268b7ce6f5dbf5499eddfeeb8d1617ba', 'a1019966254@gmail.com', 'f2b29184db4ec585f8e5d9e9ef7f6b99', 1, '2019-04-13 13:10:34'),
-(45, 'A', '7fc56270e7a70fa81a5935b72eacbe29', 'A@gmail.com', 'A', 1, '2019-04-14 14:20:36');
+(4, 'Andy2682', '5583413443164b56500def9a533c7c70', 'a1019966254@gmail.com', '23a2340aad7b5a34896a604460c1988a', 1, '2019-04-13 13:10:34'),
+(45, 'A', '3b98e2dffc6cb06a89dcb0d5c60a0206', 'A@gmail.com', 'A', 1, '2019-04-14 14:20:36');
 
 -- --------------------------------------------------------
 
@@ -104,9 +117,21 @@ CREATE TABLE `user_star` (
 --
 
 INSERT INTO `user_star` (`ID`, `UserID`, `LevelNum`, `Star`) VALUES
-(24, 45, 1, 3),
-(25, 45, 2, 3),
-(26, 45, 3, 3);
+(50, 45, 1, 3),
+(51, 45, 2, 3),
+(52, 45, 3, 3),
+(53, 45, 4, 3),
+(54, 45, 5, 3),
+(55, 45, 6, 3),
+(56, 45, 7, 3),
+(57, 45, 8, 3),
+(58, 45, 9, 3),
+(59, 45, 10, 3),
+(60, 45, 11, 3),
+(61, 45, 12, 3),
+(62, 45, 13, 3),
+(63, 45, 14, 3),
+(64, 45, 15, 3);
 
 --
 -- 已匯出資料表的索引
@@ -144,19 +169,19 @@ ALTER TABLE `user_star`
 -- 使用資料表 AUTO_INCREMENT `achievementdata`
 --
 ALTER TABLE `achievementdata`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- 使用資料表 AUTO_INCREMENT `userinfo`
 --
 ALTER TABLE `userinfo`
-  MODIFY `UserID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `UserID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- 使用資料表 AUTO_INCREMENT `user_star`
 --
 ALTER TABLE `user_star`
-  MODIFY `ID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `ID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

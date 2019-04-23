@@ -734,8 +734,7 @@ Level13.prototype.update = function () {
     }
 
     for (i = 0;i < this.fHearts.children.length;i++){
-        this.physics.arcade.collide(this.fPlayer,this.fHearts, collisionHeal, null, this);
-        destroyHPList.push(i);
+        this.physics.arcade.collide(this.fPlayer,this.fHearts.children[i], collisionHeal, null, this);
     }
 
 	if (this.fKeyYellow.exists){	

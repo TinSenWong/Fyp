@@ -155,6 +155,8 @@ function lostheartHandler(that) {
             game.destroy();
             game = new Phaser.Game(1200, 800, Phaser.Auto, 'phaser');
             gamePass = false;
+            destroySpikeList = [];
+            destroyHPList = [];
             key = false;
             hp = 3;
             game.state.add("level", currentLevel);
@@ -172,6 +174,8 @@ function collisionHeal() {
         hp += 1;
         this.fHPGroup.children[3 - hp].play('heal');
         this.fHearts.children[i].destroy();
+        console.log(i);
+        destroyHPList.push(i);
     }
 
 }
@@ -627,6 +631,9 @@ function inGame(index) {
     } else if (index == 5) {
         //create game with multiple line(elementArray, NoOfEnter(start from 1))
         addweaknessGroupGame4(setWeakness(1, 10));
+    }else if (index == 6) {
+        //create game with multiple line(elementArray, NoOfEnter(start from 1))
+        addweaknessGroupGame5(setWeakness(0, 10));
     }
 }
 
@@ -840,7 +847,6 @@ function addweaknessGroupGame4(weakness) {
     toolbox += '</block>';
     toolbox += ' </category>';
     toolbox += '   <category name="Math" colour="#5C68A6">';
-
     toolbox += ' <block type="math_number">';
     toolbox += '           <field name="NUM">0</field>';
     toolbox += '        </block>';
@@ -868,20 +874,98 @@ function addweaknessGroupGame4(weakness) {
     weaknessGroup.y = 30;
     weekCurrentCol = 0;
     weekCurrentRow = 0;
-    var randomSpace = Math.floor((Math.random() * weakness.length) - 1);
-    var randomNewLine = [newLine];
-    for (i = 0; i < newLine; i++) {
-        randomNewLine[i] = Math.floor((Math.random() * weakness.length));
-        if (randomNewLine[i] == 0) {
-            randomNewLine[i] += 1;
+    for (i = 0; i < 6; i++) {
+        for (j = 0 ; j < i; j++){
+            if (weekCurrentRow < 6 || weekCurrentCol < 20) {
+
+                sprite = game.add.sprite(0, 0, 'Attributes', weakness[i], weaknessGroup);
+                sprite.scale.set(0.5);
+
+
+                weaknessGroupList[weekCurrentRow][weekCurrentCol] = weaknessGroup.children[weaknessGroup.children.length - 1];
+                weaknessGroup.children[weaknessGroup.children.length - 1].y += weekCurrentRow * 45;
+                weaknessGroup.children[weaknessGroup.children.length - 1].x += weekCurrentCol * 45;
+                weekCurrentCol++;
+            }
         }
 
+        weekNextline();
+    }
 
-        weaknessGroupList[weekCurrentRow][weekCurrentCol] = weaknessGroup.children[weaknessGroup.children.length - 1];
-        weaknessGroup.children[weaknessGroup.children.length - 1].y += weekCurrentRow * 45;
-        weaknessGroup.children[weaknessGroup.children.length - 1].x += weekCurrentCol * 45;
-        weekCurrentCol += 1;
+    game.world.bringToTop(weaknessGroup);
+    return weaknessGroup;
+}
+function addweaknessGroupGame5(weakness) {
+    playerInput = game.add.group();
+    hideGrid(true);
 
+    toolbox = '<xml id="toolbox" style="display: none">';
+    toolbox += '<category name="Element">';
+    toolbox += '  <block type="input"></block>';
+    toolbox += '  <block type="null"></block>';
+    toolbox += '  <block type="newRow"></block>';
+    toolbox += ' </category>';
+    toolbox += '<category name="Loops" colour="#5CA65C">';
+    toolbox += '<block type="controls_repeat_ext">';
+    toolbox += '<value name="TIMES">';
+    toolbox += '    <shadow type="math_number">';
+    toolbox += '        <field name="NUM">10</field>';
+    toolbox += '   </shadow>';
+    toolbox += '</value>';
+    toolbox += '</block>';
+    toolbox += ' </category>';
+    toolbox += '   <category name="Math" colour="#5C68A6">';
+    toolbox += ' <block type="math_number">';
+    toolbox += '           <field name="NUM">0</field>';
+    toolbox += '        </block>';
+    toolbox += '        <block type="math_arithmetic">';
+    toolbox += '            <field name="OP">ADD</field>';
+    toolbox += '            <value name="A">';
+    toolbox += '                <shadow type="math_number">';
+    toolbox += '                    <field name="NUM">1</field>';
+    toolbox += '                </shadow>';
+    toolbox += '            </value>';
+    toolbox += '            <value name="B">';
+    toolbox += '                <shadow type="math_number">';
+    toolbox += '                    <field name="NUM">1</field>';
+    toolbox += '                </shadow>';
+    toolbox += '            </value>';
+    toolbox += '        </block>';
+    toolbox += '    </category>';
+    toolbox += '<sep gap="8"></sep>';
+    toolbox += '<category name="Variables" colour="330" custom="VARIABLE"></category>';
+    toolbox += '</xml>';
+
+    changeToolbox(toolbox, 20);
+
+    weaknessGroup.x = 120;
+    weaknessGroup.y = 30;
+    weekCurrentCol = 0;
+    weekCurrentRow = 0;
+    for (i = 0; i < 6; i++) {
+        for (j = 0 ; j < i; j++){
+            if (weekCurrentRow < 6 || weekCurrentCol < 20) {
+
+                sprite = game.add.sprite(0, 0, 'Attributes', weakness[i], weaknessGroup);
+                sprite.scale.set(0.5);
+
+
+                weaknessGroupList[weekCurrentRow][weekCurrentCol] = weaknessGroup.children[weaknessGroup.children.length - 1];
+                weaknessGroup.children[weaknessGroup.children.length - 1].y += weekCurrentRow * 45;
+                weaknessGroup.children[weaknessGroup.children.length - 1].x += weekCurrentCol * 45;
+                weekCurrentCol++;
+            }
+        }
+        for (j = 6; j > i ; j--){
+            console.log(i+';'+j);
+            sprite = game.add.sprite(0, 0, 'pause', null, weaknessGroup);
+            sprite.scale.set(32 / 225);
+            weaknessGroupList[weekCurrentRow][weekCurrentCol] = weaknessGroup.children[weaknessGroup.children.length - 1];
+            weaknessGroup.children[weaknessGroup.children.length - 1].y += weekCurrentRow * 45;
+            weaknessGroup.children[weaknessGroup.children.length - 1].x += weekCurrentCol * 45;
+            weekCurrentCol++;
+        }
+        weekNextline();
     }
 
     game.world.bringToTop(weaknessGroup);

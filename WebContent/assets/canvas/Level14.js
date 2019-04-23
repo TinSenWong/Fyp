@@ -771,15 +771,14 @@ Level14.prototype.update = function () {
             this.fSpike.children[i].destroy();
             destroySpikeList.push(i);
         }, null, this);
-
     }
 
     for (i = 0;i < this.fHearts.children.length;i++){
-        this.physics.arcade.collide(this.fPlayer,this.fHearts, collisionHeal, null, this);
-        destroyHPList.push(i);
+        this.physics.arcade.collide(this.fPlayer,this.fHearts.children[i], collisionHeal, null, this);
     }
 
-	if (this.fKeyYellow.exists){	
+
+    if (this.fKeyYellow.exists){
 		this.physics.arcade.collide(this.fPlayer,this.fKeyYellow, getKey, null, this);
 	}
 
@@ -789,7 +788,7 @@ Level14.prototype.update = function () {
 			playerY = this.fMonster.y-32;
 			game.state.add("level",this);
 			gameIndex = 5;
-			enemyHP=3;
+			enemyHP=1;
 			game.state.add("newGame", breakWallGame);
 			game.state.start("newGame");
 			
