@@ -48,7 +48,7 @@
                 </ul>
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" data-target="personalSetting" data-toggle="modal"><span class="octicon octicon-settings"></span> Setting</a>
+                        <a class="nav-link" href="ResetPW.php"> </span> Reset Password</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" data-toggle="modal" data-target="#exampleModal" id="logout"><span class="octicon octicon-sign-out"></span> Logout</a>
@@ -66,6 +66,7 @@
                     <h5 class="modal-title" id="exampleModalLabel">Logout</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
+
                     </button>
                 </div>
                 <div class="modal-body">
