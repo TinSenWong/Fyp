@@ -63,13 +63,12 @@ Level13.prototype.create = function () {
 	var _MidLayer_layer = _MidLayer.createLayer(0);
 	_MidLayer_layer.resizeWorld();
 
-    if (!key) {
-        var _keyYellow = this.add.sprite(256.0, 256.0, 'keyYellow');
-        _keyYellow.scale.setTo(0.45714285714285713, 0.45714285714285713);
-        this.game.physics.arcade.enable(_keyYellow);
-    }
+    var _keyYellow = this.add.sprite(64.0, 352.0, 'keyYellow');
+    _keyYellow.scale.setTo(0.45714285714285713, 0.45714285714285713);
+    this.game.physics.arcade.enable(_keyYellow);
 
-	var _treasure_chest = this.add.sprite(320.0, 352.0, 'treasure chest1', 0);
+
+    var _treasure_chest = this.add.sprite(320.0, 352.0, 'treasure chest1', 0);
 	_treasure_chest.scale.setTo(0.9142857142857143, 0.9142857142857143);
 	var _treasure_chest_open = _treasure_chest.animations.add('open', [1, 2, 3, 4, 5, 6], 8, false);
 	_treasure_chest_open.killOnComplete = true;
@@ -690,6 +689,9 @@ Level13.prototype.create = function () {
         for (i= 3-finnishGameHP-1; i>=0;i--){
             this.fHPGroup.children[i].frame = 15;
         }
+        if (key){
+            getKey();
+        }
     }
     for (i = 0; i<dieList.length;i++){
         for (j = 0; j<this.fMonsterGroup.children.length;j++){
@@ -703,7 +705,16 @@ Level13.prototype.create = function () {
 	this.cursors = this.input.keyboard.createCursorKeys();
 	this.fPlayer.body.collideWorldBounds=true;
 	player = this.fPlayer;
-	
+    if (destroySpikeList!= null){
+        for (i = 0;i < destroySpikeList.length;i++){
+            this.fSpike.children[destroySpikeList[i]].destroy();
+        }
+    }
+    if (destroyHPList!= null){
+        for (i = 0;i < destroyHPList.length;i++){
+            this.fHearts.children[destroyHPList[i]].destroy();
+        }
+    }
 };
 
 /* --- end generated code --- */
@@ -713,16 +724,19 @@ Level13.prototype.initScene = function () {
 Level13.prototype.update = function () {
 	this.fPlayer.body.velocity.set(0);
 
-	for (i = 0;i < this.fSpike.children.length;i++){
-		this.physics.arcade.collide(this.fPlayer,this.fSpike.children[i], function(){
+    for (i = 0;i < this.fSpike.children.length;i++){
+        this.physics.arcade.collide(this.fPlayer,this.fSpike.children[i], function(){
             lostheartHandler(this);
             this.fSpike.children[i].destroy();
+            destroySpikeList.push(i);
         }, null, this);
-	}
 
-	for (i = 0;i < this.fHearts.children.length;i++){
-		this.physics.arcade.collide(this.fPlayer,this.fHearts.children[i], collisionHeal, null, this);
-	}
+    }
+
+    for (i = 0;i < this.fHearts.children.length;i++){
+        this.physics.arcade.collide(this.fPlayer,this.fHearts, collisionHeal, null, this);
+        destroyHPList.push(i);
+    }
 
 	if (this.fKeyYellow.exists){	
 		this.physics.arcade.collide(this.fPlayer,this.fKeyYellow, getKey, null, this);

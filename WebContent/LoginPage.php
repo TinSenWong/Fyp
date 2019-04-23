@@ -5,6 +5,8 @@
  * Date: 2019-03-27
  * Time: 00:39
  */
+$errorDIV = null;
+$error = false;
 if (isset($_POST['submit'])){
     $SQL_servername = "localhost";
     $SQL_username = "root";
@@ -32,7 +34,10 @@ if (isset($_POST['submit'])){
 
         header("Location:GamePlay.php");
     }else {
-        echo $row[1];
+        $error = true;
+        $errorDIV = "<div class='error'>";
+            $errorDIV .= "<H2 style='color:red;'> Password or email is incorrect   </H2>";
+        $errorDIV .= "</div>";
     }
 }
 
@@ -72,13 +77,20 @@ if (isset($_POST['submit'])){
                         </div>
                         <div>
                             <input type="submit" class="btn btn-lg btn-primary" name="submit" id="submit" value="Sign in">
-                            &nbsp<a href="RegisterPage.php" class="btn btn-lg btn-primary">Sign up</a>
+                            &nbsp<a href="RegisterPage.php" class="btn btn-lg btn-primary">Sign up</a> <br /><br />
+                            <a href="ForgetPW.php" class="btn btn-lg btn-primary">Forget password</a>
                         </div>
                     </fieldset>
                 </form>
             </div>
 
         </div>
+
+        <?php
+        if ($error){
+            echo $errorDIV;
+        }
+        ?>
     </div>
 </div>
 </body>

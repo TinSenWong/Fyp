@@ -63,11 +63,9 @@ Level12.prototype.create = function () {
 	var _MidLayer_layer = _MidLayer.createLayer(0);
 	_MidLayer_layer.resizeWorld();
 
-    if (!key) {
-        var _keyYellow = this.add.sprite(256.0, 256.0, 'keyYellow');
-        _keyYellow.scale.setTo(0.45714285714285713, 0.45714285714285713);
-        this.game.physics.arcade.enable(_keyYellow);
-    }
+    var _keyYellow = this.add.sprite(256.0, 352.0, 'keyYellow');
+    _keyYellow.scale.setTo(0.45714285714285713, 0.45714285714285713);
+    this.game.physics.arcade.enable(_keyYellow);
 	
 	var _treasure_chest = this.add.sprite(512.0, 352.0, 'treasure chest1', 0);
 	_treasure_chest.scale.setTo(0.9142857142857143, 0.9142857142857143);
@@ -657,6 +655,9 @@ Level12.prototype.create = function () {
         for (i= 3-finnishGameHP-1; i>=0;i--){
             this.fHPGroup.children[i].frame = 15;
         }
+        if (key){
+            getKey.call(this);
+        }
 	}
 	for (i = 0; i<dieList.length;i++){
 		for (j = 0; j<this.fMonsterGroup.children.length;j++){
@@ -671,7 +672,17 @@ Level12.prototype.create = function () {
 	this.cursors = this.input.keyboard.createCursorKeys();
 	this.fPlayer.body.collideWorldBounds=true;
 	player = this.fPlayer;
-	
+	if (destroySpikeList!= null){
+        for (i = 0;i < destroySpikeList.length;i++){
+            this.fSpike.children[destroySpikeList[i]].destroy();
+        }
+    }
+    if (destroyHPList!= null){
+        for (i = 0;i < destroyHPList.length;i++){
+            this.fHearts.children[destroyHPList[i]].destroy();
+        }
+    }
+
 };
 
 /* --- end generated code --- */
@@ -684,12 +695,14 @@ Level12.prototype.update = function () {
         this.physics.arcade.collide(this.fPlayer,this.fSpike.children[i], function(){
             lostheartHandler(this);
             this.fSpike.children[i].destroy();
+            destroySpikeList.push(i);
         }, null, this);
 
     }
 
 	for (i = 0;i < this.fHearts.children.length;i++){
 		this.physics.arcade.collide(this.fPlayer,this.fHearts, collisionHeal, null, this);
+        destroyHPList.push(i);
 	}
 
 	if (this.fKeyYellow.exists){	
@@ -699,7 +712,6 @@ Level12.prototype.update = function () {
 	for (i = 0;i < this.fMonsterGroup.children.length;i++){
 		if (this.fMonsterGroup.children[i].visible){
 			this.physics.arcade.collide(this.fPlayer, this.fMonsterGroup.children[i],function (){
-
 				playerX = this.fMonsterGroup.children[i].x;
 				playerY = this.fMonsterGroup.children[i].y-32;
 				currentMonster = this.fMonsterGroup.children[i];

@@ -9,7 +9,6 @@ if (isset($_POST['submit'])) {
         array_push($errors, '<p>Your user name must be at least 6 and maximum 15 characters.</p>');
     } elseif ($signup_password1 != $signup_password2) {
         array_push($errors, '<p>Your passwords do not match.</p>');
-
     }
     if (count($errors) == 0) {
         $SQL_servername = "localhost";
